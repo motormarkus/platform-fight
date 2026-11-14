@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 2cfe901bf4da3eb4483d7e91e7e4a656
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4881461744820840105
+    second: don_takasuora_0
+  - first:
+      213: -598355381012355352
+    second: don_takasuora_1
+  - first:
+      213: 3979106634552869547
+    second: don_takasuora_2
+  - first:
+      213: -3938906006034603081
+    second: don_takasuora_3
+  - first:
+      213: -623855182361730624
+    second: don_takasuora_4
+  - first:
+      213: 6293319181682005443
+    second: don_takasuora_5
+  - first:
+      213: 4970882774204957797
+    second: don_takasuora_6
+  - first:
+      213: -7665834454432435714
+    second: don_takasuora_7
+  - first:
+      213: -6654722151111626007
+    second: don_takasuora_8
+  - first:
+      213: -3299605212246587991
+    second: don_takasuora_9
+  - first:
+      213: 7297273413194335072
+    second: don_takasuora_10
+  - first:
+      213: 1082546853849933028
+    second: don_takasuora_11
+  - first:
+      213: 6191981996831689217
+    second: don_takasuora_12
+  - first:
+      213: -312659536955730939
+    second: don_takasuora_13
+  - first:
+      213: 8569438739413317604
+    second: don_takasuora_14
+  - first:
+      213: -6477282783398948946
+    second: don_takasuora_15
+  - first:
+      213: 7165166536994827389
+    second: don_takasuora_16
+  - first:
+      213: 4334229572890373411
+    second: don_takasuora_17
+  - first:
+      213: 6211626194262430986
+    second: don_takasuora_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: don_takasuora_0
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 3088
+        width: 350
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7599b4bf760914cb0800000000000000
+      internalID: -4881461744820840105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_1
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 3088
+        width: 350
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e6a05183f632b7f0800000000000000
+      internalID: -598355381012355352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_2
+      rect:
+        serializedVersion: 2
+        x: 2712
+        y: 3088
+        width: 351
+        height: 591
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba28ce3e660a83730800000000000000
+      internalID: 3979106634552869547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_3
+      rect:
+        serializedVersion: 2
+        x: 3862
+        y: 3088
+        width: 388
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b3a7a25bd13659c0800000000000000
+      internalID: -3938906006034603081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_4
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 2321
+        width: 473
+        height: 586
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c1ea08540f9757f0800000000000000
+      internalID: -623855182361730624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_5
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 2321
+        width: 470
+        height: 586
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c5de4ac37c565750800000000000000
+      internalID: 6293319181682005443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_6
+      rect:
+        serializedVersion: 2
+        x: 2706
+        y: 2320
+        width: 437
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5644898db8f1cf440800000000000000
+      internalID: 4970882774204957797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_7
+      rect:
+        serializedVersion: 2
+        x: 3860
+        y: 2320
+        width: 374
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef1ba94dd2c7d9590800000000000000
+      internalID: -7665834454432435714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_8
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 1552
+        width: 357
+        height: 597
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e27118367da5a3a0800000000000000
+      internalID: -6654722151111626007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_9
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 1552
+        width: 437
+        height: 596
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a5c301aa827532d0800000000000000
+      internalID: -3299605212246587991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_10
+      rect:
+        serializedVersion: 2
+        x: 2709
+        y: 1552
+        width: 482
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 063c956b18f154560800000000000000
+      internalID: 7297273413194335072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_11
+      rect:
+        serializedVersion: 2
+        x: 3859
+        y: 1552
+        width: 480
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e42174c0aaf50f00800000000000000
+      internalID: 1082546853849933028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_12
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 784
+        width: 466
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10a44c0d1d65ee550800000000000000
+      internalID: 6191981996831689217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_13
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 784
+        width: 439
+        height: 595
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5049d14cec539abf0800000000000000
+      internalID: -312659536955730939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_14
+      rect:
+        serializedVersion: 2
+        x: 2709
+        y: 784
+        width: 408
+        height: 596
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e7b3337123cce670800000000000000
+      internalID: 8569438739413317604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_15
+      rect:
+        serializedVersion: 2
+        x: 3864
+        y: 784
+        width: 381
+        height: 596
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaf80c960a11c16a0800000000000000
+      internalID: -6477282783398948946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_16
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 16
+        width: 345
+        height: 596
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7ca712b009cf6360800000000000000
+      internalID: 7165166536994827389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_17
+      rect:
+        serializedVersion: 2
+        x: 1575
+        y: 16
+        width: 328
+        height: 595
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32daf1335d6462c30800000000000000
+      internalID: 4334229572890373411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_takasuora_18
+      rect:
+        serializedVersion: 2
+        x: 2731
+        y: 16
+        width: 316
+        height: 596
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a051682fc11243650800000000000000
+      internalID: 6211626194262430986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      don_takasuora_0: -4881461744820840105
+      don_takasuora_1: -598355381012355352
+      don_takasuora_10: 7297273413194335072
+      don_takasuora_11: 1082546853849933028
+      don_takasuora_12: 6191981996831689217
+      don_takasuora_13: -312659536955730939
+      don_takasuora_14: 8569438739413317604
+      don_takasuora_15: -6477282783398948946
+      don_takasuora_16: 7165166536994827389
+      don_takasuora_17: 4334229572890373411
+      don_takasuora_18: 6211626194262430986
+      don_takasuora_2: 3979106634552869547
+      don_takasuora_3: -3938906006034603081
+      don_takasuora_4: -623855182361730624
+      don_takasuora_5: 6293319181682005443
+      don_takasuora_6: 4970882774204957797
+      don_takasuora_7: -7665834454432435714
+      don_takasuora_8: -6654722151111626007
+      don_takasuora_9: -3299605212246587991
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,845 @@
+fileFormatVersion: 2
+guid: 056bd6d598dffd6439f72fd48fb09502
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8528992425591004449
+    second: tony_uppercut_0
+  - first:
+      213: 3275826272848541313
+    second: tony_uppercut_1
+  - first:
+      213: 3853175564948807935
+    second: tony_uppercut_2
+  - first:
+      213: 3316735603030508272
+    second: tony_uppercut_3
+  - first:
+      213: -6885277997020651235
+    second: tony_uppercut_4
+  - first:
+      213: 5377720786495408138
+    second: tony_uppercut_5
+  - first:
+      213: -4140465158696287586
+    second: tony_uppercut_6
+  - first:
+      213: -8449606122204067670
+    second: tony_uppercut_7
+  - first:
+      213: 944226443566800690
+    second: tony_uppercut_8
+  - first:
+      213: 5411415902097667673
+    second: tony_uppercut_9
+  - first:
+      213: -6032951871503324660
+    second: tony_uppercut_10
+  - first:
+      213: 826944565808898897
+    second: tony_uppercut_11
+  - first:
+      213: 2890948037512483546
+    second: tony_uppercut_12
+  - first:
+      213: -8286910723936715586
+    second: tony_uppercut_13
+  - first:
+      213: -3389177270264449357
+    second: tony_uppercut_14
+  - first:
+      213: 7297341451150232642
+    second: tony_uppercut_15
+  - first:
+      213: 6241511434851056343
+    second: tony_uppercut_16
+  - first:
+      213: 7447314199505917163
+    second: tony_uppercut_17
+  - first:
+      213: -1319208539147766789
+    second: tony_uppercut_18
+  - first:
+      213: -5147782854930044859
+    second: tony_uppercut_19
+  - first:
+      213: 3683090020159204288
+    second: tony_uppercut_20
+  - first:
+      213: -6506930885550861161
+    second: tony_uppercut_21
+  - first:
+      213: -350348039676878886
+    second: tony_uppercut_22
+  - first:
+      213: 6759189638689067026
+    second: tony_uppercut_23
+  - first:
+      213: 1389123661855927116
+    second: tony_uppercut_24
+  - first:
+      213: 6401702500841984442
+    second: tony_uppercut_25
+  - first:
+      213: -2029095938428952526
+    second: tony_uppercut_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tony_uppercut_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 4623
+        width: 352
+        height: 636
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd2a6a4d39ee2a980800000000000000
+      internalID: -8528992425591004449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_1
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 4623
+        width: 352
+        height: 636
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 186770b93a2167d20800000000000000
+      internalID: 3275826272848541313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_2
+      rect:
+        serializedVersion: 2
+        x: 2099
+        y: 4623
+        width: 438
+        height: 623
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff02df5e2ca397530800000000000000
+      internalID: 3853175564948807935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_3
+      rect:
+        serializedVersion: 2
+        x: 3123
+        y: 4623
+        width: 438
+        height: 623
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f246884579670e20800000000000000
+      internalID: 3316735603030508272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_4
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 3856
+        width: 460
+        height: 612
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1165c734249270a0800000000000000
+      internalID: -6885277997020651235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_5
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 3856
+        width: 460
+        height: 612
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a080b4c109081aa40800000000000000
+      internalID: 5377720786495408138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_6
+      rect:
+        serializedVersion: 2
+        x: 2082
+        y: 3857
+        width: 477
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e92c60310ec1a86c0800000000000000
+      internalID: -4140465158696287586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_7
+      rect:
+        serializedVersion: 2
+        x: 3106
+        y: 3857
+        width: 477
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa88f02fff7fcba80800000000000000
+      internalID: -8449606122204067670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_8
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 3089
+        width: 450
+        height: 554
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23f545c92f09a1d00800000000000000
+      internalID: 944226443566800690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_9
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 3088
+        width: 340
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9567e609716391b40800000000000000
+      internalID: 5411415902097667673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_10
+      rect:
+        serializedVersion: 2
+        x: 2227
+        y: 3090
+        width: 393
+        height: 530
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0a2400ac36a64ca0800000000000000
+      internalID: -6032951871503324660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_11
+      rect:
+        serializedVersion: 2
+        x: 3251
+        y: 3091
+        width: 451
+        height: 534
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 153aaf583b5e97b00800000000000000
+      internalID: 826944565808898897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_12
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 2323
+        width: 440
+        height: 544
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad25b085ce5be1820800000000000000
+      internalID: 2890948037512483546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_13
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 2323
+        width: 418
+        height: 572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebc706e3a9afefc80800000000000000
+      internalID: -8286910723936715586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_14
+      rect:
+        serializedVersion: 2
+        x: 2229
+        y: 2323
+        width: 418
+        height: 572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b63f05ba3937f0d0800000000000000
+      internalID: -3389177270264449357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_15
+      rect:
+        serializedVersion: 2
+        x: 3250
+        y: 2323
+        width: 411
+        height: 617
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24c0b88036d554560800000000000000
+      internalID: 7297341451150232642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_16
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 1555
+        width: 411
+        height: 617
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7daf5dfb49d4e9650800000000000000
+      internalID: 6241511434851056343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_17
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 1555
+        width: 390
+        height: 654
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be4d5409ecc2a5760800000000000000
+      internalID: 7447314199505917163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_18
+      rect:
+        serializedVersion: 2
+        x: 2223
+        y: 1555
+        width: 390
+        height: 654
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf37f67b2da31bde0800000000000000
+      internalID: -1319208539147766789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_19
+      rect:
+        serializedVersion: 2
+        x: 3247
+        y: 1555
+        width: 390
+        height: 654
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5486c0f74c66f88b0800000000000000
+      internalID: -5147782854930044859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_20
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 787
+        width: 390
+        height: 654
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cb20670cd6fc1330800000000000000
+      internalID: 3683090020159204288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_21
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 787
+        width: 392
+        height: 662
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79419b4b5dcb2b5a0800000000000000
+      internalID: -6506930885550861161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_22
+      rect:
+        serializedVersion: 2
+        x: 2219
+        y: 787
+        width: 392
+        height: 662
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf1e4b6050532bf0800000000000000
+      internalID: -350348039676878886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_23
+      rect:
+        serializedVersion: 2
+        x: 3243
+        y: 787
+        width: 392
+        height: 662
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21010972a277dcd50800000000000000
+      internalID: 6759189638689067026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_24
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 19
+        width: 392
+        height: 662
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4b230e4c98274310800000000000000
+      internalID: 1389123661855927116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_25
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 19
+        width: 392
+        height: 662
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab19a60c18a67d850800000000000000
+      internalID: 6401702500841984442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_uppercut_26
+      rect:
+        serializedVersion: 2
+        x: 2241
+        y: 19
+        width: 373
+        height: 664
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23021ce9ef337d3e0800000000000000
+      internalID: -2029095938428952526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tony_uppercut_0: -8528992425591004449
+      tony_uppercut_1: 3275826272848541313
+      tony_uppercut_10: -6032951871503324660
+      tony_uppercut_11: 826944565808898897
+      tony_uppercut_12: 2890948037512483546
+      tony_uppercut_13: -8286910723936715586
+      tony_uppercut_14: -3389177270264449357
+      tony_uppercut_15: 7297341451150232642
+      tony_uppercut_16: 6241511434851056343
+      tony_uppercut_17: 7447314199505917163
+      tony_uppercut_18: -1319208539147766789
+      tony_uppercut_19: -5147782854930044859
+      tony_uppercut_2: 3853175564948807935
+      tony_uppercut_20: 3683090020159204288
+      tony_uppercut_21: -6506930885550861161
+      tony_uppercut_22: -350348039676878886
+      tony_uppercut_23: 6759189638689067026
+      tony_uppercut_24: 1389123661855927116
+      tony_uppercut_25: 6401702500841984442
+      tony_uppercut_26: -2029095938428952526
+      tony_uppercut_3: 3316735603030508272
+      tony_uppercut_4: -6885277997020651235
+      tony_uppercut_5: 5377720786495408138
+      tony_uppercut_6: -4140465158696287586
+      tony_uppercut_7: -8449606122204067670
+      tony_uppercut_8: 944226443566800690
+      tony_uppercut_9: 5411415902097667673
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: 5dfa8f45aa13250439ab34a3e912e21a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7221767855701168495
+    second: tony_kaatuminen_0
+  - first:
+      213: 3724385841259008106
+    second: tony_kaatuminen_1
+  - first:
+      213: 8397795885359007959
+    second: tony_kaatuminen_2
+  - first:
+      213: 307608548005658340
+    second: tony_kaatuminen_3
+  - first:
+      213: -2626062093936022488
+    second: tony_kaatuminen_4
+  - first:
+      213: 3519613990027315056
+    second: tony_kaatuminen_5
+  - first:
+      213: -1824370994763084641
+    second: tony_kaatuminen_6
+  - first:
+      213: 2528273505488288931
+    second: tony_kaatuminen_7
+  - first:
+      213: 4092850055587465804
+    second: tony_kaatuminen_8
+  - first:
+      213: -8261927998945972576
+    second: tony_kaatuminen_9
+  - first:
+      213: -190098691407918586
+    second: tony_kaatuminen_10
+  - first:
+      213: -3455369183092691061
+    second: tony_kaatuminen_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tony_kaatuminen_0
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 2062
+        width: 461
+        height: 648
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6117692a9fd83460800000000000000
+      internalID: 7221767855701168495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kaatuminen_1
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 2062
+        width: 496
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a60dcb2a03dafa330800000000000000
+      internalID: 3724385841259008106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kaatuminen_2
+      rect:
+        serializedVersion: 2
+        x: 2595
+        y: 2065
+        width: 631
+        height: 601
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d88f034dd6fa8470800000000000000
+      internalID: 8397795885359007959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kaatuminen_3
+      rect:
+        serializedVersion: 2
+        x: 3705
+        y: 2065
+        width: 769
+        height: 665
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ee30c93858d44400800000000000000
+      internalID: 307608548005658340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kaatuminen_4
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 1109
+        width: 756
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82c23d4607a5e8bd0800000000000000
+      internalID: -2626062093936022488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kaatuminen_5
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 1038
+        width: 673
+        height: 557
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 077c216b64e28d030800000000000000
+      internalID: 3519613990027315056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kaatuminen_6
+      rect:
+        serializedVersion: 2
+        x: 2460
+        y: 1033
+        width: 692
+        height: 599
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9cce960f388ea6e0800000000000000
+      internalID: -1824370994763084641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kaatuminen_7
+      rect:
+        serializedVersion: 2
+        x: 3597
+        y: 1040
+        width: 761
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ac39ad9b5b361320800000000000000
+      internalID: 2528273505488288931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kaatuminen_8
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 17
+        width: 928
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4a8a32d079bcc830800000000000000
+      internalID: 4092850055587465804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kaatuminen_9
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 7
+        width: 955
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aea8fe224cb75d80800000000000000
+      internalID: -8261927998945972576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kaatuminen_10
+      rect:
+        serializedVersion: 2
+        x: 2403
+        y: 4
+        width: 960
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60a4d525f32ac5df0800000000000000
+      internalID: -190098691407918586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kaatuminen_11
+      rect:
+        serializedVersion: 2
+        x: 3618
+        y: 7
+        width: 891
+        height: 321
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8fade909001c00d0800000000000000
+      internalID: -3455369183092691061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tony_kaatuminen_0: 7221767855701168495
+      tony_kaatuminen_1: 3724385841259008106
+      tony_kaatuminen_10: -190098691407918586
+      tony_kaatuminen_11: -3455369183092691061
+      tony_kaatuminen_2: 8397795885359007959
+      tony_kaatuminen_3: 307608548005658340
+      tony_kaatuminen_4: -2626062093936022488
+      tony_kaatuminen_5: 3519613990027315056
+      tony_kaatuminen_6: -1824370994763084641
+      tony_kaatuminen_7: 2528273505488288931
+      tony_kaatuminen_8: 4092850055587465804
+      tony_kaatuminen_9: -8261927998945972576
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

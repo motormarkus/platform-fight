@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: 0f2450b16768e4a408f93459e3a8e42c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8159433092110143869
+    second: tony_isku3_0
+  - first:
+      213: -270321701805132667
+    second: tony_isku3_1
+  - first:
+      213: 92000330999644135
+    second: tony_isku3_2
+  - first:
+      213: -7389718308803377175
+    second: tony_isku3_3
+  - first:
+      213: -8243210949192264830
+    second: tony_isku3_4
+  - first:
+      213: -5429667124608044608
+    second: tony_isku3_5
+  - first:
+      213: -1263528674623474133
+    second: tony_isku3_6
+  - first:
+      213: 2340045778055323133
+    second: tony_isku3_7
+  - first:
+      213: 4757688297934717882
+    second: tony_isku3_8
+  - first:
+      213: 7048928623256547716
+    second: tony_isku3_9
+  - first:
+      213: -6001093114055009527
+    second: tony_isku3_10
+  - first:
+      213: -8703669562235421349
+    second: tony_isku3_11
+  - first:
+      213: 1568707357164985457
+    second: tony_isku3_12
+  - first:
+      213: 8701800234039466914
+    second: tony_isku3_13
+  - first:
+      213: 7565228464051871446
+    second: tony_isku3_14
+  - first:
+      213: -4854544809122330710
+    second: tony_isku3_15
+  - first:
+      213: -3903645664030882706
+    second: tony_isku3_16
+  - first:
+      213: 3399447653871235783
+    second: tony_isku3_17
+  - first:
+      213: -630098530076185373
+    second: tony_isku3_18
+  - first:
+      213: -9145822874719670874
+    second: tony_isku3_19
+  - first:
+      213: 3358666635442659253
+    second: tony_isku3_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tony_isku3_0
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 3855
+        width: 326
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38e253055ded3ce80800000000000000
+      internalID: -8159433092110143869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_1
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 3852
+        width: 380
+        height: 630
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58473dc28df9f3cf0800000000000000
+      internalID: -270321701805132667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_2
+      rect:
+        serializedVersion: 2
+        x: 2416
+        y: 3852
+        width: 380
+        height: 630
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7efb37840d9d64100800000000000000
+      internalID: 92000330999644135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_3
+      rect:
+        serializedVersion: 2
+        x: 3568
+        y: 3852
+        width: 380
+        height: 630
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e7039db952727990800000000000000
+      internalID: -7389718308803377175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_4
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 3083
+        width: 390
+        height: 612
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 283d8cce05b3a9d80800000000000000
+      internalID: -8243210949192264830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_5
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 3083
+        width: 390
+        height: 612
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c1fe1d8482f5a4b0800000000000000
+      internalID: -5429667124608044608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_6
+      rect:
+        serializedVersion: 2
+        x: 2429
+        y: 3083
+        width: 390
+        height: 612
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b263c896d5b077ee0800000000000000
+      internalID: -1263528674623474133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_7
+      rect:
+        serializedVersion: 2
+        x: 3533
+        y: 3089
+        width: 450
+        height: 606
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfdd32fac33897020800000000000000
+      internalID: 2340045778055323133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_8
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 2321
+        width: 450
+        height: 606
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab38e66bc44b60240800000000000000
+      internalID: 4757688297934717882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_9
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 2319
+        width: 512
+        height: 615
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4813a4c6c33d2d160800000000000000
+      internalID: 7048928623256547716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_10
+      rect:
+        serializedVersion: 2
+        x: 2441
+        y: 2319
+        width: 512
+        height: 615
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90b55b0ab95d7bca0800000000000000
+      internalID: -6001093114055009527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_11
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 2321
+        width: 567
+        height: 619
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5df39ca5aa563780800000000000000
+      internalID: -8703669562235421349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_12
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1548
+        width: 512
+        height: 635
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17c5c5ca70b25c510800000000000000
+      internalID: 1568707357164985457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_13
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 1548
+        width: 512
+        height: 635
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ab5550753103c870800000000000000
+      internalID: 8701800234039466914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_14
+      rect:
+        serializedVersion: 2
+        x: 2474
+        y: 1548
+        width: 512
+        height: 635
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6de5c7ca4371df860800000000000000
+      internalID: 7565228464051871446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_15
+      rect:
+        serializedVersion: 2
+        x: 3589
+        y: 1554
+        width: 484
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa70c02773131acb0800000000000000
+      internalID: -4854544809122330710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_16
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 786
+        width: 484
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e64027273f673d9c0800000000000000
+      internalID: -3903645664030882706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_17
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 786
+        width: 484
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c2b78151a34d2f20800000000000000
+      internalID: 3399447653871235783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_18
+      rect:
+        serializedVersion: 2
+        x: 2437
+        y: 786
+        width: 484
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ec205da9b07147f0800000000000000
+      internalID: -630098530076185373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_19
+      rect:
+        serializedVersion: 2
+        x: 3589
+        y: 786
+        width: 484
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ad21b55d82831180800000000000000
+      internalID: -9145822874719670874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_isku3_20
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 18
+        width: 484
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bf148c82816c9e20800000000000000
+      internalID: 3358666635442659253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tony_isku3_0: -8159433092110143869
+      tony_isku3_1: -270321701805132667
+      tony_isku3_10: -6001093114055009527
+      tony_isku3_11: -8703669562235421349
+      tony_isku3_12: 1568707357164985457
+      tony_isku3_13: 8701800234039466914
+      tony_isku3_14: 7565228464051871446
+      tony_isku3_15: -4854544809122330710
+      tony_isku3_16: -3903645664030882706
+      tony_isku3_17: 3399447653871235783
+      tony_isku3_18: -630098530076185373
+      tony_isku3_19: -9145822874719670874
+      tony_isku3_2: 92000330999644135
+      tony_isku3_20: 3358666635442659253
+      tony_isku3_3: -7389718308803377175
+      tony_isku3_4: -8243210949192264830
+      tony_isku3_5: -5429667124608044608
+      tony_isku3_6: -1263528674623474133
+      tony_isku3_7: 2340045778055323133
+      tony_isku3_8: 4757688297934717882
+      tony_isku3_9: 7048928623256547716
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

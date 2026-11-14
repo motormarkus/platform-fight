@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: bc0fbffd791ec614fa5b2f716f5db5cf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7156901760248944643
+    second: melvin_kaatuminen_0
+  - first:
+      213: -6136047620868214868
+    second: melvin_kaatuminen_1
+  - first:
+      213: -4003646865530452281
+    second: melvin_kaatuminen_2
+  - first:
+      213: 4136374417230017622
+    second: melvin_kaatuminen_3
+  - first:
+      213: 867671789402340976
+    second: melvin_kaatuminen_4
+  - first:
+      213: -4775431244661299929
+    second: melvin_kaatuminen_5
+  - first:
+      213: -8364960301630334087
+    second: melvin_kaatuminen_6
+  - first:
+      213: 7913400517459410740
+    second: melvin_kaatuminen_7
+  - first:
+      213: 2110926469395725410
+    second: melvin_kaatuminen_8
+  - first:
+      213: -6027058225528559101
+    second: melvin_kaatuminen_9
+  - first:
+      213: 5299239498944996962
+    second: melvin_kaatuminen_10
+  - first:
+      213: -3145907619443482840
+    second: melvin_kaatuminen_11
+  - first:
+      213: 3879495162576769262
+    second: melvin_kaatuminen_12
+  - first:
+      213: 4933677790632285090
+    second: melvin_kaatuminen_13
+  - first:
+      213: 6816519330032970686
+    second: melvin_kaatuminen_14
+  - first:
+      213: -7711935305383787944
+    second: melvin_kaatuminen_15
+  - first:
+      213: -284469946926764078
+    second: melvin_kaatuminen_16
+  - first:
+      213: -7828446026799222692
+    second: melvin_kaatuminen_17
+  - first:
+      213: 1448096587878388639
+    second: melvin_kaatuminen_18
+  - first:
+      213: 5159729782023582986
+    second: melvin_kaatuminen_19
+  - first:
+      213: -7204393409049672482
+    second: melvin_kaatuminen_20
+  - first:
+      213: -8376690929136428835
+    second: melvin_kaatuminen_21
+  - first:
+      213: -6201334994163694233
+    second: melvin_kaatuminen_22
+  - first:
+      213: 2740152723074278948
+    second: melvin_kaatuminen_23
+  - first:
+      213: 7132127505190137752
+    second: melvin_kaatuminen_24
+  - first:
+      213: 1493762833490310569
+    second: melvin_kaatuminen_25
+  - first:
+      213: 3617859808248234437
+    second: melvin_kaatuminen_26
+  - first:
+      213: -6529447318589087732
+    second: melvin_kaatuminen_27
+  - first:
+      213: -7004573757706423399
+    second: melvin_kaatuminen_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: melvin_kaatuminen_0
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 7206
+        width: 330
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df76ef794c39dac90800000000000000
+      internalID: -7156901760248944643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_1
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 7207
+        width: 355
+        height: 601
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cafe441f23168daa0800000000000000
+      internalID: -6136047620868214868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_2
+      rect:
+        serializedVersion: 2
+        x: 2698
+        y: 7213
+        width: 380
+        height: 584
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c683f553603078c0800000000000000
+      internalID: -4003646865530452281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_3
+      rect:
+        serializedVersion: 2
+        x: 3831
+        y: 7218
+        width: 418
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6543205fd9a576930800000000000000
+      internalID: 4136374417230017622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_4
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 6202
+        width: 495
+        height: 536
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07e34f435e69a0c00800000000000000
+      internalID: 867671789402340976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_5
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 6248
+        width: 578
+        height: 488
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72569a495924abdb0800000000000000
+      internalID: -4775431244661299929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_6
+      rect:
+        serializedVersion: 2
+        x: 2618
+        y: 6326
+        width: 603
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97b5415dce0b9eb80800000000000000
+      internalID: -8364960301630334087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_7
+      rect:
+        serializedVersion: 2
+        x: 3787
+        y: 6340
+        width: 554
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43f7f88f7db02dd60800000000000000
+      internalID: 7913400517459410740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_8
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 5236
+        width: 494
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26c3d4390748b4d10800000000000000
+      internalID: 2110926469395725410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_9
+      rect:
+        serializedVersion: 2
+        x: 1523
+        y: 5164
+        width: 449
+        height: 418
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a26c20a769b5ca0800000000000000
+      internalID: -6027058225528559101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_10
+      rect:
+        serializedVersion: 2
+        x: 2625
+        y: 5152
+        width: 527
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 266e55a6f3eaa8940800000000000000
+      internalID: 5299239498944996962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_11
+      rect:
+        serializedVersion: 2
+        x: 3755
+        y: 5154
+        width: 573
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82f50e610bd7754d0800000000000000
+      internalID: -3145907619443482840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_12
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 4130
+        width: 608
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee01c31cb4cb6d530800000000000000
+      internalID: 3879495162576769262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_13
+      rect:
+        serializedVersion: 2
+        x: 1435
+        y: 4128
+        width: 644
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a31fd29fc1f77440800000000000000
+      internalID: 4933677790632285090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_14
+      rect:
+        serializedVersion: 2
+        x: 2581
+        y: 4128
+        width: 655
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebbe2371734299e50800000000000000
+      internalID: 6816519330032970686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_15
+      rect:
+        serializedVersion: 2
+        x: 3718
+        y: 4117
+        width: 674
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8524ec703b3b9f490800000000000000
+      internalID: -7711935305383787944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_16
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 3091
+        width: 692
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dfe728271c5d0cf0800000000000000
+      internalID: -284469946926764078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_17
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 3091
+        width: 699
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c507055c0d5cb5390800000000000000
+      internalID: -7828446026799222692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_18
+      rect:
+        serializedVersion: 2
+        x: 2542
+        y: 3091
+        width: 700
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9352f0ac2ca81410800000000000000
+      internalID: 1448096587878388639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_19
+      rect:
+        serializedVersion: 2
+        x: 3694
+        y: 3091
+        width: 700
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a05f48a36ea0b9740800000000000000
+      internalID: 5159729782023582986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_20
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 2067
+        width: 700
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed4cd6f6d5ad40c90800000000000000
+      internalID: -7204393409049672482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_21
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 2067
+        width: 700
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd816974bf300cb80800000000000000
+      internalID: -8376690929136428835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_22
+      rect:
+        serializedVersion: 2
+        x: 2542
+        y: 2067
+        width: 700
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7658cabcdae60f9a0800000000000000
+      internalID: -6201334994163694233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_23
+      rect:
+        serializedVersion: 2
+        x: 3698
+        y: 2073
+        width: 695
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4266929326af60620800000000000000
+      internalID: 2740152723074278948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_24
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 1058
+        width: 683
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89fa6a7ad286af260800000000000000
+      internalID: 7132127505190137752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_25
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 1058
+        width: 664
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a5fedcf169eab410800000000000000
+      internalID: 1493762833490310569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_26
+      rect:
+        serializedVersion: 2
+        x: 2603
+        y: 1060
+        width: 641
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c18ccdc358353230800000000000000
+      internalID: 3617859808248234437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_27
+      rect:
+        serializedVersion: 2
+        x: 3767
+        y: 1062
+        width: 634
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c00eedb124eb265a0800000000000000
+      internalID: -6529447318589087732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_kaatuminen_28
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 35
+        width: 648
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 993b2e87741cace90800000000000000
+      internalID: -7004573757706423399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      melvin_kaatuminen_0: -7156901760248944643
+      melvin_kaatuminen_1: -6136047620868214868
+      melvin_kaatuminen_10: 5299239498944996962
+      melvin_kaatuminen_11: -3145907619443482840
+      melvin_kaatuminen_12: 3879495162576769262
+      melvin_kaatuminen_13: 4933677790632285090
+      melvin_kaatuminen_14: 6816519330032970686
+      melvin_kaatuminen_15: -7711935305383787944
+      melvin_kaatuminen_16: -284469946926764078
+      melvin_kaatuminen_17: -7828446026799222692
+      melvin_kaatuminen_18: 1448096587878388639
+      melvin_kaatuminen_19: 5159729782023582986
+      melvin_kaatuminen_2: -4003646865530452281
+      melvin_kaatuminen_20: -7204393409049672482
+      melvin_kaatuminen_21: -8376690929136428835
+      melvin_kaatuminen_22: -6201334994163694233
+      melvin_kaatuminen_23: 2740152723074278948
+      melvin_kaatuminen_24: 7132127505190137752
+      melvin_kaatuminen_25: 1493762833490310569
+      melvin_kaatuminen_26: 3617859808248234437
+      melvin_kaatuminen_27: -6529447318589087732
+      melvin_kaatuminen_28: -7004573757706423399
+      melvin_kaatuminen_3: 4136374417230017622
+      melvin_kaatuminen_4: 867671789402340976
+      melvin_kaatuminen_5: -4775431244661299929
+      melvin_kaatuminen_6: -8364960301630334087
+      melvin_kaatuminen_7: 7913400517459410740
+      melvin_kaatuminen_8: 2110926469395725410
+      melvin_kaatuminen_9: -6027058225528559101
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

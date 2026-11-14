@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 07e56008b252c66458794ad79d650978
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -946221789167592395
+    second: don_kierros_0
+  - first:
+      213: -2647201543329110500
+    second: don_kierros_1
+  - first:
+      213: 8548219394569078637
+    second: don_kierros_2
+  - first:
+      213: 7624597481499656247
+    second: don_kierros_3
+  - first:
+      213: -6272835561561900200
+    second: don_kierros_4
+  - first:
+      213: -5509468840357928263
+    second: don_kierros_5
+  - first:
+      213: -7130279696808396107
+    second: don_kierros_6
+  - first:
+      213: -7166544012545756840
+    second: don_kierros_7
+  - first:
+      213: -7329442162528098026
+    second: don_kierros_8
+  - first:
+      213: 2985228889073776583
+    second: don_kierros_9
+  - first:
+      213: 1319180595972280899
+    second: don_kierros_10
+  - first:
+      213: -4176106260708464717
+    second: don_kierros_11
+  - first:
+      213: 7229475354154424477
+    second: don_kierros_12
+  - first:
+      213: 1100071423723663387
+    second: don_kierros_13
+  - first:
+      213: 4200163190783662685
+    second: don_kierros_14
+  - first:
+      213: 2447943814443126231
+    second: don_kierros_15
+  - first:
+      213: -6802962654643761980
+    second: don_kierros_16
+  - first:
+      213: -7232570458833546152
+    second: don_kierros_17
+  - first:
+      213: -7233138785648573003
+    second: don_kierros_18
+  - first:
+      213: 5130536664096862662
+    second: don_kierros_19
+  - first:
+      213: 4289968826346241363
+    second: don_kierros_20
+  - first:
+      213: -6005609745964665180
+    second: don_kierros_21
+  - first:
+      213: -5493589573181248097
+    second: don_kierros_22
+  - first:
+      213: 4052930417811573743
+    second: don_kierros_23
+  - first:
+      213: -6375947871775353379
+    second: don_kierros_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: don_kierros_0
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 4634
+        width: 357
+        height: 596
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53c5ee9cb485ed2f0800000000000000
+      internalID: -946221789167592395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_1
+      rect:
+        serializedVersion: 2
+        x: 1561
+        y: 4637
+        width: 357
+        height: 598
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c16a009c830434bd0800000000000000
+      internalID: -2647201543329110500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_2
+      rect:
+        serializedVersion: 2
+        x: 2678
+        y: 4636
+        width: 381
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d67056bbf3061a670800000000000000
+      internalID: 8548219394569078637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_3
+      rect:
+        serializedVersion: 2
+        x: 3829
+        y: 4636
+        width: 379
+        height: 608
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7300028330300d960800000000000000
+      internalID: 7624597481499656247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_4
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 3866
+        width: 352
+        height: 613
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85b3aaaaa4962f8a0800000000000000
+      internalID: -6272835561561900200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_5
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 3865
+        width: 439
+        height: 614
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b2e165b74f6a83b0800000000000000
+      internalID: -5509468840357928263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_6
+      rect:
+        serializedVersion: 2
+        x: 2713
+        y: 3864
+        width: 511
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ba3e82c4682c0d90800000000000000
+      internalID: -7130279696808396107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_7
+      rect:
+        serializedVersion: 2
+        x: 3868
+        y: 3866
+        width: 521
+        height: 601
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 851f109c0325b8c90800000000000000
+      internalID: -7166544012545756840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_8
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 3097
+        width: 501
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 619edbcaf27984a90800000000000000
+      internalID: -7329442162528098026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_9
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 3098
+        width: 499
+        height: 584
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c7f972bbd9ad6920800000000000000
+      internalID: 2985228889073776583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_10
+      rect:
+        serializedVersion: 2
+        x: 2709
+        y: 3098
+        width: 511
+        height: 579
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 342148143cbae4210800000000000000
+      internalID: 1319180595972280899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_11
+      rect:
+        serializedVersion: 2
+        x: 3854
+        y: 3098
+        width: 526
+        height: 574
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b7ef2a5b7d7b06c0800000000000000
+      internalID: -4176106260708464717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_12
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 2330
+        width: 538
+        height: 574
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d98d0dcf781445460800000000000000
+      internalID: 7229475354154424477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_13
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 2330
+        width: 550
+        height: 577
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b107b96a12d344f00800000000000000
+      internalID: 1100071423723663387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_14
+      rect:
+        serializedVersion: 2
+        x: 2678
+        y: 2330
+        width: 557
+        height: 579
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5ad4592b2af94a30800000000000000
+      internalID: 4200163190783662685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_15
+      rect:
+        serializedVersion: 2
+        x: 3827
+        y: 2330
+        width: 540
+        height: 586
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dd4ff1fde7d8f120800000000000000
+      internalID: 2447943814443126231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_16
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 1562
+        width: 511
+        height: 591
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ccc5bd52850791a0800000000000000
+      internalID: -6802962654643761980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_17
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 1562
+        width: 468
+        height: 596
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8541e3ccc7fb0ab90800000000000000
+      internalID: -7232570458833546152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_18
+      rect:
+        serializedVersion: 2
+        x: 2668
+        y: 1562
+        width: 405
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b50156e89abe9b90800000000000000
+      internalID: -7233138785648573003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_19
+      rect:
+        serializedVersion: 2
+        x: 3834
+        y: 1562
+        width: 340
+        height: 608
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c17c9ac9e3533740800000000000000
+      internalID: 5130536664096862662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_20
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 794
+        width: 253
+        height: 613
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35dfdd71be7098b30800000000000000
+      internalID: 4289968826346241363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_21
+      rect:
+        serializedVersion: 2
+        x: 1553
+        y: 794
+        width: 243
+        height: 615
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a6f62051c9c7aca0800000000000000
+      internalID: -6005609745964665180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_22
+      rect:
+        serializedVersion: 2
+        x: 2712
+        y: 791
+        width: 263
+        height: 618
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9dedb4b369d2c3b0800000000000000
+      internalID: -5493589573181248097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_23
+      rect:
+        serializedVersion: 2
+        x: 3892
+        y: 789
+        width: 284
+        height: 618
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: febc80dddb6ee3830800000000000000
+      internalID: 4052930417811573743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kierros_24
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 21
+        width: 323
+        height: 613
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd51c6c11351487a0800000000000000
+      internalID: -6375947871775353379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      don_kierros_0: -946221789167592395
+      don_kierros_1: -2647201543329110500
+      don_kierros_10: 1319180595972280899
+      don_kierros_11: -4176106260708464717
+      don_kierros_12: 7229475354154424477
+      don_kierros_13: 1100071423723663387
+      don_kierros_14: 4200163190783662685
+      don_kierros_15: 2447943814443126231
+      don_kierros_16: -6802962654643761980
+      don_kierros_17: -7232570458833546152
+      don_kierros_18: -7233138785648573003
+      don_kierros_19: 5130536664096862662
+      don_kierros_2: 8548219394569078637
+      don_kierros_20: 4289968826346241363
+      don_kierros_21: -6005609745964665180
+      don_kierros_22: -5493589573181248097
+      don_kierros_23: 4052930417811573743
+      don_kierros_24: -6375947871775353379
+      don_kierros_3: 7624597481499656247
+      don_kierros_4: -6272835561561900200
+      don_kierros_5: -5509468840357928263
+      don_kierros_6: -7130279696808396107
+      don_kierros_7: -7166544012545756840
+      don_kierros_8: -7329442162528098026
+      don_kierros_9: 2985228889073776583
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

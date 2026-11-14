@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: 6982889fd4acfba46a2b3c357da7cc44
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8392683609953324927
+    second: don_kaatuminen_0
+  - first:
+      213: -3255284644258720549
+    second: don_kaatuminen_1
+  - first:
+      213: -3678948900214733483
+    second: don_kaatuminen_2
+  - first:
+      213: 8513634663816367417
+    second: don_kaatuminen_3
+  - first:
+      213: -1471590866835330831
+    second: don_kaatuminen_4
+  - first:
+      213: 1342792466616836112
+    second: don_kaatuminen_5
+  - first:
+      213: -2065843296625645627
+    second: don_kaatuminen_6
+  - first:
+      213: 872922879959339417
+    second: don_kaatuminen_7
+  - first:
+      213: 5840505725171572031
+    second: don_kaatuminen_8
+  - first:
+      213: 3599310063290058483
+    second: don_kaatuminen_9
+  - first:
+      213: 3624364726741792407
+    second: don_kaatuminen_10
+  - first:
+      213: 5836298979293601468
+    second: don_kaatuminen_11
+  - first:
+      213: -1178983438940828279
+    second: don_kaatuminen_12
+  - first:
+      213: -8694947392796310363
+    second: don_kaatuminen_13
+  - first:
+      213: 1172788052518366224
+    second: don_kaatuminen_14
+  - first:
+      213: 7597708877337261491
+    second: don_kaatuminen_15
+  - first:
+      213: 6584283563927556951
+    second: don_kaatuminen_16
+  - first:
+      213: 760765887750185989
+    second: don_kaatuminen_17
+  - first:
+      213: 8986124890261251075
+    second: don_kaatuminen_18
+  - first:
+      213: 6664131791503280899
+    second: don_kaatuminen_19
+  - first:
+      213: 7906451400938587957
+    second: don_kaatuminen_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: don_kaatuminen_0
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 5165
+        width: 347
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7fc283e64dc87470800000000000000
+      internalID: 8392683609953324927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_1
+      rect:
+        serializedVersion: 2
+        x: 1559
+        y: 5165
+        width: 350
+        height: 577
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd4dc200dd7e2d2d0800000000000000
+      internalID: -3255284644258720549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_2
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 5165
+        width: 390
+        height: 577
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55503e7977fb1fcc0800000000000000
+      internalID: -3678948900214733483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_3
+      rect:
+        serializedVersion: 2
+        x: 3825
+        y: 5165
+        width: 485
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93d0a3c9e91862670800000000000000
+      internalID: 8513634663816367417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_4
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 4141
+        width: 574
+        height: 572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f8229747ebd39be0800000000000000
+      internalID: -1471590866835330831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_5
+      rect:
+        serializedVersion: 2
+        x: 1489
+        y: 4153
+        width: 594
+        height: 478
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01064cb42ae82a210800000000000000
+      internalID: 1342792466616836112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_6
+      rect:
+        serializedVersion: 2
+        x: 2652
+        y: 4132
+        width: 526
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c7a10f8776a453e0800000000000000
+      internalID: -2065843296625645627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_7
+      rect:
+        serializedVersion: 2
+        x: 3776
+        y: 4139
+        width: 533
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99199400cbe3d1c00800000000000000
+      internalID: 872922879959339417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_8
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 3115
+        width: 524
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3d9c714305ad0150800000000000000
+      internalID: 5840505725171572031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_9
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 3112
+        width: 537
+        height: 497
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f684eebe6153f130800000000000000
+      internalID: 3599310063290058483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_10
+      rect:
+        serializedVersion: 2
+        x: 2602
+        y: 3112
+        width: 574
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79676e924845c4230800000000000000
+      internalID: 3624364726741792407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_11
+      rect:
+        serializedVersion: 2
+        x: 3728
+        y: 3111
+        width: 641
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbe15c7eff2bef050800000000000000
+      internalID: 5836298979293601468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_12
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 2083
+        width: 728
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d0ddd0fc863afe0800000000000000
+      internalID: -1178983438940828279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_13
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 2081
+        width: 758
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a4caaff967555780800000000000000
+      internalID: -8694947392796310363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_14
+      rect:
+        serializedVersion: 2
+        x: 2535
+        y: 2079
+        width: 760
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01ced232584964010800000000000000
+      internalID: 1172788052518366224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_15
+      rect:
+        serializedVersion: 2
+        x: 3681
+        y: 2079
+        width: 758
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b5f48438fb707960800000000000000
+      internalID: 7597708877337261491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_16
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 1056
+        width: 760
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75358503403106b50800000000000000
+      internalID: 6584283563927556951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_17
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 1062
+        width: 753
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 504a5905b88ce8a00800000000000000
+      internalID: 760765887750185989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_18
+      rect:
+        serializedVersion: 2
+        x: 2533
+        y: 1067
+        width: 752
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30461572af025bc70800000000000000
+      internalID: 8986124890261251075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_19
+      rect:
+        serializedVersion: 2
+        x: 3697
+        y: 1067
+        width: 743
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30bc0f86e80cb7c50800000000000000
+      internalID: 6664131791503280899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_kaatuminen_20
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 46
+        width: 736
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53785d2b8ab59bd60800000000000000
+      internalID: 7906451400938587957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      don_kaatuminen_0: 8392683609953324927
+      don_kaatuminen_1: -3255284644258720549
+      don_kaatuminen_10: 3624364726741792407
+      don_kaatuminen_11: 5836298979293601468
+      don_kaatuminen_12: -1178983438940828279
+      don_kaatuminen_13: -8694947392796310363
+      don_kaatuminen_14: 1172788052518366224
+      don_kaatuminen_15: 7597708877337261491
+      don_kaatuminen_16: 6584283563927556951
+      don_kaatuminen_17: 760765887750185989
+      don_kaatuminen_18: 8986124890261251075
+      don_kaatuminen_19: 6664131791503280899
+      don_kaatuminen_2: -3678948900214733483
+      don_kaatuminen_20: 7906451400938587957
+      don_kaatuminen_3: 8513634663816367417
+      don_kaatuminen_4: -1471590866835330831
+      don_kaatuminen_5: 1342792466616836112
+      don_kaatuminen_6: -2065843296625645627
+      don_kaatuminen_7: 872922879959339417
+      don_kaatuminen_8: 5840505725171572031
+      don_kaatuminen_9: 3599310063290058483
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

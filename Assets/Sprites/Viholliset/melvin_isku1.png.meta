@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: b86bcb47b3a70164d8637d66b7c3ba6f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 620503455034896942
+    second: melvin_isku1_0
+  - first:
+      213: -5645574042107460666
+    second: melvin_isku1_1
+  - first:
+      213: 4457477797336129832
+    second: melvin_isku1_2
+  - first:
+      213: 1951967677585079140
+    second: melvin_isku1_3
+  - first:
+      213: -8581604541748399115
+    second: melvin_isku1_4
+  - first:
+      213: 3868706211025388676
+    second: melvin_isku1_5
+  - first:
+      213: 8189298596560089973
+    second: melvin_isku1_6
+  - first:
+      213: -3778944768809151847
+    second: melvin_isku1_7
+  - first:
+      213: 2876169700283061160
+    second: melvin_isku1_8
+  - first:
+      213: 1650771211670063189
+    second: melvin_isku1_9
+  - first:
+      213: -4378872861669858516
+    second: melvin_isku1_10
+  - first:
+      213: -575989421991905594
+    second: melvin_isku1_11
+  - first:
+      213: -4575649492020512916
+    second: melvin_isku1_12
+  - first:
+      213: -30089005983216661
+    second: melvin_isku1_13
+  - first:
+      213: 3176278819140038225
+    second: melvin_isku1_14
+  - first:
+      213: 5892837540488628444
+    second: melvin_isku1_15
+  - first:
+      213: 8471187198895188084
+    second: melvin_isku1_16
+  - first:
+      213: -5568077400087815892
+    second: melvin_isku1_17
+  - first:
+      213: 7351971668631436512
+    second: melvin_isku1_18
+  - first:
+      213: 5685522357473244780
+    second: melvin_isku1_19
+  - first:
+      213: -8157544486052167420
+    second: melvin_isku1_20
+  - first:
+      213: -9118652312383690763
+    second: melvin_isku1_21
+  - first:
+      213: -2727995171994662293
+    second: melvin_isku1_22
+  - first:
+      213: 3409247537719786218
+    second: melvin_isku1_23
+  - first:
+      213: 4896646710647340210
+    second: melvin_isku1_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: melvin_isku1_0
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 3855
+        width: 507
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e22f143da987c9800800000000000000
+      internalID: 620503455034896942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_1
+      rect:
+        serializedVersion: 2
+        x: 1492
+        y: 3855
+        width: 507
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c3c40bf154e6a1b0800000000000000
+      internalID: -5645574042107460666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_2
+      rect:
+        serializedVersion: 2
+        x: 2644
+        y: 3855
+        width: 507
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8212960a0742cdd30800000000000000
+      internalID: 4457477797336129832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_3
+      rect:
+        serializedVersion: 2
+        x: 3796
+        y: 3855
+        width: 507
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46bb083c248c61b10800000000000000
+      internalID: 1951967677585079140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_4
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 3087
+        width: 395
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f33536f22408e880800000000000000
+      internalID: -8581604541748399115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_5
+      rect:
+        serializedVersion: 2
+        x: 1529
+        y: 3087
+        width: 395
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48404883dc760b530800000000000000
+      internalID: 3868706211025388676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_6
+      rect:
+        serializedVersion: 2
+        x: 2681
+        y: 3087
+        width: 395
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 573b19f4fab36a170800000000000000
+      internalID: 8189298596560089973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_7
+      rect:
+        serializedVersion: 2
+        x: 3833
+        y: 3087
+        width: 395
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9925f4521cd7e8bc0800000000000000
+      internalID: -3778944768809151847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_8
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 2318
+        width: 454
+        height: 546
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a31d139a153ae720800000000000000
+      internalID: 2876169700283061160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_9
+      rect:
+        serializedVersion: 2
+        x: 1484
+        y: 2319
+        width: 471
+        height: 567
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 558090dbba7b8e610800000000000000
+      internalID: 1650771211670063189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_10
+      rect:
+        serializedVersion: 2
+        x: 2613
+        y: 2318
+        width: 640
+        height: 579
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c23e193255e1b33c0800000000000000
+      internalID: -4378872861669858516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_11
+      rect:
+        serializedVersion: 2
+        x: 3765
+        y: 2318
+        width: 643
+        height: 579
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c63ac32caca108f0800000000000000
+      internalID: -575989421991905594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_12
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 1550
+        width: 584
+        height: 579
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c67bb63a7070080c0800000000000000
+      internalID: -4575649492020512916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_13
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1879
+        width: 13
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bebc9be553a159ff0800000000000000
+      internalID: -30089005983216661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_14
+      rect:
+        serializedVersion: 2
+        x: 1461
+        y: 1550
+        width: 581
+        height: 579
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15e6072e1c8641c20800000000000000
+      internalID: 3176278819140038225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_15
+      rect:
+        serializedVersion: 2
+        x: 2571
+        y: 1551
+        width: 522
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd849ef758097c150800000000000000
+      internalID: 5892837540488628444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_16
+      rect:
+        serializedVersion: 2
+        x: 3782
+        y: 1551
+        width: 485
+        height: 578
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 478ebf700e3bf8570800000000000000
+      internalID: 8471187198895188084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_17
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 782
+        width: 469
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2992e50b173ab2b0800000000000000
+      internalID: -5568077400087815892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_18
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 783
+        width: 504
+        height: 584
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ec338bb743770660800000000000000
+      internalID: 7351971668631436512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_19
+      rect:
+        serializedVersion: 2
+        x: 2624
+        y: 783
+        width: 504
+        height: 584
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c66fbbff57807ee40800000000000000
+      internalID: 5685522357473244780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_20
+      rect:
+        serializedVersion: 2
+        x: 3803
+        y: 784
+        width: 465
+        height: 617
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4010a6da2849ace80800000000000000
+      internalID: -8157544486052167420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_21
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 16
+        width: 465
+        height: 617
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f7631ad80a047180800000000000000
+      internalID: -9118652312383690763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_22
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 16
+        width: 465
+        height: 617
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6a074838d6342ad0800000000000000
+      internalID: -2727995171994662293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_23
+      rect:
+        serializedVersion: 2
+        x: 2651
+        y: 16
+        width: 465
+        height: 617
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeab9259294105f20800000000000000
+      internalID: 3409247537719786218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_isku1_24
+      rect:
+        serializedVersion: 2
+        x: 3789
+        y: 16
+        width: 502
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bc38b26d3264f340800000000000000
+      internalID: 4896646710647340210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      melvin_isku1_0: 620503455034896942
+      melvin_isku1_1: -5645574042107460666
+      melvin_isku1_10: -4378872861669858516
+      melvin_isku1_11: -575989421991905594
+      melvin_isku1_12: -4575649492020512916
+      melvin_isku1_13: -30089005983216661
+      melvin_isku1_14: 3176278819140038225
+      melvin_isku1_15: 5892837540488628444
+      melvin_isku1_16: 8471187198895188084
+      melvin_isku1_17: -5568077400087815892
+      melvin_isku1_18: 7351971668631436512
+      melvin_isku1_19: 5685522357473244780
+      melvin_isku1_2: 4457477797336129832
+      melvin_isku1_20: -8157544486052167420
+      melvin_isku1_21: -9118652312383690763
+      melvin_isku1_22: -2727995171994662293
+      melvin_isku1_23: 3409247537719786218
+      melvin_isku1_24: 4896646710647340210
+      melvin_isku1_3: 1951967677585079140
+      melvin_isku1_4: -8581604541748399115
+      melvin_isku1_5: 3868706211025388676
+      melvin_isku1_6: 8189298596560089973
+      melvin_isku1_7: -3778944768809151847
+      melvin_isku1_8: 2876169700283061160
+      melvin_isku1_9: 1650771211670063189
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

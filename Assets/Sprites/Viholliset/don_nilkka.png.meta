@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: bce7340490ad2df41859843a9c513212
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5185093087619394498
+    second: don_nilkka_0
+  - first:
+      213: -7991900434692227683
+    second: don_nilkka_1
+  - first:
+      213: 8933598634989044058
+    second: don_nilkka_2
+  - first:
+      213: 8995872476782266387
+    second: don_nilkka_3
+  - first:
+      213: -1067132619421995123
+    second: don_nilkka_4
+  - first:
+      213: -7088057455333280367
+    second: don_nilkka_5
+  - first:
+      213: 1490316580081826962
+    second: don_nilkka_6
+  - first:
+      213: -9198881540586338683
+    second: don_nilkka_7
+  - first:
+      213: 7847084704182083919
+    second: don_nilkka_8
+  - first:
+      213: 6090883067982323959
+    second: don_nilkka_9
+  - first:
+      213: 3469858564909118059
+    second: don_nilkka_10
+  - first:
+      213: -7768732716324867454
+    second: don_nilkka_11
+  - first:
+      213: 3157355483178284829
+    second: don_nilkka_12
+  - first:
+      213: 489142676019403054
+    second: don_nilkka_13
+  - first:
+      213: 269928712074409568
+    second: don_nilkka_14
+  - first:
+      213: 7198482774964675491
+    second: don_nilkka_15
+  - first:
+      213: -5411031717433786686
+    second: don_nilkka_16
+  - first:
+      213: 5021542699042255036
+    second: don_nilkka_17
+  - first:
+      213: 3329602159534728159
+    second: don_nilkka_18
+  - first:
+      213: -4316948286810901667
+    second: don_nilkka_19
+  - first:
+      213: -3462111665140130281
+    second: don_nilkka_20
+  - first:
+      213: -2214556002189097255
+    second: don_nilkka_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: don_nilkka_0
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 3861
+        width: 362
+        height: 591
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cb23eef0b625f740800000000000000
+      internalID: 5185093087619394498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_1
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 3862
+        width: 371
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9d31e5c5e0171190800000000000000
+      internalID: -7991900434692227683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_2
+      rect:
+        serializedVersion: 2
+        x: 2708
+        y: 3870
+        width: 359
+        height: 577
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a51cf6450a48afb70800000000000000
+      internalID: 8933598634989044058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_3
+      rect:
+        serializedVersion: 2
+        x: 3868
+        y: 3870
+        width: 321
+        height: 573
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 318025ffa52c7dc70800000000000000
+      internalID: 8995872476782266387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_4
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 3102
+        width: 292
+        height: 568
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8fae1b5988c031f0800000000000000
+      internalID: -1067132619421995123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_5
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 3100
+        width: 333
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 195fc4b6c4922ad90800000000000000
+      internalID: -7088057455333280367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_6
+      rect:
+        serializedVersion: 2
+        x: 2580
+        y: 3102
+        width: 408
+        height: 551
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29cf6a6980baea410800000000000000
+      internalID: 1490316580081826962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_7
+      rect:
+        serializedVersion: 2
+        x: 3714
+        y: 3102
+        width: 516
+        height: 544
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58604720af1075080800000000000000
+      internalID: -9198881540586338683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_8
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 2333
+        width: 549
+        height: 537
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f41ac2b76f176ec60800000000000000
+      internalID: 7847084704182083919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_9
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 2333
+        width: 560
+        height: 532
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f0278321e9278450800000000000000
+      internalID: 6090883067982323959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_10
+      rect:
+        serializedVersion: 2
+        x: 2590
+        y: 2333
+        width: 562
+        height: 530
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b62314e0bf9672030800000000000000
+      internalID: 3469858564909118059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_11
+      rect:
+        serializedVersion: 2
+        x: 3741
+        y: 2333
+        width: 553
+        height: 532
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 282308841caef2490800000000000000
+      internalID: -7768732716324867454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_12
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1565
+        width: 519
+        height: 537
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d173974651e21db20800000000000000
+      internalID: 3157355483178284829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_13
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 1566
+        width: 461
+        height: 544
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e29de981ca8c9c600800000000000000
+      internalID: 489142676019403054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_14
+      rect:
+        serializedVersion: 2
+        x: 2595
+        y: 1566
+        width: 376
+        height: 551
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 066bfd5cbbafeb300800000000000000
+      internalID: 269928712074409568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_15
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 1565
+        width: 328
+        height: 561
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a3a983d1f526e360800000000000000
+      internalID: 7198482774964675491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_16
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 798
+        width: 299
+        height: 568
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cebcf5625728e4b0800000000000000
+      internalID: -5411031717433786686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_17
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 796
+        width: 277
+        height: 577
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb0bed0ca7a10b540800000000000000
+      internalID: 5021542699042255036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_18
+      rect:
+        serializedVersion: 2
+        x: 2736
+        y: 794
+        width: 291
+        height: 586
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd3e07ae58f153e20800000000000000
+      internalID: 3329602159534728159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_19
+      rect:
+        serializedVersion: 2
+        x: 3870
+        y: 787
+        width: 324
+        height: 596
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d53b7e2c76e1714c0800000000000000
+      internalID: -4316948286810901667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_20
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 14
+        width: 341
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e169a98cb14ffc0800000000000000
+      internalID: -3462111665140130281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nilkka_21
+      rect:
+        serializedVersion: 2
+        x: 1559
+        y: 16
+        width: 345
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d64f4a9c015441e0800000000000000
+      internalID: -2214556002189097255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      don_nilkka_0: 5185093087619394498
+      don_nilkka_1: -7991900434692227683
+      don_nilkka_10: 3469858564909118059
+      don_nilkka_11: -7768732716324867454
+      don_nilkka_12: 3157355483178284829
+      don_nilkka_13: 489142676019403054
+      don_nilkka_14: 269928712074409568
+      don_nilkka_15: 7198482774964675491
+      don_nilkka_16: -5411031717433786686
+      don_nilkka_17: 5021542699042255036
+      don_nilkka_18: 3329602159534728159
+      don_nilkka_19: -4316948286810901667
+      don_nilkka_2: 8933598634989044058
+      don_nilkka_20: -3462111665140130281
+      don_nilkka_21: -2214556002189097255
+      don_nilkka_3: 8995872476782266387
+      don_nilkka_4: -1067132619421995123
+      don_nilkka_5: -7088057455333280367
+      don_nilkka_6: 1490316580081826962
+      don_nilkka_7: -9198881540586338683
+      don_nilkka_8: 7847084704182083919
+      don_nilkka_9: 6090883067982323959
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

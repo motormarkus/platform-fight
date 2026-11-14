@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: e7c010a3865eb0044acbc63462f7e1c6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2017556090424558453
+    second: melvin_potku_0
+  - first:
+      213: 5453773395833382662
+    second: melvin_potku_1
+  - first:
+      213: 7239297093922372453
+    second: melvin_potku_2
+  - first:
+      213: -6407278666233346645
+    second: melvin_potku_3
+  - first:
+      213: 258651529710065668
+    second: melvin_potku_4
+  - first:
+      213: 8382396616531727894
+    second: melvin_potku_5
+  - first:
+      213: -7320224227894924205
+    second: melvin_potku_6
+  - first:
+      213: 8184407249403980799
+    second: melvin_potku_7
+  - first:
+      213: 5686873893908940361
+    second: melvin_potku_8
+  - first:
+      213: 5083578462491062719
+    second: melvin_potku_9
+  - first:
+      213: -2366321475009823554
+    second: melvin_potku_10
+  - first:
+      213: -8008404444366007505
+    second: melvin_potku_11
+  - first:
+      213: -5973866291595672653
+    second: melvin_potku_12
+  - first:
+      213: -6586195153699107064
+    second: melvin_potku_13
+  - first:
+      213: -9050115695811511678
+    second: melvin_potku_14
+  - first:
+      213: 7709326186538879568
+    second: melvin_potku_15
+  - first:
+      213: 4631004735957901312
+    second: melvin_potku_16
+  - first:
+      213: -3727803523017309317
+    second: melvin_potku_17
+  - first:
+      213: -2403411534072261751
+    second: melvin_potku_18
+  - first:
+      213: 562785481708676150
+    second: melvin_potku_19
+  - first:
+      213: 499653195260176825
+    second: melvin_potku_20
+  - first:
+      213: -2721678204373648665
+    second: melvin_potku_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: melvin_potku_0
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 3855
+        width: 314
+        height: 590
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5738e24239ccffb10800000000000000
+      internalID: 2017556090424558453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_1
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 3859
+        width: 292
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 607ef181202bfab40800000000000000
+      internalID: 5453773395833382662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_2
+      rect:
+        serializedVersion: 2
+        x: 2745
+        y: 3859
+        width: 240
+        height: 591
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56bb2caf956277460800000000000000
+      internalID: 7239297093922372453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_3
+      rect:
+        serializedVersion: 2
+        x: 3906
+        y: 3859
+        width: 209
+        height: 592
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba509321006c417a0800000000000000
+      internalID: -6407278666233346645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_4
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 3091
+        width: 239
+        height: 591
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 408daf4223ae69300800000000000000
+      internalID: 258651529710065668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_5
+      rect:
+        serializedVersion: 2
+        x: 1590
+        y: 3091
+        width: 267
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6165fc69f41445470800000000000000
+      internalID: 8382396616531727894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_6
+      rect:
+        serializedVersion: 2
+        x: 2719
+        y: 3092
+        width: 379
+        height: 584
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35c6d1459d6596a90800000000000000
+      internalID: -7320224227894924205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_7
+      rect:
+        serializedVersion: 2
+        x: 3849
+        y: 3093
+        width: 465
+        height: 581
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffb2bddc70bd49170800000000000000
+      internalID: 8184407249403980799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_8
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 2324
+        width: 488
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94682e81da5dbee40800000000000000
+      internalID: 5686873893908940361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_9
+      rect:
+        serializedVersion: 2
+        x: 1515
+        y: 2323
+        width: 497
+        height: 579
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb13b9c7daf7c8640800000000000000
+      internalID: 5083578462491062719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_10
+      rect:
+        serializedVersion: 2
+        x: 2658
+        y: 2323
+        width: 511
+        height: 579
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebc39a1e723292fd0800000000000000
+      internalID: -2366321475009823554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_11
+      rect:
+        serializedVersion: 2
+        x: 3812
+        y: 2323
+        width: 515
+        height: 581
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2397e3969e6cd090800000000000000
+      internalID: -8008404444366007505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_12
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 1555
+        width: 505
+        height: 583
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b382c93240981da0800000000000000
+      internalID: -5973866291595672653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_13
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 1554
+        width: 470
+        height: 587
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80f8d5227622994a0800000000000000
+      internalID: -6586195153699107064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_14
+      rect:
+        serializedVersion: 2
+        x: 2675
+        y: 1555
+        width: 410
+        height: 590
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28ab7f669b7876280800000000000000
+      internalID: -9050115695811511678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_15
+      rect:
+        serializedVersion: 2
+        x: 3833
+        y: 1556
+        width: 329
+        height: 593
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05a444622570dfa60800000000000000
+      internalID: 7709326186538879568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_16
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 787
+        width: 261
+        height: 596
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0002cef6542a44040800000000000000
+      internalID: 4631004735957901312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_17
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 787
+        width: 256
+        height: 598
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b738a12527e244cc0800000000000000
+      internalID: -3727803523017309317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_18
+      rect:
+        serializedVersion: 2
+        x: 2746
+        y: 787
+        width: 250
+        height: 598
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 983db8e81fd55aed0800000000000000
+      internalID: -2403411534072261751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_19
+      rect:
+        serializedVersion: 2
+        x: 3901
+        y: 787
+        width: 267
+        height: 598
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6342ef1f96a6fc700800000000000000
+      internalID: 562785481708676150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_20
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 13
+        width: 292
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b92f5e0fef1fe600800000000000000
+      internalID: 499653195260176825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_potku_21
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 14
+        width: 304
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eab26bd718aa3ad0800000000000000
+      internalID: -2721678204373648665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      melvin_potku_0: 2017556090424558453
+      melvin_potku_1: 5453773395833382662
+      melvin_potku_10: -2366321475009823554
+      melvin_potku_11: -8008404444366007505
+      melvin_potku_12: -5973866291595672653
+      melvin_potku_13: -6586195153699107064
+      melvin_potku_14: -9050115695811511678
+      melvin_potku_15: 7709326186538879568
+      melvin_potku_16: 4631004735957901312
+      melvin_potku_17: -3727803523017309317
+      melvin_potku_18: -2403411534072261751
+      melvin_potku_19: 562785481708676150
+      melvin_potku_2: 7239297093922372453
+      melvin_potku_20: 499653195260176825
+      melvin_potku_21: -2721678204373648665
+      melvin_potku_3: -6407278666233346645
+      melvin_potku_4: 258651529710065668
+      melvin_potku_5: 8382396616531727894
+      melvin_potku_6: -7320224227894924205
+      melvin_potku_7: 8184407249403980799
+      melvin_potku_8: 5686873893908940361
+      melvin_potku_9: 5083578462491062719
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

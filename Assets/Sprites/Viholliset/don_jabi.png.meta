@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 25cb74e6e6909b74a9a26a95e975589c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4476801852227895628
+    second: don_jabi_0
+  - first:
+      213: 3052607570546215397
+    second: don_jabi_1
+  - first:
+      213: 8658825465778286963
+    second: don_jabi_2
+  - first:
+      213: -857197414139760859
+    second: don_jabi_3
+  - first:
+      213: -1245584690690364519
+    second: don_jabi_4
+  - first:
+      213: 7035161807583189291
+    second: don_jabi_5
+  - first:
+      213: 5413523892880566257
+    second: don_jabi_6
+  - first:
+      213: -7483545989910479110
+    second: don_jabi_7
+  - first:
+      213: 7953822086742852753
+    second: don_jabi_8
+  - first:
+      213: -2005793022690843393
+    second: don_jabi_9
+  - first:
+      213: 2798162664406973756
+    second: don_jabi_10
+  - first:
+      213: -1262975592323730527
+    second: don_jabi_11
+  - first:
+      213: 1076876126447213640
+    second: don_jabi_12
+  - first:
+      213: 4479490398269966327
+    second: don_jabi_13
+  - first:
+      213: -7480806562253578177
+    second: don_jabi_14
+  - first:
+      213: -4521534738897302065
+    second: don_jabi_15
+  - first:
+      213: -5454843845790460838
+    second: don_jabi_16
+  - first:
+      213: 3605481917794781009
+    second: don_jabi_17
+  - first:
+      213: -1307202548425840078
+    second: don_jabi_18
+  - first:
+      213: 1486214628298199121
+    second: don_jabi_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: don_jabi_0
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 3089
+        width: 328
+        height: 581
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4be352c3f643fd1c0800000000000000
+      internalID: -4476801852227895628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_1
+      rect:
+        serializedVersion: 2
+        x: 1570
+        y: 3089
+        width: 339
+        height: 586
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e94319796a0d5a20800000000000000
+      internalID: 3052607570546215397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_2
+      rect:
+        serializedVersion: 2
+        x: 2715
+        y: 3088
+        width: 353
+        height: 591
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37132db72e35a2870800000000000000
+      internalID: 8658825465778286963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_3
+      rect:
+        serializedVersion: 2
+        x: 3854
+        y: 3088
+        width: 402
+        height: 591
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52fe0d35e7f9a14f0800000000000000
+      internalID: -857197414139760859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_4
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 2320
+        width: 455
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99b6cbdb25bc6bee0800000000000000
+      internalID: -1245584690690364519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_5
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 2320
+        width: 467
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b29146ed36ae1a160800000000000000
+      internalID: 7035161807583189291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_6
+      rect:
+        serializedVersion: 2
+        x: 2698
+        y: 2321
+        width: 458
+        height: 586
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f76c3a6c43b02b40800000000000000
+      internalID: 5413523892880566257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_7
+      rect:
+        serializedVersion: 2
+        x: 3850
+        y: 2320
+        width: 427
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afe361b529a152890800000000000000
+      internalID: -7483545989910479110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_8
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 1552
+        width: 383
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 194c6f6fb07a16e60800000000000000
+      internalID: 7953822086742852753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_9
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 1553
+        width: 369
+        height: 586
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff42e8d7fddf924e0800000000000000
+      internalID: -2005793022690843393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_10
+      rect:
+        serializedVersion: 2
+        x: 2701
+        y: 1552
+        width: 377
+        height: 584
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3dfcb33e1215d620800000000000000
+      internalID: 2798162664406973756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_11
+      rect:
+        serializedVersion: 2
+        x: 3849
+        y: 1552
+        width: 480
+        height: 579
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a33e8be362097ee0800000000000000
+      internalID: -1262975592323730527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_12
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 784
+        width: 502
+        height: 577
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84c1cf7a125d1fe00800000000000000
+      internalID: 1076876126447213640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_13
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 784
+        width: 502
+        height: 574
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f787aba8c85a2e30800000000000000
+      internalID: 4479490398269966327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_14
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 784
+        width: 478
+        height: 577
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f30e67f0116de2890800000000000000
+      internalID: -7480806562253578177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_15
+      rect:
+        serializedVersion: 2
+        x: 3853
+        y: 785
+        width: 434
+        height: 581
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcd00707c184041c0800000000000000
+      internalID: -4521534738897302065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_16
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 16
+        width: 376
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a541f6a5c608c44b0800000000000000
+      internalID: -5454843845790460838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_17
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 16
+        width: 350
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 157804a93be390230800000000000000
+      internalID: 3605481917794781009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_18
+      rect:
+        serializedVersion: 2
+        x: 2714
+        y: 16
+        width: 340
+        height: 597
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23aa7934532ebdde0800000000000000
+      internalID: -1307202548425840078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_jabi_19
+      rect:
+        serializedVersion: 2
+        x: 3866
+        y: 17
+        width: 338
+        height: 598
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15014b3845810a410800000000000000
+      internalID: 1486214628298199121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      don_jabi_0: -4476801852227895628
+      don_jabi_1: 3052607570546215397
+      don_jabi_10: 2798162664406973756
+      don_jabi_11: -1262975592323730527
+      don_jabi_12: 1076876126447213640
+      don_jabi_13: 4479490398269966327
+      don_jabi_14: -7480806562253578177
+      don_jabi_15: -4521534738897302065
+      don_jabi_16: -5454843845790460838
+      don_jabi_17: 3605481917794781009
+      don_jabi_18: -1307202548425840078
+      don_jabi_19: 1486214628298199121
+      don_jabi_2: 8658825465778286963
+      don_jabi_3: -857197414139760859
+      don_jabi_4: -1245584690690364519
+      don_jabi_5: 7035161807583189291
+      don_jabi_6: 5413523892880566257
+      don_jabi_7: -7483545989910479110
+      don_jabi_8: 7953822086742852753
+      don_jabi_9: -2005793022690843393
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

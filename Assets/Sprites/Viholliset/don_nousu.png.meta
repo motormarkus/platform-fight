@@ -1,0 +1,1053 @@
+fileFormatVersion: 2
+guid: e84724d5256376b4995de7013d769c99
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4506816815865906838
+    second: don_nousu_0
+  - first:
+      213: -1942683916500541235
+    second: don_nousu_1
+  - first:
+      213: 2961656024106086281
+    second: don_nousu_2
+  - first:
+      213: -5260849399904260389
+    second: don_nousu_3
+  - first:
+      213: 8205782944226175616
+    second: don_nousu_4
+  - first:
+      213: 3723330178616040946
+    second: don_nousu_5
+  - first:
+      213: 8500697356583105797
+    second: don_nousu_6
+  - first:
+      213: 6142154836740667515
+    second: don_nousu_7
+  - first:
+      213: 109857777187057708
+    second: don_nousu_8
+  - first:
+      213: -3091285928983849928
+    second: don_nousu_9
+  - first:
+      213: 3270329238795720667
+    second: don_nousu_10
+  - first:
+      213: -6400166526718503594
+    second: don_nousu_11
+  - first:
+      213: 3522531828098642450
+    second: don_nousu_12
+  - first:
+      213: -6519677317695308891
+    second: don_nousu_13
+  - first:
+      213: -5761248385381324901
+    second: don_nousu_14
+  - first:
+      213: 4993952067956446388
+    second: don_nousu_15
+  - first:
+      213: 7811554337671982609
+    second: don_nousu_16
+  - first:
+      213: 4776841924059809145
+    second: don_nousu_17
+  - first:
+      213: -1451304899618924379
+    second: don_nousu_18
+  - first:
+      213: 2552219396990745722
+    second: don_nousu_19
+  - first:
+      213: 1278858793374890096
+    second: don_nousu_20
+  - first:
+      213: -7028217140338615889
+    second: don_nousu_21
+  - first:
+      213: 7126497251438953070
+    second: don_nousu_22
+  - first:
+      213: 8968345457699771873
+    second: don_nousu_23
+  - first:
+      213: -210356533931250319
+    second: don_nousu_24
+  - first:
+      213: 5568550962577991439
+    second: don_nousu_25
+  - first:
+      213: 8085457362776565164
+    second: don_nousu_26
+  - first:
+      213: 769104607525837499
+    second: don_nousu_27
+  - first:
+      213: 8752511432012267749
+    second: don_nousu_28
+  - first:
+      213: -6008591784310533820
+    second: don_nousu_29
+  - first:
+      213: 546593852717187162
+    second: don_nousu_30
+  - first:
+      213: -7233200679233809563
+    second: don_nousu_31
+  - first:
+      213: 3791294514120658594
+    second: don_nousu_32
+  - first:
+      213: 8244394857443265828
+    second: don_nousu_33
+  - first:
+      213: -3075187383030390220
+    second: don_nousu_34
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: don_nousu_0
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 6158
+        width: 731
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 696c171140e6b8e30800000000000000
+      internalID: 4506816815865906838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_1
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 6157
+        width: 729
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc0ee1e45433a05e0800000000000000
+      internalID: -1942683916500541235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_2
+      rect:
+        serializedVersion: 2
+        x: 2574
+        y: 6159
+        width: 722
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98f2dbf567ae91920800000000000000
+      internalID: 2961656024106086281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_3
+      rect:
+        serializedVersion: 2
+        x: 3739
+        y: 6160
+        width: 707
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde21ed0855bdf6b0800000000000000
+      internalID: -5260849399904260389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_4
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 5392
+        width: 688
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08a6f869c1cc0e170800000000000000
+      internalID: 8205782944226175616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_5
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 5395
+        width: 664
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fd96e5021deba330800000000000000
+      internalID: 3723330178616040946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_6
+      rect:
+        serializedVersion: 2
+        x: 2630
+        y: 5398
+        width: 639
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 505fc3a053b88f570800000000000000
+      internalID: 8500697356583105797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_7
+      rect:
+        serializedVersion: 2
+        x: 3789
+        y: 5399
+        width: 635
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b78ff5f08415d3550800000000000000
+      internalID: 6142154836740667515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_8
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 4629
+        width: 635
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c207c09f01b468100800000000000000
+      internalID: 109857777187057708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_9
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 4626
+        width: 637
+        height: 321
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83411cf63db8915d0800000000000000
+      internalID: -3091285928983849928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_10
+      rect:
+        serializedVersion: 2
+        x: 2651
+        y: 4622
+        width: 623
+        height: 335
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd71ef0ad1b826d20800000000000000
+      internalID: 3270329238795720667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_11
+      rect:
+        serializedVersion: 2
+        x: 3800
+        y: 4622
+        width: 615
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6551997147a0e27a0800000000000000
+      internalID: -6400166526718503594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_12
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 3854
+        width: 606
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 212b3d3d80c82e030800000000000000
+      internalID: 3522531828098642450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_13
+      rect:
+        serializedVersion: 2
+        x: 1506
+        y: 3851
+        width: 579
+        height: 367
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ab7994b5047585a0800000000000000
+      internalID: -6519677317695308891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_14
+      rect:
+        serializedVersion: 2
+        x: 2660
+        y: 3852
+        width: 567
+        height: 371
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b97ad8e2e1feb00b0800000000000000
+      internalID: -5761248385381324901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_15
+      rect:
+        serializedVersion: 2
+        x: 3812
+        y: 3851
+        width: 557
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b41fdb52f41e4540800000000000000
+      internalID: 4993952067956446388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_16
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 3083
+        width: 538
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11ea9906847386c60800000000000000
+      internalID: 7811554337671982609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_17
+      rect:
+        serializedVersion: 2
+        x: 1498
+        y: 3084
+        width: 458
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97547cfcb60ca4240800000000000000
+      internalID: 4776841924059809145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_18
+      rect:
+        serializedVersion: 2
+        x: 2664
+        y: 3083
+        width: 398
+        height: 437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a81e6512edebdbe0800000000000000
+      internalID: -1451304899618924379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_19
+      rect:
+        serializedVersion: 2
+        x: 3850
+        y: 3093
+        width: 352
+        height: 456
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7cbe72f40e4b6320800000000000000
+      internalID: 2552219396990745722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_20
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 2325
+        width: 306
+        height: 485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 078bef00c4b6fb110800000000000000
+      internalID: 1278858793374890096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_21
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 2325
+        width: 305
+        height: 514
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa91ec97fb1c67e90800000000000000
+      internalID: -7028217140338615889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_22
+      rect:
+        serializedVersion: 2
+        x: 2704
+        y: 2325
+        width: 301
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6201dc0e7766e260800000000000000
+      internalID: 7126497251438953070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_23
+      rect:
+        serializedVersion: 2
+        x: 3852
+        y: 2325
+        width: 301
+        height: 577
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e5de2d6da6f57c70800000000000000
+      internalID: 8968345457699771873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_24
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 1557
+        width: 301
+        height: 601
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17d68dec8d9a41df0800000000000000
+      internalID: -210356533931250319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_25
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 1557
+        width: 294
+        height: 620
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f07ee16d897774d40800000000000000
+      internalID: 5568550962577991439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_26
+      rect:
+        serializedVersion: 2
+        x: 2710
+        y: 1557
+        width: 284
+        height: 635
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca52dd202a0553070800000000000000
+      internalID: 8085457362776565164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_27
+      rect:
+        serializedVersion: 2
+        x: 3885
+        y: 1557
+        width: 268
+        height: 639
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bba91bec0986caa00800000000000000
+      internalID: 769104607525837499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_28
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 789
+        width: 271
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e003ad46ca277970800000000000000
+      internalID: 8752511432012267749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_29
+      rect:
+        serializedVersion: 2
+        x: 1599
+        y: 789
+        width: 272
+        height: 639
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44117d76b913d9ca0800000000000000
+      internalID: -6008591784310533820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_30
+      rect:
+        serializedVersion: 2
+        x: 2759
+        y: 782
+        width: 252
+        height: 639
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a50ce9b8634e59700800000000000000
+      internalID: 546593852717187162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_31
+      rect:
+        serializedVersion: 2
+        x: 3919
+        y: 781
+        width: 231
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 563972d2e428e9b90800000000000000
+      internalID: -7233200679233809563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_32
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 14
+        width: 227
+        height: 620
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ae8c0106426d9430800000000000000
+      internalID: 3791294514120658594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_33
+      rect:
+        serializedVersion: 2
+        x: 1629
+        y: 14
+        width: 229
+        height: 615
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42d86f13179f96270800000000000000
+      internalID: 8244394857443265828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_nousu_34
+      rect:
+        serializedVersion: 2
+        x: 2778
+        y: 14
+        width: 234
+        height: 615
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 432e5b04e5db255d0800000000000000
+      internalID: -3075187383030390220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      don_nousu_0: 4506816815865906838
+      don_nousu_1: -1942683916500541235
+      don_nousu_10: 3270329238795720667
+      don_nousu_11: -6400166526718503594
+      don_nousu_12: 3522531828098642450
+      don_nousu_13: -6519677317695308891
+      don_nousu_14: -5761248385381324901
+      don_nousu_15: 4993952067956446388
+      don_nousu_16: 7811554337671982609
+      don_nousu_17: 4776841924059809145
+      don_nousu_18: -1451304899618924379
+      don_nousu_19: 2552219396990745722
+      don_nousu_2: 2961656024106086281
+      don_nousu_20: 1278858793374890096
+      don_nousu_21: -7028217140338615889
+      don_nousu_22: 7126497251438953070
+      don_nousu_23: 8968345457699771873
+      don_nousu_24: -210356533931250319
+      don_nousu_25: 5568550962577991439
+      don_nousu_26: 8085457362776565164
+      don_nousu_27: 769104607525837499
+      don_nousu_28: 8752511432012267749
+      don_nousu_29: -6008591784310533820
+      don_nousu_3: -5260849399904260389
+      don_nousu_30: 546593852717187162
+      don_nousu_31: -7233200679233809563
+      don_nousu_32: 3791294514120658594
+      don_nousu_33: 8244394857443265828
+      don_nousu_34: -3075187383030390220
+      don_nousu_4: 8205782944226175616
+      don_nousu_5: 3723330178616040946
+      don_nousu_6: 8500697356583105797
+      don_nousu_7: 6142154836740667515
+      don_nousu_8: 109857777187057708
+      don_nousu_9: -3091285928983849928
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

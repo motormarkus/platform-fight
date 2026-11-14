@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: 3d3b23c8884c4b547948cbcf0f0b40f5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4007984766252008857
+    second: don_potku_0
+  - first:
+      213: 5377550950192945915
+    second: don_potku_1
+  - first:
+      213: 80581063297770051
+    second: don_potku_2
+  - first:
+      213: 5661747070106873059
+    second: don_potku_3
+  - first:
+      213: -7248292350242067402
+    second: don_potku_4
+  - first:
+      213: -4467709301403343878
+    second: don_potku_5
+  - first:
+      213: 964876117296064296
+    second: don_potku_6
+  - first:
+      213: 3118500786224977844
+    second: don_potku_7
+  - first:
+      213: 6708672208202999938
+    second: don_potku_8
+  - first:
+      213: -4896681012269855880
+    second: don_potku_9
+  - first:
+      213: -4442424614903554970
+    second: don_potku_10
+  - first:
+      213: 2572525467645038798
+    second: don_potku_11
+  - first:
+      213: 3148366622507533441
+    second: don_potku_12
+  - first:
+      213: -8146567753075836513
+    second: don_potku_13
+  - first:
+      213: 5543030464476514548
+    second: don_potku_14
+  - first:
+      213: 7587532334230803473
+    second: don_potku_15
+  - first:
+      213: -3242044246965767133
+    second: don_potku_16
+  - first:
+      213: 1653383295329808860
+    second: don_potku_17
+  - first:
+      213: -8811294516726286284
+    second: don_potku_18
+  - first:
+      213: -5099854450506027151
+    second: don_potku_19
+  - first:
+      213: 5439547626212996692
+    second: don_potku_20
+  - first:
+      213: -8308451618342896412
+    second: don_potku_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: don_potku_0
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 3857
+        width: 311
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 995c0a1e8e83f9730800000000000000
+      internalID: 4007984766252008857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_1
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 3859
+        width: 330
+        height: 614
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfa90d30916e0aa40800000000000000
+      internalID: 5377550950192945915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_2
+      rect:
+        serializedVersion: 2
+        x: 2701
+        y: 3858
+        width: 340
+        height: 613
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 342ac75dc084e1100800000000000000
+      internalID: 80581063297770051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_3
+      rect:
+        serializedVersion: 2
+        x: 3895
+        y: 3858
+        width: 364
+        height: 612
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ec24d986f0929e40800000000000000
+      internalID: 5661747070106873059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_4
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 3091
+        width: 405
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63ce3a3b284e86b90800000000000000
+      internalID: -7248292350242067402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_5
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 3091
+        width: 458
+        height: 608
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af32522bf028ff1c0800000000000000
+      internalID: -4467709301403343878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_6
+      rect:
+        serializedVersion: 2
+        x: 2750
+        y: 3090
+        width: 502
+        height: 606
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 827a0bf67bde36d00800000000000000
+      internalID: 964876117296064296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_7
+      rect:
+        serializedVersion: 2
+        x: 3900
+        y: 3091
+        width: 521
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b757ba41f3274b20800000000000000
+      internalID: 3118500786224977844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_8
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 2322
+        width: 519
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 288a97c44ddf91d50800000000000000
+      internalID: 6708672208202999938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_9
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 2323
+        width: 515
+        height: 598
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87b4145209e7b0cb0800000000000000
+      internalID: -4896681012269855880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_10
+      rect:
+        serializedVersion: 2
+        x: 2745
+        y: 2323
+        width: 519
+        height: 598
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66cd83789565952c0800000000000000
+      internalID: -4442424614903554970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_11
+      rect:
+        serializedVersion: 2
+        x: 3894
+        y: 2322
+        width: 532
+        height: 601
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec0d0a2784273b320800000000000000
+      internalID: 2572525467645038798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_12
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 1555
+        width: 543
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 184024d23ce31bb20800000000000000
+      internalID: 3148366622507533441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_13
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 1554
+        width: 540
+        height: 606
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f99334b7ac391fe80800000000000000
+      internalID: -8146567753075836513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_14
+      rect:
+        serializedVersion: 2
+        x: 2743
+        y: 1555
+        width: 520
+        height: 608
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f88a46d6dcccec40800000000000000
+      internalID: 5543030464476514548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_15
+      rect:
+        serializedVersion: 2
+        x: 3898
+        y: 1554
+        width: 475
+        height: 613
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1141e9f15745c4960800000000000000
+      internalID: 7587532334230803473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_16
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 787
+        width: 417
+        height: 615
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 324b1893fe1f103d0800000000000000
+      internalID: -3242044246965767133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_17
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 786
+        width: 364
+        height: 618
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd1b2bbd85ff1f610800000000000000
+      internalID: 1653383295329808860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_18
+      rect:
+        serializedVersion: 2
+        x: 2703
+        y: 787
+        width: 323
+        height: 620
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 438be2f325ef7b580800000000000000
+      internalID: -8811294516726286284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_19
+      rect:
+        serializedVersion: 2
+        x: 3855
+        y: 787
+        width: 304
+        height: 620
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17fa46fb56da939b0800000000000000
+      internalID: -5099854450506027151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_20
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 18
+        width: 297
+        height: 618
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 456be3ffeb72d7b40800000000000000
+      internalID: 5439547626212996692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_potku_21
+      rect:
+        serializedVersion: 2
+        x: 1569
+        y: 16
+        width: 289
+        height: 615
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ecf62fe54372bc80800000000000000
+      internalID: -8308451618342896412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      don_potku_0: 4007984766252008857
+      don_potku_1: 5377550950192945915
+      don_potku_10: -4442424614903554970
+      don_potku_11: 2572525467645038798
+      don_potku_12: 3148366622507533441
+      don_potku_13: -8146567753075836513
+      don_potku_14: 5543030464476514548
+      don_potku_15: 7587532334230803473
+      don_potku_16: -3242044246965767133
+      don_potku_17: 1653383295329808860
+      don_potku_18: -8811294516726286284
+      don_potku_19: -5099854450506027151
+      don_potku_2: 80581063297770051
+      don_potku_20: 5439547626212996692
+      don_potku_21: -8308451618342896412
+      don_potku_3: 5661747070106873059
+      don_potku_4: -7248292350242067402
+      don_potku_5: -4467709301403343878
+      don_potku_6: 964876117296064296
+      don_potku_7: 3118500786224977844
+      don_potku_8: 6708672208202999938
+      don_potku_9: -4896681012269855880
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

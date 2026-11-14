@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: 74b294c9764e5f5459ef8a460330e797
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6052239389667065790
+    second: don_juoksu_0
+  - first:
+      213: -4149826619152666964
+    second: don_juoksu_1
+  - first:
+      213: -3531956169641023669
+    second: don_juoksu_2
+  - first:
+      213: -3187657331098290501
+    second: don_juoksu_3
+  - first:
+      213: 5624460537307659523
+    second: don_juoksu_4
+  - first:
+      213: -6221538645966525183
+    second: don_juoksu_5
+  - first:
+      213: 251601191595188071
+    second: don_juoksu_6
+  - first:
+      213: 1599528418117266968
+    second: don_juoksu_7
+  - first:
+      213: 4288986473867194222
+    second: don_juoksu_8
+  - first:
+      213: 5082914201628309786
+    second: don_juoksu_9
+  - first:
+      213: -7040308875086503689
+    second: don_juoksu_10
+  - first:
+      213: 5312332130043588989
+    second: don_juoksu_11
+  - first:
+      213: -3007163021555421804
+    second: don_juoksu_12
+  - first:
+      213: -3420527249289670880
+    second: don_juoksu_13
+  - first:
+      213: -559164721673841773
+    second: don_juoksu_14
+  - first:
+      213: -1025877616506035658
+    second: don_juoksu_15
+  - first:
+      213: -2850323960761302027
+    second: don_juoksu_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: don_juoksu_0
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 3102
+        width: 415
+        height: 592
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 240844b5750220ca0800000000000000
+      internalID: -6052239389667065790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_1
+      rect:
+        serializedVersion: 2
+        x: 1517
+        y: 3099
+        width: 363
+        height: 585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caee1f53daad866c0800000000000000
+      internalID: -4149826619152666964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_2
+      rect:
+        serializedVersion: 2
+        x: 2725
+        y: 3096
+        width: 277
+        height: 583
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b472c4aa398fbfec0800000000000000
+      internalID: -3531956169641023669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_3
+      rect:
+        serializedVersion: 2
+        x: 3922
+        y: 3097
+        width: 209
+        height: 585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb6773adb8a23c3d0800000000000000
+      internalID: -3187657331098290501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_4
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 2331
+        width: 298
+        height: 592
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30dfc6b1f091e0e40800000000000000
+      internalID: 5624460537307659523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_5
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 2331
+        width: 356
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10decca8097a8a9a0800000000000000
+      internalID: -6221538645966525183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_6
+      rect:
+        serializedVersion: 2
+        x: 2633
+        y: 2346
+        width: 404
+        height: 592
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76f981263fddd7300800000000000000
+      internalID: 251601191595188071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_7
+      rect:
+        serializedVersion: 2
+        x: 3771
+        y: 2360
+        width: 453
+        height: 578
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81ea5022f9aa23610800000000000000
+      internalID: 1599528418117266968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_8
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 1573
+        width: 447
+        height: 590
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6f2f45597a858b30800000000000000
+      internalID: 4288986473867194222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_9
+      rect:
+        serializedVersion: 2
+        x: 1491
+        y: 1565
+        width: 378
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a19f7d339832a8640800000000000000
+      internalID: 5082914201628309786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_10
+      rect:
+        serializedVersion: 2
+        x: 2692
+        y: 1563
+        width: 306
+        height: 583
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f06077116ccb4e90800000000000000
+      internalID: -7040308875086503689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_11
+      rect:
+        serializedVersion: 2
+        x: 3903
+        y: 1563
+        width: 233
+        height: 583
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7174242de139b940800000000000000
+      internalID: 5312332130043588989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_12
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 795
+        width: 292
+        height: 590
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49daf7e1a296446d0800000000000000
+      internalID: -3007163021555421804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_13
+      rect:
+        serializedVersion: 2
+        x: 1523
+        y: 797
+        width: 363
+        height: 595
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f8b89e698d780d0800000000000000
+      internalID: -3420527249289670880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_14
+      rect:
+        serializedVersion: 2
+        x: 2645
+        y: 804
+        width: 397
+        height: 595
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39353b1f5a27d38f0800000000000000
+      internalID: -559164721673841773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_15
+      rect:
+        serializedVersion: 2
+        x: 3778
+        y: 827
+        width: 441
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 632222d3eb953c1f0800000000000000
+      internalID: -1025877616506035658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: don_juoksu_16
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 41
+        width: 450
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f3c908957d9178d0800000000000000
+      internalID: -2850323960761302027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      don_juoksu_0: -6052239389667065790
+      don_juoksu_1: -4149826619152666964
+      don_juoksu_10: -7040308875086503689
+      don_juoksu_11: 5312332130043588989
+      don_juoksu_12: -3007163021555421804
+      don_juoksu_13: -3420527249289670880
+      don_juoksu_14: -559164721673841773
+      don_juoksu_15: -1025877616506035658
+      don_juoksu_16: -2850323960761302027
+      don_juoksu_2: -3531956169641023669
+      don_juoksu_3: -3187657331098290501
+      don_juoksu_4: 5624460537307659523
+      don_juoksu_5: -6221538645966525183
+      don_juoksu_6: 251601191595188071
+      don_juoksu_7: 1599528418117266968
+      don_juoksu_8: 4288986473867194222
+      don_juoksu_9: 5082914201628309786
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

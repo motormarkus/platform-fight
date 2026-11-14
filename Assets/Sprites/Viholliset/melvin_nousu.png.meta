@@ -1,0 +1,871 @@
+fileFormatVersion: 2
+guid: 507fe4d6d93f6b444a44410f4ec9fb12
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8706009057193984533
+    second: melvin_nousu_0
+  - first:
+      213: 7593983460861104218
+    second: melvin_nousu_1
+  - first:
+      213: 5285836775382846873
+    second: melvin_nousu_2
+  - first:
+      213: -6353598759241965130
+    second: melvin_nousu_3
+  - first:
+      213: -5390331832598789989
+    second: melvin_nousu_4
+  - first:
+      213: 2989223491204838238
+    second: melvin_nousu_5
+  - first:
+      213: -160716223793000358
+    second: melvin_nousu_6
+  - first:
+      213: -8337166064283740863
+    second: melvin_nousu_7
+  - first:
+      213: -3215154194026346228
+    second: melvin_nousu_8
+  - first:
+      213: -8913194386053620811
+    second: melvin_nousu_9
+  - first:
+      213: -4297914417502419272
+    second: melvin_nousu_10
+  - first:
+      213: 2261526639707167298
+    second: melvin_nousu_11
+  - first:
+      213: -7828475969208329641
+    second: melvin_nousu_12
+  - first:
+      213: -3452846367861210557
+    second: melvin_nousu_13
+  - first:
+      213: 2815196829539576910
+    second: melvin_nousu_14
+  - first:
+      213: -714080788258352001
+    second: melvin_nousu_15
+  - first:
+      213: -3701338850035001975
+    second: melvin_nousu_16
+  - first:
+      213: 6824433078877045612
+    second: melvin_nousu_17
+  - first:
+      213: 3635429881831377917
+    second: melvin_nousu_18
+  - first:
+      213: -361382980848831032
+    second: melvin_nousu_19
+  - first:
+      213: 639786922261562833
+    second: melvin_nousu_20
+  - first:
+      213: -2673191369787076950
+    second: melvin_nousu_21
+  - first:
+      213: 1499378765766486485
+    second: melvin_nousu_22
+  - first:
+      213: -7631513971157482947
+    second: melvin_nousu_23
+  - first:
+      213: 1422849972032193554
+    second: melvin_nousu_24
+  - first:
+      213: 846420246785322969
+    second: melvin_nousu_25
+  - first:
+      213: -7620469456094158153
+    second: melvin_nousu_26
+  - first:
+      213: 8221232476204941225
+    second: melvin_nousu_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: melvin_nousu_0
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 4621
+        width: 635
+        height: 310
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed7e9e83ea0e2780800000000000000
+      internalID: -8706009057193984533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_1
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 4621
+        width: 646
+        height: 321
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5051d619bf336960800000000000000
+      internalID: 7593983460861104218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_2
+      rect:
+        serializedVersion: 2
+        x: 2595
+        y: 4621
+        width: 667
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99d0469aa801b5940800000000000000
+      internalID: 5285836775382846873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_3
+      rect:
+        serializedVersion: 2
+        x: 3752
+        y: 4621
+        width: 675
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b1250e579b73d7a0800000000000000
+      internalID: -6353598759241965130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_4
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 3851
+        width: 665
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b900878e1c1b135b0800000000000000
+      internalID: -5390331832598789989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_5
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 3857
+        width: 631
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e53748b7deadb7920800000000000000
+      internalID: 2989223491204838238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_6
+      rect:
+        serializedVersion: 2
+        x: 2666
+        y: 3859
+        width: 542
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a501d2b227505cdf0800000000000000
+      internalID: -160716223793000358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_7
+      rect:
+        serializedVersion: 2
+        x: 3825
+        y: 3857
+        width: 465
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1451de003af6c4c80800000000000000
+      internalID: -8337166064283740863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_8
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 3086
+        width: 428
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c09c3fe8b4a7163d0800000000000000
+      internalID: -3215154194026346228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_9
+      rect:
+        serializedVersion: 2
+        x: 1489
+        y: 3087
+        width: 484
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb94451ee8fd4480800000000000000
+      internalID: -8913194386053620811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_10
+      rect:
+        serializedVersion: 2
+        x: 2639
+        y: 3085
+        width: 463
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b60dbdcb9dba54c0800000000000000
+      internalID: -4297914417502419272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_11
+      rect:
+        serializedVersion: 2
+        x: 3814
+        y: 3085
+        width: 385
+        height: 447
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24a14d92f7e826f10800000000000000
+      internalID: 2261526639707167298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_12
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 2317
+        width: 310
+        height: 467
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75ad7a2459aab5390800000000000000
+      internalID: -7828475969208329641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_13
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 2317
+        width: 265
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34282abb5860510d0800000000000000
+      internalID: -3452846367861210557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_14
+      rect:
+        serializedVersion: 2
+        x: 2755
+        y: 2317
+        width: 244
+        height: 515
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4c2385d996911720800000000000000
+      internalID: 2815196829539576910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_15
+      rect:
+        serializedVersion: 2
+        x: 3916
+        y: 2317
+        width: 234
+        height: 546
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f741ee27e431716f0800000000000000
+      internalID: -714080788258352001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_16
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 1549
+        width: 227
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9859f4a2de332acc0800000000000000
+      internalID: -3701338850035001975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_17
+      rect:
+        serializedVersion: 2
+        x: 1619
+        y: 1549
+        width: 211
+        height: 601
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6344e35ab145be50800000000000000
+      internalID: 6824433078877045612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_18
+      rect:
+        serializedVersion: 2
+        x: 2776
+        y: 1549
+        width: 211
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfb46685734a37230800000000000000
+      internalID: 3635429881831377917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_19
+      rect:
+        serializedVersion: 2
+        x: 3932
+        y: 1549
+        width: 213
+        height: 619
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c532a6f71c1cfaf0800000000000000
+      internalID: -361382980848831032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_20
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 781
+        width: 227
+        height: 619
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d54759e0daf0e800800000000000000
+      internalID: 639786922261562833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_21
+      rect:
+        serializedVersion: 2
+        x: 1604
+        y: 781
+        width: 288
+        height: 619
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aae8333cc9ae6ead0800000000000000
+      internalID: -2673191369787076950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_22
+      rect:
+        serializedVersion: 2
+        x: 2734
+        y: 781
+        width: 319
+        height: 617
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d9664d1b0ddec410800000000000000
+      internalID: 1499378765766486485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_23
+      rect:
+        serializedVersion: 2
+        x: 3886
+        y: 781
+        width: 302
+        height: 614
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d324aba0a7a671690800000000000000
+      internalID: -7631513971157482947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_24
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 13
+        width: 292
+        height: 612
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21447afc28afeb310800000000000000
+      internalID: 1422849972032193554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_25
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 13
+        width: 319
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9df665cdab61fbb00800000000000000
+      internalID: 846420246785322969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_26
+      rect:
+        serializedVersion: 2
+        x: 2721
+        y: 17
+        width: 343
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b22bc79767ae3690800000000000000
+      internalID: -7620469456094158153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_nousu_27
+      rect:
+        serializedVersion: 2
+        x: 3865
+        y: 15
+        width: 343
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9afb910116fa71270800000000000000
+      internalID: 8221232476204941225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      melvin_nousu_0: -8706009057193984533
+      melvin_nousu_1: 7593983460861104218
+      melvin_nousu_10: -4297914417502419272
+      melvin_nousu_11: 2261526639707167298
+      melvin_nousu_12: -7828475969208329641
+      melvin_nousu_13: -3452846367861210557
+      melvin_nousu_14: 2815196829539576910
+      melvin_nousu_15: -714080788258352001
+      melvin_nousu_16: -3701338850035001975
+      melvin_nousu_17: 6824433078877045612
+      melvin_nousu_18: 3635429881831377917
+      melvin_nousu_19: -361382980848831032
+      melvin_nousu_2: 5285836775382846873
+      melvin_nousu_20: 639786922261562833
+      melvin_nousu_21: -2673191369787076950
+      melvin_nousu_22: 1499378765766486485
+      melvin_nousu_23: -7631513971157482947
+      melvin_nousu_24: 1422849972032193554
+      melvin_nousu_25: 846420246785322969
+      melvin_nousu_26: -7620469456094158153
+      melvin_nousu_27: 8221232476204941225
+      melvin_nousu_3: -6353598759241965130
+      melvin_nousu_4: -5390331832598789989
+      melvin_nousu_5: 2989223491204838238
+      melvin_nousu_6: -160716223793000358
+      melvin_nousu_7: -8337166064283740863
+      melvin_nousu_8: -3215154194026346228
+      melvin_nousu_9: -8913194386053620811
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: a318917655d58924994750cec257bacf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3577582145087559737
+    second: melvin_idle_0
+  - first:
+      213: -6221577964807947367
+    second: melvin_idle_1
+  - first:
+      213: -8680302477703596756
+    second: melvin_idle_2
+  - first:
+      213: 4211936564544969129
+    second: melvin_idle_3
+  - first:
+      213: -8264385769601225901
+    second: melvin_idle_4
+  - first:
+      213: 3285246941027677456
+    second: melvin_idle_5
+  - first:
+      213: -4515095395102417255
+    second: melvin_idle_6
+  - first:
+      213: -4398621537275534399
+    second: melvin_idle_7
+  - first:
+      213: -7406561811465979764
+    second: melvin_idle_8
+  - first:
+      213: 7191122030046043869
+    second: melvin_idle_9
+  - first:
+      213: -7618112666026828797
+    second: melvin_idle_10
+  - first:
+      213: -1220117112845697112
+    second: melvin_idle_11
+  - first:
+      213: -7060656786873109501
+    second: melvin_idle_12
+  - first:
+      213: 4406920806174994083
+    second: melvin_idle_13
+  - first:
+      213: -8476714593888100473
+    second: melvin_idle_14
+  - first:
+      213: -4869336993405978968
+    second: melvin_idle_15
+  - first:
+      213: 7594736640404879762
+    second: melvin_idle_16
+  - first:
+      213: 6503142224882642910
+    second: melvin_idle_17
+  - first:
+      213: -3729174796229520164
+    second: melvin_idle_18
+  - first:
+      213: -3143312056524326083
+    second: melvin_idle_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: melvin_idle_0
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 3087
+        width: 580
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c7a64f6effd95ec0800000000000000
+      internalID: -3577582145087559737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_1
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 3087
+        width: 580
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99b7939edc388a9a0800000000000000
+      internalID: -6221577964807947367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_2
+      rect:
+        serializedVersion: 2
+        x: 2616
+        y: 3087
+        width: 580
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c25b88103ee598780800000000000000
+      internalID: -8680302477703596756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_3
+      rect:
+        serializedVersion: 2
+        x: 3768
+        y: 3087
+        width: 579
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a99e2a5dfdc37a30800000000000000
+      internalID: 4211936564544969129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_4
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 2319
+        width: 580
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35b202cdde00f4d80800000000000000
+      internalID: -8264385769601225901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_5
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 2319
+        width: 579
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 015b467dfaa879d20800000000000000
+      internalID: 3285246941027677456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_6
+      rect:
+        serializedVersion: 2
+        x: 2616
+        y: 2319
+        width: 579
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99e1beff8a82751c0800000000000000
+      internalID: -4515095395102417255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_7
+      rect:
+        serializedVersion: 2
+        x: 3768
+        y: 2319
+        width: 579
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c32f494405f4f2c0800000000000000
+      internalID: -4398621537275534399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_8
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 1551
+        width: 579
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c88b89c264b963990800000000000000
+      internalID: -7406561811465979764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_9
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 1551
+        width: 579
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dde5169d26ffbc360800000000000000
+      internalID: 7191122030046043869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_10
+      rect:
+        serializedVersion: 2
+        x: 2616
+        y: 1551
+        width: 579
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30c119a84e6074690800000000000000
+      internalID: -7618112666026828797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_11
+      rect:
+        serializedVersion: 2
+        x: 3768
+        y: 1551
+        width: 579
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aff47843f5411fe0800000000000000
+      internalID: -1220117112845697112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_12
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 783
+        width: 579
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3043a71bf02830e90800000000000000
+      internalID: -7060656786873109501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_13
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 783
+        width: 579
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aea655df17882d30800000000000000
+      internalID: 4406920806174994083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_14
+      rect:
+        serializedVersion: 2
+        x: 2616
+        y: 783
+        width: 579
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78f1ee80df8ac5a80800000000000000
+      internalID: -8476714593888100473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_15
+      rect:
+        serializedVersion: 2
+        x: 3768
+        y: 783
+        width: 581
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a63e58adc3ac6cb0800000000000000
+      internalID: -4869336993405978968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_16
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 15
+        width: 580
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 299f9fd5cbce56960800000000000000
+      internalID: 7594736640404879762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_17
+      rect:
+        serializedVersion: 2
+        x: 1465
+        y: 15
+        width: 580
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edf29fdf56dcf3a50800000000000000
+      internalID: 6503142224882642910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_18
+      rect:
+        serializedVersion: 2
+        x: 2616
+        y: 15
+        width: 581
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd45665e74f4f3cc0800000000000000
+      internalID: -3729174796229520164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melvin_idle_19
+      rect:
+        serializedVersion: 2
+        x: 3768
+        y: 15
+        width: 581
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3b3aaca656b064d0800000000000000
+      internalID: -3143312056524326083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      melvin_idle_0: -3577582145087559737
+      melvin_idle_1: -6221577964807947367
+      melvin_idle_10: -7618112666026828797
+      melvin_idle_11: -1220117112845697112
+      melvin_idle_12: -7060656786873109501
+      melvin_idle_13: 4406920806174994083
+      melvin_idle_14: -8476714593888100473
+      melvin_idle_15: -4869336993405978968
+      melvin_idle_16: 7594736640404879762
+      melvin_idle_17: 6503142224882642910
+      melvin_idle_18: -3729174796229520164
+      melvin_idle_19: -3143312056524326083
+      melvin_idle_2: -8680302477703596756
+      melvin_idle_3: 4211936564544969129
+      melvin_idle_4: -8264385769601225901
+      melvin_idle_5: 3285246941027677456
+      melvin_idle_6: -4515095395102417255
+      melvin_idle_7: -4398621537275534399
+      melvin_idle_8: -7406561811465979764
+      melvin_idle_9: 7191122030046043869
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

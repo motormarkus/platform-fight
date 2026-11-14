@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: ffa91708acc8fc344b6ad8a38aad21f0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 379687809870085084
+    second: tony_kavely_0
+  - first:
+      213: -34559202938870165
+    second: tony_kavely_1
+  - first:
+      213: 2031832739728930944
+    second: tony_kavely_2
+  - first:
+      213: 3132065464808103802
+    second: tony_kavely_3
+  - first:
+      213: -2008008967787080486
+    second: tony_kavely_4
+  - first:
+      213: 256328961817572043
+    second: tony_kavely_5
+  - first:
+      213: 7484853212080336582
+    second: tony_kavely_6
+  - first:
+      213: 6366795826881970003
+    second: tony_kavely_7
+  - first:
+      213: 3005498829925881599
+    second: tony_kavely_8
+  - first:
+      213: 6114194354379530268
+    second: tony_kavely_9
+  - first:
+      213: -2213403132882795894
+    second: tony_kavely_10
+  - first:
+      213: 1555731725922454039
+    second: tony_kavely_11
+  - first:
+      213: -3652106089777388955
+    second: tony_kavely_12
+  - first:
+      213: -3063546623404557785
+    second: tony_kavely_13
+  - first:
+      213: 1640517856568698819
+    second: tony_kavely_14
+  - first:
+      213: -4279830942954898755
+    second: tony_kavely_15
+  - first:
+      213: -7328594145693619215
+    second: tony_kavely_16
+  - first:
+      213: -592268953352781657
+    second: tony_kavely_17
+  - first:
+      213: -7838469899613429910
+    second: tony_kavely_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tony_kavely_0
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 3082
+        width: 240
+        height: 652
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdb3ad82d0ce44500800000000000000
+      internalID: 379687809870085084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_1
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 3082
+        width: 228
+        height: 654
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b66ab198698358ff0800000000000000
+      internalID: -34559202938870165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_2
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 3094
+        width: 300
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0883d869c15823c10800000000000000
+      internalID: 2031832739728930944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_3
+      rect:
+        serializedVersion: 2
+        x: 2109
+        y: 3091
+        width: 314
+        height: 636
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7fd72322f4577b20800000000000000
+      internalID: 3132065464808103802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_4
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 2319
+        width: 323
+        height: 635
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad490419b7e1224e0800000000000000
+      internalID: -2008008967787080486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_5
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 2316
+        width: 285
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc2f7ca25d9ae8300800000000000000
+      internalID: 256328961817572043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_6
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 2316
+        width: 244
+        height: 647
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ce6df5075a8fd760800000000000000
+      internalID: 7484853212080336582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_7
+      rect:
+        serializedVersion: 2
+        x: 2140
+        y: 2316
+        width: 219
+        height: 652
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f3db262176b5850800000000000000
+      internalID: 6366795826881970003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_8
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 1548
+        width: 227
+        height: 652
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff69592134da5b920800000000000000
+      internalID: 3005498829925881599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_9
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 1549
+        width: 318
+        height: 646
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c10ad74fe5bf9d450800000000000000
+      internalID: 6114194354379530268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_10
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 1551
+        width: 357
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a82c8c7e3996841e0800000000000000
+      internalID: -2213403132882795894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_11
+      rect:
+        serializedVersion: 2
+        x: 2058
+        y: 1551
+        width: 352
+        height: 635
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71ac96913c1179510800000000000000
+      internalID: 1555731725922454039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_12
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 785
+        width: 295
+        height: 635
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56227cc6cdc115dc0800000000000000
+      internalID: -3652106089777388955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_13
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 787
+        width: 229
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72abf1fc3981c75d0800000000000000
+      internalID: -3063546623404557785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_14
+      rect:
+        serializedVersion: 2
+        x: 1491
+        y: 788
+        width: 247
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c766787c4a44c610800000000000000
+      internalID: 1640517856568698819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_15
+      rect:
+        serializedVersion: 2
+        x: 2120
+        y: 790
+        width: 277
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbab272de6cfa94c0800000000000000
+      internalID: -4279830942954898755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_16
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 20
+        width: 306
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fbaceaf37a9b4a90800000000000000
+      internalID: -7328594145693619215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_17
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 12
+        width: 323
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a04aef5686d7c7f0800000000000000
+      internalID: -592268953352781657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_kavely_18
+      rect:
+        serializedVersion: 2
+        x: 1476
+        y: 11
+        width: 292
+        height: 644
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6f13f20829283390800000000000000
+      internalID: -7838469899613429910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tony_kavely_0: 379687809870085084
+      tony_kavely_1: -34559202938870165
+      tony_kavely_10: -2213403132882795894
+      tony_kavely_11: 1555731725922454039
+      tony_kavely_12: -3652106089777388955
+      tony_kavely_13: -3063546623404557785
+      tony_kavely_14: 1640517856568698819
+      tony_kavely_15: -4279830942954898755
+      tony_kavely_16: -7328594145693619215
+      tony_kavely_17: -592268953352781657
+      tony_kavely_18: -7838469899613429910
+      tony_kavely_2: 2031832739728930944
+      tony_kavely_3: 3132065464808103802
+      tony_kavely_4: -2008008967787080486
+      tony_kavely_5: 256328961817572043
+      tony_kavely_6: 7484853212080336582
+      tony_kavely_7: 6366795826881970003
+      tony_kavely_8: 3005498829925881599
+      tony_kavely_9: 6114194354379530268
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

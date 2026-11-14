@@ -1,0 +1,1001 @@
+fileFormatVersion: 2
+guid: 6ceed6de6c6630f40bbc34a0067ae4ed
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7558181522945495819
+    second: tony_potku2_0
+  - first:
+      213: 7536641146694787489
+    second: tony_potku2_1
+  - first:
+      213: -488231228325757528
+    second: tony_potku2_2
+  - first:
+      213: 3467225320677156479
+    second: tony_potku2_3
+  - first:
+      213: -314263021354093108
+    second: tony_potku2_4
+  - first:
+      213: 4344234673493928826
+    second: tony_potku2_5
+  - first:
+      213: 6561206826646294823
+    second: tony_potku2_6
+  - first:
+      213: -627331765542437158
+    second: tony_potku2_7
+  - first:
+      213: -8365167138742849432
+    second: tony_potku2_8
+  - first:
+      213: 9011548406048361975
+    second: tony_potku2_9
+  - first:
+      213: -4283582159713759446
+    second: tony_potku2_10
+  - first:
+      213: 811590986188479260
+    second: tony_potku2_11
+  - first:
+      213: 4988742152779483599
+    second: tony_potku2_12
+  - first:
+      213: -490989143406650807
+    second: tony_potku2_13
+  - first:
+      213: -5228831244685866416
+    second: tony_potku2_14
+  - first:
+      213: 1680047878654783522
+    second: tony_potku2_15
+  - first:
+      213: 2937550636687497784
+    second: tony_potku2_16
+  - first:
+      213: 6240461689169400120
+    second: tony_potku2_17
+  - first:
+      213: -1522856938630806234
+    second: tony_potku2_18
+  - first:
+      213: -7149379501492509147
+    second: tony_potku2_19
+  - first:
+      213: -597247002627507413
+    second: tony_potku2_20
+  - first:
+      213: -5571762660992788685
+    second: tony_potku2_21
+  - first:
+      213: 5868141517482313110
+    second: tony_potku2_22
+  - first:
+      213: 1386163925645140275
+    second: tony_potku2_23
+  - first:
+      213: 2725990315480186098
+    second: tony_potku2_24
+  - first:
+      213: 1478350864341529701
+    second: tony_potku2_25
+  - first:
+      213: 5609607668219327683
+    second: tony_potku2_26
+  - first:
+      213: -5635125207311035333
+    second: tony_potku2_27
+  - first:
+      213: 3473745150830076921
+    second: tony_potku2_28
+  - first:
+      213: -3227352853520445632
+    second: tony_potku2_29
+  - first:
+      213: 4177819272471333348
+    second: tony_potku2_30
+  - first:
+      213: -5283001319242127224
+    second: tony_potku2_31
+  - first:
+      213: 8839392654847687390
+    second: tony_potku2_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tony_potku2_0
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 6159
+        width: 320
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fca9e823f1fb1790800000000000000
+      internalID: -7558181522945495819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_1
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 6159
+        width: 320
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a1e55c2137879860800000000000000
+      internalID: 7536641146694787489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_2
+      rect:
+        serializedVersion: 2
+        x: 2726
+        y: 6159
+        width: 324
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8adf36bd8447939f0800000000000000
+      internalID: -488231228325757528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_3
+      rect:
+        serializedVersion: 2
+        x: 4006
+        y: 6159
+        width: 324
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f76a33b1f0f0e1030800000000000000
+      internalID: 3467225320677156479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_4
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 5391
+        width: 324
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc5f526727383abf0800000000000000
+      internalID: -314263021354093108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_5
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 5391
+        width: 324
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7b6a863b62d94c30800000000000000
+      internalID: 4344234673493928826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_6
+      rect:
+        serializedVersion: 2
+        x: 2726
+        y: 5391
+        width: 324
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 721de1898d61e0b50800000000000000
+      internalID: 6561206826646294823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_7
+      rect:
+        serializedVersion: 2
+        x: 3940
+        y: 5391
+        width: 391
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ade368e35154b47f0800000000000000
+      internalID: -627331765542437158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_8
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 4623
+        width: 391
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8603670dec4f8eb80800000000000000
+      internalID: -8365167138742849432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_9
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 4623
+        width: 391
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fd00c2b7837f0d70800000000000000
+      internalID: 9011548406048361975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_10
+      rect:
+        serializedVersion: 2
+        x: 2740
+        y: 4623
+        width: 401
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2f8f0c98b8ad84c0800000000000000
+      internalID: -4283582159713759446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_11
+      rect:
+        serializedVersion: 2
+        x: 4020
+        y: 4623
+        width: 401
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1b5ca2b3b9534b00800000000000000
+      internalID: 811590986188479260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_12
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 3855
+        width: 600
+        height: 632
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc940747e829b3540800000000000000
+      internalID: 4988742152779483599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_13
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 3855
+        width: 600
+        height: 632
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94a5ca6b9f7af29f0800000000000000
+      internalID: -490989143406650807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_14
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 3855
+        width: 600
+        height: 632
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05a090ebfa57f67b0800000000000000
+      internalID: -5228831244685866416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_15
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 3855
+        width: 600
+        height: 632
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 220fdd4f4aab05710800000000000000
+      internalID: 1680047878654783522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_16
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 3087
+        width: 471
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83a1b718db644c820800000000000000
+      internalID: 2937550636687497784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_17
+      rect:
+        serializedVersion: 2
+        x: 1435
+        y: 3087
+        width: 471
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8315069c7d29a9650800000000000000
+      internalID: 6240461689169400120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_18
+      rect:
+        serializedVersion: 2
+        x: 2715
+        y: 3087
+        width: 471
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6250c29cea9bddae0800000000000000
+      internalID: -1522856938630806234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_19
+      rect:
+        serializedVersion: 2
+        x: 3995
+        y: 3087
+        width: 471
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5266411f83d48cc90800000000000000
+      internalID: -7149379501492509147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_20
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 2319
+        width: 471
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2b7835f30726b7f0800000000000000
+      internalID: -597247002627507413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_21
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 2319
+        width: 354
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3375dba516f1da2b0800000000000000
+      internalID: -5571762660992788685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_22
+      rect:
+        serializedVersion: 2
+        x: 2676
+        y: 2319
+        width: 354
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69541419e93df6150800000000000000
+      internalID: 5868141517482313110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_23
+      rect:
+        serializedVersion: 2
+        x: 3956
+        y: 2319
+        width: 354
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3312a840fb4ac3310800000000000000
+      internalID: 1386163925645140275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_24
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 1551
+        width: 354
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fcf95fbfb9a4d520800000000000000
+      internalID: 2725990315480186098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_25
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 1551
+        width: 354
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 564f77a4748248410800000000000000
+      internalID: 1478350864341529701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_26
+      rect:
+        serializedVersion: 2
+        x: 2724
+        y: 1551
+        width: 317
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c43589047459dd40800000000000000
+      internalID: 5609607668219327683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_27
+      rect:
+        serializedVersion: 2
+        x: 4004
+        y: 1551
+        width: 317
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b345069ea730cc1b0800000000000000
+      internalID: -5635125207311035333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_28
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 783
+        width: 317
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f3667b5fc8353030800000000000000
+      internalID: 3473745150830076921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_29
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 783
+        width: 317
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04f0211dda32633d0800000000000000
+      internalID: -3227352853520445632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_30
+      rect:
+        serializedVersion: 2
+        x: 2724
+        y: 783
+        width: 317
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e94f674e789af930800000000000000
+      internalID: 4177819272471333348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_31
+      rect:
+        serializedVersion: 2
+        x: 4004
+        y: 783
+        width: 317
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88827aa6a420fa6b0800000000000000
+      internalID: -5283001319242127224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tony_potku2_32
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 15
+        width: 317
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edab46659c4dbaa70800000000000000
+      internalID: 8839392654847687390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tony_potku2_0: -7558181522945495819
+      tony_potku2_1: 7536641146694787489
+      tony_potku2_10: -4283582159713759446
+      tony_potku2_11: 811590986188479260
+      tony_potku2_12: 4988742152779483599
+      tony_potku2_13: -490989143406650807
+      tony_potku2_14: -5228831244685866416
+      tony_potku2_15: 1680047878654783522
+      tony_potku2_16: 2937550636687497784
+      tony_potku2_17: 6240461689169400120
+      tony_potku2_18: -1522856938630806234
+      tony_potku2_19: -7149379501492509147
+      tony_potku2_2: -488231228325757528
+      tony_potku2_20: -597247002627507413
+      tony_potku2_21: -5571762660992788685
+      tony_potku2_22: 5868141517482313110
+      tony_potku2_23: 1386163925645140275
+      tony_potku2_24: 2725990315480186098
+      tony_potku2_25: 1478350864341529701
+      tony_potku2_26: 5609607668219327683
+      tony_potku2_27: -5635125207311035333
+      tony_potku2_28: 3473745150830076921
+      tony_potku2_29: -3227352853520445632
+      tony_potku2_3: 3467225320677156479
+      tony_potku2_30: 4177819272471333348
+      tony_potku2_31: -5283001319242127224
+      tony_potku2_32: 8839392654847687390
+      tony_potku2_4: -314263021354093108
+      tony_potku2_5: 4344234673493928826
+      tony_potku2_6: 6561206826646294823
+      tony_potku2_7: -627331765542437158
+      tony_potku2_8: -8365167138742849432
+      tony_potku2_9: 9011548406048361975
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
