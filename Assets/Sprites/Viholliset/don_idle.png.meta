@@ -87,7 +87,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,10 +108,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -165,12 +165,12 @@ TextureImporter:
       name: don_idle_0
       rect:
         serializedVersion: 2
-        x: 441
-        y: 2319
-        width: 271
-        height: 612
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -187,12 +187,12 @@ TextureImporter:
       name: don_idle_1
       rect:
         serializedVersion: 2
-        x: 1593
-        y: 2319
-        width: 271
-        height: 610
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -209,12 +209,12 @@ TextureImporter:
       name: don_idle_2
       rect:
         serializedVersion: 2
-        x: 2745
-        y: 2319
-        width: 271
-        height: 610
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: don_idle_3
       rect:
         serializedVersion: 2
-        x: 3902
-        y: 2319
-        width: 266
-        height: 612
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -253,12 +253,12 @@ TextureImporter:
       name: don_idle_4
       rect:
         serializedVersion: 2
-        x: 450
-        y: 1551
-        width: 261
-        height: 612
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -275,12 +275,12 @@ TextureImporter:
       name: don_idle_5
       rect:
         serializedVersion: 2
-        x: 1602
-        y: 1551
-        width: 261
-        height: 610
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -297,12 +297,12 @@ TextureImporter:
       name: don_idle_6
       rect:
         serializedVersion: 2
-        x: 2753
-        y: 1551
-        width: 262
-        height: 610
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -319,12 +319,12 @@ TextureImporter:
       name: don_idle_7
       rect:
         serializedVersion: 2
-        x: 3904
-        y: 1551
-        width: 263
-        height: 610
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -341,12 +341,12 @@ TextureImporter:
       name: don_idle_8
       rect:
         serializedVersion: 2
-        x: 446
-        y: 783
-        width: 266
-        height: 612
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -363,12 +363,12 @@ TextureImporter:
       name: don_idle_9
       rect:
         serializedVersion: 2
-        x: 1602
-        y: 783
-        width: 261
-        height: 612
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -385,12 +385,12 @@ TextureImporter:
       name: don_idle_10
       rect:
         serializedVersion: 2
-        x: 2764
-        y: 783
-        width: 251
-        height: 612
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -407,12 +407,12 @@ TextureImporter:
       name: don_idle_11
       rect:
         serializedVersion: 2
-        x: 3914
-        y: 783
-        width: 254
-        height: 612
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -429,12 +429,12 @@ TextureImporter:
       name: don_idle_12
       rect:
         serializedVersion: 2
-        x: 453
-        y: 15
-        width: 259
-        height: 612
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -451,7 +451,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: efd319f5a6511064c91e44b66ac6c600
     internalID: 0
     vertices: []
     indices: 

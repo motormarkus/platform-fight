@@ -1,0 +1,7 @@
+Las Vegas Strip: avoin katu ja rakennustyomaan alku.
+Pelikuva: vegas-strip-tyomaa-5120x1844.png, 5120 x 1844 RGBA PNG.
+Sijoita taman kuvan vasen reuna kappelikuvan vegas-strip-haakappeli-5120x1844.png oikeaan reunaan samalla korkeudella, PPU:lla ja skaalalla.
+Ensin tilava tyhja katuosuus, sitten metalliaita, tyomaan sisaanmeno, harkkolava ja teraspalkkeja. Keskenerainen betonirunko ja telineet jatkuvat yla- ja oikean reunan yli.
+Jalkakaytava, reunakivi ja asfaltti liittyvat kappelikuvan katuun. Kaikki kaukotausta ja avoimet rakennusaukot lapinakyvia erillista parallaksia varten. Kuvaparin parallaksiesikatseluissa aiemmat Vegas-tasot on yhdistetty vain havainnollistamista varten, ei varsinaiseen etualan PNG:hen.
+Tuotanto: sisaanrakennettu image_gen-kuvatyokalu. Natiivi 2167 x 726 sisalsi vasemmalla liitosviitteen; viite rajattu pois ja uusi kuva skaalattu 5120 x 1844 kokoon. Alfa siivottu, y-kohdistus -1 pikseli ja kapea 128 pikselin liitosalue sovitettu edellisen kuvan reunaan.
+Kappelin alkuperainen kuva ja Unity-scenet/asetukset sailytetty muuttamattomina.

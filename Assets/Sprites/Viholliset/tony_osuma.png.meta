@@ -69,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -90,10 +90,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -147,12 +147,12 @@ TextureImporter:
       name: tony_osuma_0
       rect:
         serializedVersion: 2
-        x: 259
-        y: 783
-        width: 341
-        height: 659
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,12 +169,12 @@ TextureImporter:
       name: tony_osuma_1
       rect:
         serializedVersion: 2
-        x: 1138
-        y: 782
-        width: 368
-        height: 665
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 896
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -191,12 +191,12 @@ TextureImporter:
       name: tony_osuma_2
       rect:
         serializedVersion: 2
-        x: 2023
-        y: 782
-        width: 379
-        height: 665
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1792
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -213,12 +213,12 @@ TextureImporter:
       name: tony_osuma_3
       rect:
         serializedVersion: 2
-        x: 2909
-        y: 782
-        width: 395
-        height: 663
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2688
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -235,12 +235,12 @@ TextureImporter:
       name: tony_osuma_4
       rect:
         serializedVersion: 2
-        x: 206
-        y: 14
-        width: 415
-        height: 658
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -257,12 +257,12 @@ TextureImporter:
       name: tony_osuma_5
       rect:
         serializedVersion: 2
-        x: 1085
-        y: 13
-        width: 432
-        height: 656
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 896
+        y: 0
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -279,12 +279,12 @@ TextureImporter:
       name: tony_osuma_6
       rect:
         serializedVersion: 2
-        x: 1965
-        y: 14
-        width: 449
-        height: 653
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1792
+        y: 0
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -301,7 +301,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 217659f936b6adb41aa02ceeccbd9226
     internalID: 0
     vertices: []
     indices: 

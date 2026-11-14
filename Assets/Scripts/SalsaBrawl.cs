@@ -73,6 +73,12 @@ public class SalsaBrawl : MonoBehaviour
         calm += Time.deltaTime;
         if (nextChatter < 0f) nextChatter = Time.time + Random.Range(chatterEvery.x, chatterEvery.y);
         if (instigator != null && Time.time >= nextChatter && tauntAt < 0f) { instigator.Speak(); nextChatter = Time.time + Random.Range(chatterEvery.x, chatterEvery.y); Debug.Log("[Baari] " + instigator.name + " mutisee (aktiivinen " + instigator.isActiveAndEnabled + ", puheita " + (instigator.tauntSounds == null ? 0 : instigator.tauntSounds.Length) + ")"); }   // Puliukko ei muuten puhu rauhassa (taunt vain jahdissa)
+        if (chatterers != null && tauntAt < 0f)
+        {
+            if (chatterNext == null || chatterNext.Length != chatterers.Length) { chatterNext = new float[chatterers.Length]; for (int i = 0; i < chatterNext.Length; i++) chatterNext[i] = Time.time + Random.Range(chatterEvery.x, chatterEvery.y); }
+            for (int i = 0; i < chatterers.Length; i++)
+                if (chatterers[i] != null && !chatterers[i].IsDead && Time.time >= chatterNext[i]) { chatterers[i].Speak(); chatterNext[i] = Time.time + Random.Range(chatterEvery.x, chatterEvery.y); }   // muut rauhassa puhuvat (esim. vihkijä)
+        }
         if (calm >= calmSeconds && tauntAt < 0f)
         {
             tauntAt = Time.time;
@@ -83,9 +89,16 @@ public class SalsaBrawl : MonoBehaviour
         if (tauntAt >= 0f && Time.time - tauntAt > 6f) Begin();
     }
 
+    [Tooltip("Huutaa repliikin, kun tappelu alkaa (esim. hääkappelin vihkijä).")]
+    public Enemy shoutOnStart;
+    [Tooltip("Muut rauhassa puhuvat (esim. vihkijä ja toinen Puliukko); vuoroaika chatterEvery.")]
+    public Enemy[] chatterers;
+    float[] chatterNext;
+
     void Begin()
     {
         started = true;
+        if (shoutOnStart != null && !shoutOnStart.IsDead) shoutOnStart.Speak();
         if (sailors != null) sailors.forceFight = true;
         if (rogues != null) rogues.forceFight = true;   // neljä rosvoa tulee vasemmalta mukaan
         foreach (var e in crowd)

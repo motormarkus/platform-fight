@@ -1,0 +1,18 @@
+Use case: precise-object-edit / two-edge seamless game background outpainting.
+Asset type: the MIDDLE UPPER tile of a long 2D casino-district construction site, transparent foreground, final tile 5120x1844.
+
+INPUT 1 is a precise 1376x557 editing guide. The GREY rectangle x=0..1279, y=0..460 is the ONLY missing image. Fill this rectangle. The existing RIGHT 96px strip x=1280..1375 and BOTTOM 96px strip y=461..556 are already finished neighboring images and MUST stay fixed. We will crop them away after generation.
+- The RIGHT strip belongs to the existing upper-right tile. Continue its horizontal concrete slabs, their undersides and red scaffold rails exactly LEFTWARD into the grey area.
+- The BOTTOM strip is the top of the existing street-level middle tile. Continue its concrete columns and red scaffold poles precisely UPWARD into the grey area, at their exact x coordinates, widths and colors.
+- Both joins must work simultaneously, not one at the expense of the other.
+INPUT 2 is the complete neighboring upper-right tile, a STYLE / STOREY HEIGHT / LIGHTING reference.
+INPUT 3 is the lower middle street tile, for vertical support alignment only. DO NOT reproduce its asphalt, sidewalk, chain-link street fence or ground-level equipment.
+
+Fill the missing upper construction section across the ENTIRE new tile width. It is an ongoing unfinished concrete building, not a beginning or end. It continues off both left and right edges and above the top edge.
+Same front-facing orthographic side view, hand-painted 1990s arcade game style, restrained clean textures, warm grey concrete, rusty red scaffold pipes with bronze joints, amber caged work lights. Preserve the scale and geometry of the references, no camera zoom or corridor perspective.
+
+Important structural heights in the 1280x461 new tile: continue the slab's front face at y~117..136, its shallow dark underside to y~173; continue the lower slab's front at y~325..347, underside to y~371. Horizontal red scaffold rails cross at y~39, y~78 and y~263. The lowest portion y~371..460 is an open structural bay leading to the finished lower tile. Do NOT add a floor or opaque band at y=461.
+Continue the bottom-context concrete shafts around x~216..270, x~524..576, x~860..908 and x~1094..1150 and the corresponding red poles/braces at their EXACT bottom-edge positions. Do not add an extra wide concrete column against the right tile seam; the right strip there has open air between horizontal slabs.
+
+A few spacious scaffold bays, connected diagonal braces, safe-looking plank platforms and one straight metal ladder between the elevated levels. A modest plank stack, cable coil or a few cement sacks on platforms, and two or three amber work lamps are enough. Keep the structure readable and uncluttered. Objects stand on actual slabs/platforms, not in midair.
+All open bays and gaps are genuine TRANSPARENT ALPHA. NO background wall, sky, city, black/white/grey matte, checkerboard, ground, road, asphalt, sidewalk, street fence, people, vehicles, text or signs. The finished reference strips remain unchanged. Produce the whole guide-sized image; fill only the grey rectangle with this seamless middle upper level.

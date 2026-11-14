@@ -1,0 +1,51 @@
+Mode: built-in image_gen
+
+LEFT TILE
+Use case: stylized-concept.
+Asset type: LEFT HALF of a two-tile 2D side-scrolling game restroom interior belonging to the supplied Las Vegas bar.
+Input reference: STYLE / BUILDING IDENTITY ONLY. This is the nearby bar with burgundy walls, walnut doors and brass trim. Create the RESTROOM inside that same building, not another bar or stage.
+
+One wide opaque illustration at aspect ratio 5120:1844 (2.777:1), intended export 5120 x 1844. Maximize clean native detail. It is one game tile, not a diptych. The matching right tile will be created next.
+
+Camera: near-orthographic SIDE VIEW, broad flat framing, camera pulled back. No deep hallway, no strong converging perspective. Adult-sized fixtures. The back-wall / floor contact line should be at about 58 percent of image height. Foreground BOTTOM 40 PERCENT is completely clear walkable floor. Side wall has only a shallow diagonal projection. No dominant ceiling or roof.
+
+Composition:
+FAR LEFT: close the room with a substantial slightly diagonal return wall extending from the top crop down to the floor. In this left wall place ONE generous closed single entrance door, dark walnut with restrained geometric brass trim and handle, matching the bar's restroom doors from inside. No lettering or sign on it. The floor at its approach is completely clear. Lowest point of left return no lower than about 64 percent height.
+MIDDLE and RIGHT-CENTRE: a long wall-mounted washbasin vanity, dark walnut cabinetry with subtle brass fittings, a quiet ivory stone top, exactly TWO large clean white ceramic basins and two individual aged-brass mixer taps. Above, two broad brass-framed mirrors with soft cool gray reflections of empty tiled wall, no people, no camera, no outdoor view. Flank mirrors with restrained warm Art Deco lights that suit the bar. One small soap dispenser beside each basin. A simple wall-mounted hand dryer and a small waste bin placed against the wall are enough functional detail, not clutter. The basins and mirror wall clearly identify a real public restroom.
+The vanity starts around 35 percent image width and ENDS naturally around 82 percent width. It does NOT continue off the right edge. Leave the last 15 percent of the tile as plain continuous wall and floor for an easy rightward continuation. No fixture, mirror, column, wall lamp or door intersects the right edge.
+RIGHT EDGE: absolutely NO closing wall here. Continue horizontal tiled wainscot, upper burgundy plaster and baseboard to the right boundary at fixed elevations; another tile containing toilet stalls will attach here.
+
+Materials: warm off-white/ivory rectangular glazed wall tiles on the lower wall, a thin restrained brass border, muted deep burgundy plaster above, walnut entrance and cabinetry. Large muted warm gray/taupe stone floor tiles, subtle straight grout joints, clean quiet light texture and soft warm light patches. Floor is matte/slightly satin, not a mirror. Match the source's sophisticated handcrafted painterly game art and readable outlines, but reduce the bar's excessive golden glow: white ceramic must look white, stone stays neutral, brass is a trim material. Clean maintained but mildly used, subtle natural wear only. No random mottled noise or smeared AI textures.
+Make it spacious and restrained, not overfilled. No neon text or bright stage lighting, no stage, no counter for drinks, no stools, no guitars, no bottles, no people, no toilet bowl in this first washbasin tile. No readable text, fake writing, numbers, brands, logos, UI or watermark. Interior is fully opaque, no transparent areas. Preserve generous empty floor and a clean right edge for the second tile.
+
+
+LEFT FLOOR REFRAMING
+Edit this exact restroom image with a single layout correction: pull the camera back a little and reframe to give the empty walking floor the entire BOTTOM 40 PERCENT of the image. Keep the SAME two sinks, same vanity, same mirrors, the one entrance door on the left closing wall, hand dryer, bin, materials, brass trim, burgundy paint and warm lights. No redesign and no extra objects.
+
+The current vanity feet and wall/floor junction are too low (about 70-73 percent down). In the corrected image, the rear wall/floor junction must be at 58 percent of image height, and ALL vanity/bin feet finish by 60 percent. The left closing wall's lowest corner may finish at 63 percent, but nowhere lower. The door must stay fully visible including its top frame: make the fixtures and doorway moderately smaller to achieve the pulled-back view, do not cut off the top of the door. Leave a little empty burgundy wall above the door and mirrors. Do not show the ceiling.
+
+Extend the SAME quiet warm-gray/taupe tiled floor down to the bottom of the image; bottom 40 percent contains only floor and subtle lighting. Retain the very shallow side-wall angle. No extreme perspective. Preserve the wide 5120:1844 aspect ratio. Keep the last 15 percent at the right as plain wall and floor for a future seamless continuation, with no new fixture at the right edge.
+The lower wall tile strip and brass border continue straight across the right edge at a fixed height. This is one tile in a wide 2D game room, not a compact perspective bathroom photo.
+Keep the clean painterly game-art finish. No text, no numbers, no brands, no new objects, no people, no noisy textures. Fully opaque.
+
+
+RIGHT CONTINUATION
+Use case: compositing.
+Asset type: RIGHT HALF of a two-tile 2D game restroom, continuing the finished washbasin tile and closing the room at its right end.
+Input 1 is the EDIT TARGET / geometry template, 1376 x 461. The left 96-pixel strip is finished art from the first tile. Gray area to the right is empty. Fill all gray with the seamless RIGHT continuation, preserving the strip at precisely the same scale and position.
+Input 2 shows the full first tile for style and furniture scale. The entrance door and two washbasins are already in that first tile; do not repeat them here.
+Deliver a single rectangle with aspect ratio 1376:461, no gray remaining. The 96-pixel reference strip will later be cropped off, leaving a new 1280:461 tile for 5120 x 1844 export.
+
+IMPORTANT geometric alignment: the burgundy paint / ivory wall tile brass boundary is at y168 in the 461-high reference. The bottom tile strip and dark walnut skirting are around y265..280. The back wall / floor contact is at y280. Match these exact heights at the seam. Continue the same brick-pattern ivory tiles, brass border, skirting, warm-gray/taupe large stone floor tiles and grout lines. No steps or change of floor level. Keep at least approximately 40 percent of the image as empty walking floor, from around y280 down. Only the shallow closing wall at the far right may extend to y295. All fixtures remain at the rear, no foreground clutter.
+
+Scene in the NEW part:
+- A short quiet stretch of burgundy upper wall and ivory tiled wainscot near the left seam, naturally continuing from the first tile.
+- The primary feature is a bank of THREE believable toilet cubicles along the back wall, front-facing and generously spaced. Dark walnut/burgundy partition panels and doors with restrained brass framing and sturdy brass hinges/locks, matching the restroom's existing door style. Clearly identifiable as toilet stalls with dividers, short feet and small gaps under the doors, not three unrelated room entrances.
+- Two stall doors are closed. The third is partly open just enough to reveal a clean WHITE CERAMIC TOILET with seat, cistern and a wall-mounted paper roll inside an ivory-tiled cubicle. Door opening and bowl are drawn in very shallow depth; no people. This opening makes the function unmistakable. Keep door proportions realistic, narrow enough for a person, not wide garage doors.
+- A modest warm wall light at either side is sufficient. No mirrors, vanities or basins on this tile: those are already in the left tile.
+- FAR RIGHT: a solid closing return wall runs from the top crop down to the floor, shallow diagonal angle toward camera, closing the room. Continue burgundy upper wall, ivory tiles, thin brass border and dark skirting around this end wall. NO additional exit door on the right; the only room entrance is at the far left of the full two-tile room. Keep the right closing wall shallow, not a deep perspective hallway.
+- No ceiling or roof. Above stalls there is a little burgundy wall and enough breathing room. Broad empty floor below. No random furniture or added bins; the bin and hand dryer already exist in the first tile.
+
+Art: exactly the same clean painterly side-view 2D game art as input 2. Warm maintained vintage bar restroom, subdued dark walnut/burgundy, warm ivory tiles, realistic white porcelain, restrained brass, soft amber sconces. Smooth quiet stone floor, minimal texture noise, clear straight tile joints and well-built fixtures. Near-orthographic camera with only shallow depth on the right return and the open stall. Do not shrink or zoom the room to a new scale.
+No people, no graffiti, no words, no letters, no numbers, no stall labels, no symbols requiring text, no logos, no UI, no watermark. Entire interior opaque.
+

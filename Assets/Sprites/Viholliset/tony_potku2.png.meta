@@ -147,7 +147,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -168,10 +168,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -225,12 +225,12 @@ TextureImporter:
       name: tony_potku2_0
       rect:
         serializedVersion: 2
-        x: 173
-        y: 6159
-        width: 320
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 6144
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -247,12 +247,12 @@ TextureImporter:
       name: tony_potku2_1
       rect:
         serializedVersion: 2
-        x: 1453
-        y: 6159
-        width: 320
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 6144
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -269,12 +269,12 @@ TextureImporter:
       name: tony_potku2_2
       rect:
         serializedVersion: 2
-        x: 2726
-        y: 6159
-        width: 324
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 6144
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -291,12 +291,12 @@ TextureImporter:
       name: tony_potku2_3
       rect:
         serializedVersion: 2
-        x: 4006
-        y: 6159
-        width: 324
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 6144
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -313,12 +313,12 @@ TextureImporter:
       name: tony_potku2_4
       rect:
         serializedVersion: 2
-        x: 166
-        y: 5391
-        width: 324
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 5376
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -335,12 +335,12 @@ TextureImporter:
       name: tony_potku2_5
       rect:
         serializedVersion: 2
-        x: 1446
-        y: 5391
-        width: 324
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 5376
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -357,12 +357,12 @@ TextureImporter:
       name: tony_potku2_6
       rect:
         serializedVersion: 2
-        x: 2726
-        y: 5391
-        width: 324
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 5376
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -379,12 +379,12 @@ TextureImporter:
       name: tony_potku2_7
       rect:
         serializedVersion: 2
-        x: 3940
-        y: 5391
-        width: 391
-        height: 637
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 5376
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -401,12 +401,12 @@ TextureImporter:
       name: tony_potku2_8
       rect:
         serializedVersion: 2
-        x: 100
-        y: 4623
-        width: 391
-        height: 637
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 4608
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -423,12 +423,12 @@ TextureImporter:
       name: tony_potku2_9
       rect:
         serializedVersion: 2
-        x: 1380
-        y: 4623
-        width: 391
-        height: 637
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 4608
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -445,12 +445,12 @@ TextureImporter:
       name: tony_potku2_10
       rect:
         serializedVersion: 2
-        x: 2740
-        y: 4623
-        width: 401
-        height: 637
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 4608
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -467,12 +467,12 @@ TextureImporter:
       name: tony_potku2_11
       rect:
         serializedVersion: 2
-        x: 4020
-        y: 4623
-        width: 401
-        height: 637
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 4608
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -489,12 +489,12 @@ TextureImporter:
       name: tony_potku2_12
       rect:
         serializedVersion: 2
-        x: 160
-        y: 3855
-        width: 600
-        height: 632
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3840
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -511,12 +511,12 @@ TextureImporter:
       name: tony_potku2_13
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 3855
-        width: 600
-        height: 632
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 3840
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -533,12 +533,12 @@ TextureImporter:
       name: tony_potku2_14
       rect:
         serializedVersion: 2
-        x: 2720
-        y: 3855
-        width: 600
-        height: 632
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 3840
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -555,12 +555,12 @@ TextureImporter:
       name: tony_potku2_15
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 3855
-        width: 600
-        height: 632
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 3840
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -577,12 +577,12 @@ TextureImporter:
       name: tony_potku2_16
       rect:
         serializedVersion: 2
-        x: 155
-        y: 3087
-        width: 471
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3072
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -599,12 +599,12 @@ TextureImporter:
       name: tony_potku2_17
       rect:
         serializedVersion: 2
-        x: 1435
-        y: 3087
-        width: 471
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 3072
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -621,12 +621,12 @@ TextureImporter:
       name: tony_potku2_18
       rect:
         serializedVersion: 2
-        x: 2715
-        y: 3087
-        width: 471
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 3072
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -643,12 +643,12 @@ TextureImporter:
       name: tony_potku2_19
       rect:
         serializedVersion: 2
-        x: 3995
-        y: 3087
-        width: 471
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 3072
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -665,12 +665,12 @@ TextureImporter:
       name: tony_potku2_20
       rect:
         serializedVersion: 2
-        x: 155
-        y: 2319
-        width: 471
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2304
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -687,12 +687,12 @@ TextureImporter:
       name: tony_potku2_21
       rect:
         serializedVersion: 2
-        x: 1396
-        y: 2319
-        width: 354
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 2304
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -709,12 +709,12 @@ TextureImporter:
       name: tony_potku2_22
       rect:
         serializedVersion: 2
-        x: 2676
-        y: 2319
-        width: 354
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 2304
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -731,12 +731,12 @@ TextureImporter:
       name: tony_potku2_23
       rect:
         serializedVersion: 2
-        x: 3956
-        y: 2319
-        width: 354
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 2304
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -753,12 +753,12 @@ TextureImporter:
       name: tony_potku2_24
       rect:
         serializedVersion: 2
-        x: 116
-        y: 1551
-        width: 354
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -775,12 +775,12 @@ TextureImporter:
       name: tony_potku2_25
       rect:
         serializedVersion: 2
-        x: 1396
-        y: 1551
-        width: 354
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 1536
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -797,12 +797,12 @@ TextureImporter:
       name: tony_potku2_26
       rect:
         serializedVersion: 2
-        x: 2724
-        y: 1551
-        width: 317
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 1536
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -819,12 +819,12 @@ TextureImporter:
       name: tony_potku2_27
       rect:
         serializedVersion: 2
-        x: 4004
-        y: 1551
-        width: 317
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 1536
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -841,12 +841,12 @@ TextureImporter:
       name: tony_potku2_28
       rect:
         serializedVersion: 2
-        x: 164
-        y: 783
-        width: 317
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -863,12 +863,12 @@ TextureImporter:
       name: tony_potku2_29
       rect:
         serializedVersion: 2
-        x: 1444
-        y: 783
-        width: 317
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 768
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -885,12 +885,12 @@ TextureImporter:
       name: tony_potku2_30
       rect:
         serializedVersion: 2
-        x: 2724
-        y: 783
-        width: 317
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 768
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -907,12 +907,12 @@ TextureImporter:
       name: tony_potku2_31
       rect:
         serializedVersion: 2
-        x: 4004
-        y: 783
-        width: 317
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 768
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -929,12 +929,12 @@ TextureImporter:
       name: tony_potku2_32
       rect:
         serializedVersion: 2
-        x: 164
-        y: 15
-        width: 317
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -951,7 +951,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8a983f34deb0191469bb17ccfbbbc95d
     internalID: 0
     vertices: []
     indices: 

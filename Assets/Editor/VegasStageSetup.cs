@@ -56,14 +56,36 @@ public static partial class BeatEmUpSetup
             }
             else report.Add("bändiä ei löytynyt (aja valikko 113 tai 40)");
             float poleH = 3.4f, baseY = feetY;
+            // tangon jatke lavan katonrajaan asti: tanko on tanssijan kuvassa, joten sen päälle venytetään ohut jatko-osa
+            const string ppath = "Assets/Sprites/Rekvisiitta/vegas_tanko_jatke.png";
+            if (!File.Exists(ppath))
+            {
+                var pt = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+                pt.SetPixels32(new[] { new Color32(249, 255, 255, 255), new Color32(211, 204, 199, 255), new Color32(249, 255, 255, 255), new Color32(211, 204, 199, 255) });
+                File.WriteAllBytes(ppath, pt.EncodeToPNG()); Object.DestroyImmediate(pt);
+                AssetDatabase.ImportAsset(ppath, ImportAssetOptions.ForceSynchronousImport);
+                var pimp = (TextureImporter)AssetImporter.GetAtPath(ppath); pimp.textureType = TextureImporterType.Sprite; pimp.spritePixelsPerUnit = 100f; pimp.filterMode = FilterMode.Point; pimp.mipmapEnabled = false; pimp.SaveAndReimport();
+            }
+            var poleSprite = AssetDatabase.LoadAssetAtPath<Sprite>(ppath);
+            float ceilingY = top - 0.02f * H;
+            void PoleExtension(string nm, float x, float yStart, float width)
+            {
+                if (poleSprite == null || yStart >= ceilingY) return;
+                var pg = new GameObject(nm); pg.transform.SetParent(root.transform, false);
+                var psr = pg.AddComponent<SpriteRenderer>(); psr.sprite = poleSprite; psr.sortingOrder = -9001;
+                float hh = ceilingY - yStart;
+                pg.transform.position = new Vector3(x, yStart + hh * 0.5f, 0f);
+                pg.transform.localScale = new Vector3(width / 0.02f, (hh + 0.05f) / 0.02f, 1f);
+            }
             if (mary != null)
             {
                 var mg = Object.Instantiate(mary.gameObject, root.transform); mg.name = "Vegasin Mary";
                 mg.transform.SetParent(root.transform, false);
-                float sc = poleH / 2.78f * AlpUpMaryShrink;
+                float sc = poleH / 2.78f * AlpUpMaryShrink * 1.05f;   // tanssijat 5 % isommiksi
                 mg.transform.localScale = Vector3.one * sc;
                 mg.transform.position = new Vector3(X0 + imgW * 2.08f + 0.46f * sc, baseY - 0.11f * sc, 0f);
                 var sr = mg.GetComponent<SpriteRenderer>(); if (sr != null) sr.sortingOrder = -9000;
+                if (sr != null) PoleExtension("Vegasin Maryn tangon jatke", X0 + imgW * 2.08f, sr.bounds.max.y - 0.96f * sc, 0.022f * sc);
                 report.Add("Mary tangossa");
             }
             else report.Add("Mary puuttuu (aja 282/289)");
@@ -71,10 +93,11 @@ public static partial class BeatEmUpSetup
             {
                 var lg = Object.Instantiate(liz.gameObject, root.transform); lg.name = "Vegasin Liz";
                 lg.transform.SetParent(root.transform, false);
-                float impPpu = ClubPpu / (ClubSpriteScale * 1.1f), effPpu = 345f / poleH, sc = impPpu / effPpu;
+                float impPpu = ClubPpu / (ClubSpriteScale * 1.1f), effPpu = 345f / poleH, sc = impPpu / effPpu * 1.05f;   // tanssijat 5 % isommiksi
                 lg.transform.localScale = Vector3.one * sc;
                 lg.transform.position = new Vector3(X0 + imgW * 2.22f + 3.5f / impPpu * sc, baseY - 7f / impPpu * sc, 0f);
                 var sr = lg.GetComponent<SpriteRenderer>(); if (sr != null) sr.sortingOrder = -9000;
+                if (sr != null) PoleExtension("Vegasin Lizin tangon jatke", X0 + imgW * 2.22f, sr.bounds.max.y, 0.02f * sc * 100f / impPpu * 1.0f);
                 report.Add("Liz tangossa");
             }
             else report.Add("Liz puuttuu (aja 282/289)");

@@ -1,0 +1,18 @@
+Use case: compositing.
+Asset type: RIGHT HALF of a two-tile 2D game restroom, continuing the finished washbasin tile and closing the room at its right end.
+Input 1 is the EDIT TARGET / geometry template, 1376 x 461. The left 96-pixel strip is finished art from the first tile. Gray area to the right is empty. Fill all gray with the seamless RIGHT continuation, preserving the strip at precisely the same scale and position.
+Input 2 shows the full first tile for style and furniture scale. The entrance door and two washbasins are already in that first tile; do not repeat them here.
+Deliver a single rectangle with aspect ratio 1376:461, no gray remaining. The 96-pixel reference strip will later be cropped off, leaving a new 1280:461 tile for 5120 x 1844 export.
+
+IMPORTANT geometric alignment: the burgundy paint / ivory wall tile brass boundary is at y168 in the 461-high reference. The bottom tile strip and dark walnut skirting are around y265..280. The back wall / floor contact is at y280. Match these exact heights at the seam. Continue the same brick-pattern ivory tiles, brass border, skirting, warm-gray/taupe large stone floor tiles and grout lines. No steps or change of floor level. Keep at least approximately 40 percent of the image as empty walking floor, from around y280 down. Only the shallow closing wall at the far right may extend to y295. All fixtures remain at the rear, no foreground clutter.
+
+Scene in the NEW part:
+- A short quiet stretch of burgundy upper wall and ivory tiled wainscot near the left seam, naturally continuing from the first tile.
+- The primary feature is a bank of THREE believable toilet cubicles along the back wall, front-facing and generously spaced. Dark walnut/burgundy partition panels and doors with restrained brass framing and sturdy brass hinges/locks, matching the restroom's existing door style. Clearly identifiable as toilet stalls with dividers, short feet and small gaps under the doors, not three unrelated room entrances.
+- Two stall doors are closed. The third is partly open just enough to reveal a clean WHITE CERAMIC TOILET with seat, cistern and a wall-mounted paper roll inside an ivory-tiled cubicle. Door opening and bowl are drawn in very shallow depth; no people. This opening makes the function unmistakable. Keep door proportions realistic, narrow enough for a person, not wide garage doors.
+- A modest warm wall light at either side is sufficient. No mirrors, vanities or basins on this tile: those are already in the left tile.
+- FAR RIGHT: a solid closing return wall runs from the top crop down to the floor, shallow diagonal angle toward camera, closing the room. Continue burgundy upper wall, ivory tiles, thin brass border and dark skirting around this end wall. NO additional exit door on the right; the only room entrance is at the far left of the full two-tile room. Keep the right closing wall shallow, not a deep perspective hallway.
+- No ceiling or roof. Above stalls there is a little burgundy wall and enough breathing room. Broad empty floor below. No random furniture or added bins; the bin and hand dryer already exist in the first tile.
+
+Art: exactly the same clean painterly side-view 2D game art as input 2. Warm maintained vintage bar restroom, subdued dark walnut/burgundy, warm ivory tiles, realistic white porcelain, restrained brass, soft amber sconces. Smooth quiet stone floor, minimal texture noise, clear straight tile joints and well-built fixtures. Near-orthographic camera with only shallow depth on the right return and the open stall. Do not shrink or zoom the room to a new scale.
+No people, no graffiti, no words, no letters, no numbers, no stall labels, no symbols requiring text, no logos, no UI, no watermark. Entire interior opaque.

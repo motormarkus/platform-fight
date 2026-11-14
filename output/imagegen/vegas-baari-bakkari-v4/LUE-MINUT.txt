@@ -1,0 +1,6 @@
+Vegasin baarin bäkkäri v4: basson pidempi kaula
+
+Pelikuva: vegas-baari-bakkari-v4-5120x1844.png
+Basson kaulaa pidennetty ylöspäin noin 40 prosenttia. Virityslapa, neljä virityskoneistoa ja ripustin siirretty ylemmäs. Runko ja sen sijainti säilyvät alkuperäisinä; julisteita ja muuta huonetta ei muutettu.
+Vain kaulan ja sen taustaseinän rajattu alue muuttui: x=1685..1859, y=94..583. Alueen ulkopuolella kaikki pikselit ovat identtiset v3:n kanssa.
+Tekotapa: sisäänrakennettu image_gen, natiivi muokkauskuva 1441x1091. Generoitu kaula ja seinäalue yhdistetty alkuperäiseen 5120 x 1844 vientikuvaan. Muu kuvaa ei generoitu uudelleen, alkuperäistä v3-tiedostoa ei muokattu. 5120 x 1844 on vientikoko.

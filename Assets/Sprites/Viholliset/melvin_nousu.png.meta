@@ -132,7 +132,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -153,10 +153,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -210,12 +210,12 @@ TextureImporter:
       name: melvin_nousu_0
       rect:
         serializedVersion: 2
-        x: 289
-        y: 4621
-        width: 635
-        height: 310
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 4608
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -232,12 +232,12 @@ TextureImporter:
       name: melvin_nousu_1
       rect:
         serializedVersion: 2
-        x: 1439
-        y: 4621
-        width: 646
-        height: 321
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 4608
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -254,12 +254,12 @@ TextureImporter:
       name: melvin_nousu_2
       rect:
         serializedVersion: 2
-        x: 2595
-        y: 4621
-        width: 667
-        height: 339
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 4608
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -276,12 +276,12 @@ TextureImporter:
       name: melvin_nousu_3
       rect:
         serializedVersion: 2
-        x: 3752
-        y: 4621
-        width: 675
-        height: 354
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 4608
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -298,12 +298,12 @@ TextureImporter:
       name: melvin_nousu_4
       rect:
         serializedVersion: 2
-        x: 305
-        y: 3851
-        width: 665
-        height: 368
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -320,12 +320,12 @@ TextureImporter:
       name: melvin_nousu_5
       rect:
         serializedVersion: 2
-        x: 1474
-        y: 3857
-        width: 631
-        height: 370
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -342,12 +342,12 @@ TextureImporter:
       name: melvin_nousu_6
       rect:
         serializedVersion: 2
-        x: 2666
-        y: 3859
-        width: 542
-        height: 379
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -364,12 +364,12 @@ TextureImporter:
       name: melvin_nousu_7
       rect:
         serializedVersion: 2
-        x: 3825
-        y: 3857
-        width: 465
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -386,12 +386,12 @@ TextureImporter:
       name: melvin_nousu_8
       rect:
         serializedVersion: 2
-        x: 361
-        y: 3086
-        width: 428
-        height: 413
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -408,12 +408,12 @@ TextureImporter:
       name: melvin_nousu_9
       rect:
         serializedVersion: 2
-        x: 1489
-        y: 3087
-        width: 484
-        height: 415
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -430,12 +430,12 @@ TextureImporter:
       name: melvin_nousu_10
       rect:
         serializedVersion: 2
-        x: 2639
-        y: 3085
-        width: 463
-        height: 430
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -452,12 +452,12 @@ TextureImporter:
       name: melvin_nousu_11
       rect:
         serializedVersion: 2
-        x: 3814
-        y: 3085
-        width: 385
-        height: 447
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -474,12 +474,12 @@ TextureImporter:
       name: melvin_nousu_12
       rect:
         serializedVersion: 2
-        x: 415
-        y: 2317
-        width: 310
-        height: 467
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -496,12 +496,12 @@ TextureImporter:
       name: melvin_nousu_13
       rect:
         serializedVersion: 2
-        x: 1588
-        y: 2317
-        width: 265
-        height: 487
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -518,12 +518,12 @@ TextureImporter:
       name: melvin_nousu_14
       rect:
         serializedVersion: 2
-        x: 2755
-        y: 2317
-        width: 244
-        height: 515
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -540,12 +540,12 @@ TextureImporter:
       name: melvin_nousu_15
       rect:
         serializedVersion: 2
-        x: 3916
-        y: 2317
-        width: 234
-        height: 546
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -562,12 +562,12 @@ TextureImporter:
       name: melvin_nousu_16
       rect:
         serializedVersion: 2
-        x: 463
-        y: 1549
-        width: 227
-        height: 576
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -584,12 +584,12 @@ TextureImporter:
       name: melvin_nousu_17
       rect:
         serializedVersion: 2
-        x: 1619
-        y: 1549
-        width: 211
-        height: 601
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -606,12 +606,12 @@ TextureImporter:
       name: melvin_nousu_18
       rect:
         serializedVersion: 2
-        x: 2776
-        y: 1549
-        width: 211
-        height: 616
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -628,12 +628,12 @@ TextureImporter:
       name: melvin_nousu_19
       rect:
         serializedVersion: 2
-        x: 3932
-        y: 1549
-        width: 213
-        height: 619
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -650,12 +650,12 @@ TextureImporter:
       name: melvin_nousu_20
       rect:
         serializedVersion: 2
-        x: 468
-        y: 781
-        width: 227
-        height: 619
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -672,12 +672,12 @@ TextureImporter:
       name: melvin_nousu_21
       rect:
         serializedVersion: 2
-        x: 1604
-        y: 781
-        width: 288
-        height: 619
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -694,12 +694,12 @@ TextureImporter:
       name: melvin_nousu_22
       rect:
         serializedVersion: 2
-        x: 2734
-        y: 781
-        width: 319
-        height: 617
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -716,12 +716,12 @@ TextureImporter:
       name: melvin_nousu_23
       rect:
         serializedVersion: 2
-        x: 3886
-        y: 781
-        width: 302
-        height: 614
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -738,12 +738,12 @@ TextureImporter:
       name: melvin_nousu_24
       rect:
         serializedVersion: 2
-        x: 432
-        y: 13
-        width: 292
-        height: 612
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -760,12 +760,12 @@ TextureImporter:
       name: melvin_nousu_25
       rect:
         serializedVersion: 2
-        x: 1582
-        y: 13
-        width: 319
-        height: 610
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -782,12 +782,12 @@ TextureImporter:
       name: melvin_nousu_26
       rect:
         serializedVersion: 2
-        x: 2721
-        y: 17
-        width: 343
-        height: 604
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -804,12 +804,12 @@ TextureImporter:
       name: melvin_nousu_27
       rect:
         serializedVersion: 2
-        x: 3865
-        y: 15
-        width: 343
-        height: 602
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -826,7 +826,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9ed0b2dbee5d80e40b1c7f92b1b9438f
     internalID: 0
     vertices: []
     indices: 

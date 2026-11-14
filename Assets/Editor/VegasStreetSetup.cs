@@ -10,13 +10,14 @@ using UnityEngine;
 public static partial class BeatEmUpSetup
 {
     const float VegasStreetX0 = 104000f;
+    const float VegasChapelOverlapFrac = 0.645f;   // kappelikuvan vasen reuna kasinokuvan x-osuudessa (kulmapilari)
 
     [MenuItem("Beat em up/378. Las Vegas: Strip (kasinon ulkopuoli, baari) ja kasinon vasen ovi", false, 378)]
     static void AddVegasStreet()
     {
         if (PlayModeBlocked()) return;
         const string T = "Assets/Sprites/Taustat/";
-        foreach (var f in new[] { "vegas_katu_pantti", "vegas_katu_baari", "vegas_katu_kasino", "vegas_taivas", "vegas_hotellit", "vegas_palmut" })
+        foreach (var f in new[] { "vegas_katu_pantti", "vegas_katu_baari", "vegas_katu_kasino", "vegas_katu_kappeli", "vegas_taivas", "vegas_hotellit", "vegas_palmut" })
         {
             if (!File.Exists(T + f + ".png")) { Info("Puuttuu kuva " + f + ".png (Assets/Sprites/Taustat)."); return; }
             AssetDatabase.ImportAsset(T + f + ".png", ImportAssetOptions.ForceUpdate);
@@ -44,8 +45,10 @@ public static partial class BeatEmUpSetup
             area.areaName = "Vegasin katu"; area.useSidewalk = false;
             float casX = X0 + 2f * imgW;                                             // kasinopalan vasen reuna (vasemmalla panttilainaamo ja baari)
             area.maxDepthY = top - 0.675f * H; area.minDepthY = top - 0.985f * H;   // jalkakäytävä + katu: seinän alareuna ~66 %
-            area.walkMinX = X0 + imgW * 0.03f; area.walkMaxX = casX + imgW * 0.60f;  // kasinon kulmapilarin jälkeen kuva on musta (jatko myöhemmin)
-            area.camMinX = X0 + W * 0.5f; area.camMaxX = Mathf.Max(area.camMinX, casX + imgW * 0.645f - W * 0.5f);   // kamera ei näytä mustaa reunaa
+            // hääkappeli kasinon oikealla puolella: kappelikuvan vasen reuna alkaa kasinon kulmapilarista (x 64,5 %), lattia häivytetty kasinokuvan lattian päälle
+            float chapL = casX + imgW * VegasChapelOverlapFrac;
+            area.walkMinX = X0 + imgW * 0.03f; area.walkMaxX = chapL + imgW * 0.90f;
+            area.camMinX = X0 + W * 0.5f; area.camMaxX = Mathf.Max(area.camMinX, chapL + imgW - W * 0.5f);
             area.camSize = CamHalf; area.camRiseY = 0f; area.camOffsetY = 0f; area.backScale = 1f; area.depthLimits = new Vector2[0];
 
             // etuala: baari (vasen) ja kasino (oikea)
@@ -56,6 +59,18 @@ public static partial class BeatEmUpSetup
                 var sr = new GameObject(name).AddComponent<SpriteRenderer>();
                 sr.transform.SetParent(root.transform, false); sr.sprite = sp; sr.sortingOrder = -10000;
                 sr.transform.position = new Vector3(px, cy, 0f);
+                sr.transform.localScale = new Vector3(1.003f, 1f, 1f);   // pieni limitys: x~100000 float-tarkkuus jättäisi saumaan raon
+            }
+
+            {
+                var csp = ImportShipSprite(T + "vegas_katu_kappeli.png", ppuImg, false, SpriteAlignment.Center);
+                if (csp != null)
+                {
+                    var csr = new GameObject("Katu: hääkappeli").AddComponent<SpriteRenderer>();
+                    csr.transform.SetParent(root.transform, false); csr.sprite = csp; csr.sortingOrder = -9999;   // kasinokuvan päällä: lattian häivytys
+                    csr.transform.position = new Vector3(chapL + imgW * 0.5f, cy, 0f);
+                    csr.transform.localScale = new Vector3(1.003f, 1f, 1f);
+                }
             }
 
             // taustatasot (samat kuin katolla); baarikuvan aukosta näkyy Vegas

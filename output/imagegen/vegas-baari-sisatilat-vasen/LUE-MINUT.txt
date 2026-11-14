@@ -1,0 +1,12 @@
+Vegasin baarin sisätilat, vasen pääty
+
+Pelikuva: vegas-baari-sisatilat-vasen-5120x1844.png
+Koko: 5120 x 1844 px, PNG. Täysin peittävä sisäkuva.
+Natiivikuva: 2087 x 753 px; mukana natiivi.png. Pelikuva on skaalattu vientikoko, ei natiivisti generoitu 5K.
+
+Vasemmalla loivasti viisto sulkeva päätyseinä ja rakennuksen ulkoasuun sopivat pariovet. Jukeboxi, kitara ja vinyylilevyt tuovat hillittyä rock-henkeä. Puu, messinki, viininpunaiset paneelit sekä lämmin valo jatkavat ulkojulkisivun tyyliä.
+Lattiaa on noin 40 prosenttia kuvan korkeudesta. Kuva ei sisällä tekstiä tai hahmoja. Tiski alkaa oikealta ja jatkuu katkeamatta kuvan reunan yli seuraavaa palaa varten.
+Tulevan oikean jatkopalan pitää jatkaa lattialautoja, tiskiä, hyllyjä sekä seinän vaakasuoria valoja samoilta korkeuksilta. oikean-reunan-jatkoviite.png on suora 256 px leveä rajaus tästä lopullisesta PNG:stä, ei erillinen pelikuva.
+
+Tekotapa: sisäänrakennettu image_gen, ensin uusi sisäkuva ulkojulkisivun tyyliviitteestä, sitten kohdennettu lattiatilan lisäys. Lopuksi koon vienti System.Drawingilla. Kuvan rakenteita ei muutettu viennissä.
+Tarkistettu visuaalisesti: pariovet vasemmalla, sulkeva seinä, jukeboxi, avoin lattia, tekstitön sisustus ja oikealle jatkuva tiski. Unityn scenejä tai aiempia kuvia ei muutettu.

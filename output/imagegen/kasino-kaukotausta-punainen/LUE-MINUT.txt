@@ -1,0 +1,7 @@
+Kasinon kaukotausta, punainen kokolattiamatto
+
+kasino-kaukotausta-punainen-5120x1844.png
+5120 x 1844 pikseliä, peittävä PNG. Suoraan edestä nähty kaukainen seinä, pieniä peliautomaatteja ja pöytiä, hillitty iltavalaistus. Ei tekstiä tai hahmoja. Punainen matto alkaa riviltä 1199 (65,02% korkeudesta) ja jatkuu kuvan alareunaan.
+Molemmissa reunoissa noin 8% leveydeltä rauhallista seinää ja mattoa, ei kalusteita, pylväitä tai valaisimia. Vasemman 410 pikselin levyinen alue ja peilattu oikea 410 pikselin alue ovat identtiset; reunojen RGBA-arvot täsmäävät. Kattokoriste jatkuu samanlaisena 512 pikselin jaksoissa.
+Voit jatkaa kuvaa joko sellaisenaan A | A tai vuorotellen peilattuna A | peili(A) | A. Käytä samaa PPU-, skaala- ja korkeusasetusta. Tarkista tarvittaessa mukana tulevat suoran ja peilatun liitoksen esikatselut.
+Tekotapa: sisäänrakennettu image_gen, natiivikuva 2089x753. Vientikuva skaalattu 5120 x 1844 kokoon; maton ja seinän vaakaraja kohdistettu, reunat ja kattokuvion toisto viimeistelty alkuperäisistä maalatuista alueista. Tämä on skaalattu vientikoko, ei natiivisti generoitu 5K-kuva. Aiempia kuvia tai Unityn scenejä ei muutettu.

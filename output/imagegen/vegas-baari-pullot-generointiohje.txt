@@ -1,0 +1,16 @@
+Use case: precise-object-edit.
+EDIT TARGET: this is a finished cropped bar interior from a 2D game. Correct ONLY the liquor bottles standing on the recessed shelves behind the counter. Keep the exact canvas aspect ratio 4030:1400, framing, camera, cabinet geometry, shelf heights, wall columns, sconces, neon bands, glassware, sinks, taps, cocktail shakers, counter, stools and floor unchanged.
+
+Problem to fix: the current liquor bottles are nearly identical shapes repeated in tidy rows, and all look like amber glowing lamps. Replace ALL those repeated liquor bottles on BOTH shelf levels in ALL cabinet bays, including the narrow middle cabinet, with a believable well-stocked selection of DIFFERENT spirits. Vary silhouette, width, height, shoulder shape, neck length, bottle colour and closures. Examples of form:
+- dark green tall slender gin bottles, some round and some squared;
+- broad square amber whisky bottles with short necks and dark caps;
+- clear transparent vodka bottles with cool pale highlights;
+- squat brown rum bottles with corks;
+- one or two rounded clear tequila decanters and muted cobalt or pale-green liqueur bottles.
+Use this as varied shapes and materials, not a list of brands. Alternate bottle types naturally within each bay; do not repeat the same lineup in multiple bays. Different heights, comfortably spaced, no clutter. A believable mix of 5-8 bottles per wide shelf; fewer in narrow shelves.
+
+Give most bottles small understated cream, muted burgundy, pale green or charcoal paper labels, with simple blank panels and abstract minimal emblems ONLY. Absolutely no letters, no readable writing, no pseudo-writing, no brand logos or numbers. Bottle labels should be proportional to actual spirit bottles, not huge bright rectangles. Vary caps: cork, matte black, aged metal.
+Liquids and glass need real material shading: dark green and brown bottles are genuinely dark, clear bottles show the shelf behind them, amber liquid is translucent. Warm shelf light can make small edge highlights and reflections, but NO self-illuminated yellow/orange bottle interiors, NO identical bright golden bases, NO luminous liquid, NO uniform gold bottle outlines. The bottles must read as liquor bottles, not lamps or trophies.
+
+Maintain the same clean painterly 2D game asset style with coherent simplified forms, legible silhouettes and restrained fine detail. Preserve the room's burgundy, dark wood and brass palette. Surrounding warm lighting stays unchanged. Do not darken the whole room to solve the bottles.
+Preserve existing cocktail glasses and tumblers exactly; do not add bottles to the counter, change the furniture or add people. No new objects anywhere else. Preserve image edges. No text anywhere. Output a complete corrected crop, opaque.

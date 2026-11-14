@@ -1,0 +1,7 @@
+Vegasin baarin bäkkäri v3, sähköbasso seinällä
+
+Pelikuva: vegas-baari-bakkari-v3-5120x1844.png
+Lisätty nelikielinen sähköbasso HMS Keelhaul- ja Northforge-julisteiden väliin. Julisteet ovat samat alkuperäiset grafiikat samankokoisina kuin v2:ssa.
+Vain basson ja sen varjon tarvitsema seinäalue muuttui: x=1560..1999, y=180..999. Tämän alueen ulkopuoliset pikselit ovat identtiset v2:n kanssa. Alkuperäistä tiedostoa ei muokattu.
+Tekotapa: sisäänrakennettu image_gen, rajatun seinäalueen muokkaus. Työkalun natiivikoko 1519x1036. Basson alue yhdistetty 5120 x 1844 alkuperäiseen vientikuvaan reunoja häivyttäen. Vienti ei tarkoita koko huoneen uudelleen generointia natiivina 5K-kuvana.
+Generointiohje: generointiohje.txt

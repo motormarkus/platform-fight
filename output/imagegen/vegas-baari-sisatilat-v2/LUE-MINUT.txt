@@ -1,0 +1,12 @@
+Vegasin baarin sisätilat, korjatut kuvat
+
+Molemmat pelipalat ovat 5120 x 1844 PNG:
+1. vegas-baari-sisatilat-vasen-v2-5120x1844.png
+2. vegas-baari-sisatilat-lava-v2-5120x1844.png
+Aseta palat tässä järjestyksessä vierekkäin samoilla PPU-, pivot-, skaala- ja korkeusasetuksilla.
+
+Molempien palojen pullorivit korjattu: erimuotoisia ja erikokoisia viinapulloja, vihreää, ruskeaa, kirkasta ja sinistä lasia, eri etikettejä ilman tekstiä. Pullot eivät enää ole identtisiä keltaisina hohtavia esineitä.
+Lavalta poistettu rummut, kitara, vahvistimet, mikrofoniteline ja soitintelineet. Vain kaksi PA-kaiutinta jää lavan nurkkiin. Keskiosa on tyhjä myöhemmin lisättäville bändin spriteille.
+Muutokset rajattu pullokaappien sisäpintoihin ja lavan esineiden alueelle. Muu sisustus, tiski, portaat, lavan etureuna, kävelylattia ja liitosgeometria säilyvät. Kävelylattia on pikseliarvoiltaan sama kuin aiemmissa kuvissa. Alkuperäisiä PNG-tiedostoja tai Unity-scenejä ei muutettu.
+
+Tekotapa: sisäänrakennettu image_gen, kaksi kohdennettua muokkausta. Lavan muokkauksen natiivikoko 2138 x 736, pullomuokkauksen 2128 x 739. Muokkaukset sovitettu alkuperäisiin 5120 x 1844 pelikuviin vain sallituilla alueilla. Vientikoko ei ole generoinnin natiiviresoluutio.

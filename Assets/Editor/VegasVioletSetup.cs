@@ -34,6 +34,7 @@ public static partial class BeatEmUpSetup
             var go = Object.Instantiate(tmpl.gameObject);
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go, scene);
             go.name = "Vegasin Violetti"; go.SetActive(true);
+            go.transform.localScale = go.transform.localScale * 1.1f;   // Violetti oli liian pieni: +10 %
             var w2 = go.GetComponent<NpcStroller>();
             float H = 2f * CamHalf, imgW = 5120f / (1844f / H);
             w2.area = bar; w2.laneMinX = VegasBarX0 + imgW * 0.15f; w2.laneMaxX = VegasBarX0 + imgW * 2.4f;
@@ -42,8 +43,37 @@ public static partial class BeatEmUpSetup
             EditorUtility.SetDirty(w2);
             go.transform.position = new Vector3(VegasBarX0 + imgW * 0.55f, Mathf.Lerp(bar.maxDepthY, bar.minDepthY, 0.6f), 0f);
             Undo.RegisterCreatedObjectUndo(go, "Vegasin Violetti");
+
+            // Violetti kasinolla: päätehtävän antaja (VioletQuest): pyytää apua häiden estämiseen, ainoa vastaus "Hoidan homman."
+            foreach (var old in scene.GetRootGameObjects().Where(g => g.name == "Vegasin Violetti (kasino)").ToArray()) Undo.DestroyObjectImmediate(old);
+            string casinoInfo = "";
+            var casino = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.gameObject.scene == scene && a.areaName == "Vegasin kasino");
+            if (casino == null) casinoInfo = " Kasinon Violettia ei lisätty: alue \"Vegasin kasino\" puuttuu (aja 376).";
+            else
+            {
+                var qgo = Object.Instantiate(tmpl.gameObject);
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(qgo, scene);
+                qgo.name = "Vegasin Violetti (kasino)"; qgo.SetActive(true);
+                qgo.transform.localScale = qgo.transform.localScale * 1.1f;
+                var st = qgo.GetComponent<NpcStroller>();
+                var idleS = st.idleSprites; var talkS = st.talkSprites;
+                var bodyR = st.body != null ? st.body : qgo.GetComponentInChildren<SpriteRenderer>(); var shadowR = st.shadow;
+                Object.DestroyImmediate(st);   // ei kävele: seisoo ja puhuu
+                var q = qgo.AddComponent<VioletQuest>();
+                q.body = bodyR; q.shadow = shadowR; q.idleSprites = idleS; q.talkSprites = talkS; q.area = casino;
+                // pakotettu kohtaaminen: hero saapuu katolta hissillä kasinon oikeaan päähän (hissi ~ walkMaxX - 0,055 kuvaa, tulopaikka 2,6 yks. vasemmalla) ja kulkee vasemmalle;
+                // 9 yksikköä tulopaikasta vasemmalle hän pysähtyy ja Violetti ilmestyy eteen. Katukäynti vasemmasta päästä pysähtyy samaan rajaan.
+                float elevSpawnX = casino.walkMaxX - imgW * 0.055f - 2.6f;
+                q.triggerX = elevSpawnX - 9f;
+                float qx = q.triggerX - 2.4f;
+                float qyMax = casino.MaxDepthAtX(qx, casino.maxDepthY), qyMin = casino.MinDepthAtX(qx, casino.minDepthY);
+                qgo.transform.position = new Vector3(qx, Mathf.Lerp(qyMax, qyMin, 0.45f), 0f);
+                EditorUtility.SetDirty(q);
+                Undo.RegisterCreatedObjectUndo(qgo, "Vegasin Violetti (kasino)");
+                casinoInfo = " Kasinolla Violetti ilmestyy heron eteen (raja x " + q.triggerX.ToString("0.0") + ", ei ohitettavissa) ja antaa päätehtävän: häiden estäminen (vastaus \"Hoidan homman.\").";
+            }
             EditorSceneManager.MarkSceneDirty(scene); EditorSceneManager.SaveScene(scene);
-            Info("Violetti lisätty Vegasin baariin: seisoo, kävelee, puhuu, tanssii ja nojaa tiskiin; ei taistele.");
+            Info("Violetti lisätty Vegasin baariin: seisoo, kävelee, puhuu, tanssii ja nojaa tiskiin; ei taistele." + casinoInfo);
         }
         finally
         {

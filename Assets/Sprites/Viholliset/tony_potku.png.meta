@@ -75,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,10 +96,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -153,12 +153,12 @@ TextureImporter:
       name: tony_potku_0
       rect:
         serializedVersion: 2
-        x: 101
-        y: 1551
-        width: 384
-        height: 652
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: tony_potku_1
       rect:
         serializedVersion: 2
-        x: 1360
-        y: 1551
-        width: 406
-        height: 649
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 1536
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: tony_potku_2
       rect:
         serializedVersion: 2
-        x: 2617
-        y: 1551
-        width: 433
-        height: 649
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 1536
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -219,12 +219,12 @@ TextureImporter:
       name: tony_potku_3
       rect:
         serializedVersion: 2
-        x: 3903
-        y: 1551
-        width: 455
-        height: 649
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 1536
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -241,12 +241,12 @@ TextureImporter:
       name: tony_potku_4
       rect:
         serializedVersion: 2
-        x: 109
-        y: 783
-        width: 492
-        height: 649
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -263,12 +263,12 @@ TextureImporter:
       name: tony_potku_5
       rect:
         serializedVersion: 2
-        x: 1392
-        y: 783
-        width: 551
-        height: 647
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 768
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -285,12 +285,12 @@ TextureImporter:
       name: tony_potku_6
       rect:
         serializedVersion: 2
-        x: 2681
-        y: 783
-        width: 598
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 768
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -307,12 +307,12 @@ TextureImporter:
       name: tony_potku_7
       rect:
         serializedVersion: 2
-        x: 3957
-        y: 783
-        width: 615
-        height: 652
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 768
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -329,12 +329,12 @@ TextureImporter:
       name: tony_potku_8
       rect:
         serializedVersion: 2
-        x: 114
-        y: 15
-        width: 612
-        height: 659
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.25, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -351,7 +351,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 53ef590f1ddd4d44180743a1f33a56de
     internalID: 0
     vertices: []
     indices: 

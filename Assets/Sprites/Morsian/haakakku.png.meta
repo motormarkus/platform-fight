@@ -1,0 +1,467 @@
+fileFormatVersion: 2
+guid: 50440479855717c49af02aa07c7537d7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 493709761021002530
+    second: haakakku_0
+  - first:
+      213: 6737690934483995040
+    second: haakakku_1
+  - first:
+      213: -5264345241319170994
+    second: haakakku_2
+  - first:
+      213: 1697678622033622257
+    second: haakakku_3
+  - first:
+      213: -5581714828301496507
+    second: haakakku_4
+  - first:
+      213: 1541906018032823024
+    second: haakakku_5
+  - first:
+      213: -6066195598191439320
+    second: haakakku_6
+  - first:
+      213: -2066953431179338042
+    second: haakakku_7
+  - first:
+      213: 4045495109403949292
+    second: haakakku_8
+  - first:
+      213: -3205333482549824956
+    second: haakakku_9
+  - first:
+      213: 6187374409631794148
+    second: haakakku_10
+  - first:
+      213: -6305423840692712865
+    second: haakakku_11
+  - first:
+      213: 6529482564593547980
+    second: haakakku_12
+  - first:
+      213: 7587514284873444464
+    second: haakakku_13
+  - first:
+      213: 8197600979140987523
+    second: haakakku_14
+  - first:
+      213: -8474172175500934147
+    second: haakakku_15
+  - first:
+      213: 5288391528984831855
+    second: haakakku_16
+  - first:
+      213: -424581827571495687
+    second: haakakku_17
+  - first:
+      213: -3042303796336802350
+    second: haakakku_18
+  - first:
+      213: -8809677823239476211
+    second: haakakku_19
+  - first:
+      213: 2604806500651880332
+    second: haakakku_20
+  - first:
+      213: -7045636958023158354
+    second: haakakku_21
+  - first:
+      213: 6334873471085076846
+    second: haakakku_22
+  - first:
+      213: -9055029972593957951
+    second: haakakku_23
+  - first:
+      213: -869018959733615232
+    second: haakakku_24
+  - first:
+      213: -7855026142781835480
+    second: haakakku_25
+  - first:
+      213: -1979150738898847313
+    second: haakakku_26
+  - first:
+      213: -6080447269344210632
+    second: haakakku_27
+  - first:
+      213: -5082347066915298450
+    second: haakakku_28
+  - first:
+      213: 5615611397864327287
+    second: haakakku_29
+  - first:
+      213: -8984668564215673631
+    second: haakakku_30
+  - first:
+      213: -1049548780434156024
+    second: haakakku_31
+  - first:
+      213: -3841945481443679338
+    second: haakakku_32
+  - first:
+      213: -8464378507484636282
+    second: haakakku_33
+  - first:
+      213: -7464646353404685447
+    second: haakakku_34
+  - first:
+      213: 4656091222687377089
+    second: haakakku_35
+  - first:
+      213: -8433270982109357891
+    second: haakakku_36
+  - first:
+      213: 3534414909965745470
+    second: haakakku_37
+  - first:
+      213: -7582938747635047692
+    second: haakakku_38
+  - first:
+      213: -5431282832731333013
+    second: haakakku_39
+  - first:
+      213: 7157232323832447115
+    second: haakakku_40
+  - first:
+      213: -3973606613631753377
+    second: haakakku_41
+  - first:
+      213: 3364729230864497762
+    second: haakakku_42
+  - first:
+      213: -7814306366627667320
+    second: haakakku_43
+  - first:
+      213: 2951918967469528786
+    second: haakakku_44
+  - first:
+      213: -7855366748620114277
+    second: haakakku_45
+  - first:
+      213: -196590152636359405
+    second: haakakku_46
+  - first:
+      213: -5383086031987767798
+    second: haakakku_47
+  - first:
+      213: -3737618069981417777
+    second: haakakku_48
+  - first:
+      213: -8262955851742842691
+    second: haakakku_49
+  - first:
+      213: -4610644366507349657
+    second: haakakku_50
+  - first:
+      213: -1123385884944803752
+    second: haakakku_51
+  - first:
+      213: -5305390517609957064
+    second: haakakku_52
+  - first:
+      213: 5160584572020012873
+    second: haakakku_53
+  - first:
+      213: 8817108601649730456
+    second: haakakku_54
+  - first:
+      213: 1477676196136318606
+    second: haakakku_55
+  - first:
+      213: 5308288010209284593
+    second: haakakku_56
+  - first:
+      213: 8215849249939147018
+    second: haakakku_57
+  - first:
+      213: -3805594585727513743
+    second: haakakku_58
+  - first:
+      213: 5752474201387926789
+    second: haakakku_59
+  - first:
+      213: -7457066362455107419
+    second: haakakku_60
+  - first:
+      213: 1635695659484599202
+    second: haakakku_61
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: haakakku_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aff292f178cab6c4fa1d02a6c4354bc0
+      internalID: 720414026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: haakakku_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23dfee0c623e2c74fa39d428142b8929
+      internalID: -1943771338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: haakakku_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12cd8cbfcd7d34b4eb6ed6911c98e760
+      internalID: 1295223398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: haakakku_03
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a675e6d217a75041b88e6431e70a191
+      internalID: -1439625390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: haakakku_04
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f7c13441c4196143abe383a57cdc720
+      internalID: -1154587063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: haakakku_05
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64b24ca65e8397540898fe70a40f0b82
+      internalID: 515161449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a61107482229c4b4bb2fdbfbbaeccabb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      haakakku_00: 720414026
+      haakakku_01: -1943771338
+      haakakku_02: 1295223398
+      haakakku_03: -1439625390
+      haakakku_04: -1154587063
+      haakakku_05: 515161449
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

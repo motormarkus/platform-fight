@@ -1,0 +1,10 @@
+Vegasin Strip: baaripala kasinon VASEMMALLE puolelle
+
+Pelikuva: vegas-strip-baari-vasen-5120x1844.png, RGBA PNG.
+Aseta tämän oikea reuna suoraan kuvan vegas-strip-kasino-ulkoa-v2-5120x1844.png vasempaan reunaan samoilla PPU-, pivot-, skaala- ja korkeusasetuksilla.
+Vasemmalta oikealle: suuri baarijulkisivu (katto rajautuu pois), läpinäkyvä aukko Vegas-parallakseille, kasinon pääty ja julkisivun jatko vanhaan kasinopalaan.
+Jalkakäytävä on kapea, reunakynnys matala ja asfalttia on reilusti. Kokonaiskävelyalue noin 35%, asfaltin alku noin y1410. Kasinon neonraidat, julkisivun vaakalistat ja kadun korkeudet on kohdistettu viereiseen kuvaan.
+Taustaa ei ole leivottu etualaan. Parallaksiesikatselu käyttää aiempia Vegas-tasoja: uudessa vasemmassa palassa ne näkyvät peilattuina, vanhassa oikeassa palassa alkuperäisinä. Tämä on sommitteluesimerkki.
+Vanhaa kasinopalaa ei muutettu. Unityn sceneä tai asetuksia ei muutettu.
+
+Tekotapa: sisäänrakennettu image_gen, vasemmalle jatkaminen ja erillinen baarin suurennus. Generoitu lähtökuva 2167x726 sisältäen oikeanpuoleisen apuliuskan. Apuliuska poistettu, uusi pala skaalattu 5120 x 1844:ään. Julkisivun ja kadun korkeuskohdistus, lähes läpinäkyvän reunavärin siivous sekä kapea sauman sovitus tehty viennissä. 5120 x 1844 on vientikoko, ei generoinnin natiiviresoluutio.

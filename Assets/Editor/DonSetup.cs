@@ -53,6 +53,7 @@ public static partial class BeatEmUpSetup
                 e.idleSprites = s["idle"]; e.idleFrameTime = 1f / 12f;
                 e.walkSprites = s["kavely"]; e.walkFrameTime = 1f / 20f;
                 e.runSprites = s["juoksu"]; e.runFrameTime = 1f / 24f; e.runSpeedMultiplier = 1.8f; e.runDistance = 5f;
+                e.lightweight = true;   // kevyt vihu: voimakoukku ja uppercut lennättävät hänet kattoon
                 e.maxHealth = 420; e.moveSpeedX = 2.9f; e.moveSpeedY = 1.9f; e.depthTolerance = 0.45f; e.attackCooldown = 0.45f; e.wakeDistance = 13f;
                 e.comboChance = 0.6f; e.comboWindupScale = 0.65f; e.comboRecoverFraction = 0.65f; e.attackRange = 2.3f;
                 // J = jabi (osuma kuvassa 8), S = takasuora (osuma 6)
@@ -72,7 +73,7 @@ public static partial class BeatEmUpSetup
                 // kombot: J jabi, S takasuora, K kyynärpää, 0 etupotku, 1 kierrospotku, 2 nilkkapotku
                 e.combos = new[] { "JS", "JSK", "J1", "JS2", "S01", "J0K" };
                 e.hurtSprites = s["osuma"]; e.hurtTime = 0.3f;
-                e.knockdownSprites = s["kaatuminen"]; e.airFrameTime = 0.07f;
+                e.knockdownSprites = s["kaatuminen"]; e.airFrameTime = 0.07f; e.airLoopFrames = new[] { 7, 8, 9, 10, 11, 10, 9, 8 };   // ilmassa jalat ylhäällä -kuvia pyöritetään, ei makuuasentoa
                 e.thrownStartFrames = new[] { 0, 1, 2, 3 }; e.thrownLoopFrames = new[] { 4, 5, 6, 7, 8, 9 }; e.thrownLandFrames = Enumerable.Range(10, s["kaatuminen"].Length - 10).ToArray(); e.thrownFrameTime = 0.07f;
                 e.getUpSprites = s["nousu"]; e.getUpTime = 1.5f;
                 e.hurtSounds = gasp; e.hurtVolume = 0.95f;   // väliaikaiset äänet

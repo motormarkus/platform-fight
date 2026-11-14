@@ -322,7 +322,7 @@ public static partial class BeatEmUpSetup
             case "melvin_kaatuminen": case "don_kaatuminen": return new Vector3(1152, 1024, 0.5f);
             case "don_idle": case "don_kavely": case "don_juoksu": case "don_jabi": case "don_potku": case "don_takasuora": case "don_kierros": case "don_nilkka": case "don_kyynarpaa": case "don_osuma": case "don_nousu": return new Vector3(1152, 768, 0.5f);
             case "melvin_jabi": case "melvin_takasuora": case "melvin_potku": case "melvin_osuma": case "melvin_osuma_standi": case "melvin_nousu": case "melvin_suojaus": return new Vector3(1152, 768, 0.5f);
-            case "melvin_idle": case "melvin_kavely": case "melvin_juoksu": case "melvin_isku1": case "melvin_isku2": return new Vector3(1152, 768, 0.5f);
+            case "melvin_ilman_idle": case "melvin_ilman_kavely": case "melvin_ilman_juoksu": case "melvin_idle": case "melvin_kavely": case "melvin_juoksu": case "melvin_isku1": case "melvin_isku2": return new Vector3(1152, 768, 0.5f);
             case "rico_suojaus": return new Vector3(640, 768, 0.5f);
             case "rico_idle": case "rico_kavely": return new Vector3(640, 768, 0.5f);
             case "rico_juoksu": return new Vector3(896, 768, 384f / 896f);

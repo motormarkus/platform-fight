@@ -65,6 +65,7 @@ public static partial class BeatEmUpSetup
                 var sr = new GameObject("Katto " + (i + 1)).AddComponent<SpriteRenderer>();
                 sr.transform.SetParent(root.transform, false); sr.sprite = sp; sr.sortingOrder = -10000;
                 sr.transform.position = new Vector3(X0 + imgW * (i + 0.5f), cy, 0f);
+                sr.transform.localScale = new Vector3(1.003f, 1f, 1f);   // limitys: ei rakoa saumaan
             }
 
             // taso: nimi, kuva, järjestys, kerroin, peilikopioita (0 = ei)
@@ -124,7 +125,7 @@ public static partial class BeatEmUpSetup
             float barX = cX0 + lead;
             float casTotalW = lead + barW + leftW + imgW;
             float leftX = barX + barW, rightX = leftX + leftW;                              // keskiosan ja oikean osan vasen reuna
-            float extra = 0.4f * H;                                                         // lattiaa lisää alaspäin: kamera seuraa pelaajaa pystysuunnassa
+            float extra = 0f;                                                         // lattiaa lisää alaspäin: kamera seuraa pelaajaa pystysuunnassa
             var casino = ReuseArea("Alue: Vegasin kasino");
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(casino.gameObject, scene);
             casino.areaName = "Vegasin kasino"; casino.useSidewalk = false;
@@ -145,7 +146,7 @@ public static partial class BeatEmUpSetup
                 if (frontB == null) { Info("Kuvan tuonti epäonnistui: vegas_kasino_etu_baari"); return; }
                 var sB = new GameObject("Kasino etuala (baari)").AddComponent<SpriteRenderer>();
                 sB.transform.SetParent(croot.transform, false); sB.sprite = frontB; sB.sortingOrder = -10000;
-                sB.transform.position = new Vector3(barX + barW * 0.5f, cy, 0f);
+                sB.transform.position = new Vector3(barX + barW * 0.5f, cy, 0f); sB.transform.localScale = new Vector3(1.003f, 1f, 1f);
                 // kaksi lisäpalaa baarin vasemmalle puolelle: avoin lattia (baarin vieressä) ja uloimpana ovet
                 foreach (var (pn, pf, px) in new[] { ("Kasino etuala (lattia)", "vegas_kasino_etu_lattia", cX0 + imgW * 1.5f), ("Kasino etuala (ovet)", "vegas_kasino_etu_ovet", cX0 + imgW * 0.5f) })
                 {
@@ -153,9 +154,10 @@ public static partial class BeatEmUpSetup
                     if (psp == null) { Info("Kuvan tuonti epäonnistui: " + pf); return; }
                     var psr = new GameObject(pn).AddComponent<SpriteRenderer>();
                     psr.transform.SetParent(croot.transform, false); psr.sprite = psp; psr.sortingOrder = -10000;
-                    psr.transform.position = new Vector3(px, cy, 0f);
+                    psr.transform.position = new Vector3(px, cy, 0f); psr.transform.localScale = new Vector3(1.003f, 1f, 1f);
                 }
                 // matto alas: jokaisen palan alareunan rivit venytettynä kuvan alle (kamera laskee lattian mukana); 0,6 ruudun korkeutta
+                if (extra > 0f)
                 {
                     var mattoPieces = new[] { ("ovet", cX0 + imgW * 0.5f), ("lattia", cX0 + imgW * 1.5f), ("baari", barX + barW * 0.5f), ("vasen", leftX + leftW * 0.5f), ("oikea", rightX + imgW * 0.5f) };
                     foreach (var (mn, mx) in mattoPieces)
@@ -169,13 +171,36 @@ public static partial class BeatEmUpSetup
                 }
                 var sL = new GameObject("Kasino etuala (vasen)").AddComponent<SpriteRenderer>();
                 sL.transform.SetParent(croot.transform, false); sL.sprite = frontL; sL.sortingOrder = -10000;
-                sL.transform.position = new Vector3(leftX + leftW * 0.5f, cy, 0f);
+                sL.transform.position = new Vector3(leftX + leftW * 0.5f, cy, 0f); sL.transform.localScale = new Vector3(1.003f, 1f, 1f);
                 var sR = new GameObject("Kasino etuala").AddComponent<SpriteRenderer>();
                 sR.transform.SetParent(croot.transform, false); sR.sprite = front; sR.sortingOrder = -10000;
-                sR.transform.position = new Vector3(rightX + imgW * 0.5f, cy, 0f);
-                var cLayers = new[] { ("Kasino taka", "vegas_kasino_taka", -10100, 0.2f), ("Kasino keskitaso", "vegas_kasino_keski", -10050, 0.5f) };
+                sR.transform.position = new Vector3(rightX + imgW * 0.5f, cy, 0f); sR.transform.localScale = new Vector3(1.003f, 1f, 1f);
+                var cLayers = new[] { ("Kasino taka", "vegas_kasino_taka", -10100, 0.2f), ("Kasino keskitason lattia", "vegas_kasino_keski_lattia", -10060, 0.5f), ("Kasino keskitaso", "vegas_kasino_keski", -10050, 0.5f) };   // keskitasolla oma lattiakaistale (Tools/VegasAssets/make_kasino_keskilattia.py): pöydät eivät leiju takalattian päällä
                 foreach (var (name, file, order, factor) in cLayers)
                 {
+                    if (file == "vegas_kasino_keski_lattia" && File.Exists(T + "vegas_kasino_keski2.png")) continue;   // uusi keskikerros sisältää oman lattian
+                    if ((file == "vegas_kasino_taka" && File.Exists(T + "vegas_kasino_taka2.png")) || (file == "vegas_kasino_keski" && File.Exists(T + "vegas_kasino_keski2.png")))
+                    {
+                        bool isMid = file == "vegas_kasino_keski";
+                        string newFile = isMid ? "vegas_kasino_keski2.png" : "vegas_kasino_taka2.png";
+                        // uusi yhtenäinen taka-kerros: yksi kuva + peilikopiot jatkona (sauma täsmää, ei erillisiä paloja)
+                        var spT = ImportShipSprite(T + newFile, ppuImg, false, SpriteAlignment.Center);
+                        if (spT != null)
+                        {
+                            var srT = new GameObject(name).AddComponent<SpriteRenderer>();
+                            srT.transform.SetParent(croot.transform, false); srT.sprite = spT; srT.sortingOrder = order;
+                            // keskikerros pienennetään (esineet olivat liian isoja) lattiarajan (65 % korkeudesta) ympäri, jolloin lattia pysyy paikallaan
+                            float sc = isMid ? 0.5f : 1f;
+                            float pieceW = spT.bounds.size.x * sc;
+                            srT.transform.localScale = new Vector3(sc, sc, 1f);
+                            srT.transform.position = new Vector3(casino.camMinX - W * 0.5f + pieceW * 0.5f, cy - 0.15f * H * (1f - sc), 0f);
+                            var plT = srT.gameObject.AddComponent<ParallaxLayer>();
+                            float needW = W + factor * (casino.camMaxX - casino.camMinX) + 2f;
+                            plT.factor = factor; plT.mirrorCopies = Mathf.Max(1, Mathf.CeilToInt(needW / pieceW));
+                            plT.startCamX = casino.camMinX; plT.minX = casino.camMinX - 2f; plT.maxX = casino.camMaxX + 2f;
+                            continue;
+                        }
+                    }
                     var spB = ImportShipSprite(T + file + "_baari.png", Ppu(file + "_baari"), false, SpriteAlignment.Center);
                     var spL = ImportShipSprite(T + file + "_vasen.png", Ppu(file + "_vasen"), false, SpriteAlignment.Center);
                     var sp = ImportShipSprite(T + file + ".png", ppuImg, false, SpriteAlignment.Center);
@@ -184,7 +209,7 @@ public static partial class BeatEmUpSetup
                     sr.transform.SetParent(croot.transform, false); sr.sprite = spB; sr.sortingOrder = order;
                     sr.transform.position = new Vector3(casino.camMinX - W * 0.5f + spB.bounds.size.x * 0.5f, cy, 0f);
                     var pl = sr.gameObject.AddComponent<ParallaxLayer>();
-                    pl.factor = factor; pl.extraSprites = new[] { spL }; pl.mirrorEnd = file == "vegas_kasino_keski";   // keskitason loppuun peilattu kopio: riittää kahdelle lisäpalalle etualalla   // baari + baccarat/ruletti (3. kuva, hissipala, ei ehdi näkyä kertoimilla 0,2 / 0,5)
+                    pl.factor = factor; pl.extraSprites = new[] { spL }; pl.mirrorEnd = file.StartsWith("vegas_kasino_keski");   // keskitason loppuun peilattu kopio: riittää kahdelle lisäpalalle etualalla   // baari + baccarat/ruletti (3. kuva, hissipala, ei ehdi näkyä kertoimilla 0,2 / 0,5)
                     pl.startCamX = casino.camMinX; pl.minX = casino.camMinX - 2f; pl.maxX = casino.camMaxX + 2f;
                 }
             }
@@ -206,12 +231,12 @@ public static partial class BeatEmUpSetup
                     if (sohviT == null || counterT == null) sohviInfo = "Sohvia ei lisätty: aja valikko 279 (Alppikylän afterski-baari), sen Sohvi ja tiski ovat mallit, ja sitten 376 uudelleen.";
                     else
                     {
-                        float hx = barX + barW * 0.73f, hy = top - 0.46f * H;   // tiskin pinta ~44-47 % korkeudesta, vapaa kohta tarjottimen oikealla puolella (tiski päättyy ~77 %)
+                        float hx = barX + barW * 0.73f, hy = top - 0.62f * H;   // (laskettu 0,46 -> 0,50: Sohvi oli liian korkealla) tiskin pinta ~44-47 % korkeudesta, vapaa kohta tarjottimen oikealla puolella (tiski päättyy ~77 %)
                         var sg = Object.Instantiate(sohviT.gameObject); sg.name = "Sohvi (kasinon baari)";
                         UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(sg, scene);
                         sg.transform.SetParent(croot.transform, false);
                         sg.transform.position = new Vector3(hx, hy, 0f);
-                        sg.transform.localScale = Vector3.one * 1.25f;
+                        sg.transform.localScale = Vector3.one * 1.35f;   // Sohvi 1,35 (isompi; tiski kulkee vyötärön kohdalla); jalat pysyvät tiskin takana
                         foreach (var r in sg.GetComponentsInChildren<SpriteRenderer>(true)) r.sortingOrder = -10001;   // pelitason (tiski) takana, parallaksien edessä
                         var shopGo = Object.Instantiate(counterT.gameObject); shopGo.name = "Kasinon baarin tiski (Sohvi)";
                         UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(shopGo, scene);

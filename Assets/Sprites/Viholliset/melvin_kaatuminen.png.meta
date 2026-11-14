@@ -135,7 +135,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -156,10 +156,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -213,12 +213,12 @@ TextureImporter:
       name: melvin_kaatuminen_0
       rect:
         serializedVersion: 2
-        x: 430
-        y: 7206
-        width: 330
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 7168
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -235,12 +235,12 @@ TextureImporter:
       name: melvin_kaatuminen_1
       rect:
         serializedVersion: 2
-        x: 1564
-        y: 7207
-        width: 355
-        height: 601
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 7168
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -257,12 +257,12 @@ TextureImporter:
       name: melvin_kaatuminen_2
       rect:
         serializedVersion: 2
-        x: 2698
-        y: 7213
-        width: 380
-        height: 584
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 7168
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -279,12 +279,12 @@ TextureImporter:
       name: melvin_kaatuminen_3
       rect:
         serializedVersion: 2
-        x: 3831
-        y: 7218
-        width: 418
-        height: 565
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 7168
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -301,12 +301,12 @@ TextureImporter:
       name: melvin_kaatuminen_4
       rect:
         serializedVersion: 2
-        x: 347
-        y: 6202
-        width: 495
-        height: 536
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 6144
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -323,12 +323,12 @@ TextureImporter:
       name: melvin_kaatuminen_5
       rect:
         serializedVersion: 2
-        x: 1473
-        y: 6248
-        width: 578
-        height: 488
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 6144
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -345,12 +345,12 @@ TextureImporter:
       name: melvin_kaatuminen_6
       rect:
         serializedVersion: 2
-        x: 2618
-        y: 6326
-        width: 603
-        height: 412
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 6144
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -367,12 +367,12 @@ TextureImporter:
       name: melvin_kaatuminen_7
       rect:
         serializedVersion: 2
-        x: 3787
-        y: 6340
-        width: 554
-        height: 347
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 6144
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -389,12 +389,12 @@ TextureImporter:
       name: melvin_kaatuminen_8
       rect:
         serializedVersion: 2
-        x: 368
-        y: 5236
-        width: 494
-        height: 378
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 5120
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -411,12 +411,12 @@ TextureImporter:
       name: melvin_kaatuminen_9
       rect:
         serializedVersion: 2
-        x: 1523
-        y: 5164
-        width: 449
-        height: 418
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 5120
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -433,12 +433,12 @@ TextureImporter:
       name: melvin_kaatuminen_10
       rect:
         serializedVersion: 2
-        x: 2625
-        y: 5152
-        width: 527
-        height: 403
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 5120
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -455,12 +455,12 @@ TextureImporter:
       name: melvin_kaatuminen_11
       rect:
         serializedVersion: 2
-        x: 3755
-        y: 5154
-        width: 573
-        height: 329
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 5120
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -477,12 +477,12 @@ TextureImporter:
       name: melvin_kaatuminen_12
       rect:
         serializedVersion: 2
-        x: 292
-        y: 4130
-        width: 608
-        height: 268
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 4096
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -499,12 +499,12 @@ TextureImporter:
       name: melvin_kaatuminen_13
       rect:
         serializedVersion: 2
-        x: 1435
-        y: 4128
-        width: 644
-        height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 4096
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -521,12 +521,12 @@ TextureImporter:
       name: melvin_kaatuminen_14
       rect:
         serializedVersion: 2
-        x: 2581
-        y: 4128
-        width: 655
-        height: 242
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 4096
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -543,12 +543,12 @@ TextureImporter:
       name: melvin_kaatuminen_15
       rect:
         serializedVersion: 2
-        x: 3718
-        y: 4117
-        width: 674
-        height: 252
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 4096
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -565,12 +565,12 @@ TextureImporter:
       name: melvin_kaatuminen_16
       rect:
         serializedVersion: 2
-        x: 246
-        y: 3091
-        width: 692
-        height: 252
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -587,12 +587,12 @@ TextureImporter:
       name: melvin_kaatuminen_17
       rect:
         serializedVersion: 2
-        x: 1390
-        y: 3091
-        width: 699
-        height: 252
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -609,12 +609,12 @@ TextureImporter:
       name: melvin_kaatuminen_18
       rect:
         serializedVersion: 2
-        x: 2542
-        y: 3091
-        width: 700
-        height: 252
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -631,12 +631,12 @@ TextureImporter:
       name: melvin_kaatuminen_19
       rect:
         serializedVersion: 2
-        x: 3694
-        y: 3091
-        width: 700
-        height: 252
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -653,12 +653,12 @@ TextureImporter:
       name: melvin_kaatuminen_20
       rect:
         serializedVersion: 2
-        x: 238
-        y: 2067
-        width: 700
-        height: 252
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -675,12 +675,12 @@ TextureImporter:
       name: melvin_kaatuminen_21
       rect:
         serializedVersion: 2
-        x: 1390
-        y: 2067
-        width: 700
-        height: 252
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -697,12 +697,12 @@ TextureImporter:
       name: melvin_kaatuminen_22
       rect:
         serializedVersion: 2
-        x: 2542
-        y: 2067
-        width: 700
-        height: 252
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -719,12 +719,12 @@ TextureImporter:
       name: melvin_kaatuminen_23
       rect:
         serializedVersion: 2
-        x: 3698
-        y: 2073
-        width: 695
-        height: 246
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -741,12 +741,12 @@ TextureImporter:
       name: melvin_kaatuminen_24
       rect:
         serializedVersion: 2
-        x: 253
-        y: 1058
-        width: 683
-        height: 238
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -763,12 +763,12 @@ TextureImporter:
       name: melvin_kaatuminen_25
       rect:
         serializedVersion: 2
-        x: 1425
-        y: 1058
-        width: 664
-        height: 238
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -785,12 +785,12 @@ TextureImporter:
       name: melvin_kaatuminen_26
       rect:
         serializedVersion: 2
-        x: 2603
-        y: 1060
-        width: 641
-        height: 250
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -807,12 +807,12 @@ TextureImporter:
       name: melvin_kaatuminen_27
       rect:
         serializedVersion: 2
-        x: 3767
-        y: 1062
-        width: 634
-        height: 279
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -829,12 +829,12 @@ TextureImporter:
       name: melvin_kaatuminen_28
       rect:
         serializedVersion: 2
-        x: 294
-        y: 35
-        width: 648
-        height: 296
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -851,7 +851,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7b361f79d5b6ae14ba6b6e516365e592
     internalID: 0
     vertices: []
     indices: 

@@ -1,0 +1,18 @@
+Use case: precise-object-edit / two-edge seamless game environment outpainting.
+Asset type: the LEFT UPPER tile over the start of the Las Vegas construction site. Final new tile 5120x1844 with genuine transparent background.
+
+Input 1 is a precise 1376x557 L-shaped editing guide. Fill ONLY the GREY rectangle x=0..1279, y=0..460. Keep the RIGHT 96px strip and BOTTOM 96px strip unchanged; they are existing neighbor images. We crop the reference strips away afterwards.
+The right strip is the already completed middle upper tile. Continue its concrete slabs and red scaffold rails exactly LEFTWARD.
+The bottom strip is the top of the already completed worksite-start street tile. Continue its columns, scaffolding and diagonal braces UPWARD at exactly their existing positions and thickness.
+Input 2: the completed middle upper tile, reference for height, style, lighting and horizontal joining.
+Input 3: the entire lower start tile, reference for the building footprint and upward column alignment only. DO NOT copy its road, sidewalk, fence, block pallets, beams or ground-floor scene into the new upper tile.
+
+CRITICAL FOOTPRINT: keep approximately the LEFT HALF of the new tile (x=0..640 in the 1280px target area) completely transparent. The construction only begins around x=655, directly above the existing building's left scaffold edge in the bottom strip. Concrete platforms start around x=695; they MUST NOT extend into the empty left half. The building's exposed left edge has connected scaffold poles and slab ends, not a closing opaque wall.
+The worksite then extends across the RIGHT HALF and off the right edge to join the already completed upper middle tile. Continue concrete columns from the bottom-context positions (around x=714..780, x=973..1007, x=1104..1155, and the small rear shaft as shown), as well as the reddish scaffold poles and braces. Follow the guide rather than inventing shifted supports.
+
+Two elevated levels with matching horizontal geometry: upper slab front y~117..136 with dark shallow underside to y~173; lower slab front y~319..342 and underside to y~371, precisely as shown at the right reference edge. Red scaffold rails at y~39, y~78 and y~263. The lower open bay y~371..460 continues directly into the lower tile. Do NOT put a new floor or opaque band at y=461.
+One simple access ladder inside a bay, a modest small stack of boards or a cable coil on a platform, and one or two amber caged work lamps. Spacious and readable; no excessive clutter. The top framing may continue beyond the upper border. Solid plausible joins and attached braces.
+
+Same clean, hand-painted 1990s arcade style as the reference, front orthographic side view, consistent scale, warm grey concrete, red metal scaffolds, bronze fasteners, soft amber work lighting. Controlled subtle materials, no noisy grunge. No strong perspective or receding architecture.
+
+True transparent alpha in the entire left half and all open bays. No sky, hotel skyline, black/white/grey fill, checkerboard, background wall, road, asphalt, sidewalk, street fence, people, vehicles or text. Keep the bottom and right reference strips fixed, and connect cleanly along BOTH edges.

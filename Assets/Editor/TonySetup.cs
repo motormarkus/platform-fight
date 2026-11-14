@@ -77,7 +77,7 @@ public static partial class BeatEmUpSetup
                 e.grabsHero = true; e.grabChance = 0.5f; e.grabVsBlockChance = 0.9f; e.grabWhenCloseTime = 0.7f;   // heittää herkästi: puolet hyökkäyksistä, lähes aina kun hero torjuu, ja kun hero on lähellä 0,7 s e.grabRange = 2.0f; e.grabReachTime = 0.3f; e.grabLiftTime = 0.8f;
                 e.slideThrow = true; e.throwForward = true; e.throwDamage = 22; e.throwSpeed = 12f; e.throwUp = 7f;   // lentää kauas ja liukuu perille, mutta lyhyemmälle kuin Tomin heitto (16 / 9)
                 e.hurtSprites = s["osuma"]; e.hurtTime = 0.3f;
-                e.knockdownSprites = s["kaatuminen"]; e.airFrameTime = 0.1f; e.thrownStartFrames = new[] { 0, 1, 2 }; e.thrownLoopFrames = new[] { 3, 4, 5 }; e.thrownLandFrames = new[] { 6, 7, 8, 9, 10, 11 }; e.thrownFrameTime = 0.11f;
+                e.knockdownSprites = s["kaatuminen"]; e.airFrameTime = 0.1f; e.thrownStartFrames = new[] { 0, 1, 2 }; e.thrownLoopFrames = new[] { 3, 4, 5 }; e.airLoopFrames = new[] { 3, 4, 5 }; e.thrownLandFrames = new[] { 6, 7, 8, 9, 10, 11 }; e.thrownFrameTime = 0.11f;
                 e.getUpSprites = s["nousu"]; e.getUpTime = 1.2f;
                 e.hurtSounds = gasp; e.hurtVolume = 0.95f;   // väliaikaiset äänet
                 var g = s["suojaus"];

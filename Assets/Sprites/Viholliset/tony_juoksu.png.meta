@@ -96,7 +96,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,10 +117,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -174,12 +174,12 @@ TextureImporter:
       name: tony_juoksu_0
       rect:
         serializedVersion: 2
-        x: 114
-        y: 2328
-        width: 480
-        height: 623
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2304
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -196,12 +196,12 @@ TextureImporter:
       name: tony_juoksu_1
       rect:
         serializedVersion: 2
-        x: 1033
-        y: 2317
-        width: 452
-        height: 625
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 896
+        y: 2304
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: tony_juoksu_2
       rect:
         serializedVersion: 2
-        x: 1972
-        y: 2314
-        width: 388
-        height: 620
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1792
+        y: 2304
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -240,12 +240,12 @@ TextureImporter:
       name: tony_juoksu_3
       rect:
         serializedVersion: 2
-        x: 2918
-        y: 2317
-        width: 301
-        height: 615
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2688
+        y: 2304
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -262,12 +262,12 @@ TextureImporter:
       name: tony_juoksu_4
       rect:
         serializedVersion: 2
-        x: 237
-        y: 1548
-        width: 268
-        height: 623
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -284,12 +284,12 @@ TextureImporter:
       name: tony_juoksu_5
       rect:
         serializedVersion: 2
-        x: 1065
-        y: 1548
-        width: 355
-        height: 635
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 896
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -306,12 +306,12 @@ TextureImporter:
       name: tony_juoksu_6
       rect:
         serializedVersion: 2
-        x: 1914
-        y: 1559
-        width: 420
-        height: 632
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1792
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -328,12 +328,12 @@ TextureImporter:
       name: tony_juoksu_7
       rect:
         serializedVersion: 2
-        x: 2786
-        y: 1580
-        width: 478
-        height: 613
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2688
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -350,12 +350,12 @@ TextureImporter:
       name: tony_juoksu_8
       rect:
         serializedVersion: 2
-        x: 95
-        y: 794
-        width: 463
-        height: 624
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -372,12 +372,12 @@ TextureImporter:
       name: tony_juoksu_9
       rect:
         serializedVersion: 2
-        x: 1022
-        y: 786
-        width: 385
-        height: 620
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 896
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -394,12 +394,12 @@ TextureImporter:
       name: tony_juoksu_10
       rect:
         serializedVersion: 2
-        x: 1972
-        y: 784
-        width: 340
-        height: 612
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1792
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -416,12 +416,12 @@ TextureImporter:
       name: tony_juoksu_11
       rect:
         serializedVersion: 2
-        x: 2929
-        y: 784
-        width: 323
-        height: 614
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2688
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -438,12 +438,12 @@ TextureImporter:
       name: tony_juoksu_12
       rect:
         serializedVersion: 2
-        x: 193
-        y: 17
-        width: 396
-        height: 623
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -460,12 +460,12 @@ TextureImporter:
       name: tony_juoksu_13
       rect:
         serializedVersion: 2
-        x: 1050
-        y: 20
-        width: 443
-        height: 630
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 896
+        y: 0
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -482,12 +482,12 @@ TextureImporter:
       name: tony_juoksu_14
       rect:
         serializedVersion: 2
-        x: 1922
-        y: 46
-        width: 463
-        height: 609
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1792
+        y: 0
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -504,12 +504,12 @@ TextureImporter:
       name: tony_juoksu_15
       rect:
         serializedVersion: 2
-        x: 2802
-        y: 44
-        width: 478
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2688
+        y: 0
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -526,7 +526,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d2cd5da68490c0b408dbc2606f1bf4a2
     internalID: 0
     vertices: []
     indices: 

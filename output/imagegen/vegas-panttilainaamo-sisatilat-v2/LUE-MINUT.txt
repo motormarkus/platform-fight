@@ -1,0 +1,15 @@
+Vegasin panttilainaamon sisätila, kaksi vierekkäin liitettävää pelikuvaa
+
+1. vegas-panttilainaamo-vasen-5120x1844.png
+2. vegas-panttilainaamo-oikea-5120x1844.png
+
+Molempien koko 5120 x 1844 pikseliä, PNG. Aseta tässä järjestyksessä samoilla PPU-, pivot-, skaala- ja korkeusasetuksilla ilman väliä.
+Vasemmassa päädyssä pariovet sulkevan, viiston päätyseinän tasossa. Pitkä korutiski jatkuu kuvien liitoksen yli, ja päättyy oikealla kassaan ja vaakaan. Nähtävillä koruja, kelloja, kitaroita, basso, rullalautoja, kameroita, pieniä työkalulaukkuja ja Vegas-koristeita. Oikean päädyn seinä sulkee tilan. Avoin puulattia, ei ihmisiä. Panttilainaamossa ei ole erillisiä ulkoikkunoita; ovien lasitus ja koruvitriini ovat peittäviä.
+
+Liitoksen seinälistat, kalusteet ja lattian korkeus kohdistettu; reunapikselit täsmäävät kaikilla 1844 rivillä jokaisessa RGBA-kanavassa. Kuvapari tarkistettu myös visuaalisesti. Aiemmat versiot ja Unityn scene-/tuontiasetukset jätetty ennalleen.
+Esikatselun tumma ikkunaväri tai erillisen läpinäkyvyysesikatselun ruudukko ovat vain esikatselutaustaa. Niitä ei ole tallennettu pelikäyttöisen kappelikuvan ikkuna-aukkoihin.
+
+Tekotapa: sisäänrakennettu image_gen. Vasemman muokatun kuvan natiivi koko 2089x753; oikean 2167x726 sisältäen apuliuskan. Vientikoko 5120 x 1844 on skaalattu, ei natiivisti generoitu 5K-kuva. Oikean apuliuska poistettu; vaakalinjat kohdistettu, lattian pintaa jatkettu aiemmasta palasta. Kappelin ikkunan puitteet muokattu kuvatyökalulla ja jäljelle jäänyt ruutujen täyttö poistettu alfamaskilla. Panttilainaamon tiskin liitos viimeistelty paikallisella kuvatyökalumuokkauksella. Kehyksiä, puitteita ja sisältöä ei rasteroitu tekstiruudukosta tai vektoripaikkamerkeistä.
+
+Generointiohjeet: generointiohjeet.txt
+Tarkistukset: tarkistus.txt

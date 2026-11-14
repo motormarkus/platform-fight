@@ -1,0 +1,7 @@
+Kappelin öljymaalaus: erillinen kehystetty sprite
+
+Tiedosto: kappelin-oljymaalaus-sprite-1706x922.png
+Koko 1706x922 pikseliä, natiivi generointitarkkuus, RGBA PNG.
+Renessanssihenkinen öljymaalaus: Jumala ja aikuinen enkeli ojentavat etusormensa toisiaan kohti. Kultainen kehys sopii kappelin messinki-, kerma- ja roosaväreihin. Maalaus ja kehys ovat peittäviä; tausta kehyksen ympärillä on aidosti läpinäkyvä. Sprite on suoraan edestä ja kokonaan näkyvissä.
+Maalausta ei yhdistetty kappelin seinään, eikä huonekuvia tai Unity-scenejä muokattu. Sijoita haluttuun kohtaan omana spritenään.
+Tekotapa: sisäänrakennettu image_gen. Alfa siivottu täysin tyhjiksi ja peittäviksi arvoiksi ääripäissä; kuvan mittoja ei suurennettu. Erillinen alfa-tarkistus.png näyttää spriten siniharmaata taustaa vasten vain tarkastelua varten.

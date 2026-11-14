@@ -1,0 +1,11 @@
+Vegasin baarin WC, kaksi vierekkäin liitettävää pelikuvaa
+
+1. vegas-baari-wc-vasen-5120x1844.png
+2. vegas-baari-wc-oikea-5120x1844.png
+Molemmat 5120 x 1844 px, täysin peittävä PNG. Aseta vasen ja oikea kuva tähän järjestykseen samoilla PPU-, pivot-, skaala- ja korkeusasetuksilla.
+
+Yksi yhtenäinen WC-tila kahdella pelipalalla: vasemmassa päädyssä sulkeva seinä ja yksi sisäänkäyntiovi, kaksi pesuallasta ja peiliä, käsienkuivain ja roska-astia. Oikealla kolme WC-koppia; yksi ovi raollaan ja WC-istuin näkyvissä. Oikea seinä sulkee huoneen. Ei tekstiä tai ihmisiä. Vapaata kävelylattiaa noin 40 prosenttia kuvan korkeudesta.
+Tyyli jatkaa baarin viininpunaista, pähkinäpuuta ja messinkiä; WC-tilassa vaalea seinälaatoitus, valkoista posliinia ja hillitty kivilattia. Peileissä ei ole ulkomaisemaa tai hahmoja.
+Liitoskohdan vaakalinjat ja reunapikselit tarkistettu. Lattian ja laatoituksen saumaa sovitettu viennissä. Unityn scenejä ja aiempia baarikuvia ei muutettu.
+
+Tekotapa: sisäänrakennettu image_gen. Vasen natiivikuva 2089 x 753; oikea natiivikuva 2167 x 726 sisältäen vasemman apuliuskan. Lopulliset 5120 x 1844 kuvat ovat skaalattuja vientikokoja, eivät natiivisti generoituja 5K-kuvia. Oikean apuliuska poistettu ja kuva kohdistettu vasempaan.

@@ -17,7 +17,7 @@ public static partial class BeatEmUpSetup
     {
         if (PlayModeBlocked()) return;
         var s = new Dictionary<string, Sprite[]>();
-        foreach (var n in new[] { "idle", "kavely", "juoksu", "isku1", "isku2", "osuma_standi", "jabi", "takasuora", "potku", "osuma", "kaatuminen", "nousu", "suojaus" })
+        foreach (var n in new[] { "idle", "kavely", "juoksu", "isku1", "isku2", "osuma_standi", "jabi", "takasuora", "potku", "osuma", "kaatuminen", "nousu", "suojaus", "ilman_idle", "ilman_kavely", "ilman_juoksu" })
         {
             var sp = LoadWalkerSprites("melvin_" + n);
             if (sp == null || sp.Length == 0) { Info("Puuttuu tai ei leikkaudu: melvin_" + n + ".png (Assets/Sprites/Viholliset). Aja Tools/MelvinAssets/make_melvin_sheets*.py."); return; }
@@ -69,7 +69,7 @@ public static partial class BeatEmUpSetup
                 e.combos = new[] { "JS", "JSP", "JJ" };
                 e.hurtSprites = s["osuma"]; e.hurtTime = 0.3f;
                 e.knockdownSprites = s["kaatuminen"]; e.airFrameTime = 0.07f;
-                e.thrownStartFrames = new[] { 0, 1, 2 }; e.thrownLoopFrames = new[] { 3, 4, 5, 6, 7, 8 }; e.thrownLandFrames = Enumerable.Range(9, s["kaatuminen"].Length - 9).ToArray(); e.thrownFrameTime = 0.07f;
+                e.thrownStartFrames = new[] { 0, 1, 2 }; e.thrownLoopFrames = new[] { 3, 4, 5, 6, 7, 8 }; e.airLoopFrames = new[] { 3, 4, 5, 6, 7, 8 }; e.thrownLandFrames = Enumerable.Range(9, s["kaatuminen"].Length - 9).ToArray(); e.thrownFrameTime = 0.07f;
                 e.getUpSprites = s["nousu"]; e.getUpTime = 1.3f;
                 e.hurtSounds = gasp; e.hurtVolume = 0.95f;   // väliaikaiset äänet
                 var g = s["suojaus"];
@@ -81,7 +81,8 @@ public static partial class BeatEmUpSetup
                 e.standSwing = s["isku1"]; e.standSwingImpact = 10; e.standSwingDamage = 24; e.standSwingWindup = 10 * 0.05f; e.standSwingRecover = (s["isku1"].Length - 10) * F; e.standSwingStep = 1.5f; e.standSwingReach = 3.0f;
                 e.standTackle = s["isku2"]; e.standTackleImpact = 12; e.standTackleDamage = 22; e.standTackleFrameTime = 0.035f; e.standTackleLunge = 10f; e.standTackleLungeTime = 0.4f; e.standTackleReach = 3.2f;
                 e.standTackleKnockSpeed = 14f; e.standTackleKnockUp = 3f; e.standChargeRange = 14f; e.standChargeMinRange = 3.5f; e.standTackleNearChance = 0.3f;
-                e.standAirSprite = stand; e.standHitSounds = hitSnd;
+                e.standAirSprite = stand; e.standDropScale = 0.4f;
+                e.noStandIdle = s["ilman_idle"]; e.noStandWalk = s["ilman_kavely"]; e.noStandRun = s["ilman_juoksu"];   // ständin tiputtua e.standHitSounds = hitSnd;
                 go.transform.position = pos;
                 EditorUtility.SetDirty(e);
                 return e;

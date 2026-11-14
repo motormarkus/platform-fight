@@ -83,7 +83,7 @@ public static partial class BeatEmUpSetup
                 if (template == null) { report.Add(src + ": mallia ei löytynyt (aja valikko 254)"); continue; }
                 var go = Object.Instantiate(template.gameObject, mroot.transform);
                 go.name = src; go.SetActive(true);
-                go.transform.position = new Vector3(X0 + imgW * u, area.maxDepthY - 0.3f, 0f);
+                go.transform.position = new Vector3(X0 + imgW * u, area.maxDepthY - 0.3f - (src == "Kone: Tähtipyssy" ? 0.9f : 0f), 0f);   // Tähtipyssy alemmas: ei peitä North Forge -julistetta
                 report.Add(src.Replace("Kone: ", ""));
             }
             // pokeripöytä lattialle sohvan eteen

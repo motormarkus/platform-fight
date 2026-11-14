@@ -55,7 +55,7 @@ public static partial class BeatEmUpSetup
             tpl["Tankki-Tony"] = tonyT.gameObject; tpl["Melvin"] = melvinT.gameObject; tpl["Don"] = donT.gameObject;
 
             // ---- vanhat pois (mallien juuret piiloon) ----
-            foreach (var old in scene.GetRootGameObjects().Where(g => g.name == "Vegasin vihut" || g.name == "Vegasin baarin kalusteet" || g.name == "Vegasin baarin tappelu").ToArray()) Undo.DestroyObjectImmediate(old);
+            foreach (var old in scene.GetRootGameObjects().Where(g => g.name == "Vegasin vihut" || g.name == "Vegasin baarin kalusteet" || g.name == "Vegasin baarin tappelu" || g.name == "Vegasin kasinon tappelu").ToArray()) Undo.DestroyObjectImmediate(old);
             foreach (var rn in new[] { "Tankki-Tonyt", "Melvinit", "Donit" })
                 foreach (var rg in scene.GetRootGameObjects().Where(x => x.name == rn)) rg.SetActive(false);
 
@@ -87,13 +87,31 @@ public static partial class BeatEmUpSetup
                 EditorUtility.SetDirty(e);
                 return e;
             }
-            // hostiili vihu: herää kun hero tulee lähelle
+            const string DonCrew = "Donin porukka";   // Don ja Tankki-Tonyt: aina samalla puolella, eivät lyö toisiaan
+            var casinoCrowd = new List<Enemy>();
+            // rauhallinen kasinovihu: ei herää heron tullessa lähelle; rähinä (SalsaBrawl) herättää kaikki yhtä aikaa
+            void CasinoCalm(Enemy e)
+            {
+                e.wakeDistance = -1f; e.wakeOnFightRadius = 0f; e.joinsFightWhenSquadComes = false;
+                if (e.calmIdleSprites == null || e.calmIdleSprites.Length == 0) e.calmIdleSprites = e.idleSprites;
+                if (e.calmWalkSprites == null || e.calmWalkSprites.Length == 0) { e.calmWalkSprites = e.walkSprites; e.calmWalkFrameTime = e.walkFrameTime; }
+                if (e.displayName == "Puliukko") e.wakeOnFightRadius = 9f;
+                if (e.displayName == "Lätkäfani" || e.displayName == "Pensalenkkari") e.talksWhenCalm = true;
+                casinoCrowd.Add(e);
+            }
+            // kasinovihu: rauhassa kunnes rähinä alkaa
             Enemy Hostile(Area a, Transform parent, string type, float frac, float depth, string tag)
             {
                 float x = Mathf.Lerp(a.walkMinX, a.walkMaxX, frac);
                 var e = Spawn(parent, type, FreeSpot(a, scene, Spot(a, x, depth)), tag);
                 if (e == null) return null;
                 e.wakeDistance = 13f; e.wakeOnFightRadius = 0f;
+                if (type == "Puliukko") e.fightsEveryone = true;   // puliukko tappelee aina kaikkia vastaan
+                if (a == casino)
+                {
+                    CasinoCalm(e);
+                    float cx = e.transform.position.x; e.wanderMinX = cx - 1.9f; e.wanderMaxX = cx + 1.9f;
+                }
                 return e;
             }
             // Don ja kaksi Tonya vartijoina
@@ -111,7 +129,11 @@ public static partial class BeatEmUpSetup
                     if (t != null) { t.guardOf = don; gs[i] = t; list.Add(t); }
                 }
                 don.guards = gs;
-                foreach (var e in list) { e.wakeDistance = 13f; e.wakeOnFightRadius = 0f; }
+                foreach (var e in list)
+                {
+                    e.wakeDistance = 13f; e.wakeOnFightRadius = 0f; e.brawlGroup = DonCrew;
+                    if (a == casino) CasinoCalm(e);
+                }
                 return list;
             }
 
@@ -122,6 +144,16 @@ public static partial class BeatEmUpSetup
             foreach (var (type, f, d) in new[] { ("Melvin", 0.30f, 0.6f), ("Melvin", 0.68f, 0.4f), ("Lätkäfani", 0.40f, 0.35f), ("Puliukko", 0.55f, 0.75f), ("Puliukko", 0.78f, 0.7f),
                                                   ("Pensalenkkari", 0.62f, 0.3f), ("Pensalenkkari", 0.93f, 0.7f), ("Rusty", 0.36f, 0.8f), ("Rusty", 0.74f, 0.25f) })
                 Hostile(casino, cg.transform, type, f, d, "kasino");
+            // kasinon rähinä: ei heti; alkaa kun joku lyö tai minuutin rauhan jälkeen (Puliukko vittuilee), sitten kaikki kaikkia vastaan (Don ja Tonyt yhdessä)
+            Enemy casinoInstigator = casinoCrowd.FirstOrDefault(c => c != null && c.displayName == "Puliukko");
+            var cbgo = new GameObject("Vegasin kasinon tappelu");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(cbgo, scene);
+            Undo.RegisterCreatedObjectUndo(cbgo, "Vegasin kasinon tappelu");
+            var cbrawl = cbgo.AddComponent<SalsaBrawl>();
+            cbrawl.area = casino; cbrawl.instigator = casinoInstigator;
+            cbrawl.calmSeconds = 54f;
+            cbrawl.crowd = casinoCrowd.ToArray(); cbrawl.sailors = null; cbrawl.rogues = null;
+            EditorUtility.SetDirty(cbrawl);
 
             // ---- katu ----
             var sg = new GameObject("Katu"); sg.transform.SetParent(root.transform, false);
@@ -163,7 +195,7 @@ public static partial class BeatEmUpSetup
                     if (t != null) { t.guardOf = don; gs[i] = t; trio.Add(t); }
                 }
                 don.guards = gs; trio.Add(don);
-                foreach (var e in trio) Calm(e, false);   // saattue ei tapa omiaan
+                foreach (var e in trio) { e.brawlGroup = DonCrew; Calm(e, false); }   // saattue ei tapa omiaan (sama brawlGroup)
             }
 
             // portsarit (4): tulevat ruudun reunoista rähinän alkaessa
@@ -210,7 +242,7 @@ public static partial class BeatEmUpSetup
                     var sh = Object.Instantiate(sohviT.gameObject, furn.transform); sh.name = "Vegasin baarin Sohvi";
                     sh.transform.SetParent(furn.transform, false);
                     var sr = sh.GetComponentInChildren<SpriteRenderer>();
-                    float k = sr != null && sr.sprite != null ? 0.21f * H / sr.sprite.bounds.size.y : 1f;
+                    float k = sr != null && sr.sprite != null ? 0.185f * H / sr.sprite.bounds.size.y : 1f;
                     sh.transform.localScale = Vector3.one * k; sh.transform.position = new Vector3(sx, counterTopY, 0f);
                     if (sr != null) sr.sortingOrder = -9500;
                     var shop = Object.Instantiate(shopT.gameObject, furn.transform); shop.name = "Vegasin baarin tiski";

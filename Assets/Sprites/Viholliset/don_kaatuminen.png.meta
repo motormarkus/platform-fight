@@ -111,7 +111,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -132,10 +132,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -189,12 +189,12 @@ TextureImporter:
       name: don_kaatuminen_0
       rect:
         serializedVersion: 2
-        x: 425
-        y: 5165
-        width: 347
-        height: 589
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 5120
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -211,12 +211,12 @@ TextureImporter:
       name: don_kaatuminen_1
       rect:
         serializedVersion: 2
-        x: 1559
-        y: 5165
-        width: 350
-        height: 577
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 5120
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -233,12 +233,12 @@ TextureImporter:
       name: don_kaatuminen_2
       rect:
         serializedVersion: 2
-        x: 2690
-        y: 5165
-        width: 390
-        height: 577
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 5120
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -255,12 +255,12 @@ TextureImporter:
       name: don_kaatuminen_3
       rect:
         serializedVersion: 2
-        x: 3825
-        y: 5165
-        width: 485
-        height: 589
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 5120
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -277,12 +277,12 @@ TextureImporter:
       name: don_kaatuminen_4
       rect:
         serializedVersion: 2
-        x: 354
-        y: 4141
-        width: 574
-        height: 572
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 4096
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -299,12 +299,12 @@ TextureImporter:
       name: don_kaatuminen_5
       rect:
         serializedVersion: 2
-        x: 1489
-        y: 4153
-        width: 594
-        height: 478
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 4096
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -321,12 +321,12 @@ TextureImporter:
       name: don_kaatuminen_6
       rect:
         serializedVersion: 2
-        x: 2652
-        y: 4132
-        width: 526
-        height: 410
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 4096
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -343,12 +343,12 @@ TextureImporter:
       name: don_kaatuminen_7
       rect:
         serializedVersion: 2
-        x: 3776
-        y: 4139
-        width: 533
-        height: 462
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 4096
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -365,12 +365,12 @@ TextureImporter:
       name: don_kaatuminen_8
       rect:
         serializedVersion: 2
-        x: 319
-        y: 3115
-        width: 524
-        height: 492
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -387,12 +387,12 @@ TextureImporter:
       name: don_kaatuminen_9
       rect:
         serializedVersion: 2
-        x: 1460
-        y: 3112
-        width: 537
-        height: 497
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -409,12 +409,12 @@ TextureImporter:
       name: don_kaatuminen_10
       rect:
         serializedVersion: 2
-        x: 2602
-        y: 3112
-        width: 574
-        height: 492
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -431,12 +431,12 @@ TextureImporter:
       name: don_kaatuminen_11
       rect:
         serializedVersion: 2
-        x: 3728
-        y: 3111
-        width: 641
-        height: 452
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -453,12 +453,12 @@ TextureImporter:
       name: don_kaatuminen_12
       rect:
         serializedVersion: 2
-        x: 243
-        y: 2083
-        width: 728
-        height: 345
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -475,12 +475,12 @@ TextureImporter:
       name: don_kaatuminen_13
       rect:
         serializedVersion: 2
-        x: 1377
-        y: 2081
-        width: 758
-        height: 200
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -497,12 +497,12 @@ TextureImporter:
       name: don_kaatuminen_14
       rect:
         serializedVersion: 2
-        x: 2535
-        y: 2079
-        width: 760
-        height: 171
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -519,12 +519,12 @@ TextureImporter:
       name: don_kaatuminen_15
       rect:
         serializedVersion: 2
-        x: 3681
-        y: 2079
-        width: 758
-        height: 171
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -541,12 +541,12 @@ TextureImporter:
       name: don_kaatuminen_16
       rect:
         serializedVersion: 2
-        x: 224
-        y: 1056
-        width: 760
-        height: 179
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -563,12 +563,12 @@ TextureImporter:
       name: don_kaatuminen_17
       rect:
         serializedVersion: 2
-        x: 1380
-        y: 1062
-        width: 753
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -585,12 +585,12 @@ TextureImporter:
       name: don_kaatuminen_18
       rect:
         serializedVersion: 2
-        x: 2533
-        y: 1067
-        width: 752
-        height: 248
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -607,12 +607,12 @@ TextureImporter:
       name: don_kaatuminen_19
       rect:
         serializedVersion: 2
-        x: 3697
-        y: 1067
-        width: 743
-        height: 234
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -629,12 +629,12 @@ TextureImporter:
       name: don_kaatuminen_20
       rect:
         serializedVersion: 2
-        x: 251
-        y: 46
-        width: 736
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -651,7 +651,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c75ecd46f4b24f04a8f21eef139f5698
     internalID: 0
     vertices: []
     indices: 

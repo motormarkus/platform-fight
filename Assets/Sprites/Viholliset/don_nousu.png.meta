@@ -153,7 +153,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -174,10 +174,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -231,12 +231,12 @@ TextureImporter:
       name: don_nousu_0
       rect:
         serializedVersion: 2
-        x: 257
-        y: 6158
-        width: 731
-        height: 246
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 6144
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -253,12 +253,12 @@ TextureImporter:
       name: don_nousu_1
       rect:
         serializedVersion: 2
-        x: 1414
-        y: 6157
-        width: 729
-        height: 251
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 6144
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -275,12 +275,12 @@ TextureImporter:
       name: don_nousu_2
       rect:
         serializedVersion: 2
-        x: 2574
-        y: 6159
-        width: 722
-        height: 252
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 6144
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -297,12 +297,12 @@ TextureImporter:
       name: don_nousu_3
       rect:
         serializedVersion: 2
-        x: 3739
-        y: 6160
-        width: 707
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 6144
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -319,12 +319,12 @@ TextureImporter:
       name: don_nousu_4
       rect:
         serializedVersion: 2
-        x: 298
-        y: 5392
-        width: 688
-        height: 258
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 5376
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -341,12 +341,12 @@ TextureImporter:
       name: don_nousu_5
       rect:
         serializedVersion: 2
-        x: 1466
-        y: 5395
-        width: 664
-        height: 270
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 5376
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -363,12 +363,12 @@ TextureImporter:
       name: don_nousu_6
       rect:
         serializedVersion: 2
-        x: 2630
-        y: 5398
-        width: 639
-        height: 288
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 5376
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -385,12 +385,12 @@ TextureImporter:
       name: don_nousu_7
       rect:
         serializedVersion: 2
-        x: 3789
-        y: 5399
-        width: 635
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 5376
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -407,12 +407,12 @@ TextureImporter:
       name: don_nousu_8
       rect:
         serializedVersion: 2
-        x: 341
-        y: 4629
-        width: 635
-        height: 311
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 4608
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -429,12 +429,12 @@ TextureImporter:
       name: don_nousu_9
       rect:
         serializedVersion: 2
-        x: 1493
-        y: 4626
-        width: 637
-        height: 321
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 4608
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -451,12 +451,12 @@ TextureImporter:
       name: don_nousu_10
       rect:
         serializedVersion: 2
-        x: 2651
-        y: 4622
-        width: 623
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 4608
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -473,12 +473,12 @@ TextureImporter:
       name: don_nousu_11
       rect:
         serializedVersion: 2
-        x: 3800
-        y: 4622
-        width: 615
-        height: 345
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 4608
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -495,12 +495,12 @@ TextureImporter:
       name: don_nousu_12
       rect:
         serializedVersion: 2
-        x: 341
-        y: 3854
-        width: 606
-        height: 357
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -517,12 +517,12 @@ TextureImporter:
       name: don_nousu_13
       rect:
         serializedVersion: 2
-        x: 1506
-        y: 3851
-        width: 579
-        height: 367
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -539,12 +539,12 @@ TextureImporter:
       name: don_nousu_14
       rect:
         serializedVersion: 2
-        x: 2660
-        y: 3852
-        width: 567
-        height: 371
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -561,12 +561,12 @@ TextureImporter:
       name: don_nousu_15
       rect:
         serializedVersion: 2
-        x: 3812
-        y: 3851
-        width: 557
-        height: 386
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -583,12 +583,12 @@ TextureImporter:
       name: don_nousu_16
       rect:
         serializedVersion: 2
-        x: 349
-        y: 3083
-        width: 538
-        height: 403
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -605,12 +605,12 @@ TextureImporter:
       name: don_nousu_17
       rect:
         serializedVersion: 2
-        x: 1498
-        y: 3084
-        width: 458
-        height: 417
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -627,12 +627,12 @@ TextureImporter:
       name: don_nousu_18
       rect:
         serializedVersion: 2
-        x: 2664
-        y: 3083
-        width: 398
-        height: 437
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -649,12 +649,12 @@ TextureImporter:
       name: don_nousu_19
       rect:
         serializedVersion: 2
-        x: 3850
-        y: 3093
-        width: 352
-        height: 456
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -671,12 +671,12 @@ TextureImporter:
       name: don_nousu_20
       rect:
         serializedVersion: 2
-        x: 427
-        y: 2325
-        width: 306
-        height: 485
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -693,12 +693,12 @@ TextureImporter:
       name: don_nousu_21
       rect:
         serializedVersion: 2
-        x: 1564
-        y: 2325
-        width: 305
-        height: 514
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -715,12 +715,12 @@ TextureImporter:
       name: don_nousu_22
       rect:
         serializedVersion: 2
-        x: 2704
-        y: 2325
-        width: 301
-        height: 548
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -737,12 +737,12 @@ TextureImporter:
       name: don_nousu_23
       rect:
         serializedVersion: 2
-        x: 3852
-        y: 2325
-        width: 301
-        height: 577
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -759,12 +759,12 @@ TextureImporter:
       name: don_nousu_24
       rect:
         serializedVersion: 2
-        x: 394
-        y: 1557
-        width: 301
-        height: 601
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -781,12 +781,12 @@ TextureImporter:
       name: don_nousu_25
       rect:
         serializedVersion: 2
-        x: 1549
-        y: 1557
-        width: 294
-        height: 620
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -803,12 +803,12 @@ TextureImporter:
       name: don_nousu_26
       rect:
         serializedVersion: 2
-        x: 2710
-        y: 1557
-        width: 284
-        height: 635
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -825,12 +825,12 @@ TextureImporter:
       name: don_nousu_27
       rect:
         serializedVersion: 2
-        x: 3885
-        y: 1557
-        width: 268
-        height: 639
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -847,12 +847,12 @@ TextureImporter:
       name: don_nousu_28
       rect:
         serializedVersion: 2
-        x: 442
-        y: 789
-        width: 271
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -869,12 +869,12 @@ TextureImporter:
       name: don_nousu_29
       rect:
         serializedVersion: 2
-        x: 1599
-        y: 789
-        width: 272
-        height: 639
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -891,12 +891,12 @@ TextureImporter:
       name: don_nousu_30
       rect:
         serializedVersion: 2
-        x: 2759
-        y: 782
-        width: 252
-        height: 639
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -913,12 +913,12 @@ TextureImporter:
       name: don_nousu_31
       rect:
         serializedVersion: 2
-        x: 3919
-        y: 781
-        width: 231
-        height: 631
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -935,12 +935,12 @@ TextureImporter:
       name: don_nousu_32
       rect:
         serializedVersion: 2
-        x: 472
-        y: 14
-        width: 227
-        height: 620
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -957,12 +957,12 @@ TextureImporter:
       name: don_nousu_33
       rect:
         serializedVersion: 2
-        x: 1629
-        y: 14
-        width: 229
-        height: 615
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -979,12 +979,12 @@ TextureImporter:
       name: don_nousu_34
       rect:
         serializedVersion: 2
-        x: 2778
-        y: 14
-        width: 234
-        height: 615
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1001,7 +1001,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 09ea29b19668534419444dfa0b9cb323
     internalID: 0
     vertices: []
     indices: 

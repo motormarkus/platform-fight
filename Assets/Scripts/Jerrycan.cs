@@ -20,6 +20,8 @@ public class Jerrycan : MonoBehaviour
     public int blastDamage = 40, heroDamage = 25, bossDamage = 12;
     [Tooltip("Laboratorion Robottipomo kärsii räjähdyksestä paljon (heron lyönnit eivät tehoa siihen ennen olion vapautusta); ohittaa heroDamageMul:n.")] public int robotBossDamage = 110;
     public float ignitePickRange = 1.3f;
+    [Tooltip("Oma räjähdysanimaatio (kaasupullo): korvaa gallonan videon. Tyhjä = gallonan oma.")] public Sprite[] customBoom;
+    public float customBoomFps = 28f, customBoomScale = 2.6f;
     [Tooltip("Kuvan koko (1 = 200 px/yksikkö: kanisteri 1 yksikön korkuinen).")]
     public float artScale = 1.2f;
 
@@ -206,6 +208,9 @@ public class Jerrycan : MonoBehaviour
         Draw(dt);
     }
 
+    /// Räjäyttää heti (kaasupullo käyttää tätä räjähdykseensä).
+    public void DetonateNow() { if (state != S.Boom) Explode(); }
+
     void Explode()
     {
         if (state == S.Lighting) EndLighting(true);
@@ -245,6 +250,13 @@ public class Jerrycan : MonoBehaviour
             Vector3 q = j.transform.position;
             if (Mathf.Abs(q.x - me.x) <= blastRadiusX * 1.4f && Mathf.Abs(q.y - me.y) <= blastRadiusY * 1.4f)
             { j.t = Mathf.Max(j.lit ? j.t : 0f, j.fuse - Random.Range(0.1f, 0.3f)); j.lit = true; }
+        }
+        foreach (var g in GasCylinder.All.ToArray())
+        {
+            // gallonan räjähdys sytyttää viereiset kaasupullot
+            if (g == null) continue;
+            Vector3 q = g.transform.position;
+            if (Mathf.Abs(q.x - me.x) <= blastRadiusX * 1.4f && Mathf.Abs(q.y - me.y) <= blastRadiusY * 1.4f) g.Ignite(Random.Range(0.15f, 0.4f));
         }
         foreach (var c in Crate.All.ToArray())
         {
@@ -335,6 +347,16 @@ public class Jerrycan : MonoBehaviour
         boomT += dt;
         int order = Mathf.RoundToInt(-transform.position.y * 100f) + 5;
         boom.sortingOrder = order;
+        if (customBoom != null && customBoom.Length > 0)
+        {
+            int ci = (int)(boomT * customBoomFps);
+            if (ci >= customBoom.Length) { Destroy(gameObject); return; }
+            boom.sprite = customBoom[ci];
+            boom.transform.localScale = Vector3.one * (blastRadiusX * customBoomScale / boom.sprite.bounds.size.x);
+            boom.transform.localPosition = new Vector3(0f, 1.5f, 0f);
+            boom.color = Color.white;
+            return;
+        }
         if (boomSprs != null)
         {
             float srcFrame = BoomSrc[0] + boomT * 30f * BoomSpeed;

@@ -22,6 +22,7 @@ public class WorldGlobe : MonoBehaviour
         new Place { name = "Eldoraato",  lat = 5f,    lon = -73.8f,   color = new Color(0.3f, 1f, 0.4f), scene = "Viidakko", area = "Viidakon kiitotie", start = new Vector2(53004f, -1f) },   // kiitotien alku (valikko 305)
         new Place { name = "Vankila",    lat = 9.5f,  lon = -64.5f,  color = new Color(1f, 0.5f, 0.1f), scene = "Vankila", area = "Vankila", start = new Vector2(85004f, -2.2f) },   // sisäpihan portti vasemmalla (valikko 353); viidakon vieressä
         new Place { name = "Kiinan muuri", lat = 40.4f, lon = 116.0f, color = new Color(1f, 0.25f, 0.2f), scene = "Muuri", area = "Muurin kiitotie", start = new Vector2(76206f, -2.5f) },   // kiitotien vasen pää (valikko 327)
+        new Place { name = "Las Vegas",  lat = 36.1f, lon = -115.2f, color = new Color(0.8f, 0.3f, 1f), scene = "Vegas", area = "Vegasin yötaivas", start = new Vector2(98006f, -2.5f) },   // kasinon katto, vasen pää kopterin vieressä (valikko 376); kadun vasen pää olisi (104004, -1.5) alueella "Vegasin katu"
         new Place { name = "Uccopulco",  lat = 16.5f, lon = -100f,  color = Color.white, scene = "UccoLaiva", area = "Uccopulco", start = new Vector2(8966f, -1f) },
     };
 
@@ -69,7 +70,6 @@ public class WorldGlobe : MonoBehaviour
             // kone pysyy ruudun keskellä, palloa pyöritetään tatilla; kohde keskellä = valittu
             if ((pad.leftStick.ReadValue() + pad.dpad.ReadValue()).magnitude > 0.2f) padCursor = true;
             cursor = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
-            planeAngle = 0f;
         }
         hover = -1;
         if (padCursor)
@@ -125,6 +125,13 @@ public class WorldGlobe : MonoBehaviour
         // pehmeä kääntyminen valittuun kohteeseen (kun ei raahata)
         if (selectTarget) { lat = Mathf.Lerp(lat, selLat, 1f - Mathf.Exp(-6f * dt)); lon = Mathf.LerpAngle(lon, selLon, 1f - Mathf.Exp(-6f * dt)); tLat = lat; tLon = lon; if (Mathf.Abs(lat - selLat) < 0.1f && Mathf.Abs(Mathf.DeltaAngle(lon, selLon)) < 0.1f) selectTarget = false; }
         if (Mathf.Abs(kx) + Mathf.Abs(ky) > 0.05f || (dragging && moved)) selectTarget = false;
+        // koneen nokka kääntyy menosuuntaan: pallon pinta liikkuu koneen alla vastakkaiseen suuntaan kuin kone etenee
+        {
+            Vector3 gc = globe.position; Quaternion rOld = globe.rotation, rNew = Quaternion.Euler(-lat, 0f, 0f) * Quaternion.Euler(0f, lon, 0f);
+            Vector3 p0 = gc + (cam.transform.position - gc).normalized, q = Quaternion.Inverse(rOld) * (p0 - gc), p1 = gc + rNew * q;
+            Vector2 sd = (Vector2)cam.WorldToScreenPoint(p1) - (Vector2)cam.WorldToScreenPoint(p0);
+            if (sd.sqrMagnitude > 0.04f) { Vector2 hd = -sd; planeAngle = Mathf.LerpAngle(planeAngle, Mathf.Atan2(hd.x, hd.y) * Mathf.Rad2Deg, 1f - Mathf.Exp(-12f * dt)); }
+        }
         globe.rotation = Quaternion.Euler(-lat, 0f, 0f) * Quaternion.Euler(0f, lon, 0f);
         for (int i = 0; i < places.Count; i++)
         {

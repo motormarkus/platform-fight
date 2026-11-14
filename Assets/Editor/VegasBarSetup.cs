@@ -55,6 +55,7 @@ public static partial class BeatEmUpSetup
                 var sr = new GameObject("Baari sisä " + (i + 1)).AddComponent<SpriteRenderer>();
                 sr.transform.SetParent(root.transform, false); sr.sprite = sp; sr.sortingOrder = -10000;
                 sr.transform.position = new Vector3(X0 + imgW * (i + 0.5f), cy, 0f);
+                sr.transform.localScale = new Vector3(1.003f, 1f, 1f);   // limitys: ei rakoa saumaan
             }
 
             // ovet: baarin sisääntuloovet (kuvan 1 vasen reuna, x ~11 %) <-> kadun baarin ovi (levennetyn baarikuvan x ~31 %)

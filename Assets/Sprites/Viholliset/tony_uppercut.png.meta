@@ -129,7 +129,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -150,10 +150,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -207,12 +207,12 @@ TextureImporter:
       name: tony_uppercut_0
       rect:
         serializedVersion: 2
-        x: 128
-        y: 4623
-        width: 352
-        height: 636
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 4608
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -229,12 +229,12 @@ TextureImporter:
       name: tony_uppercut_1
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 4623
-        width: 352
-        height: 636
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 4608
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -251,12 +251,12 @@ TextureImporter:
       name: tony_uppercut_2
       rect:
         serializedVersion: 2
-        x: 2099
-        y: 4623
-        width: 438
-        height: 623
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 4608
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -273,12 +273,12 @@ TextureImporter:
       name: tony_uppercut_3
       rect:
         serializedVersion: 2
-        x: 3123
-        y: 4623
-        width: 438
-        height: 623
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 4608
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -295,12 +295,12 @@ TextureImporter:
       name: tony_uppercut_4
       rect:
         serializedVersion: 2
-        x: 48
-        y: 3856
-        width: 460
-        height: 612
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3840
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -317,12 +317,12 @@ TextureImporter:
       name: tony_uppercut_5
       rect:
         serializedVersion: 2
-        x: 1072
-        y: 3856
-        width: 460
-        height: 612
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 3840
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -339,12 +339,12 @@ TextureImporter:
       name: tony_uppercut_6
       rect:
         serializedVersion: 2
-        x: 2082
-        y: 3857
-        width: 477
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 3840
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -361,12 +361,12 @@ TextureImporter:
       name: tony_uppercut_7
       rect:
         serializedVersion: 2
-        x: 3106
-        y: 3857
-        width: 477
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 3840
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -383,12 +383,12 @@ TextureImporter:
       name: tony_uppercut_8
       rect:
         serializedVersion: 2
-        x: 65
-        y: 3089
-        width: 450
-        height: 554
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3072
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -405,12 +405,12 @@ TextureImporter:
       name: tony_uppercut_9
       rect:
         serializedVersion: 2
-        x: 1185
-        y: 3088
-        width: 340
-        height: 562
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 3072
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -427,12 +427,12 @@ TextureImporter:
       name: tony_uppercut_10
       rect:
         serializedVersion: 2
-        x: 2227
-        y: 3090
-        width: 393
-        height: 530
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 3072
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -449,12 +449,12 @@ TextureImporter:
       name: tony_uppercut_11
       rect:
         serializedVersion: 2
-        x: 3251
-        y: 3091
-        width: 451
-        height: 534
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 3072
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -471,12 +471,12 @@ TextureImporter:
       name: tony_uppercut_12
       rect:
         serializedVersion: 2
-        x: 179
-        y: 2323
-        width: 440
-        height: 544
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2304
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -493,12 +493,12 @@ TextureImporter:
       name: tony_uppercut_13
       rect:
         serializedVersion: 2
-        x: 1205
-        y: 2323
-        width: 418
-        height: 572
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 2304
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -515,12 +515,12 @@ TextureImporter:
       name: tony_uppercut_14
       rect:
         serializedVersion: 2
-        x: 2229
-        y: 2323
-        width: 418
-        height: 572
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 2304
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -537,12 +537,12 @@ TextureImporter:
       name: tony_uppercut_15
       rect:
         serializedVersion: 2
-        x: 3250
-        y: 2323
-        width: 411
-        height: 617
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 2304
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -559,12 +559,12 @@ TextureImporter:
       name: tony_uppercut_16
       rect:
         serializedVersion: 2
-        x: 178
-        y: 1555
-        width: 411
-        height: 617
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -581,12 +581,12 @@ TextureImporter:
       name: tony_uppercut_17
       rect:
         serializedVersion: 2
-        x: 1199
-        y: 1555
-        width: 390
-        height: 654
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 1536
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -603,12 +603,12 @@ TextureImporter:
       name: tony_uppercut_18
       rect:
         serializedVersion: 2
-        x: 2223
-        y: 1555
-        width: 390
-        height: 654
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 1536
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -625,12 +625,12 @@ TextureImporter:
       name: tony_uppercut_19
       rect:
         serializedVersion: 2
-        x: 3247
-        y: 1555
-        width: 390
-        height: 654
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 1536
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -647,12 +647,12 @@ TextureImporter:
       name: tony_uppercut_20
       rect:
         serializedVersion: 2
-        x: 175
-        y: 787
-        width: 390
-        height: 654
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -669,12 +669,12 @@ TextureImporter:
       name: tony_uppercut_21
       rect:
         serializedVersion: 2
-        x: 1195
-        y: 787
-        width: 392
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 768
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -691,12 +691,12 @@ TextureImporter:
       name: tony_uppercut_22
       rect:
         serializedVersion: 2
-        x: 2219
-        y: 787
-        width: 392
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 768
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -713,12 +713,12 @@ TextureImporter:
       name: tony_uppercut_23
       rect:
         serializedVersion: 2
-        x: 3243
-        y: 787
-        width: 392
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 768
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -735,12 +735,12 @@ TextureImporter:
       name: tony_uppercut_24
       rect:
         serializedVersion: 2
-        x: 171
-        y: 19
-        width: 392
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -757,12 +757,12 @@ TextureImporter:
       name: tony_uppercut_25
       rect:
         serializedVersion: 2
-        x: 1195
-        y: 19
-        width: 392
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 0
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -779,12 +779,12 @@ TextureImporter:
       name: tony_uppercut_26
       rect:
         serializedVersion: 2
-        x: 2241
-        y: 19
-        width: 373
-        height: 664
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 0
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -801,7 +801,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3b9d13384efe07f40a973d02593b0a4d
     internalID: 0
     vertices: []
     indices: 

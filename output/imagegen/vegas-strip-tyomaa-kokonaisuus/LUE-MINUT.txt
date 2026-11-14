@@ -1,0 +1,9 @@
+Las Vegasin tyomaan uudet palat.
+1. vegas-strip-tyomaa-jatko: koko ruudun levyinen tyomaa, aiemman vegas-strip-tyomaa-palan oikealle puolelle.
+2. vegas-strip-tyomaa-paaty: edellisen jatkopalan oikealle puolelle. Tyomaa loppuu kuvan puolivalin tuntumassa ja katu jatkuu oikealle.
+3. vegas-strip-tyomaa-ylajatko: suoraan paatypalan YLAPUOLELLE, sama x-sijainti. Ei muiden katupalojen paalle.
+Kaikki PNG:t 5120 x 1844 ja oikeasti lapinakyva tausta. Sama PPU ja skaala; vierekkaisten palojen keskikohtien vali 5120/PPU vaakaan tai 1844/PPU pystyyn, kun pivotit ovat samat.
+Katutason esikatseluun lisatty aiemmat Vegas-parallaksit vain havainnollistamista varten. Varsinaisiin pelikerroksiin niita ei ole yhdistetty.
+Liitosten reuna-arvot tarkistettu kaikista RGBA-kanavista. Lisaeksi tarkistettu esikatselut ja rakennuslinjojen kohdistus.
+Tuotanto: sisaanrakennettu image_gen, paikalliset liitoskorjaukset ja mekaaninen kohdistus. 5120 x 1844 on skaalattu vientikoko, ei natiivin generoinnin koko. Promptit tiedostossa generointiohjeet.txt.
+Ei Unity-scenejen tai asetusten muutoksia.

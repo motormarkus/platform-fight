@@ -1,0 +1,15 @@
+Vegasin baarin viimeinen oikea päätypala
+
+Pelikuva: vegas-baari-sisatilat-paaty-5120x1844.png. Koko 5120 x 1844 px, täysin peittävä PNG.
+Sijoita vasen reuna kuvan vegas-baari-sisatilat-lava-v2-5120x1844.png oikeaan reunaan, samoilla PPU-, pivot-, skaala- ja korkeusasetuksilla.
+Vasemmalta: lava jatkuu ja päättyy portaisiin, hieman paneloitua seinää, kaksi erillistä WC-ovea takaseinällä, lopuksi viisto sulkeva päätyseinä ja siinä yksi bäkkärin ovi.
+WC-ovissa on vain kuvasymbolit, ei kirjaimia. Kuvassa ei ole tekstiä, esiintyjiä tai soittimia. Uuteen palaan ei lisätty PA-kaiuttimia; edellisen kuvan kaiutin jää ennalleen.
+Noin 40 prosenttia kuva-alan korkeudesta on avointa kävelylattiaa; päätyseinän matala vinous muuttaa osuutta hieman oikealla. Lattian tekstuuri jatkuu aiemmasta palasta. Lavan sekä valonauhojen korkeudet ja yhdistävän reunan RGBA-arvot on tarkistettu.
+
+Koko baarin järjestys vasemmalta:
+1. vegas-baari-sisatilat-vasen-v2-5120x1844.png
+2. vegas-baari-sisatilat-lava-v2-5120x1844.png
+3. vegas-baari-sisatilat-paaty-5120x1844.png
+
+Tekotapa: sisäänrakennettu image_gen, oikean päädyn generointi aiempaa pelipalaa jatkamalla. Natiivikuva 2167 x 726 sisälsi vasemmalla apuliuskan. Apuliuska rajattu pois, uusi pala skaalattu 5120 x 1844 vientikokoon, vaakalinjat kohdistettu ja sauma sekä lattiapinta sovitettu. Vientikoko ei ole generoinnin natiiviresoluutio.
+Vanhoja pelipaloja tai Unity-scenejä ei muutettu.

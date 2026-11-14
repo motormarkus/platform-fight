@@ -1,0 +1,10 @@
+Vegasin baarin sisätilat: tiskin jatko ja esiintymislava
+
+Pelikuva: vegas-baari-sisatilat-lava-5120x1844.png, täysin peittävä PNG.
+Sijoita tämän vasen reuna kuvan vegas-baari-sisatilat-vasen-5120x1844.png oikeaan reunaan. Sama PPU, skaala, pivot ja korkeus. Päätyovet ja jukeboxi pysyvät aiemmassa vasemmassa palassa.
+Tiski jatkuu vasemmalta uuden palan puoliväliin; sen jälkeen alkaa esiintymislava. Lavalla on rummut, vahvistimet, kitara ja mikrofoniteline. Kuva ei sisällä tekstiä tai hahmoja.
+Alhaalla on noin 40 prosenttia vapaata kävelylattiaa. Oikeaa päätyä ei suljeta; lava ja huone voivat jatkua seuraavaan palaan.
+Liitoksen vaakalinjat on kohdistettu aiempaan kuvaan: neon, hyllyjen ylälista, tiskin kansi ja jalkatuki. Alalattian pinta jatkuu aiemmasta palasta peilattuna. Liittyvän reunan RGBA-arvot vastaavat täysin aiemman kuvan oikeaa reunaa; lisäksi tarkistetaan kuvapari ja lähikuva visuaalisesti.
+
+Tekotapa: sisäänrakennettu image_gen, referenssiin perustuva oikean jatkon generointi. Natiivikuva 2167 x 726 sisälsi vasemmalla apuliuskan; tämä rajattu pois ja uusi osa skaalattu 5120 x 1844:ään. Vaakalinjojen korkeuskohdistus, katkeamattoman lattiapinnan sovitus ja 64 px sauman sovitus tehty viennissä. 5120 x 1844 on vientikoko, ei generoinnin natiiviresoluutio.
+Oikean reunan viitekuva on 256 px leveä rajaus tästä lopullisesta pelipalasta tulevaa jatkoa varten. Vanhaa sisäkuvaa ja Unityn scenejä ei muutettu.

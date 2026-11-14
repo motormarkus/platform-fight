@@ -1,0 +1,18 @@
+TYOMAAN YLAJATKO KOKO LEVEYDELLE
+
+Kolme 5120 x 1844 RGBA PNG -kuvaa, yhteisleveys 15360 pikselia.
+
+Ylarivi vasemmalta oikealle:
+01-alku-5120x1844.png | 02-keskiosa-5120x1844.png | 03-paaty-5120x1844.png
+
+Niiden alle samassa jarjestyksessa olemassa olevat katutason kuvat:
+vegas-strip-tyomaa | vegas-strip-tyomaa-jatko | vegas-strip-tyomaa-paaty
+
+Kaikki samalla skaalalla ja PPU-arvolla. Samalla keskitettylla pivotilla vaakasuora keskipistevali on 5120/PPU, yla- ja alakuvan pystysuora vali 1844/PPU.
+Ylapalojen valiset vaakasaumat ja kaikki kolme alareunan pystysaumaa on tarkistettu kaikista RGBA-kanavista. Liittyvien reunojen kanavaerot 0. Myos rakennuslinjat ja saumojen yli kulkevat vinotuet on tarkistettu esikatseluista.
+Tausta on oikeasti lapinakyva. Esikatselujen siniharmaa tausta on vain tarkistusta varten, ei osa pelikuvia.
+
+Alku- ja keskipalat ovat uusia. Paatypala on tasmalleen aiemmin tehty vegas-strip-tyomaa-ylajatko-5120x1844.png, muuttamattomana kopiona. Alakuvia ei muokattu.
+
+Tuotanto: sisaanrakennettu image_gen-kuvatyokalu. Uusien kuvien natiivi 1971 x 798 sisalsi ala- ja oikeassa reunassa liitosviitteet. Viitteet rajattu pois ja varsinainen pelikuva skaalattu 5120 x 1844 vientikokoon. Kuvien geometria kohdistettu olemassa oleviin tasoihin. Alimman avoimen rakennevalin pilarit ja vinotuet jatkettu mekaanisesti alakuvien olemassa olevista rakennepikseleista samoilla linjoilla, jotta ne liittyvat ilman katkoksia. Ei natiivia 5K-generointia.
+Ei Unity-scenejen tai asetusten muutoksia. Generointiohjeet tiedostossa generointiohjeet.txt.

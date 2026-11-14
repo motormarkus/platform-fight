@@ -1,0 +1,11 @@
+Vegasin Strip: panttilainaamo baarin vasemmalle puolelle
+
+Pelikuva: vegas-strip-panttilainaamo-5120x1844.png. Koko 5120 x 1844, RGBA PNG.
+Sijoita kuvan oikea reuna suoraan baaripalan vegas-strip-baari-vasen-5120x1844.png vasempaan reunaan samoilla PPU-, skaala-, pivot- ja korkeusasetuksilla.
+Järjestys vasemmalta: panttilainaamo, pitkä avoin katuosuus, aiempi baari ja kasino. Panttilainaamon korkea julkisivu jatkuu kuvan yläreunan ja vasemman reunan ulkopuolelle.
+Kuvan oikealla puoliskolla on vain jalkakäytävä, reunakynnys ja asfaltti. Yläosa on läpinäkyvä olemassa olevalle Vegas-parallaksille. Aiemman baarin pääty pysyy alkuperäisessä baarikuvassa.
+Kadun kokonaiskävelyalue noin 35%, kapea jalkakäytävä ja paljon asfalttia. Reunakiven ja asfaltin korkeudet säilyvät aiemmasta palasta. Katupinnan liittyvä reuna on tarkistettu RGBA-arvoista ja kuvaparin esikatselusta.
+Parallaksiesikatseluissa käytetään olemassa olevia Vegas-tasoja vuorotellen peilattuina: panttilainaamopala A, baaripala peili(A), kasinopala A. Niitä ei ole yhdistetty pelikäyttöiseen etualan PNG:hen.
+Vanhoja kuvia ja Unityn sceneä tai asetuksia ei muutettu.
+
+Tekotapa: sisäänrakennettu image_gen, vasemmalle jatkaminen. Natiivikuva 2167x726 sisälsi oikealla apuliuskan. Uusi vasen osuus rajattu ja skaalattu vientikokoon 5120 x 1844, yläreunan alfa siivottu. Katupinta jatkettu aiemman palan peilatusta pinnasta, jotta korkeudet, pintakuvio ja liitos säilyvät; liittymä uuden julkisivun juureen on häivytetty. Vientikoko ei ole generoinnin natiiviresoluutio.

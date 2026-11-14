@@ -1,0 +1,9 @@
+Vegas Strip: korkea hääkappeli kasinon oikealle puolelle
+
+Pelikuva: vegas-strip-haakappeli-5120x1844.png, 5120 x 1844 RGBA PNG.
+Sijoita tämän kuvan vasen reuna kasinokuvan vegas-strip-kasino-ulkoa-v2-5120x1844.png oikeaan reunaan samalla PPU:lla, skaalalla, pivotilla ja korkeudella.
+Ensin on avoin katuosuus, sitten korkea hääkappeli. Katon huippu ja torni jatkuvat kuvan yläreunan ulkopuolelle. Kappelissa on korkeat pariovet, kaari-ikkunat ja hillitty Vegas-neon. Kävelyalue noin 35 prosenttia, kapea jalkakäytävä ja leveä asfaltti. Katu jatkuu oikeaan reunaan.
+Tausta on aidosti läpinäkyvä erillisille parallakseille. Parallaksien esikatselut käyttävät aiempia Vegas-tasoja kasinon kohdalla normaalina ja kappelin kohdalla peilattuina. Niitä ei ole yhdistetty pelikäyttöiseen etualaan.
+Liittyvät reunapikselit on tarkistettu kaikista RGBA-kanavista; myös kuvaparin esikatselu on tarkistettu. Vanhaa kasinokuvaa ja Unity-scenejä ei muutettu.
+
+Tekotapa: sisäänrakennettu image_gen, ensin jatkokuva ja sitten käyttäjän pyytämä korkeamman julkisivun muokkaus. Valitun kuvan natiivi koko 2089x753; 5120 x 1844 on vientikoko. Rakennus siirretty 92 pikseliä ylemmäs vientikoossa, sen mittasuhteita litistämättä. Kadun pinta jatkettu aiemman kasinokuvan peilatusta pinnasta. Liitoskohdan laatoituksesta poistettu paikallisella kuvatyökalumuokkauksella V-kuvion muodostava ylimääräinen vino sauma. Alfa siivottu, liittymä uuden julkisivun juureen häivytetty. Generointiohjeet erillisessä tekstitiedostossa.

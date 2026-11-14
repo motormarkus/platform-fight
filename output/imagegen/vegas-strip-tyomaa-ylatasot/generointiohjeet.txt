@@ -1,0 +1,69 @@
+
+=== 01-alku-generointiohje.txt ===
+
+Use case: precise-object-edit / two-edge seamless game environment outpainting.
+Asset type: the LEFT UPPER tile over the start of the Las Vegas construction site. Final new tile 5120x1844 with genuine transparent background.
+
+Input 1 is a precise 1376x557 L-shaped editing guide. Fill ONLY the GREY rectangle x=0..1279, y=0..460. Keep the RIGHT 96px strip and BOTTOM 96px strip unchanged; they are existing neighbor images. We crop the reference strips away afterwards.
+The right strip is the already completed middle upper tile. Continue its concrete slabs and red scaffold rails exactly LEFTWARD.
+The bottom strip is the top of the already completed worksite-start street tile. Continue its columns, scaffolding and diagonal braces UPWARD at exactly their existing positions and thickness.
+Input 2: the completed middle upper tile, reference for height, style, lighting and horizontal joining.
+Input 3: the entire lower start tile, reference for the building footprint and upward column alignment only. DO NOT copy its road, sidewalk, fence, block pallets, beams or ground-floor scene into the new upper tile.
+
+CRITICAL FOOTPRINT: keep approximately the LEFT HALF of the new tile (x=0..640 in the 1280px target area) completely transparent. The construction only begins around x=655, directly above the existing building's left scaffold edge in the bottom strip. Concrete platforms start around x=695; they MUST NOT extend into the empty left half. The building's exposed left edge has connected scaffold poles and slab ends, not a closing opaque wall.
+The worksite then extends across the RIGHT HALF and off the right edge to join the already completed upper middle tile. Continue concrete columns from the bottom-context positions (around x=714..780, x=973..1007, x=1104..1155, and the small rear shaft as shown), as well as the reddish scaffold poles and braces. Follow the guide rather than inventing shifted supports.
+
+Two elevated levels with matching horizontal geometry: upper slab front y~117..136 with dark shallow underside to y~173; lower slab front y~319..342 and underside to y~371, precisely as shown at the right reference edge. Red scaffold rails at y~39, y~78 and y~263. The lower open bay y~371..460 continues directly into the lower tile. Do NOT put a new floor or opaque band at y=461.
+One simple access ladder inside a bay, a modest small stack of boards or a cable coil on a platform, and one or two amber caged work lamps. Spacious and readable; no excessive clutter. The top framing may continue beyond the upper border. Solid plausible joins and attached braces.
+
+Same clean, hand-painted 1990s arcade style as the reference, front orthographic side view, consistent scale, warm grey concrete, red metal scaffolds, bronze fasteners, soft amber work lighting. Controlled subtle materials, no noisy grunge. No strong perspective or receding architecture.
+
+True transparent alpha in the entire left half and all open bays. No sky, hotel skyline, black/white/grey fill, checkerboard, background wall, road, asphalt, sidewalk, street fence, people, vehicles or text. Keep the bottom and right reference strips fixed, and connect cleanly along BOTH edges.
+
+
+=== 02-keskiosa-generointiohje.txt ===
+
+Use case: precise-object-edit / two-edge seamless game background outpainting.
+Asset type: the MIDDLE UPPER tile of a long 2D casino-district construction site, transparent foreground, final tile 5120x1844.
+
+INPUT 1 is a precise 1376x557 editing guide. The GREY rectangle x=0..1279, y=0..460 is the ONLY missing image. Fill this rectangle. The existing RIGHT 96px strip x=1280..1375 and BOTTOM 96px strip y=461..556 are already finished neighboring images and MUST stay fixed. We will crop them away after generation.
+- The RIGHT strip belongs to the existing upper-right tile. Continue its horizontal concrete slabs, their undersides and red scaffold rails exactly LEFTWARD into the grey area.
+- The BOTTOM strip is the top of the existing street-level middle tile. Continue its concrete columns and red scaffold poles precisely UPWARD into the grey area, at their exact x coordinates, widths and colors.
+- Both joins must work simultaneously, not one at the expense of the other.
+INPUT 2 is the complete neighboring upper-right tile, a STYLE / STOREY HEIGHT / LIGHTING reference.
+INPUT 3 is the lower middle street tile, for vertical support alignment only. DO NOT reproduce its asphalt, sidewalk, chain-link street fence or ground-level equipment.
+
+Fill the missing upper construction section across the ENTIRE new tile width. It is an ongoing unfinished concrete building, not a beginning or end. It continues off both left and right edges and above the top edge.
+Same front-facing orthographic side view, hand-painted 1990s arcade game style, restrained clean textures, warm grey concrete, rusty red scaffold pipes with bronze joints, amber caged work lights. Preserve the scale and geometry of the references, no camera zoom or corridor perspective.
+
+Important structural heights in the 1280x461 new tile: continue the slab's front face at y~117..136, its shallow dark underside to y~173; continue the lower slab's front at y~325..347, underside to y~371. Horizontal red scaffold rails cross at y~39, y~78 and y~263. The lowest portion y~371..460 is an open structural bay leading to the finished lower tile. Do NOT add a floor or opaque band at y=461.
+Continue the bottom-context concrete shafts around x~216..270, x~524..576, x~860..908 and x~1094..1150 and the corresponding red poles/braces at their EXACT bottom-edge positions. Do not add an extra wide concrete column against the right tile seam; the right strip there has open air between horizontal slabs.
+
+A few spacious scaffold bays, connected diagonal braces, safe-looking plank platforms and one straight metal ladder between the elevated levels. A modest plank stack, cable coil or a few cement sacks on platforms, and two or three amber work lamps are enough. Keep the structure readable and uncluttered. Objects stand on actual slabs/platforms, not in midair.
+All open bays and gaps are genuine TRANSPARENT ALPHA. NO background wall, sky, city, black/white/grey matte, checkerboard, ground, road, asphalt, sidewalk, street fence, people, vehicles, text or signs. The finished reference strips remain unchanged. Produce the whole guide-sized image; fill only the grey rectangle with this seamless middle upper level.
+
+
+=== Existing end tile: vegas-strip-tyomaa-ylajatko-generointiohje.txt ===
+
+Use case: precise-object-edit / vertical seamless game environment outpainting.
+Asset type: an UPPER construction-site foreground tile, placed DIRECTLY ABOVE the supplied street-level worksite end tile, same width, scale, and side-view camera.
+
+Image 1 is a 1280x557 layout guide. Its BOTTOM 96px strip (y=461..556) is the already completed TOP of the lower tile. Keep that entire strip unchanged. Fill the flat grey area ABOVE it (y=0..460) with the upwards continuation. Do NOT extend to the right or down. The bottom context strip will be cropped off afterwards, leaving a new 5120x1844 upper tile.
+Image 2 shows the complete lower end tile for matching style and structural context. Do not redraw or include its road, ground, fence, cement-block pallet or street-level scene in the upper tile.
+
+The building occupies only the LEFT approximately 46 percent of the canvas, ending near x=592 in the 1280px guide. Keep the ENTIRE RIGHT HALF genuinely transparent, with no structure or objects added there. The building's right edge stays vertically consistent with the lower tile, with only tiny existing scaffold attachments. Continue all concrete columns and reddish scaffold poles from their precise x positions in the finished bottom strip, preserving their exact width and colour. Especially preserve the large concrete shaft around x=302..350, scaffold uprights near x=47, x=171, x=357 and x=508, and diagonal braces that cross the join. Do not shift the structure laterally.
+
+Above the guide, show the next unfinished upper storey of the same construction site: grey concrete columns, one clear horizontal concrete floor slab/walkable platform across the building's width, metal scaffolding with correctly attached braces and guard rails, and an access ladder between scaffold levels. The lower part of this upper tile should continue the open structural bay visible at the top of the lower tile; the next slab appears further UP, roughly around the middle of the new upper area. Make a coherent vertical building section, not a second disconnected ground-floor facade. Keep some construction framework extending beyond the upper edge; this is a continuation upward, not a roof finale.
+
+A few sparse upper-level props such as a small plank stack and a coiled cable, plus one or two modest amber caged work lights. These stand on concrete or scaffold platforms, with sensible supports and contact. No chain-link street fence, no asphalt, sidewalk, road, ground or large floor strip across the frame. Only elevated construction platforms within the left-side building footprint.
+Keep open bays and scaffold gaps genuinely alpha transparent all the way through. No far background, black/white/grey matte, artificial checkerboard, sky, city or opaque wall added.
+
+Style identical to the source: clean warm hand-painted 1990s arcade game art, restrained natural texture, believable simple construction geometry, warm work-light glow, reddish steel tubes, warm grey concrete. Frontal near-orthographic 2D side view, shallow slab undersides only, consistent scale and no strong perspective distortion. No people, text, signs or vehicles.
+Priority: exact bottom-edge connection to the existing lower tile. The finished lower guide remains unchanged; every intersecting pillar and scaffold element must line up across y=461 with no kink or sudden width change.
+
+
+=== Existing end tile: vegas-strip-tyomaa-ylajatko-pilarikorjaus.txt ===
+
+Precisely edit this local crop of a 2D construction-site game foreground. REMOVE ONLY the large dangling grey CONCRETE COLUMN UNDER the horizontal floor slab on the right. This is the broad concrete rectangle beginning just below the slab's front fascia around y=230, spanning approximately x=275..525 and extending to the bottom edge. It must be removed completely so the lower-right space under the slab is genuinely alpha transparent. Restore the short natural dark underside of the slab where that column met it, matching the underside to the left; then clear air below that underside. The slab is supported elsewhere in the building. Do not create a new hanging support or a diagonal brace.
+Keep the concrete floor slab itself, the upper column ABOVE the slab, and every red metal scaffold pole and diagonal brace exactly unchanged. Preserve the original framing, scale and clean painterly style. There is NO background, no sky, no wall, no objects or floor beneath this slab: all cleared space must be true transparent alpha. No text.
+

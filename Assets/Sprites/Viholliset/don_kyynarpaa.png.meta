@@ -189,7 +189,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -210,10 +210,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -267,12 +267,12 @@ TextureImporter:
       name: don_kyynarpaa_0
       rect:
         serializedVersion: 2
-        x: 403
-        y: 8464
-        width: 355
-        height: 603
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 8448
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -289,12 +289,12 @@ TextureImporter:
       name: don_kyynarpaa_1
       rect:
         serializedVersion: 2
-        x: 1552
-        y: 8464
-        width: 359
-        height: 601
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 8448
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -311,12 +311,12 @@ TextureImporter:
       name: don_kyynarpaa_2
       rect:
         serializedVersion: 2
-        x: 2703
-        y: 8464
-        width: 359
-        height: 596
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 8448
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -333,12 +333,12 @@ TextureImporter:
       name: don_kyynarpaa_3
       rect:
         serializedVersion: 2
-        x: 3855
-        y: 8464
-        width: 359
-        height: 594
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 8448
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -355,12 +355,12 @@ TextureImporter:
       name: don_kyynarpaa_4
       rect:
         serializedVersion: 2
-        x: 399
-        y: 7696
-        width: 359
-        height: 591
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 7680
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -377,12 +377,12 @@ TextureImporter:
       name: don_kyynarpaa_5
       rect:
         serializedVersion: 2
-        x: 1551
-        y: 7696
-        width: 359
-        height: 591
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 7680
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -399,12 +399,12 @@ TextureImporter:
       name: don_kyynarpaa_6
       rect:
         serializedVersion: 2
-        x: 2703
-        y: 7696
-        width: 359
-        height: 589
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 7680
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -421,12 +421,12 @@ TextureImporter:
       name: don_kyynarpaa_7
       rect:
         serializedVersion: 2
-        x: 3855
-        y: 7697
-        width: 359
-        height: 586
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 7680
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -443,12 +443,12 @@ TextureImporter:
       name: don_kyynarpaa_8
       rect:
         serializedVersion: 2
-        x: 399
-        y: 6928
-        width: 359
-        height: 584
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 6912
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -465,12 +465,12 @@ TextureImporter:
       name: don_kyynarpaa_9
       rect:
         serializedVersion: 2
-        x: 1551
-        y: 6928
-        width: 359
-        height: 579
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 6912
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -487,12 +487,12 @@ TextureImporter:
       name: don_kyynarpaa_10
       rect:
         serializedVersion: 2
-        x: 2705
-        y: 6928
-        width: 359
-        height: 577
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 6912
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -509,12 +509,12 @@ TextureImporter:
       name: don_kyynarpaa_11
       rect:
         serializedVersion: 2
-        x: 3859
-        y: 6928
-        width: 381
-        height: 577
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 6912
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -531,12 +531,12 @@ TextureImporter:
       name: don_kyynarpaa_12
       rect:
         serializedVersion: 2
-        x: 400
-        y: 6160
-        width: 432
-        height: 579
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 6144
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -553,12 +553,12 @@ TextureImporter:
       name: don_kyynarpaa_13
       rect:
         serializedVersion: 2
-        x: 1537
-        y: 6160
-        width: 456
-        height: 584
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 6144
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -575,12 +575,12 @@ TextureImporter:
       name: don_kyynarpaa_14
       rect:
         serializedVersion: 2
-        x: 2679
-        y: 6158
-        width: 441
-        height: 589
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 6144
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -597,12 +597,12 @@ TextureImporter:
       name: don_kyynarpaa_15
       rect:
         serializedVersion: 2
-        x: 3821
-        y: 6160
-        width: 420
-        height: 584
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 6144
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -619,12 +619,12 @@ TextureImporter:
       name: don_kyynarpaa_16
       rect:
         serializedVersion: 2
-        x: 363
-        y: 5390
-        width: 422
-        height: 581
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 5376
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -641,12 +641,12 @@ TextureImporter:
       name: don_kyynarpaa_17
       rect:
         serializedVersion: 2
-        x: 1518
-        y: 5392
-        width: 422
-        height: 574
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 5376
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -663,12 +663,12 @@ TextureImporter:
       name: don_kyynarpaa_18
       rect:
         serializedVersion: 2
-        x: 2675
-        y: 5392
-        width: 468
-        height: 567
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 5376
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -685,12 +685,12 @@ TextureImporter:
       name: don_kyynarpaa_19
       rect:
         serializedVersion: 2
-        x: 3824
-        y: 5392
-        width: 482
-        height: 565
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 5376
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -707,12 +707,12 @@ TextureImporter:
       name: don_kyynarpaa_20
       rect:
         serializedVersion: 2
-        x: 370
-        y: 4624
-        width: 473
-        height: 560
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 4608
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -729,12 +729,12 @@ TextureImporter:
       name: don_kyynarpaa_21
       rect:
         serializedVersion: 2
-        x: 1520
-        y: 4625
-        width: 480
-        height: 557
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 4608
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -751,12 +751,12 @@ TextureImporter:
       name: don_kyynarpaa_22
       rect:
         serializedVersion: 2
-        x: 2674
-        y: 4624
-        width: 482
-        height: 553
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 4608
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -773,12 +773,12 @@ TextureImporter:
       name: don_kyynarpaa_23
       rect:
         serializedVersion: 2
-        x: 3827
-        y: 4624
-        width: 485
-        height: 550
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 4608
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -795,12 +795,12 @@ TextureImporter:
       name: don_kyynarpaa_24
       rect:
         serializedVersion: 2
-        x: 372
-        y: 3856
-        width: 486
-        height: 550
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -817,12 +817,12 @@ TextureImporter:
       name: don_kyynarpaa_25
       rect:
         serializedVersion: 2
-        x: 1525
-        y: 3859
-        width: 487
-        height: 545
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -839,12 +839,12 @@ TextureImporter:
       name: don_kyynarpaa_26
       rect:
         serializedVersion: 2
-        x: 2677
-        y: 3859
-        width: 486
-        height: 545
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -861,12 +861,12 @@ TextureImporter:
       name: don_kyynarpaa_27
       rect:
         serializedVersion: 2
-        x: 3828
-        y: 3859
-        width: 485
-        height: 545
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -883,12 +883,12 @@ TextureImporter:
       name: don_kyynarpaa_28
       rect:
         serializedVersion: 2
-        x: 372
-        y: 3090
-        width: 484
-        height: 548
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -905,12 +905,12 @@ TextureImporter:
       name: don_kyynarpaa_29
       rect:
         serializedVersion: 2
-        x: 1523
-        y: 3090
-        width: 485
-        height: 548
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -927,12 +927,12 @@ TextureImporter:
       name: don_kyynarpaa_30
       rect:
         serializedVersion: 2
-        x: 2676
-        y: 3090
-        width: 482
-        height: 548
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -949,12 +949,12 @@ TextureImporter:
       name: don_kyynarpaa_31
       rect:
         serializedVersion: 2
-        x: 3828
-        y: 3091
-        width: 482
-        height: 550
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -971,12 +971,12 @@ TextureImporter:
       name: don_kyynarpaa_32
       rect:
         serializedVersion: 2
-        x: 372
-        y: 2323
-        width: 482
-        height: 550
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -993,12 +993,12 @@ TextureImporter:
       name: don_kyynarpaa_33
       rect:
         serializedVersion: 2
-        x: 1524
-        y: 2322
-        width: 480
-        height: 553
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1015,12 +1015,12 @@ TextureImporter:
       name: don_kyynarpaa_34
       rect:
         serializedVersion: 2
-        x: 2676
-        y: 2322
-        width: 480
-        height: 553
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1037,12 +1037,12 @@ TextureImporter:
       name: don_kyynarpaa_35
       rect:
         serializedVersion: 2
-        x: 3829
-        y: 2322
-        width: 479
-        height: 554
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1059,12 +1059,12 @@ TextureImporter:
       name: don_kyynarpaa_36
       rect:
         serializedVersion: 2
-        x: 374
-        y: 1555
-        width: 475
-        height: 555
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1081,12 +1081,12 @@ TextureImporter:
       name: don_kyynarpaa_37
       rect:
         serializedVersion: 2
-        x: 1528
-        y: 1554
-        width: 463
-        height: 560
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1103,12 +1103,12 @@ TextureImporter:
       name: don_kyynarpaa_38
       rect:
         serializedVersion: 2
-        x: 2681
-        y: 1555
-        width: 451
-        height: 567
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1125,12 +1125,12 @@ TextureImporter:
       name: don_kyynarpaa_39
       rect:
         serializedVersion: 2
-        x: 3834
-        y: 1554
-        width: 434
-        height: 577
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1147,12 +1147,12 @@ TextureImporter:
       name: don_kyynarpaa_40
       rect:
         serializedVersion: 2
-        x: 389
-        y: 790
-        width: 393
-        height: 581
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1169,12 +1169,12 @@ TextureImporter:
       name: don_kyynarpaa_41
       rect:
         serializedVersion: 2
-        x: 1561
-        y: 784
-        width: 350
-        height: 596
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1191,12 +1191,12 @@ TextureImporter:
       name: don_kyynarpaa_42
       rect:
         serializedVersion: 2
-        x: 2725
-        y: 782
-        width: 330
-        height: 603
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1213,12 +1213,12 @@ TextureImporter:
       name: don_kyynarpaa_43
       rect:
         serializedVersion: 2
-        x: 3880
-        y: 781
-        width: 327
-        height: 606
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1235,12 +1235,12 @@ TextureImporter:
       name: don_kyynarpaa_44
       rect:
         serializedVersion: 2
-        x: 425
-        y: 14
-        width: 327
-        height: 608
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1257,12 +1257,12 @@ TextureImporter:
       name: don_kyynarpaa_45
       rect:
         serializedVersion: 2
-        x: 1582
-        y: 14
-        width: 321
-        height: 610
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1279,12 +1279,12 @@ TextureImporter:
       name: don_kyynarpaa_46
       rect:
         serializedVersion: 2
-        x: 2732
-        y: 14
-        width: 313
-        height: 613
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1301,7 +1301,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b61d47c5c7cb3ed4b99ac731fb13a009
     internalID: 0
     vertices: []
     indices: 
