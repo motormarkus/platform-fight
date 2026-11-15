@@ -113,11 +113,13 @@ public class GameMenu : MonoBehaviour
         open = false; closedFrame = Time.frameCount + 1; page = Page.None; Time.timeScale = oldTimeScale; AudioListener.pause = false;
     }
 
+    public static bool StartAtSite;
+
     string[] Items()
     {
         switch (page)
         {
-            case Page.Title: return new[] { "Aloita peli", Loc.T("Pelaajia") + ":  < " + (Players.CoopWanted ? 2 : 1) + " >", "Asetukset", "Tekijät", "Lopeta" };
+            case Page.Title: return new[] { "Aloita peli", Loc.T("Pelaajia") + ":  < " + (Players.CoopWanted ? 2 : 1) + " >", "Asetukset", "Tekijät", "Aloita raksalta", "Lopeta" };
             case Page.Character: return new[] { "Rocco", HeroineName(), "Takaisin" };
             case Page.Difficulty: return new[] { "Helppo", "Normaali", "Vaikea", "Takaisin" };
             case Page.Pause:
@@ -255,6 +257,7 @@ public class GameMenu : MonoBehaviour
                 else if (i == 1) Players.SetCoop(!Players.CoopWanted);   // 1 / 2 pelaajaa
                 else if (i == 2) { back = Page.Title; page = Page.Options; optSection = -1; sel = 0; }
                 else if (i == 3) { back = Page.Title; page = Page.Credits; creditsT = 0f; }
+                else if (i == 4) { StartAtSite = true; page = Page.Character; sel = Mathf.Clamp(GameSettings.Character, 0, 1); }   // testialoitus: Vegasin rakennustyömaa
                 else { back = Page.Title; page = Page.ConfirmQuit; sel = 1; }
                 break;
             case Page.Character:
@@ -273,6 +276,7 @@ public class GameMenu : MonoBehaviour
                 var pc = Players.Primary;
                 if (pc != null) pc.SetBaseHealth(GameSettings.StartHealth);
                 Close();
+                if (StartAtSite) { StartAtSite = false; WorldGlobe.StartAt("Vegas", "Vegasin katu"); }
                 break;
             case Page.Pause:
             {
@@ -705,6 +709,7 @@ public class GameMenu : MonoBehaviour
         if (lh <= 0f) Title(new Rect(0, h * 0.56f, w, 130 * s), gameTitle, titleStyle);
         var items = Items();
         float y0 = lh > 0f ? h * 0.50f + lh + 18f * s : h * 0.69f, step = 58 * s;
+        step = Mathf.Min(step, (h - 60f * s - y0) / Mathf.Max(1, items.Length));   // kaikki rivit mahtuvat ruutuun (myös "Aloita raksalta")
         for (int i = 0; i < items.Length; i++)
         {
             bool on = i == sel;

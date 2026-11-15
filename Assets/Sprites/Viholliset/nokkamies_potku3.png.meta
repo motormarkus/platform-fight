@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 9b4fa5b3c754e3246add4bf5b2a6eb4f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8454699651082497624
+    second: nokkamies_potku3_0
+  - first:
+      213: -5246992986254567236
+    second: nokkamies_potku3_1
+  - first:
+      213: 6858961989301936453
+    second: nokkamies_potku3_2
+  - first:
+      213: -7310056158721245381
+    second: nokkamies_potku3_3
+  - first:
+      213: 2590801738065692589
+    second: nokkamies_potku3_4
+  - first:
+      213: 8996946149906615664
+    second: nokkamies_potku3_5
+  - first:
+      213: -3466308154876050734
+    second: nokkamies_potku3_6
+  - first:
+      213: -3814708815003843507
+    second: nokkamies_potku3_7
+  - first:
+      213: 1724120811931545665
+    second: nokkamies_potku3_8
+  - first:
+      213: 4095601242926756690
+    second: nokkamies_potku3_9
+  - first:
+      213: -7449110813965627768
+    second: nokkamies_potku3_10
+  - first:
+      213: 6468375806560342155
+    second: nokkamies_potku3_11
+  - first:
+      213: 6309005971679411884
+    second: nokkamies_potku3_12
+  - first:
+      213: 3021745124567309901
+    second: nokkamies_potku3_13
+  - first:
+      213: 893175389087428516
+    second: nokkamies_potku3_14
+  - first:
+      213: 6342814894639119223
+    second: nokkamies_potku3_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: nokkamies_potku3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a1db96567fdaaa80800000000000000
+      internalID: -8454699651082497624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_potku3_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2112
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb89453cdafee27b0800000000000000
+      internalID: -5246992986254567236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_potku3_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2112
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 541af34c69def2f50800000000000000
+      internalID: 6858961989301936453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_potku3_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2112
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3f734b67a67d8a90800000000000000
+      internalID: -7310056158721245381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_potku3_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da7ced0447064f320800000000000000
+      internalID: 2590801738065692589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_potku3_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1408
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07d80800bd29bdc70800000000000000
+      internalID: 8996946149906615664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_potku3_6
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1408
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d2c292391335efc0800000000000000
+      internalID: -3466308154876050734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_potku3_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1408
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4405204b8e6f0bc0800000000000000
+      internalID: -3814708815003843507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_potku3_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 140b9016ebe4de710800000000000000
+      internalID: 1724120811931545665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_potku3_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 704
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2533c4a81af76d830800000000000000
+      internalID: 4095601242926756690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_potku3_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 704
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88ece098e217f9890800000000000000
+      internalID: -7449110813965627768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_potku3_11
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 704
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8092cf668944c950800000000000000
+      internalID: 6468375806560342155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_potku3_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caef4c331871e8750800000000000000
+      internalID: 6309005971679411884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_potku3_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4e5a9f4e256fe920800000000000000
+      internalID: 3021745124567309901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_potku3_14
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4af6dacb842356c00800000000000000
+      internalID: 893175389087428516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_potku3_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 704
+      alignment: 9
+      pivot: {x: 0.384375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77b750f7a84360850800000000000000
+      internalID: 6342814894639119223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: fc47aab523c27554199998cc1d1e8d98
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      nokkamies_potku3_0: -8454699651082497624
+      nokkamies_potku3_1: -5246992986254567236
+      nokkamies_potku3_10: -7449110813965627768
+      nokkamies_potku3_11: 6468375806560342155
+      nokkamies_potku3_12: 6309005971679411884
+      nokkamies_potku3_13: 3021745124567309901
+      nokkamies_potku3_14: 893175389087428516
+      nokkamies_potku3_15: 6342814894639119223
+      nokkamies_potku3_2: 6858961989301936453
+      nokkamies_potku3_3: -7310056158721245381
+      nokkamies_potku3_4: 2590801738065692589
+      nokkamies_potku3_5: 8996946149906615664
+      nokkamies_potku3_6: -3466308154876050734
+      nokkamies_potku3_7: -3814708815003843507
+      nokkamies_potku3_8: 1724120811931545665
+      nokkamies_potku3_9: 4095601242926756690
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: 41466034bc9fd404699340029dd90da3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3017295801309491362
+    second: lokki_idle_0
+  - first:
+      213: -4018797740917385936
+    second: lokki_idle_1
+  - first:
+      213: 4397301922747498776
+    second: lokki_idle_2
+  - first:
+      213: -1228837653476785441
+    second: lokki_idle_3
+  - first:
+      213: -5264306879738829981
+    second: lokki_idle_4
+  - first:
+      213: -3501627247319652986
+    second: lokki_idle_5
+  - first:
+      213: -8221842351526813899
+    second: lokki_idle_6
+  - first:
+      213: -998224241534214395
+    second: lokki_idle_7
+  - first:
+      213: -9146370762891724575
+    second: lokki_idle_8
+  - first:
+      213: -1964995039834921106
+    second: lokki_idle_9
+  - first:
+      213: -4706155832783097835
+    second: lokki_idle_10
+  - first:
+      213: 7833999837046189473
+    second: lokki_idle_11
+  - first:
+      213: 1443570217334374377
+    second: lokki_idle_12
+  - first:
+      213: -4419295334297790865
+    second: lokki_idle_13
+  - first:
+      213: -3459125541252945019
+    second: lokki_idle_14
+  - first:
+      213: -305698521983726029
+    second: lokki_idle_15
+  - first:
+      213: -3373716149793252962
+    second: lokki_idle_16
+  - first:
+      213: 8709803348952218474
+    second: lokki_idle_17
+  - first:
+      213: 3036460897321904214
+    second: lokki_idle_18
+  - first:
+      213: 1570853305115658295
+    second: lokki_idle_19
+  - first:
+      213: -9206701308598298259
+    second: lokki_idle_20
+  - first:
+      213: -811717767062838149
+    second: lokki_idle_21
+  - first:
+      213: 3573401119644947291
+    second: lokki_idle_22
+  - first:
+      213: -1552467842359289423
+    second: lokki_idle_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lokki_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a074538b869fd920800000000000000
+      internalID: 3017295801309491362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_1
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 3520
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0351a744fbc5a38c0800000000000000
+      internalID: -4018797740917385936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_2
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 3520
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 811c1830dca560d30800000000000000
+      internalID: 4397301922747498776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_3
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 3520
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd244e13aaa42fee0800000000000000
+      internalID: -1228837653476785441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2816
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 363a58cc8cc61f6b0800000000000000
+      internalID: -5264306879738829981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_5
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2816
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 685eeab2298b76fc0800000000000000
+      internalID: -3501627247319652986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_6
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 2816
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53f5bf541f526ed80800000000000000
+      internalID: -8221842351526813899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_7
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 2816
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50f5b2557589522f0800000000000000
+      internalID: -998224241534214395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e8f1dd2040911180800000000000000
+      internalID: -9146370762891724575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_9
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2112
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e672c391c6feab4e0800000000000000
+      internalID: -1964995039834921106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_10
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 2112
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 510b451543060beb0800000000000000
+      internalID: -4706155832783097835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_11
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 2112
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad2b917855f7bc60800000000000000
+      internalID: 7833999837046189473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef7c8cd677980410800000000000000
+      internalID: 1443570217334374377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_13
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1408
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6693a1de428ba2c0800000000000000
+      internalID: -4419295334297790865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1408
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58b2320c5a7beffc0800000000000000
+      internalID: -3459125541252945019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_15
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1408
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33e4ccc50d0f1cbf0800000000000000
+      internalID: -305698521983726029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e99139659072e21d0800000000000000
+      internalID: -3373716149793252962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_17
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 704
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6bfdc5dfff6fd870800000000000000
+      internalID: 8709803348952218474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_18
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 704
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6586c37291da32a20800000000000000
+      internalID: 3036460897321904214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_19
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 704
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 738caad12caccc510800000000000000
+      internalID: 1570853305115658295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d69dfd360f93b3080800000000000000
+      internalID: -9206701308598298259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_21
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b74a854ddf23cb4f0800000000000000
+      internalID: -811717767062838149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_22
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b539b68b265479130800000000000000
+      internalID: 3573401119644947291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_idle_23
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 448
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4955357, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b915f209b6847ae0800000000000000
+      internalID: -1552467842359289423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6bceaff89a1ee9a46aad1264383d213e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      lokki_idle_0: 3017295801309491362
+      lokki_idle_1: -4018797740917385936
+      lokki_idle_10: -4706155832783097835
+      lokki_idle_11: 7833999837046189473
+      lokki_idle_12: 1443570217334374377
+      lokki_idle_13: -4419295334297790865
+      lokki_idle_14: -3459125541252945019
+      lokki_idle_15: -305698521983726029
+      lokki_idle_16: -3373716149793252962
+      lokki_idle_17: 8709803348952218474
+      lokki_idle_18: 3036460897321904214
+      lokki_idle_19: 1570853305115658295
+      lokki_idle_2: 4397301922747498776
+      lokki_idle_20: -9206701308598298259
+      lokki_idle_21: -811717767062838149
+      lokki_idle_22: 3573401119644947291
+      lokki_idle_23: -1552467842359289423
+      lokki_idle_3: -1228837653476785441
+      lokki_idle_4: -5264306879738829981
+      lokki_idle_5: -3501627247319652986
+      lokki_idle_6: -8221842351526813899
+      lokki_idle_7: -998224241534214395
+      lokki_idle_8: -9146370762891724575
+      lokki_idle_9: -1964995039834921106
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

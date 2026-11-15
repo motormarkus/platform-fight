@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: 416986d15f101e7428dcc951ec06d48e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4604852434800972358
+    second: nokkamies_kaatuminen_0
+  - first:
+      213: 3169218670247800015
+    second: nokkamies_kaatuminen_1
+  - first:
+      213: -119979324155091289
+    second: nokkamies_kaatuminen_2
+  - first:
+      213: -3612738022857169805
+    second: nokkamies_kaatuminen_3
+  - first:
+      213: 4184855786994663983
+    second: nokkamies_kaatuminen_4
+  - first:
+      213: 8693859516084767437
+    second: nokkamies_kaatuminen_5
+  - first:
+      213: -2755083804521961543
+    second: nokkamies_kaatuminen_6
+  - first:
+      213: -4462847922706640610
+    second: nokkamies_kaatuminen_7
+  - first:
+      213: 833745513434807002
+    second: nokkamies_kaatuminen_8
+  - first:
+      213: 273388313197564866
+    second: nokkamies_kaatuminen_9
+  - first:
+      213: -2301371757254786211
+    second: nokkamies_kaatuminen_10
+  - first:
+      213: 8589324852231576723
+    second: nokkamies_kaatuminen_11
+  - first:
+      213: 6684821809056707546
+    second: nokkamies_kaatuminen_12
+  - first:
+      213: -3801098437285972457
+    second: nokkamies_kaatuminen_13
+  - first:
+      213: 7191867227175345426
+    second: nokkamies_kaatuminen_14
+  - first:
+      213: 967031307513632902
+    second: nokkamies_kaatuminen_15
+  - first:
+      213: 4290520743306628333
+    second: nokkamies_kaatuminen_16
+  - first:
+      213: 6731178090612963784
+    second: nokkamies_kaatuminen_17
+  - first:
+      213: 2460647668995591523
+    second: nokkamies_kaatuminen_18
+  - first:
+      213: -3194101352652605758
+    second: nokkamies_kaatuminen_19
+  - first:
+      213: -7497011994365844156
+    second: nokkamies_kaatuminen_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abd689cab174810c0800000000000000
+      internalID: -4604852434800972358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 3520
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcce7afd6935bfb20800000000000000
+      internalID: 3169218670247800015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3520
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a6285bb07fb55ef0800000000000000
+      internalID: -119979324155091289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_3
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3520
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3742d09c8e9fcddc0800000000000000
+      internalID: -3612738022857169805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2816
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f220e0c7a28931a30800000000000000
+      internalID: 4184855786994663983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_5
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2816
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcac167fa2bc6a870800000000000000
+      internalID: 8693859516084767437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_6
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2816
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b7690970e9f3c9d0800000000000000
+      internalID: -2755083804521961543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_7
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2816
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e111b70a577c012c0800000000000000
+      internalID: -4462847922706640610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada7b59802f029b00800000000000000
+      internalID: 833745513434807002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_9
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2112
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c352ede8354bc300800000000000000
+      internalID: 273388313197564866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_10
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2112
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5346b87492ef00e0800000000000000
+      internalID: -2301371757254786211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_11
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2112
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39c92b5e179633770800000000000000
+      internalID: 8589324852231576723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad3fb93840245cc50800000000000000
+      internalID: 6684821809056707546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_13
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1408
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 716f6414c19cf3bc0800000000000000
+      internalID: -3801098437285972457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1408
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21d5f839325aec360800000000000000
+      internalID: 7191867227175345426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_15
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1408
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6881803c9d59b6d00800000000000000
+      internalID: 967031307513632902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec8c3642edfa8b30800000000000000
+      internalID: 4290520743306628333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 704
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c9b0e26fc2f96d50800000000000000
+      internalID: 6731178090612963784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_18
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 704
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36d00e3940af52220800000000000000
+      internalID: 2460647668995591523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_19
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 704
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c6fb8a2eb54ca3d0800000000000000
+      internalID: -3194101352652605758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_kaatuminen_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 704
+      alignment: 9
+      pivot: {x: 0.484375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4452bfedf4345f790800000000000000
+      internalID: -7497011994365844156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e933fbc117485544d8921b88e3d50fdd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      nokkamies_kaatuminen_0: -4604852434800972358
+      nokkamies_kaatuminen_1: 3169218670247800015
+      nokkamies_kaatuminen_10: -2301371757254786211
+      nokkamies_kaatuminen_11: 8589324852231576723
+      nokkamies_kaatuminen_12: 6684821809056707546
+      nokkamies_kaatuminen_13: -3801098437285972457
+      nokkamies_kaatuminen_14: 7191867227175345426
+      nokkamies_kaatuminen_15: 967031307513632902
+      nokkamies_kaatuminen_16: 4290520743306628333
+      nokkamies_kaatuminen_17: 6731178090612963784
+      nokkamies_kaatuminen_18: 2460647668995591523
+      nokkamies_kaatuminen_19: -3194101352652605758
+      nokkamies_kaatuminen_2: -119979324155091289
+      nokkamies_kaatuminen_20: -7497011994365844156
+      nokkamies_kaatuminen_3: -3612738022857169805
+      nokkamies_kaatuminen_4: 4184855786994663983
+      nokkamies_kaatuminen_5: 8693859516084767437
+      nokkamies_kaatuminen_6: -2755083804521961543
+      nokkamies_kaatuminen_7: -4462847922706640610
+      nokkamies_kaatuminen_8: 833745513434807002
+      nokkamies_kaatuminen_9: 273388313197564866
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -17,7 +17,7 @@ public class WorldGlobe : MonoBehaviour
     {
         new Place { name = "Bricktown",  lat = 52.5f, lon = -1.9f,  color = new Color(1f, 0.85f, 0.2f), scene = "SampleScene", area = "Katu", start = new Vector2(-32.19f, -1.05f) },   // nyrkkeilysalin edusta
         new Place { name = "Korvatunturi", lat = 66.5f, lon = 25.7f,   color = new Color(0.6f, 0.9f, 1f), scene = "Alppikyla", area = "Alppikylän kiitotie", start = new Vector2(30004f, -1.25f) },
-        new Place { name = "Slidaho",    lat = 37.2f, lon = -111.5f,   color = new Color(1f, 0.6f, 0.2f), scene = "Aavikko", area = "Aavikko", start = new Vector2(78013.68f, -1.78f) },   // kopterin laskeutumispaikka
+        new Place { name = "Slidaho",    lat = 31.8f, lon = -106.5f,   color = new Color(1f, 0.6f, 0.2f), scene = "Aavikko", area = "Aavikko", start = new Vector2(78013.68f, -1.78f) },   // kopterin laskeutumispaikka
         new Place { name = "Thaitown",   lat = 13.7f, lon = 100.5f, color = new Color(1f, 0.3f, 0.7f), scene = "Thaitown", area = "Thaitown laituri", start = new Vector2(106006.5f, -2.28f) },   // junalaituri
         new Place { name = "Eldoraato",  lat = 5f,    lon = -73.8f,   color = new Color(0.3f, 1f, 0.4f), scene = "Viidakko", area = "Viidakon kiitotie", start = new Vector2(53004f, -1f) },   // kiitotien alku (valikko 305)
         new Place { name = "Vankila",    lat = 9.5f,  lon = -64.5f,  color = new Color(1f, 0.5f, 0.1f), scene = "Vankila", area = "Vankila", start = new Vector2(85004f, -2.2f) },   // sisäpihan portti vasemmalla (valikko 353); viidakon vieressä
@@ -189,6 +189,9 @@ public class WorldGlobe : MonoBehaviour
         ScreenFader.Host.StartCoroutine(TravelRoutine(scene, area, start));   // ajetaan fader-isännässä: vanha scene puretaan matkalla
     }
 
+    /// Aloitus suoraan alueelta (aloitusvalikko): paikka alueen vasemmasta päästä.
+    public static void StartAt(string scene, string area) { if (ScreenFader.Host != null) ScreenFader.Host.StartCoroutine(TravelRoutine(scene, area, new Vector2(float.NaN, 0f))); }
+
     static System.Collections.IEnumerator TravelRoutine(string scene, string areaName, Vector2 start)
     {
         var pc = Players.Primary;
@@ -206,6 +209,7 @@ public class WorldGlobe : MonoBehaviour
         }
         if (dest == null) Debug.LogWarning("[Kartta] aluetta ei löytynyt: " + areaName);
         else dest.Apply(pc);
+        if (float.IsNaN(start.x) && dest != null) { var site = SiteLevels.For(dest); start = new Vector2(site != null ? site.siteMinX + 6f : dest.walkMinX + 3f, Mathf.Lerp(dest.maxDepthY, dest.minDepthY, 0.3f)); }
         var pos = new Vector3(start.x, start.y, 0f);
         pc.TeleportTo(pos);
         int n = 0;

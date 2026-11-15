@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: 7fb6d17a0bf731c4f9041848ce95dbe6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8105876581553891128
+    second: lokki_potku1_0
+  - first:
+      213: -6375897743237125910
+    second: lokki_potku1_1
+  - first:
+      213: -7364157434272757781
+    second: lokki_potku1_2
+  - first:
+      213: 2865379283139904416
+    second: lokki_potku1_3
+  - first:
+      213: -5386130267867869615
+    second: lokki_potku1_4
+  - first:
+      213: -4745540335206139270
+    second: lokki_potku1_5
+  - first:
+      213: 5972450312161425507
+    second: lokki_potku1_6
+  - first:
+      213: -8637959906276169214
+    second: lokki_potku1_7
+  - first:
+      213: 8143462288819449003
+    second: lokki_potku1_8
+  - first:
+      213: -3848084904697979297
+    second: lokki_potku1_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lokki_potku1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 672
+        height: 704
+      alignment: 9
+      pivot: {x: 0.3764881, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c892532234228f80800000000000000
+      internalID: -8105876581553891128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_potku1_1
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1408
+        width: 672
+        height: 704
+      alignment: 9
+      pivot: {x: 0.3764881, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae8e22298c24487a0800000000000000
+      internalID: -6375897743237125910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_potku1_2
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1408
+        width: 672
+        height: 704
+      alignment: 9
+      pivot: {x: 0.3764881, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be7ce1c94d14dc990800000000000000
+      internalID: -7364157434272757781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_potku1_3
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 1408
+        width: 672
+        height: 704
+      alignment: 9
+      pivot: {x: 0.3764881, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a3415ec64fd3c720800000000000000
+      internalID: 2865379283139904416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_potku1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 672
+        height: 704
+      alignment: 9
+      pivot: {x: 0.3764881, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15e81cdee0f9045b0800000000000000
+      internalID: -5386130267867869615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_potku1_5
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 704
+        width: 672
+        height: 704
+      alignment: 9
+      pivot: {x: 0.3764881, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7affb44534742eb0800000000000000
+      internalID: -4745540335206139270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_potku1_6
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 704
+        width: 672
+        height: 704
+      alignment: 9
+      pivot: {x: 0.3764881, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3687d0f5ae762e250800000000000000
+      internalID: 5972450312161425507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_potku1_7
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 704
+        width: 672
+        height: 704
+      alignment: 9
+      pivot: {x: 0.3764881, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20aa75a2b3dcf1880800000000000000
+      internalID: -8637959906276169214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_potku1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 672
+        height: 704
+      alignment: 9
+      pivot: {x: 0.3764881, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bac6fd64ec3630170800000000000000
+      internalID: 8143462288819449003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_potku1_9
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 672
+        height: 704
+      alignment: 9
+      pivot: {x: 0.3764881, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5e1fedca2bd89ac0800000000000000
+      internalID: -3848084904697979297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c3f866d151dc0ce44816ec5f2dff6ad4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      lokki_potku1_0: -8105876581553891128
+      lokki_potku1_1: -6375897743237125910
+      lokki_potku1_2: -7364157434272757781
+      lokki_potku1_3: 2865379283139904416
+      lokki_potku1_4: -5386130267867869615
+      lokki_potku1_5: -4745540335206139270
+      lokki_potku1_6: 5972450312161425507
+      lokki_potku1_7: -8637959906276169214
+      lokki_potku1_8: 8143462288819449003
+      lokki_potku1_9: -3848084904697979297
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

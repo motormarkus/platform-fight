@@ -29,7 +29,7 @@ public class MongolBrain : MonoBehaviour, IEnemyBrain, IPartialBrain, ICornerBur
     public float globalCooldown = 1.6f, chancePerSec = 0.9f, rockSpeed = 12f; public int rockDamage = 18;
     public float rockHeight = 1.45f;
 
-    Enemy e; Move cur; float t, lastTick, nextAny = 2f; bool hitDone, hitSoundDone, released; float dirSign = 1f;
+    protected Enemy e; protected Move cur; protected float t, lastTick, nextAny = 2f; bool hitDone, hitSoundDone, released; protected float dirSign = 1f;
 
     public bool Active => cur != null;
     public Sprite CurrentSprite { get; private set; }
@@ -73,7 +73,7 @@ public class MongolBrain : MonoBehaviour, IEnemyBrain, IPartialBrain, ICornerBur
         if (best != null) Begin(best);
     }
 
-    void Begin(Move m)
+    protected void Begin(Move m)
     {
         cur = m; t = 0f; hitDone = false; hitSoundDone = false; released = false; lastTick = Time.time;
         e.FacingRight = e.Hero.transform.position.x > transform.position.x;

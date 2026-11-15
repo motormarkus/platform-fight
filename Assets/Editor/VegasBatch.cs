@@ -62,6 +62,14 @@ public static partial class BeatEmUpSetup
         finally { batch = false; }
     }
 
+    /// <summary>Työmaakonttori (valikko 393) työmaan jälkeen.</summary>
+    public static void RunVegasOfficeBatch()
+    {
+        batch = true;
+        try { Step("393 konttori", AddVegasOffice); }
+        finally { batch = false; }
+    }
+
     /// <summary>Vain Violetti (valikko 386: baari + kasinon tehtävä-Violetti).</summary>
     public static void RunVegasVioletBatch()
     {

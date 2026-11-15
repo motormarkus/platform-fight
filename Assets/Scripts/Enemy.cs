@@ -1442,7 +1442,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (fallVoice == null) fallVoice = Resources.Load<AudioClip>("Sfx/pensalenkkari/pensalenkkari_fall");
             talksWhenCalm = true;
         }
-        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon" || displayName == "Gustav" || displayName == "Joulupukki" || displayName == "Yakuza-pomo" || displayName == "Don Kurinai" || displayName == "Rottakeisari" || displayName == "Pierre" || displayName == "Timppa" || displayName == "Koe-olento" || displayName == "Kenraali") isBoss = true;
+        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon" || displayName == "Gustav" || displayName == "Joulupukki" || displayName == "Yakuza-pomo" || displayName == "Don Kurinai" || displayName == "Rottakeisari" || displayName == "Pierre" || displayName == "Timppa" || displayName == "Koe-olento" || displayName == "Kenraali" || displayName == "Nokkamies" || displayName == "Lokki") isBoss = true;
         if (displayName == "Horhe")
         {
             // repliikit horhe_speak1, 2, … vuorotellen; kipuäänet horhe_grunt1, 2, … osumista
@@ -1566,7 +1566,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             var btWin = BV("voitto"); if (btWin.Length > 0) { heroDownLaugh = btWin[0]; knockdownShoutChance = 0.3f; }
             var btTalk = BV("speak"); if (btTalk.Length > 0) { tauntSounds = btTalk; tauntPause = new Vector2(6f, 12f); tauntNoRepeat = true; tauntOnWakeChance = 0.6f; talksWhenCalm = true; ownTauntTimer = true; }
         }
-        if (displayName == "Gestapo" || displayName == "Kenraali")   // omat äänet Resources/Sfx/Gestapo (Kenraalilla väliaikaisesti samat): kipu, iskut, ilmalento, ylösnousu, voitto ja puhe
+        if (displayName == "Gestapo" || displayName == "Kenraali" || displayName == "Nokkamies")   // omat äänet Resources/Sfx/Gestapo (Kenraalilla väliaikaisesti samat): kipu, iskut, ilmalento, ylösnousu, voitto ja puhe
         {
             var gp = Resources.LoadAll<AudioClip>("Sfx/Gestapo");
             AudioClip[] GV(string pre) { var l = new System.Collections.Generic.List<AudioClip>(); foreach (var c in gp) if (c != null && c.name.StartsWith(pre)) l.Add(c); return l.ToArray(); }
@@ -4584,6 +4584,19 @@ public class Enemy : MonoBehaviour, IBottleHolder
         launched = true;
     }
     bool launched;
+    /// Räjähdys osuu myös maassa makaavaan (Down/GetUp): vahinko ja uusi lento (TakeHit ei kelpaa kaatuneeseen).
+    public bool BlastFromDown(int damage, float vx, float up)
+    {
+        if (state != State.Down && state != State.GetUp) return false;
+        if (ally && !EnemyStrike) return false;
+        awake = true; health -= Dmg(damage); LastHit = this; LastHitTime = Time.time;
+        flashTimer = 0.1f; shakeUntil = HitFx.ShakeUntil(false); PlayHurtSound();
+        height = Mathf.Max(height, 0.05f);
+        Enter(State.Airborne);
+        if (lightweight) up *= lightLaunchMul;
+        knockVel = new Vector2(vx * Clues.LaunchMul, 0f); verticalVel = up; launched = true;
+        return true;
+    }
     /// Otteessa näytetään seisova perusasento osumakuvan (pää taakse) sijaan: päät yhteen -liike.
     [System.NonSerialized] public bool heldAsIdle;
     [System.NonSerialized] public bool heldLying;   // toisen vihun heittämänä (ei omia otekuvia): näytetään kaatumiskuva eikä seisoma-asentoa

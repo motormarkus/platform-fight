@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: ed57b9e415b485b4c835814f23c5f0fb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6116380667806288883
+    second: nokkamies_syoksy2_0
+  - first:
+      213: 7680454954205625915
+    second: nokkamies_syoksy2_1
+  - first:
+      213: 4309290341409517507
+    second: nokkamies_syoksy2_2
+  - first:
+      213: 2716844751346513405
+    second: nokkamies_syoksy2_3
+  - first:
+      213: -5155713511816066602
+    second: nokkamies_syoksy2_4
+  - first:
+      213: 2684709450298571810
+    second: nokkamies_syoksy2_5
+  - first:
+      213: 138441963567207814
+    second: nokkamies_syoksy2_6
+  - first:
+      213: -2891241839645776544
+    second: nokkamies_syoksy2_7
+  - first:
+      213: 8156268010090411699
+    second: nokkamies_syoksy2_8
+  - first:
+      213: -3558564377194524455
+    second: nokkamies_syoksy2_9
+  - first:
+      213: -5277046045650286385
+    second: nokkamies_syoksy2_10
+  - first:
+      213: -8630014148418427739
+    second: nokkamies_syoksy2_11
+  - first:
+      213: 5302053014328580548
+    second: nokkamies_syoksy2_12
+  - first:
+      213: -3773705581615594578
+    second: nokkamies_syoksy2_13
+  - first:
+      213: 3238867561445599472
+    second: nokkamies_syoksy2_14
+  - first:
+      213: 3651305331880470050
+    second: nokkamies_syoksy2_15
+  - first:
+      213: 5249879145169668767
+    second: nokkamies_syoksy2_16
+  - first:
+      213: 5527593312540099132
+    second: nokkamies_syoksy2_17
+  - first:
+      213: -1083491194799926620
+    second: nokkamies_syoksy2_18
+  - first:
+      213: 6075364814751859144
+    second: nokkamies_syoksy2_19
+  - first:
+      213: -6892448011762547585
+    second: nokkamies_syoksy2_20
+  - first:
+      213: 4309451412040852415
+    second: nokkamies_syoksy2_21
+  - first:
+      213: -3465149357124563992
+    second: nokkamies_syoksy2_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d04f65840304e1ba0800000000000000
+      internalID: -6116380667806288883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_1
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 3520
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3eb0da8615769a60800000000000000
+      internalID: 7680454954205625915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_2
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 3520
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cf6cb1ebbcadcb30800000000000000
+      internalID: 4309290341409517507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_3
+      rect:
+        serializedVersion: 2
+        x: 2208
+        y: 3520
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df5b4e928eb24b520800000000000000
+      internalID: 2716844751346513405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2816
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d9858c80e93378b0800000000000000
+      internalID: -5155713511816066602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_5
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 2816
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22c3e265501024520800000000000000
+      internalID: 2684709450298571810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_6
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 2816
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6855e6c7b38dbe100800000000000000
+      internalID: 138441963567207814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_7
+      rect:
+        serializedVersion: 2
+        x: 2208
+        y: 2816
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 065aa248dde30e7d0800000000000000
+      internalID: -2891241839645776544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b6325a9a82e03170800000000000000
+      internalID: 8156268010090411699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_9
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 2112
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d016f29d807d9ec0800000000000000
+      internalID: -3558564377194524455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_10
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 2112
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc882a9949a24c6b0800000000000000
+      internalID: -5277046045650286385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_11
+      rect:
+        serializedVersion: 2
+        x: 2208
+        y: 2112
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a4ace41bd70c3880800000000000000
+      internalID: -8630014148418427739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c91853002da49940800000000000000
+      internalID: 5302053014328580548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_13
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 1408
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea3c4e874ca11abc0800000000000000
+      internalID: -3773705581615594578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_14
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 1408
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f8208a03e4c2fc20800000000000000
+      internalID: 3238867561445599472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_15
+      rect:
+        serializedVersion: 2
+        x: 2208
+        y: 1408
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 226a9399ada0ca230800000000000000
+      internalID: 3651305331880470050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9ac19974415bd840800000000000000
+      internalID: 5249879145169668767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_17
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 704
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3207c0d4d4f5bc40800000000000000
+      internalID: 5527593312540099132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_18
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 704
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a2dfa8bf7aa6f0f0800000000000000
+      internalID: -1083491194799926620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_19
+      rect:
+        serializedVersion: 2
+        x: 2208
+        y: 704
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c101304c18005450800000000000000
+      internalID: 6075364814751859144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f74cb021d0b1950a0800000000000000
+      internalID: -6892448011762547585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_21
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 0
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb3208f0a3f3ecb30800000000000000
+      internalID: 4309451412040852415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_syoksy2_22
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 0
+        width: 736
+        height: 704
+      alignment: 9
+      pivot: {x: 0.54891306, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ebcae2d40159efc0800000000000000
+      internalID: -3465149357124563992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f4fac2d41fb70d4438490eedbdfa83bf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      nokkamies_syoksy2_0: -6116380667806288883
+      nokkamies_syoksy2_1: 7680454954205625915
+      nokkamies_syoksy2_10: -5277046045650286385
+      nokkamies_syoksy2_11: -8630014148418427739
+      nokkamies_syoksy2_12: 5302053014328580548
+      nokkamies_syoksy2_13: -3773705581615594578
+      nokkamies_syoksy2_14: 3238867561445599472
+      nokkamies_syoksy2_15: 3651305331880470050
+      nokkamies_syoksy2_16: 5249879145169668767
+      nokkamies_syoksy2_17: 5527593312540099132
+      nokkamies_syoksy2_18: -1083491194799926620
+      nokkamies_syoksy2_19: 6075364814751859144
+      nokkamies_syoksy2_2: 4309290341409517507
+      nokkamies_syoksy2_20: -6892448011762547585
+      nokkamies_syoksy2_21: 4309451412040852415
+      nokkamies_syoksy2_22: -3465149357124563992
+      nokkamies_syoksy2_3: 2716844751346513405
+      nokkamies_syoksy2_4: -5155713511816066602
+      nokkamies_syoksy2_5: 2684709450298571810
+      nokkamies_syoksy2_6: 138441963567207814
+      nokkamies_syoksy2_7: -2891241839645776544
+      nokkamies_syoksy2_8: 8156268010090411699
+      nokkamies_syoksy2_9: -3558564377194524455
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

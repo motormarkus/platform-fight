@@ -18,6 +18,10 @@ public class ParallaxLayer : MonoBehaviour
     float autoShift;
     [Tooltip("Junan keinunta: kerros liikkuu pienesti ylös ja alas (yksikköä) junan vauhdin mukaan. Lähikerrokselle suurempi kuin kaukaiselle. 0 = ei.")]
     public float bobAmplitude;
+    [Tooltip("Pystysuora seuranta: kerros seuraa kameran korkeutta tällä osuudella (0 = ei; 0,5 = liikkuu puolet kameran noususta). Korkealla kerroksella kaukainen maisema pysyy näkyvissä.")]
+    [Range(0f, 1f)] public float verticalFollow;
+    [Tooltip("Kameran korkeus, jolla kerros on alkuperäisellä paikallaan (verticalFollow).")]
+    public float refCamY;
     float baseY = float.NaN;
 
     [Tooltip("Peilikopiot: kuva jatkuu oikealle peilattuina kopioina (kuva, peilikuva, kuva...), jolloin sauma on aina yhteensopiva. 0 = ei.")]
@@ -106,6 +110,7 @@ public class ParallaxLayer : MonoBehaviour
             float bob = Mathf.Sin(t * 3.7f) * 0.65f + Mathf.Sin(t * 8.3f + 1.3f) * 0.35f;
             p.y = baseY + bob * bobAmplitude * TrainMotion.Current(Time.deltaTime);
         }
+        if (verticalFollow != 0f) p.y = baseY + (cam.transform.position.y - refCamY) * verticalFollow + (bobAmplitude != 0f ? p.y - baseY : 0f);
         p.x = cx - halfScreen + halfW - shift;
         transform.position = p;
     }

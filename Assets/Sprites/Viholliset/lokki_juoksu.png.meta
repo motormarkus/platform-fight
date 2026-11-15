@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 38e67b18a93a5a94db01180321e478dc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1282063760514139982
+    second: lokki_juoksu_0
+  - first:
+      213: -551077328869785629
+    second: lokki_juoksu_1
+  - first:
+      213: -8637503402150104598
+    second: lokki_juoksu_2
+  - first:
+      213: 2352922069090607528
+    second: lokki_juoksu_3
+  - first:
+      213: 2650011773888337026
+    second: lokki_juoksu_4
+  - first:
+      213: 2639703707894210758
+    second: lokki_juoksu_5
+  - first:
+      213: 49169340877786082
+    second: lokki_juoksu_6
+  - first:
+      213: -8567497530061748605
+    second: lokki_juoksu_7
+  - first:
+      213: 4436971895038947890
+    second: lokki_juoksu_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lokki_juoksu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 544
+        height: 704
+      alignment: 9
+      pivot: {x: 0.52205884, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b8372f6dc1353ee0800000000000000
+      internalID: -1282063760514139982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_juoksu_1
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 1408
+        width: 544
+        height: 704
+      alignment: 9
+      pivot: {x: 0.52205884, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3eff1f0d61e2a58f0800000000000000
+      internalID: -551077328869785629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_juoksu_2
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 1408
+        width: 544
+        height: 704
+      alignment: 9
+      pivot: {x: 0.52205884, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae17d905b6c612880800000000000000
+      internalID: -8637503402150104598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_juoksu_3
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 1408
+        width: 544
+        height: 704
+      alignment: 9
+      pivot: {x: 0.52205884, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a1a250d72247a020800000000000000
+      internalID: 2352922069090607528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_juoksu_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 544
+        height: 704
+      alignment: 9
+      pivot: {x: 0.52205884, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28497310babb6c420800000000000000
+      internalID: 2650011773888337026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_juoksu_5
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 704
+        width: 544
+        height: 704
+      alignment: 9
+      pivot: {x: 0.52205884, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c0e05d598c12a420800000000000000
+      internalID: 2639703707894210758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_juoksu_6
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 704
+        width: 544
+        height: 704
+      alignment: 9
+      pivot: {x: 0.52205884, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eb4cd8414faea000800000000000000
+      internalID: 49169340877786082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_juoksu_7
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 704
+        width: 544
+        height: 704
+      alignment: 9
+      pivot: {x: 0.52205884, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38602a293622a1980800000000000000
+      internalID: -8567497530061748605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_juoksu_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 544
+        height: 704
+      alignment: 9
+      pivot: {x: 0.52205884, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23230323e6a439d30800000000000000
+      internalID: 4436971895038947890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 57cbe01d37b3ea243b8287fbf140c464
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      lokki_juoksu_0: -1282063760514139982
+      lokki_juoksu_1: -551077328869785629
+      lokki_juoksu_2: -8637503402150104598
+      lokki_juoksu_3: 2352922069090607528
+      lokki_juoksu_4: 2650011773888337026
+      lokki_juoksu_5: 2639703707894210758
+      lokki_juoksu_6: 49169340877786082
+      lokki_juoksu_7: -8567497530061748605
+      lokki_juoksu_8: 4436971895038947890
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -54,7 +54,7 @@ public static class Loc
         { "Katso TV", "Watch TV" }, { "Hissi", "Elevator" }, { "Valitse kerros", "Select floor" }, { "täällä", "here" }, { "lukossa", "locked" }, { "Kellarin hissipainike ei toimi.", "The basement button does not work." },
         { "Vapauta olio", "Release beast" }, { "Jätä olio rauhaan", "Leave the beast" }, { "Vapautetaanko olio?", "Release the beast?" }, { "Robotti on liian vahva! Vapauta olio ovesta.", "The robot is too strong! Release the beast from the door." }, { "Kuuluu jytinää ja karjuntaa oven takaa...", "Thuds and roars come from behind the door..." },
         // --- Valikot ---
-        { "Aloita peli", "Start game" }, { "Pelaajia", "Players" }, { "FPS-laskuri", "FPS counter" }, { "Ohjaus", "Controls" }, { "OHJAUS", "CONTROLS" }, { "Pelaaja", "Player" },
+        { "Aloita peli", "Start game" }, { "Aloita raksalta", "Start at the construction site" }, { "Pelaajia", "Players" }, { "FPS-laskuri", "FPS counter" }, { "Ohjaus", "Controls" }, { "OHJAUS", "CONTROLS" }, { "Pelaaja", "Player" },
         { "Lyönti", "Punch" }, { "Potku", "Kick" }, { "Hyppy", "Jump" }, { "Juoksu", "Run" }, { "Juoksu (pidä pohjassa)", "Run (hold)" },
         { "Tornado", "Tornado" }, { "Tuulimylly", "Windmill" }, { "Kärrynpyörä", "Cartwheel" }, { "Pusku", "Shove" }, { "Toiminto", "Action" },
         { "Toiminto / poiminta", "Action / pick up" }, { "Heitto", "Throw" }, { "Vastaheitto / heitto", "Counter / throw" }, { "Suojaus", "Block" },

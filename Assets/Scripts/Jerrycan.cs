@@ -236,11 +236,12 @@ public class Jerrycan : MonoBehaviour
             float near = 1f - Mathf.Clamp01(Mathf.Abs(q.x - me.x) / blastRadiusX);   // 1 = keskellä, 0 = reunalla
             bool center = Mathf.Abs(q.x - me.x) < blastRadiusX * 0.4f && Mathf.Abs(q.y - me.y) < blastRadiusY * 0.6f;
             int dmg = boss ? bossDamage : Mathf.RoundToInt(blastDamage * (center ? 1.5f : 1f));
+            float dir = Mathf.Abs(q.x - me.x) < 0.3f ? (Random.value < 0.5f ? -1f : 1f) : Mathf.Sign(q.x - me.x);
+            float vx = boss ? 5f : center ? 22f : Mathf.Lerp(7f, 16f, near);
+            if (e.BlastFromDown(e.displayName == "Robottipomo" ? robotBossDamage : dmg, dir * vx, boss ? 6f : center ? 12f : 9f)) continue;   // maassa makaava lentää myös
             if (e.displayName == "Robottipomo") { float keep = e.heroDamageMul; e.heroDamageMul = 1f; e.TakeHit(robotBossDamage, me.x, true); e.heroDamageMul = keep; }
             else e.TakeHit(dmg, me.x, true);
-            float dir = Mathf.Abs(q.x - me.x) < 0.3f ? (Random.value < 0.5f ? -1f : 1f) : Mathf.Sign(q.x - me.x);
             // keskelle osunut lentää ruudun laidoille asti, reunalla oleva vain pienen matkan
-            float vx = boss ? 5f : center ? 22f : Mathf.Lerp(7f, 16f, near);
             e.Launch(dir * vx, boss ? 6f : center ? 12f : 9f);
         }
         foreach (var j in All.ToArray())

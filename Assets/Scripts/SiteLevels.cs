@@ -8,7 +8,13 @@ using UnityEngine;
 public class SiteLevels : MonoBehaviour
 {
     [System.Serializable]
-    public struct Ladder { public float x; public int lo, hi; }
+    public struct Ladder
+    {
+        public float x; public int lo, hi;
+        [Tooltip("Portaat: yläpään x (alaspäin lähtö tästä, ylöspäin päätyy tähän). Ilman useTop:ia suora tikas (x sama päissä).")]
+        public float topX; public bool useTop;
+        public float TopX => useTop ? topX : x;
+    }
 
     public Area area;
     [Tooltip("Kerrosten lattiakorkeudet alhaalta ylös; 0 = katutaso (kaista streetMin..streetMax), muut = laatan päällä.")]
@@ -18,8 +24,23 @@ public class SiteLevels : MonoBehaviour
     public float[] levelCamOffset;
     public Ladder[] ladders;
     public float climbSpeed = 3.4f;
+    [Tooltip("Työmaan x-alue kadun jatkona (vihut käyttävät tikkaita vain täällä) ja laattojen x-rajat (ylhäällä ei kävellä reunan yli).")]
+    public float siteMinX, siteMaxX, slabMinX, slabMaxX;
+    [Tooltip("Kerroskohtaiset x-rajat (kerros 0 ohitetaan); jos tyhjä, käytetään slabMinX/slabMaxX kaikille kerroksille.")]
+    public float[] levelMinX, levelMaxX;
+    [Tooltip("Komponentti toimii vain tällä x-alueella (useampi SiteLevels samalla alueella: työmaa ja konttori). 0/0 = ei rajaa.")]
+    public float zoneMinX, zoneMaxX;
 
-    class St { public int ladder = -1, to; public bool scripted; }
+    bool InZone(float x) => zoneMaxX <= zoneMinX || (x >= zoneMinX && x <= zoneMaxX);
+    float ClampSlabX(int lv, float x)
+    {
+        if (lv <= 0) return x;
+        if (levelMinX != null && levelMaxX != null && lv < levelMinX.Length && lv < levelMaxX.Length && levelMaxX[lv] > levelMinX[lv]) return Mathf.Clamp(x, levelMinX[lv], levelMaxX[lv]);
+        if (slabMaxX > slabMinX) return Mathf.Clamp(x, slabMinX, slabMaxX);
+        return x;
+    }
+
+    class St { public int ladder = -1, to; public bool scripted, up; public float fromY; }
     readonly Dictionary<Transform, St> state = new Dictionary<Transform, St>();
 
     public int LevelOf(float y)
@@ -38,9 +59,9 @@ public class SiteLevels : MonoBehaviour
     {
         if (area == null || Area.Current != area || levelY == null || levelY.Length < 2) { ReleaseAll(); return; }
         float dt = Time.deltaTime;
-        foreach (var pl in Players.All) if (pl != null) StepHero(pl, dt);
+        foreach (var pl in Players.All) if (pl != null && (InZone(pl.transform.position.x) || Get(pl.transform).ladder >= 0)) StepHero(pl, dt);
         var prim = Players.Primary;
-        if (prim != null && CameraFollow.Instance != null && levelCamOffset != null)
+        if (prim != null && InZone(prim.transform.position.x) && CameraFollow.Instance != null && levelCamOffset != null)
         {
             int lv = LevelOf(prim.transform.position.y);
             if (lv < levelCamOffset.Length) CameraFollow.Instance.OffsetY = levelCamOffset[lv];
@@ -49,6 +70,7 @@ public class SiteLevels : MonoBehaviour
         {
             if (en == null || !en.isActiveAndEnabled || en.IsDead) continue;
             if (en.transform.position.x < area.walkMinX - 6f || en.transform.position.x > area.walkMaxX + 6f) continue;
+            if (!InZone(en.transform.position.x) && Get(en.transform).ladder < 0) continue;
             StepEnemy(en, dt);
         }
     }
@@ -69,7 +91,7 @@ public class SiteLevels : MonoBehaviour
             var l = ladders[i];
             bool ok = (toLv > fromLv && l.lo == fromLv) || (toLv < fromLv && l.hi == fromLv);
             if (!ok) continue;
-            float d = Mathf.Abs(l.x - x);
+            float d = Mathf.Abs((toLv > fromLv ? l.x : l.TopX) - x);
             if (d < bd) { bd = d; best = i; }
         }
         return best;
@@ -83,15 +105,17 @@ public class SiteLevels : MonoBehaviour
         {
             var l = ladders[st.ladder];
             float ty = EntryY(st.to, p.y);
-            p.x = Mathf.MoveTowards(p.x, l.x, 5f * dt);
+            float cx0 = st.up ? l.x : l.TopX, cx1 = st.up ? l.TopX : l.x;
+            p.x = Mathf.MoveTowards(p.x, Mathf.Lerp(cx0, cx1, Mathf.InverseLerp(st.fromY, ty, p.y)), 10f * dt);
             p.y = Mathf.MoveTowards(p.y, ty, climbSpeed * dt);
             pl.transform.position = p;
             pl.Scripted = true; st.scripted = true; pl.ScriptedMove = new Vector2(0f, Mathf.Sign(ty - p.y) * 0.5f);
-            if (Mathf.Abs(p.y - ty) < 0.02f) { st.ladder = -1; pl.Scripted = false; st.scripted = false; pl.ScriptedMove = Vector2.zero; }
+            if (Mathf.Abs(p.y - ty) < 0.02f) { p.x = cx1; pl.transform.position = p; st.ladder = -1; pl.Scripted = false; st.scripted = false; pl.ScriptedMove = Vector2.zero; }
             return;
         }
         int lv = LevelOf(p.y);
         p.y = Mathf.Clamp(p.y, MinY(lv), MaxY(lv));
+        p.x = ClampSlabX(lv, p.x);
         if (pl.AirHeight < 0.1f && !pl.Scripted)
         {
             float my = CoopInput.Move(pl.playerIndex).y;
@@ -105,7 +129,7 @@ public class SiteLevels : MonoBehaviour
     {
         int li = NearestLadder(p.x, from, to, 0.6f);
         if (li < 0) return;
-        st.ladder = li; st.to = to;
+        st.ladder = li; st.to = to; st.up = to > from; st.fromY = p.y;
     }
 
     void StepEnemy(Enemy en, float dt)
@@ -118,15 +142,18 @@ public class SiteLevels : MonoBehaviour
         {
             var l = ladders[st.ladder];
             float ty = EntryY(st.to, p.y);
-            p.x = Mathf.MoveTowards(p.x, l.x, 4f * dt);
+            float cx0 = st.up ? l.x : l.TopX, cx1 = st.up ? l.TopX : l.x;
+            p.x = Mathf.MoveTowards(p.x, Mathf.Lerp(cx0, cx1, Mathf.InverseLerp(st.fromY, ty, p.y)), 8f * dt);
             p.y = Mathf.MoveTowards(p.y, ty, climbSpeed * 0.85f * dt);
             en.transform.position = p;
-            if (Mathf.Abs(p.y - ty) < 0.02f) st.ladder = -1;
+            if (Mathf.Abs(p.y - ty) < 0.02f) { p.x = cx1; en.transform.position = p; st.ladder = -1; }
             return;
         }
         int lv = LevelOf(p.y);
         var hero = en.Hero;
-        if (free && hero != null)
+        bool inSite = siteMaxX <= siteMinX || (p.x >= siteMinX && p.x <= siteMaxX);
+        p.x = ClampSlabX(lv, p.x);
+        if (free && hero != null && inSite)
         {
             int hl = LevelOf(hero.transform.position.y);
             if (hl != lv)
@@ -135,12 +162,12 @@ public class SiteLevels : MonoBehaviour
                 int li = NearestLadder(p.x, lv, to, 999f);
                 if (li >= 0)
                 {
-                    float lx = ladders[li].x, sp = Mathf.Max(1.6f, en.moveSpeedX) * 1.1f * dt;
+                    float lx = (to > lv ? ladders[li].x : ladders[li].TopX), sp = Mathf.Max(1.6f, en.moveSpeedX) * 1.1f * dt;
                     p.x += Mathf.Clamp(lx - p.x, -sp, sp);
                     en.FacingRight = lx > p.x;
                     p.y = Mathf.Clamp(p.y, MinY(lv), MaxY(lv));
                     en.transform.position = p;
-                    if (Mathf.Abs(p.x - lx) < 0.15f) { st.ladder = li; st.to = to; }
+                    if (Mathf.Abs(p.x - lx) < 0.15f) { st.ladder = li; st.to = to; st.up = to > lv; st.fromY = p.y; }
                     return;
                 }
             }

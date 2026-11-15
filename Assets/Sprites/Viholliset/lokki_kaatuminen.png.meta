@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: 3fef164e348e7534eb342043e004a7a7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8405711672719011308
+    second: lokki_kaatuminen_0
+  - first:
+      213: 3658953994376855836
+    second: lokki_kaatuminen_1
+  - first:
+      213: -8808551378947865993
+    second: lokki_kaatuminen_2
+  - first:
+      213: -1366730984873220750
+    second: lokki_kaatuminen_3
+  - first:
+      213: 1188101330908106349
+    second: lokki_kaatuminen_4
+  - first:
+      213: -2949069755857802886
+    second: lokki_kaatuminen_5
+  - first:
+      213: 8804897297819149839
+    second: lokki_kaatuminen_6
+  - first:
+      213: 474378860802159498
+    second: lokki_kaatuminen_7
+  - first:
+      213: 446242617408970162
+    second: lokki_kaatuminen_8
+  - first:
+      213: -8873837074589478391
+    second: lokki_kaatuminen_9
+  - first:
+      213: 4331541565321760185
+    second: lokki_kaatuminen_10
+  - first:
+      213: -6349183484885836195
+    second: lokki_kaatuminen_11
+  - first:
+      213: 1465843565839551659
+    second: lokki_kaatuminen_12
+  - first:
+      213: 1682396771381274453
+    second: lokki_kaatuminen_13
+  - first:
+      213: 2678434085578272698
+    second: lokki_kaatuminen_14
+  - first:
+      213: -6379738700467585824
+    second: lokki_kaatuminen_15
+  - first:
+      213: 2637842498394177710
+    second: lokki_kaatuminen_16
+  - first:
+      213: 2041145657670299123
+    second: lokki_kaatuminen_17
+  - first:
+      213: -985715204181978906
+    second: lokki_kaatuminen_18
+  - first:
+      213: 1296069902468843386
+    second: lokki_kaatuminen_19
+  - first:
+      213: -6048454885722374379
+    second: lokki_kaatuminen_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lokki_kaatuminen_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ced65c02b3617a470800000000000000
+      internalID: 8405711672719011308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 3520
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c11445c954737c230800000000000000
+      internalID: 3658953994376855836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_2
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3520
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7720908c03db1c580800000000000000
+      internalID: -8808551378947865993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_3
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3520
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 275ac171965680de0800000000000000
+      internalID: -1366730984873220750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2816
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6e42f99ddbfc7010800000000000000
+      internalID: 1188101330908106349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_5
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2816
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a796f309eacc217d0800000000000000
+      internalID: -2949069755857802886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2816
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06ae482177413a70800000000000000
+      internalID: 8804897297819149839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_7
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2816
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a83311f7f05559600800000000000000
+      internalID: 474378860802159498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bd5d46db4f513600800000000000000
+      internalID: 446242617408970162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_9
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2112
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 902176e323cc9d480800000000000000
+      internalID: -8873837074589478391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_10
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2112
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bdc7daaa1abc1c30800000000000000
+      internalID: 4331541565321760185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_11
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2112
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5e5a99824b23e7a0800000000000000
+      internalID: -6349183484885836195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bac882ee4f8b75410800000000000000
+      internalID: 1465843565839551659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1408
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 557e17923f2195710800000000000000
+      internalID: 1682396771381274453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_14
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1408
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abfe0312c95bb2520800000000000000
+      internalID: 2678434085578272698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_15
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1408
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ec31d6047d9677a0800000000000000
+      internalID: -6379738700467585824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea0c632c6cf7b9420800000000000000
+      internalID: 2637842498394177710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_17
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 704
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fde444492b935c10800000000000000
+      internalID: 2041145657670299123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 704
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e0180d8e390252f0800000000000000
+      internalID: -985715204181978906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_19
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 704
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a770bbc95b09cf110800000000000000
+      internalID: 1296069902468843386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_kaatuminen_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 768
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5026042, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51fba88d3529f0ca0800000000000000
+      internalID: -6048454885722374379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4d70c2ae97f26ca409566de7e093863b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      lokki_kaatuminen_0: 8405711672719011308
+      lokki_kaatuminen_1: 3658953994376855836
+      lokki_kaatuminen_10: 4331541565321760185
+      lokki_kaatuminen_11: -6349183484885836195
+      lokki_kaatuminen_12: 1465843565839551659
+      lokki_kaatuminen_13: 1682396771381274453
+      lokki_kaatuminen_14: 2678434085578272698
+      lokki_kaatuminen_15: -6379738700467585824
+      lokki_kaatuminen_16: 2637842498394177710
+      lokki_kaatuminen_17: 2041145657670299123
+      lokki_kaatuminen_18: -985715204181978906
+      lokki_kaatuminen_19: 1296069902468843386
+      lokki_kaatuminen_2: -8808551378947865993
+      lokki_kaatuminen_20: -6048454885722374379
+      lokki_kaatuminen_3: -1366730984873220750
+      lokki_kaatuminen_4: 1188101330908106349
+      lokki_kaatuminen_5: -2949069755857802886
+      lokki_kaatuminen_6: 8804897297819149839
+      lokki_kaatuminen_7: 474378860802159498
+      lokki_kaatuminen_8: 446242617408970162
+      lokki_kaatuminen_9: -8873837074589478391
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

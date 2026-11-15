@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: e1580cf8a9037634cb544f0e5498dd65
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1079052401993522578
+    second: lokki_nousu_0
+  - first:
+      213: -2802442583264565516
+    second: lokki_nousu_1
+  - first:
+      213: 7663539748350812014
+    second: lokki_nousu_2
+  - first:
+      213: -3776089012386140053
+    second: lokki_nousu_3
+  - first:
+      213: 9142115513328821062
+    second: lokki_nousu_4
+  - first:
+      213: -2344261150787116858
+    second: lokki_nousu_5
+  - first:
+      213: 5554131246729802130
+    second: lokki_nousu_6
+  - first:
+      213: 6086485306296275193
+    second: lokki_nousu_7
+  - first:
+      213: 3483480152518249990
+    second: lokki_nousu_8
+  - first:
+      213: -4169456304508534790
+    second: lokki_nousu_9
+  - first:
+      213: -5227725105936041464
+    second: lokki_nousu_10
+  - first:
+      213: 8788611614595397013
+    second: lokki_nousu_11
+  - first:
+      213: 3300794566834673061
+    second: lokki_nousu_12
+  - first:
+      213: 109368347505124839
+    second: lokki_nousu_13
+  - first:
+      213: 3338429080037603527
+    second: lokki_nousu_14
+  - first:
+      213: -6602812778451693622
+    second: lokki_nousu_15
+  - first:
+      213: -4030137632871449717
+    second: lokki_nousu_16
+  - first:
+      213: 1193335533481557707
+    second: lokki_nousu_17
+  - first:
+      213: -248865577559354688
+    second: lokki_nousu_18
+  - first:
+      213: 8447356495886252641
+    second: lokki_nousu_19
+  - first:
+      213: 322589538966181826
+    second: lokki_nousu_20
+  - first:
+      213: -18291738776780816
+    second: lokki_nousu_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lokki_nousu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e62e425be8f6601f0800000000000000
+      internalID: -1079052401993522578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_1
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3520
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f666198159bb19d0800000000000000
+      internalID: -2802442583264565516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_2
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3520
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6f59864ccc5a5a60800000000000000
+      internalID: 7663539748350812014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_3
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3520
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b60f770cc03a89bc0800000000000000
+      internalID: -3776089012386140053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2816
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6436d835f915fde70800000000000000
+      internalID: 9142115513328821062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2816
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c0e59e57e2877fd0800000000000000
+      internalID: -2344261150787116858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2816
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2913a3d11fc341d40800000000000000
+      internalID: 5554131246729802130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_7
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2816
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f09c64732a877450800000000000000
+      internalID: 6086485306296275193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60e49f01ebec75030800000000000000
+      internalID: 3483480152518249990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_9
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2112
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aff714fe49d1326c0800000000000000
+      internalID: -4169456304508534790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2112
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80a7a4db6b36377b0800000000000000
+      internalID: -5227725105936041464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_11
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2112
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 595b4dc03bb67f970800000000000000
+      internalID: 8788611614595397013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a558b09b27cecd20800000000000000
+      internalID: 3300794566834673061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_13
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1408
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e5e6bebeed848100800000000000000
+      internalID: 109368347505124839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_14
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1408
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c8b97f7f8b745e20800000000000000
+      internalID: 3338429080037603527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_15
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1408
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf0afdd2c81e54a0800000000000000
+      internalID: -6602812778451693622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b73ccec231218c0800000000000000
+      internalID: -4030137632871449717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_17
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 704
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcef40b58549f8010800000000000000
+      internalID: 1193335533481557707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_18
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 704
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c290c4631adb8cf0800000000000000
+      internalID: -248865577559354688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_19
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 704
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16a736c1af90b3570800000000000000
+      internalID: 8447356495886252641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c7165ef9711a7400800000000000000
+      internalID: 322589538966181826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lokki_nousu_21
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 960
+        height: 704
+      alignment: 9
+      pivot: {x: 0.440625, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ffb2efa2c30fbff0800000000000000
+      internalID: -18291738776780816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a335ab15f89673f4f927cfbe593afd5f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      lokki_nousu_0: -1079052401993522578
+      lokki_nousu_1: -2802442583264565516
+      lokki_nousu_10: -5227725105936041464
+      lokki_nousu_11: 8788611614595397013
+      lokki_nousu_12: 3300794566834673061
+      lokki_nousu_13: 109368347505124839
+      lokki_nousu_14: 3338429080037603527
+      lokki_nousu_15: -6602812778451693622
+      lokki_nousu_16: -4030137632871449717
+      lokki_nousu_17: 1193335533481557707
+      lokki_nousu_18: -248865577559354688
+      lokki_nousu_19: 8447356495886252641
+      lokki_nousu_2: 7663539748350812014
+      lokki_nousu_20: 322589538966181826
+      lokki_nousu_21: -18291738776780816
+      lokki_nousu_3: -3776089012386140053
+      lokki_nousu_4: 9142115513328821062
+      lokki_nousu_5: -2344261150787116858
+      lokki_nousu_6: 5554131246729802130
+      lokki_nousu_7: 6086485306296275193
+      lokki_nousu_8: 3483480152518249990
+      lokki_nousu_9: -4169456304508534790
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
