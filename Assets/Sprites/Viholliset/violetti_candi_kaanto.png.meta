@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: af135a65eca6e144d9e7fca4f7654039
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6270235386308634591
+    second: violetti_candi_kaanto_0
+  - first:
+      213: 6241837658362419300
+    second: violetti_candi_kaanto_1
+  - first:
+      213: -1759173527502145647
+    second: violetti_candi_kaanto_2
+  - first:
+      213: 4890357099001294931
+    second: violetti_candi_kaanto_3
+  - first:
+      213: -7570199708830190558
+    second: violetti_candi_kaanto_4
+  - first:
+      213: -3605818932588473086
+    second: violetti_candi_kaanto_5
+  - first:
+      213: 3265882206035342673
+    second: violetti_candi_kaanto_6
+  - first:
+      213: 4587017036762273075
+    second: violetti_candi_kaanto_7
+  - first:
+      213: -3788999682647888148
+    second: violetti_candi_kaanto_8
+  - first:
+      213: -6582710523121926684
+    second: violetti_candi_kaanto_9
+  - first:
+      213: 6669735078351530463
+    second: violetti_candi_kaanto_10
+  - first:
+      213: 552955343819082928
+    second: violetti_candi_kaanto_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: violetti_candi_kaanto_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd7a20bdcd9540750800000000000000
+      internalID: 6270235386308634591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violetti_candi_kaanto_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 468195497467f9650800000000000000
+      internalID: 6241837658362419300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violetti_candi_kaanto_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 197b6fa4ff82697e0800000000000000
+      internalID: -1759173527502145647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violetti_candi_kaanto_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35038ce0fd90ed340800000000000000
+      internalID: 4890357099001294931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violetti_candi_kaanto_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2243964397f31f690800000000000000
+      internalID: -7570199708830190558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violetti_candi_kaanto_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2059fa609ce85fdc0800000000000000
+      internalID: -3605818932588473086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violetti_candi_kaanto_6
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1557101209eb25d20800000000000000
+      internalID: 3265882206035342673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violetti_candi_kaanto_7
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33551ee11bb58af30800000000000000
+      internalID: 4587017036762273075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violetti_candi_kaanto_8
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cee64b51dd4ca6bc0800000000000000
+      internalID: -3788999682647888148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violetti_candi_kaanto_9
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ed771ae7a385a4a0800000000000000
+      internalID: -6582710523121926684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violetti_candi_kaanto_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd9ea1b47b8af8c50800000000000000
+      internalID: 6669735078351530463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violetti_candi_kaanto_11
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bc8dfc94fd7ca700800000000000000
+      internalID: 552955343819082928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8da9753973592074b9d4d3b0a75aef37
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      violetti_candi_kaanto_0: 6270235386308634591
+      violetti_candi_kaanto_1: 6241837658362419300
+      violetti_candi_kaanto_10: 6669735078351530463
+      violetti_candi_kaanto_11: 552955343819082928
+      violetti_candi_kaanto_2: -1759173527502145647
+      violetti_candi_kaanto_3: 4890357099001294931
+      violetti_candi_kaanto_4: -7570199708830190558
+      violetti_candi_kaanto_5: -3605818932588473086
+      violetti_candi_kaanto_6: 3265882206035342673
+      violetti_candi_kaanto_7: 4587017036762273075
+      violetti_candi_kaanto_8: -3788999682647888148
+      violetti_candi_kaanto_9: -6582710523121926684
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

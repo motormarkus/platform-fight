@@ -154,6 +154,9 @@ public static class BossPerks
     /// Testaus: antaa kaikki tähän mennessä saatavat kyvyt (+70 % elämä, pyörähdyspotku täysi, luurankojen kutsu, härkä). Mallit haetaan ladatuista sceneistä (GameStart lataa ne).
     public static void GrantAll()
     {
+        Clues.Add(Clues.GlobePass, "Rexin lentolippu", "Maailmanpallo (F8) on auki.", null, false);   // testialoitukset: pallo käytössä ilman Rexiä
+        Clues.Add(Clues.WallTicket, "Muurin lippu", "Kiinan muuri on auki pallolla.", null, false);
+        Clues.Add(Clues.PrisonPass, "Pääsy vankilaan", "Rekka vie vankilaan.", null, false);
         int add = Mathf.RoundToInt(GameSettings.StartHealth * LifeStep);
         foreach (var b in LifeBosses)
         {

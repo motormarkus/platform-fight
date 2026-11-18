@@ -138,6 +138,7 @@ public class Pickup : MonoBehaviour
     /// Vihun kuolema: tavallisesta vihusta pieni todennakoisyys ruokaan, pomosta aina voimakuvake ja iso annos.
     public static void DropFromEnemy(Vector3 pos, bool boss, string enemyName = "")
     {
+        GameStats.Kills++; if (boss) GameStats.BossDown(enemyName);
         if (enemyName == "Taikuri") BossPerks.Defeated(enemyName, pos);   // taikuri ei ole "pomo" mutta pudottaa härkä-kyvyn
         if (boss)
         {

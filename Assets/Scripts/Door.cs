@@ -41,6 +41,7 @@ public class Door : MonoBehaviour
     public string guardsLockedText = "Ovi on lukossa. Voita ensin pihan vartijat.";
     [Tooltip("Jos asetettu, E kysyy ensin tämän kysymyksen (E / Enter = kyllä, Esc / Q = ei) ennen siirtymää, esim. junamatka.")]
     public string confirmText;
+    [Tooltip("Lopputekstit: ovi ei siirrä muualle vaan käynnistää lopputekstit (varmistuksen jälkeen).")] public bool endCredits;
     float lockedMsgUntil;
     bool confirming;
     [Tooltip("Ovi on lukossa, kunnes tämä vihje (tarinaesine) on tapauskansiossa.")]
@@ -227,6 +228,7 @@ public class Door : MonoBehaviour
         busy = true;
         near = false;
         SetAllEnabled(false);
+        if (endCredits) { EndCredits.Begin(); yield break; }
 
         if (anim != null)
         {

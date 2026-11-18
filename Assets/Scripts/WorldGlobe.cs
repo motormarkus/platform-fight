@@ -60,7 +60,15 @@ public class WorldGlobe : MonoBehaviour
         var pad = Gamepad.current;
         bool padMap = pad != null && pad.selectButton.wasPressedThisFrame;   // ohjaimen kartta-nappi (Select / Back)
         bool toggle = (kb != null && kb.f8Key.wasPressedThisFrame) || padMap;
-        if (globe == null) { if (toggle && (!padMap || (Time.timeScale > 0f && Players.Primary != null))) Open(); return; }
+        if (globe == null)
+        {
+            if (toggle && (!padMap || (Time.timeScale > 0f && Players.Primary != null)))
+            {
+                if (!TestFree && !Clues.Open(Clues.GlobePass)) { notice = "Maailmanpallo aukeaa, kun Rex antaa lentolipun (vankilan katolla)"; noticeUntil = Time.unscaledTime + 3f; }
+                else Open();
+            }
+            return;
+        }
         if (toggle || (kb != null && kb.escapeKey.wasPressedThisFrame) || (pad != null && pad.buttonEast.wasPressedThisFrame)) { Close(); return; }
 
         float dt = Time.unscaledDeltaTime;
@@ -179,11 +187,13 @@ public class WorldGlobe : MonoBehaviour
         Vector2 V(float a, float b) => new Vector2(a, b);
     }
     float noticeUntil; string notice;
+    /// Editorissa (testi) pallo ja kaikki kohteet ovat aina käytössä; pelissä pallo aukeaa Rexin lentolipulla ja Muuri Vegasin jälkeen.
+    static bool TestFree => Application.isEditor;
 
     void Travel(Place p)
     {
         if (string.IsNullOrEmpty(p.area)) { notice = p.name + ": ei vielä kenttää"; noticeUntil = Time.unscaledTime + 2f; return; }
-        if (p.name == "Kiinan muuri" && !Clues.Open(Clues.WallTicket)) { notice = "Tarvitset Kiinan muurin lipun (Timppa)"; noticeUntil = Time.unscaledTime + 2f; return; }
+        if (p.name == "Kiinan muuri" && !TestFree && !Clues.Open(Clues.WallTicket)) { notice = "Kiinan muuri aukeaa Vegasin jälkeen"; noticeUntil = Time.unscaledTime + 2f; return; }
         string scene = p.scene, area = p.area; Vector2 start = p.start;
         Close();
         ScreenFader.Host.StartCoroutine(TravelRoutine(scene, area, start));   // ajetaan fader-isännässä: vanha scene puretaan matkalla
@@ -249,8 +259,12 @@ public class WorldGlobe : MonoBehaviour
 
     void OnGUI()
     {
-        if (globe == null) return;
         if (labelStyle == null) labelStyle = new GUIStyle(GUI.skin.label) { fontSize = 20, alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold };
+        if (globe == null)
+        {
+            if (Time.unscaledTime < noticeUntil) { labelStyle.normal.textColor = Color.black; GUI.Label(new Rect(1, Screen.height - 75f, Screen.width, 30f), notice, labelStyle); labelStyle.normal.textColor = new Color(1f, 0.85f, 0.4f); GUI.Label(new Rect(0, Screen.height - 76f, Screen.width, 30f), notice, labelStyle); }
+            return;
+        }
         for (int i = 0; i < places.Count; i++)
         {
             if (!Visible(places[i])) continue;

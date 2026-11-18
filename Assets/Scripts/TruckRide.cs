@@ -127,6 +127,7 @@ public class TruckRide : MonoBehaviour
         bool pressed = CoopInput.Pick(pc.playerIndex);
         if (Players.Count > 1) foreach (var q in Players.All) if (q != null && !q.GameOver && CoopInput.Pick(q.playerIndex)) { pc = q; pressed = true; break; }
         if (!pressed) return;
+        if (!Clues.Open(Clues.PrisonPass)) { msg = "Rekkamies ei ota kyytiin. Tarvitset pääsyn vankilaan (Timppa)."; msgUntil = Time.unscaledTime + 3f; return; }
         foreach (var q in Players.All) if (q != null && !q.GameOver && !NearOk(q)) { msg = "Molempien pelaajien pitää olla rekan luona."; msgUntil = Time.unscaledTime + 2.5f; return; }
         ScreenFader.Host.StartCoroutine(Ride());
     }

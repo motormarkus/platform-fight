@@ -6625,6 +6625,8 @@ MonoBehaviour:
   minDepthY: -3.4
   maxDepthY: -0.76153046
   gravityScale: 1
+  useCeiling: 0
+  ceilingY: 0
   camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
@@ -13445,6 +13447,8 @@ MonoBehaviour:
   minDepthY: -4.2
   maxDepthY: -0.8030769
   gravityScale: 1
+  useCeiling: 0
+  ceilingY: 0
   camJumpLift: 0
   useSidewalk: 1
   sidewalkHeight: 0.42307693
@@ -20764,6 +20768,8 @@ MonoBehaviour:
   minDepthY: -2.3799999
   maxDepthY: -0.58244807
   gravityScale: 1
+  useCeiling: 0
+  ceilingY: 0
   camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
@@ -25816,6 +25822,8 @@ MonoBehaviour:
   minDepthY: -2.3799999
   maxDepthY: -0.34564006
   gravityScale: 1
+  useCeiling: 0
+  ceilingY: 0
   camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
@@ -26515,6 +26523,8 @@ MonoBehaviour:
   minDepthY: -2.3799999
   maxDepthY: -0.34564006
   gravityScale: 1
+  useCeiling: 0
+  ceilingY: 0
   camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
@@ -27638,6 +27648,8 @@ MonoBehaviour:
   m_Script: {fileID: 919983668}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElevatorSwitch
+  whenOpen: []
+  whenClosed: []
 --- !u!4 &330676336
 Transform:
   m_ObjectHideFlags: 0
@@ -36673,6 +36685,8 @@ MonoBehaviour:
   minDepthY: -0.70000005
   maxDepthY: -0.611052
   gravityScale: 1
+  useCeiling: 0
+  ceilingY: 0
   camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
@@ -38949,6 +38963,8 @@ MonoBehaviour:
   minDepthY: -2.3799999
   maxDepthY: -0.55156004
   gravityScale: 1
+  useCeiling: 0
+  ceilingY: 0
   camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
@@ -60653,55 +60669,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &774588444
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 774588446}
-  - component: {fileID: 774588445}
-  m_Layer: 0
-  m_Name: Aloituskohta
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &774588445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 774588444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameStart
-  area: {fileID: 0}
-  position: {x: 79433.914, y: -1.8407806}
-  areaName: Linnakkeen katto
-  sceneName: Linnake
-  grantAllPerks: 1
---- !u!4 &774588446
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 774588444}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &775964779
 GameObject:
   m_ObjectHideFlags: 0
@@ -61634,6 +61601,8 @@ MonoBehaviour:
   minDepthY: -2.3799999
   maxDepthY: 1.3263938
   gravityScale: 1
+  useCeiling: 0
+  ceilingY: 0
   camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
@@ -77741,49 +77710,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dancer
   sprites:
-  - {fileID: -6210134075388198780, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 3459003383071061173, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 2081005159404914113, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -7791113817044798107, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -3868914643334148157, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -2019191356673761434, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 8630732339181349556, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -2433947895446784995, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 4142106848582551956, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 1329653055380922044, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 27853212672207178, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -1076584875220952803, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 3225980260675858056, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -1455259463926555812, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 2769473964932509905, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 5664713121889207697, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 9145090045493377982, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -795924485241949107, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -3834072234118008769, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -7470111282307624947, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -6663881987663430938, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 8224301835093763841, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 5727942731435348390, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -1455711710, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 999353538, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 1411114701, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -2062818521, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -123827711, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 1902968987, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -1866897864, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -564440837, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -239664215, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -1610842191, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -1185377412, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 999900056, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 1052499726, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: 475454226, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -2094969010, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  - {fileID: -1763951953, guid: 5967588a566f19e4db28281479698cff, type: 3}
-  frameTime: 0.055555556
+  - {fileID: 6493135914577600891, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -6543440913376679750, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 8173880238312061660, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -6407964064702592256, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -5073315459192913261, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -6707982400793846933, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 826193516944016558, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 3832582693804297213, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -1989235360757152711, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 4573577316465627329, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 5483140279967939767, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 6322924365652751474, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -5455057439792946178, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 7609326024470545532, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -8491400208542279468, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 6213788228344379898, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -3608417648006218376, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -4202709050911242728, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 8259323508166551774, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -6862305796866222368, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -946102358641912944, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -7160946796086874471, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 4198645751355048585, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -4968871633564157360, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 4198645751355048585, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -7160946796086874471, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -946102358641912944, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -6862305796866222368, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 8259323508166551774, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -4202709050911242728, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -3608417648006218376, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 6213788228344379898, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -8491400208542279468, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 7609326024470545532, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -5455057439792946178, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 6322924365652751474, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 5483140279967939767, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 4573577316465627329, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -1989235360757152711, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 3832582693804297213, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 826193516944016558, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -6707982400793846933, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -5073315459192913261, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -6407964064702592256, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: 8173880238312061660, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  - {fileID: -6543440913376679750, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
+  frameTime: 0.112
   startFrame: 0
   flipX: 0
-  keepOrder: 0
+  keepOrder: 1
 --- !u!212 &975857283
 SpriteRenderer:
   serializedVersion: 2
@@ -77833,7 +77809,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -9000
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -6210134075388198780, guid: 5967588a566f19e4db28281479698cff, type: 3}
+  m_Sprite: {fileID: 6493135914577600891, guid: 490f7da02839e164a8df261c91f68b60, type: 3}
   m_Color: {r: 1, g: 0.88, b: 0.95, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94852,6 +94828,8 @@ MonoBehaviour:
   minDepthY: -3.4
   maxDepthY: 0.6705884
   gravityScale: 1
+  useCeiling: 0
+  ceilingY: 0
   camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
@@ -106327,6 +106305,8 @@ MonoBehaviour:
   minDepthY: -3.2380953
   maxDepthY: 2.9238093
   gravityScale: 1
+  useCeiling: 0
+  ceilingY: 0
   camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
@@ -107947,6 +107927,8 @@ MonoBehaviour:
   minDepthY: -3.4
   maxDepthY: -0.39999962
   gravityScale: 1
+  useCeiling: 0
+  ceilingY: 0
   camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
@@ -112817,6 +112799,8 @@ MonoBehaviour:
   minDepthY: -7.6634417
   maxDepthY: 1.2637994
   gravityScale: 1
+  useCeiling: 0
+  ceilingY: 0
   camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
@@ -163319,6 +163303,8 @@ MonoBehaviour:
   minDepthY: -3.7
   maxDepthY: -0.82857144
   gravityScale: 1
+  useCeiling: 0
+  ceilingY: 0
   camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
@@ -164486,6 +164472,8 @@ MonoBehaviour:
   minDepthY: -4.2
   maxDepthY: -0.8030769
   gravityScale: 1
+  useCeiling: 0
+  ceilingY: 0
   camJumpLift: 0
   useSidewalk: 1
   sidewalkHeight: 0.42307693
@@ -171944,6 +171932,57 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2074571460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2074571462}
+  - component: {fileID: 2074571461}
+  m_Layer: 0
+  m_Name: Aloituskohta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2074571461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074571460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameStart
+  area: {fileID: 0}
+  position: {x: 79773.195, y: -1.5709326}
+  areaName: Aluksen hytti
+  sceneName: Linnake
+  grantAllPerks: 1
+  removeNamed:
+  - Gustav (alus)
+--- !u!4 &2074571462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074571460}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2074611371
 GameObject:
   m_ObjectHideFlags: 0
@@ -179056,4 +179095,4 @@ SceneRoots:
   - {fileID: 1474673952}
   - {fileID: 1733441196}
   - {fileID: 1238208791}
-  - {fileID: 774588446}
+  - {fileID: 2074571462}

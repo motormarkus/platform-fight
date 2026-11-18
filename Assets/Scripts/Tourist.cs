@@ -16,7 +16,9 @@ public class Tourist : MonoBehaviour
     public float sitFrameTime = 0.22f;
     public int sitStartFrame;
     public Sprite[] standUp, idle, walk;
-    public float standFrameTime = 0.11f, idleFrameTime = 0.16f, walkFrameTime = 0.065f;
+    [Tooltip("Kääntyminen sivuprofiilista edestäpäin seisomaan (toistetaan kerran, kun perille kävellään oikealle). Tyhjä = ei kääntymistä.")]
+    public Sprite[] turn;
+    public float standFrameTime = 0.11f, idleFrameTime = 0.16f, walkFrameTime = 0.065f, turnFrameTime = 0.1f;
     [Tooltip("Seisovien kuvien siirto alaspäin istumakuviin nähden (yksikköä).")]
     public float standOffsetY;
     [Tooltip("Kuinka läheltä (x) pelaaja herättää turistin.")]
@@ -61,16 +63,16 @@ public class Tourist : MonoBehaviour
     public float danceCenterPx = 206.5f;
     public float danceCellW = 384f;
     [Tooltip("Kuvapisteet (2x tarkkuus, pivot alakeskellä): turistin jalat seisovassa idlessä, pariskuvassa, heron aloitus- ja lopetuskohta.")]
-    public Vector2 idleFeetPx = new Vector2(317f, 767f), kissFeetPx = new Vector2(336f, 495f);
+    public Vector2 idleFeetPx = new Vector2(317f, 447f), kissFeetPx = new Vector2(336f, 495f);
     public float kissHeroStartPx = 113f, kissHeroEndPx = 104f;
-    public float idleCellH = 768f, kissCellH = 512f;
+    public float idleCellH = 448f, kissCellH = 512f;
     public string kissPrompt = "Suutele Auroraa";
     public string stopPrompt = "Lopeta tanssi";
     bool stopRequested, dancing;
     bool near, kissing;
     GUIStyle style;
 
-    enum S { Sit, StandUp, Wait, Walk, Idle }
+    enum S { Sit, StandUp, Wait, Walk, Turn, Idle }
     S state = S.Sit;
     SpriteRenderer sr;
     float t, sitY;
@@ -107,7 +109,7 @@ public class Tourist : MonoBehaviour
             case S.StandUp:
             {
                 int f = (int)(t / standFrameTime);
-                if (f >= standUp.Length) { state = S.Wait; t = 0f; break; }
+                if (f >= standUp.Length) { state = idleBeforeWalk <= 0f && walkToX != 0f && walk != null && walk.Length > 0 ? S.Walk : S.Wait; t = 0f; break; }
                 sr.sprite = standUp[f];
                 break;
             }
@@ -126,7 +128,14 @@ public class Tourist : MonoBehaviour
                 transform.position = p;
                 sr.sortingOrder = StandOrder(p.y);
                 sr.sprite = Loop(walk, t, walkFrameTime);
-                if ((p - goal).sqrMagnitude < 0.0001f) { state = S.Idle; t = 0f; }
+                if ((p - goal).sqrMagnitude < 0.0001f) { state = turn != null && turn.Length > 0 && !sr.flipX ? S.Turn : S.Idle; t = 0f; }
+                break;
+            }
+            case S.Turn:
+            {
+                int f = (int)(t / turnFrameTime);
+                if (f >= turn.Length) { state = S.Idle; t = 0f; break; }
+                sr.sprite = turn[f];
                 break;
             }
             case S.Idle:

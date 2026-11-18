@@ -42,7 +42,7 @@ public static class Clues
     public static float LaunchMul => Has(Belt) ? 1.5f : 1f;
     public static void WinBelt() { Add(Belt, "Mestaruusvyö", "Voitit Marcuksen kehässä. Vyö antaa lyönneillesi lisää voimaa: viholliset lentävät 50 % pidemmälle."); }
 
-    public const string BikeKey = "avain_pyora", ShipTicket = "lippu_laiva", PlaneTicket = "lippu_lentokone", ClubInvite = "kutsu_klubi", JungleTicket = "lippu_viidakko", WallTicket = "lippu_muuri";
+    public const string BikeKey = "avain_pyora", ShipTicket = "lippu_laiva", PlaneTicket = "lippu_lentokone", ClubInvite = "kutsu_klubi", JungleTicket = "lippu_viidakko", WallTicket = "lippu_muuri", GlobePass = "lippu_maailma", PrisonPass = "pääsy_vankila";   // PrisonPass: Timpan antama pääsy rekkamiehen kyytiin vankilaan   // GlobePass: Rexin lentolippu rantabaarissa -> maailmanpallo (F8) auki
 
     /// Pomo kaatui: antaa tarinaesineen. Metsuri -> moottoripyörän avaimet, Horhe -> laivalippu, Joulupukki -> viidakkolippu, Timppa -> muurin lippu.
     public static void BossDown(string boss)
@@ -51,8 +51,8 @@ public static class Clues
         else if (boss == "Horhe") Add(ShipTicket, "Laivalippu", "Horhen taskusta löytyi lippu laivaan. Satamassa se avaa tien laivalle.");
         else if (boss == "Kenraali") Add("Pomohuone 1: avain", "Linnakkeen katon hissi", "Kenraali kaatui. Pomohuoneen oikea ovi aukeaa: hissi vie katolle.", null, false);
         else if (boss == "Joulupukki") Add(JungleTicket, "Eldoraaton lippu", "Joulupukin säkistä löytyi lentolippu Eldoraatoon. Korvatunturin kiitotiellä kone vie sinne.");
-        else if (boss == "Timppa") Add(WallTicket, "Muurin lippu", "Timpan taskusta löytyi lentolippu Kiinan muurille. Maailmanpallolta (F8) pääsee matkaamaan sinne.");
-        else if (boss == "Warden") Add("Vankila: hissin avain", "Hissin avain", "Wardenin taskusta löytyi henkilökunnan hissin avain. Hissi vie katolle.");
+        else if (boss == "Timppa") Add(PrisonPass, "Pääsy vankilaan", "Timpan taskusta löytyi lappu: rekkamies ottaa kyytiin vankilaan. Rekka odottaa työmaan pysäkillä.");   // Muurin lippu tulee vasta Rexiltä (GlobePass) tarinan lopussa
+        else if (boss == "Warden") { Add("Vankila: hissin avain", "Hissin avain", "Wardenin taskusta löytyi henkilökunnan hissin avain. Hissi vie katolle."); }   // Rexin lentolippu (GlobePass) annetaan vankilan katolla ennen kopteriin menoa (valikko 372: ClueSpot); Muurin lippu (WallTicket) avautuu Vegasin jälkeen (päätös tekemättä)
         else if (boss == "Yakuza-pomo" || boss == "Don Kurinai") Add(PlaneTicket, "Lentolippu", "Don Kurinain taskusta löytyi lentolippu. Lentokentän kiitotiellä se avaa oven koneeseen.");
     }
 

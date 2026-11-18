@@ -36,8 +36,20 @@ public class RexAlly : MonoBehaviour
         if (e.maxHealth < hardenedHealth) { e.maxHealth = hardenedHealth; e.HealFraction(1f); }
     }
 
+    /// Rex jää Vegasiin: kun sankari saapuu Vegasin sceneen, Rex jää pois eikä enää seuraa eikä auta (ei game overia, vaikka hän kaatuisi myöhemmin).
+    public const string RetireScene = "Vegas";
+    bool retired;
+    void Retire()
+    {
+        retired = true; rescued = false; near = false; defeatDone = true;
+        if (e != null) { e.ally = false; e.IsAwake = false; }
+        gameObject.SetActive(false);
+    }
+
     void Update()
     {
+        if (retired) return;
+        if (rescued && e != null && !e.IsDead) { var h0 = e.Hero; if (h0 != null && h0.gameObject.scene.name == RetireScene) { Retire(); return; } }
         Harden();
         if (rescued && e != null && !e.IsDead) { regenAcc += regenPerSec * Time.deltaTime; if (regenAcc >= 1f) { int n = Mathf.FloorToInt(regenAcc); regenAcc -= n; e.HealFraction(n / (float)Mathf.Max(1, e.maxHealth)); } }
         if (rescued && e != null && e.IsDead && !defeatDone)   // Rex kuoli: game over

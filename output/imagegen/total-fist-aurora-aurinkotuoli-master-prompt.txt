@@ -1,0 +1,18 @@
+Tool: built-in image_gen
+Reference: Assets/Sprites/turisti_bikini2.png
+
+Initial generation prompt
+Use case: stylized-concept.
+Asset type: one high-resolution 16:9 master character illustration for the 2D beat-em-up game Total Fist.
+Input image 1 is the character identity and illustration-style reference. It is a spritesheet showing the same adult woman multiple times. Produce ONE single illustration of this woman, Aurora, in ONE pose.
+Primary request: Aurora relaxing in a sun lounger, holding her tropical drink, on a perfectly flat bright green chroma-key background with generous empty space around the entire subject. Landscape 16:9 canvas, target 3840 x 2160 pixels, maximum available crisp detail.
+Character: faithfully match the reference woman's face, warm tan skin, dark voluminous shoulder-length curly hair, gold hoop earrings, turquoise halterneck bikini with tie-side bottoms, voluptuous curvy proportions, and orange cocktail with fruit garnish. Preserve her recognisable mature adult identity and warm relaxed expression. Her seated pose follows the reference, with her legs resting naturally on the sun lounger. Natural anatomy, coherent hands and fingers holding the glass.
+Gaze and pose: relaxed side-facing seated three-quarter profile toward screen right. Her head and both eyes look comfortably off-screen right, away from the viewer. Clearly visible sideways gaze. Keep her facial identity recognisable.
+Chair: one simple light-colored beach sun lounger supporting her back and legs, fully visible. Keep her hair, both hands, cocktail, legs, bare feet, chair back and every chair leg fully inside the canvas.
+Composition: a single centered, fully visible woman and chair, occupying about 55 to 60 percent of the canvas width and 60 to 65 percent of its height. Wide clean empty green margins on all four sides, especially ahead of her feet, behind the chair and above her hair. Comfortable distance from every edge.
+Style: preserve the reference's polished hand-drawn 2D game illustration look, clean dark contour lines, smooth rich cel shading, sharp readable details, consistent lighting. High-quality master artwork.
+Background: solid uniform chroma-key green RGB 0,255,0 (#00FF00) across the full canvas. Flat untextured green with clean character and chair edges.
+Constraints: exactly one woman, exactly one chair, exactly one drink, one pose, one continuous 16:9 image. No sprite grid, repeated figures, inset panels, text, labels, borders, watermark, scenery, floor, horizon, background gradients, background shadows or green color spill.
+
+Final framing edit prompt
+Edit this Aurora master illustration. Increase the framing space substantially. Keep the same single woman, face, off-screen-right gaze, hairstyle, turquoise bikini, drink, anatomy, exact seated pose, chair, clean detailed drawing style and lighting. Uniformly REDUCE the ENTIRE woman-and-chair group and center it in a wide 16:9 landscape canvas. The complete group from the top of her hair to the bottom of the chair legs must occupy only SIXTY PERCENT (60%) of the image HEIGHT. Leave a clearly visible TWENTY PERCENT (20%) of the whole image height as EMPTY GREEN above her highest hair and another TWENTY PERCENT (20%) below the lowest chair leg. Generous green at left and right too. The extra empty green padding is essential. Background is perfectly solid flat chroma-key green #00FF00, uniform to all edges. Preserve sharp high-resolution master illustration detail. One character, one chair, one drink, one pose. Target canvas 3840 by 2160 pixels, 16:9 aspect ratio. No text, framing marks or additional objects.

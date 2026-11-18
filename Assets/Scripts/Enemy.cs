@@ -2172,9 +2172,15 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 else
                 {
                     if (creamSlip) { creamSlip = false; verticalVel = 3.2f; stateTime = 0f; }   // pieni hypähdys ja selälleen
-                    verticalVel -= (thrownByPlayer ? 48f : (chainHover && !launched ? 11f : 30f)) * (Area.Current != null ? Area.Current.gravityScale : 1f) * dt;
+                    verticalVel -= (thrownByPlayer ? 48f : (chainHover && !launched ? 11f : 30f)) * ShipGravity() * dt;
                 }   // heitetty iskeytyy maahan nopeasti; kombon aikana vihu leijuu ilmassa, ettei ehdi maahan ennen seuraavia iskuja
                 height += verticalVel * dt;
+                var ceilA = Area.Current;
+                if (ceilA != null && ceilA.useCeiling && height > 0f)   // aluksen katto: vihu ei lennä kuvan katon yli
+                {
+                    float maxH = ceilA.ceilingY - 3.3f - transform.position.y;
+                    if (height > maxH) { height = Mathf.Max(0f, maxH); if (verticalVel > 0f) verticalVel = 0f; }
+                }
                 if (stairTumble) { knockVel = Vector2.zero; if (height <= 0.15f) { height = 0.15f; verticalVel = 3.4f; } }   // portaita alas: pomppii ilmassa, ei laskeudu ennen alatasannetta
                 if (thrownByPlayer && flightArt)
                     spinRot = 0f;   // lentokuvat piirretty valmiiksi oikeaan asentoon
@@ -4744,6 +4750,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     /// Ilmassa näytettävien kaatumiskuvien enimmäismäärä: luurangolla vain pystymmät kuvat (ei makuuasentoa kesken lennon).
+    /// Painovoima vihulle: aluksen painottomuudessa vihu ei kellu pitkään (alaraja 0,7), muualla alueen kerroin.
+    static float ShipGravity() { var a = Area.Current; if (a == null) return 1f; return a.useCeiling ? Mathf.Max(a.gravityScale, 0.7f) : a.gravityScale; }
     bool LiesInAir => displayName == "Kuurobotti" && knockdownSprites != null && knockdownSprites.Length >= 8;
     Sprite FallingAirFrame()
     {

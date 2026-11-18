@@ -123,6 +123,19 @@ public static partial class BeatEmUpSetup
             // loppukohtaus
             var ctl = new GameObject("Aluksen loppukohtaus"); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(ctl, sc); Undo.RegisterCreatedObjectUndo(ctl, "Aluksen loppukohtaus");
             var fin = ctl.AddComponent<ShipFinale>(); fin.cockpit = cockpit; fin.lokki = le;
+            // pelastuskapseli hyttiin (ohjaamon oven lähelle): Lokin kaaduttua 10 s aikaa päästä sisään
+            var podSp = ImportShipSprite("Assets/Sprites/Props/pelastuskapseli.png", 1374f / 5.72f, false, SpriteAlignment.BottomCenter);
+            string podInfo = "kapseli puuttuu (Assets/Sprites/Props/pelastuskapseli.png)";
+            if (podSp != null)
+            {
+                var pg = new GameObject("Pelastuskapseli"); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(pg, sc); pg.transform.SetParent(root.transform, false);
+                float py = Mathf.Lerp(hytti.maxDepthY, hytti.minDepthY, 0.12f);
+                pg.transform.position = new Vector3(hytti.walkMaxX - 6f, py, 0f);
+                var psr = pg.AddComponent<SpriteRenderer>(); psr.sprite = podSp; psr.sortingOrder = Mathf.RoundToInt(-py * 100f) - 3;
+                var pod = pg.AddComponent<EscapePod>(); pod.sr = psr; fin.pod = pod; EditorUtility.SetDirty(pod);
+                podInfo = "pelastuskapseli hytissä x " + pg.transform.position.x.ToString("0.0");
+            }
+            info += podInfo + ", ";
             EditorUtility.SetDirty(fin);
             EditorSceneManager.MarkSceneDirty(sc); EditorSceneManager.SaveScene(sc);
             Info("Aluksen vihut lisätty: " + info + fuelInfo + ", " + "ShipFinale ohjaamoon (vaurio 75 %, syöksy 45 % Lokin elämistä). Mallit kopioitu Kuusta, Thaitownista ja Aavikolta.");

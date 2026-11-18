@@ -37,6 +37,7 @@ public static class Loc
     static readonly Dictionary<string, string> En = new Dictionary<string, string>
     {
         { "Suutele Auroraa", "Kiss Aurora" },
+        { "Poistu baarista", "Leave the bar" }, { "Poistutko baarista? Peli päättyy ja lopputekstit alkavat.", "Leave the bar? The game ends and the credits roll." },
         { "Äitini ei uskalla mennä mellakoiden takia pyykkituvalle. Voisitko kenties auttaa?", "My mom is too scared to go to the laundry room because of the riots. Could you maybe help?" },
         { "Tottakai, kerro mitä pitää tehdä.", "Of course, tell me what to do." },
         { "Joku toinen kerta, on vähän kiire.", "Some other time, I'm in a bit of a hurry." },

@@ -17,6 +17,8 @@ public class GameStart : MonoBehaviour
     public string sceneName;
     [Tooltip("Testaus: antaa kaikki pomokyvyt (elämä +70 %, pyörähdyspotku, luurankokutsu, härkä).")]
     public bool grantAllPerks;
+    [Tooltip("Testaus: näillä nimillä olevat viholliset poistetaan käytöstä alussa (esim. jo \"voitettu\" pomo).")]
+    public string[] removeNamed;
 
     IEnumerator Start()
     {
@@ -44,6 +46,8 @@ public class GameStart : MonoBehaviour
             }
             if (area == null) Debug.LogWarning("GameStart: aluetta ei löytynyt: " + areaName);
         }
+        if (removeNamed != null && removeNamed.Length > 0)
+            foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None)) if (e != null && System.Array.IndexOf(removeNamed, e.name) >= 0) e.gameObject.SetActive(false);
         if (area != null) area.Apply(pc);
         pc.TeleportTo(new Vector3(position.x, position.y, 0f));
         if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(position.x);

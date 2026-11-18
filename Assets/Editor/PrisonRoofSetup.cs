@@ -112,6 +112,13 @@ public static partial class BeatEmUpSetup
                     hull.sprite = frames[0]; hull.sortingOrder = Mathf.RoundToInt(-hy * 100f);
                     var loop = hull.gameObject.AddComponent<RotorLoop>();
                     loop.frames = frames.ToArray(); loop.fps = 24f; loop.reverse = false;
+                    // Rex antaa lentolipun katolla ennen kopteriin menoa (avaa maailmanpallon)
+                    var rexSpot = new GameObject("Rex: lentolippu (katto)").AddComponent<ClueSpot>();
+                    rexSpot.transform.SetParent(root.transform, false); rexSpot.transform.position = new Vector3(hx - 5.5f, hy, 0f);
+                    rexSpot.prompt = "Puhu Rexille"; rexSpot.halfWidth = 2.6f; rexSpot.halfDepth = 3f;
+                    rexSpot.clueId = Clues.GlobePass; rexSpot.clueTitle = "Rexin lentolippu";
+                    rexSpot.clueText = "Rex ojensi sinulle lentolipun: \"Maailma on nyt auki. Minne vain.\" Maailmanpallo (F8 / kartta-nappi) aukeaa.";
+                    rexSpot.emptyText = "Rex: Nouse kyytiin, kun olet valmis.";
                 }
             }
 
