@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -87,10 +87,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -144,12 +144,12 @@ TextureImporter:
       name: kenraali_maahan_0
       rect:
         serializedVersion: 2
-        x: 77
-        y: 782
-        width: 1089
-        height: 234
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.45, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -166,12 +166,12 @@ TextureImporter:
       name: kenraali_maahan_1
       rect:
         serializedVersion: 2
-        x: 1352
-        y: 782
-        width: 1107
-        height: 239
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 768
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.45, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -188,12 +188,12 @@ TextureImporter:
       name: kenraali_maahan_2
       rect:
         serializedVersion: 2
-        x: 2625
-        y: 781
-        width: 1115
-        height: 232
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 768
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.45, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: kenraali_maahan_3
       rect:
         serializedVersion: 2
-        x: 3909
-        y: 782
-        width: 1111
-        height: 234
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 768
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.45, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -232,12 +232,12 @@ TextureImporter:
       name: kenraali_maahan_4
       rect:
         serializedVersion: 2
-        x: 71
-        y: 14
-        width: 1110
-        height: 236
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.45, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -254,12 +254,12 @@ TextureImporter:
       name: kenraali_maahan_5
       rect:
         serializedVersion: 2
-        x: 1382
-        y: 12
-        width: 1062
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 0
+        width: 1280
+        height: 768
+      alignment: 9
+      pivot: {x: 0.45, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -276,7 +276,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 09896395a3c96d5469e086db9881f68a
     internalID: 0
     vertices: []
     indices: 

@@ -87,7 +87,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,10 +108,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -165,12 +165,12 @@ TextureImporter:
       name: kenraali_juoksu_0
       rect:
         serializedVersion: 2
-        x: 90
-        y: 2315
-        width: 374
-        height: 632
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2304
+        width: 768
+        height: 768
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -187,12 +187,12 @@ TextureImporter:
       name: kenraali_juoksu_1
       rect:
         serializedVersion: 2
-        x: 845
-        y: 2316
-        width: 402
-        height: 652
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 768
+        y: 2304
+        width: 768
+        height: 768
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -209,12 +209,12 @@ TextureImporter:
       name: kenraali_juoksu_2
       rect:
         serializedVersion: 2
-        x: 1537
-        y: 2334
-        width: 544
-        height: 644
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1536
+        y: 2304
+        width: 768
+        height: 768
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: kenraali_juoksu_3
       rect:
         serializedVersion: 2
-        x: 2307
-        y: 2319
-        width: 493
-        height: 638
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 2304
+        width: 768
+        height: 768
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -253,12 +253,12 @@ TextureImporter:
       name: kenraali_juoksu_4
       rect:
         serializedVersion: 2
-        x: 87
-        y: 1551
-        width: 426
-        height: 630
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 768
+        height: 768
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -275,12 +275,12 @@ TextureImporter:
       name: kenraali_juoksu_5
       rect:
         serializedVersion: 2
-        x: 845
-        y: 1554
-        width: 471
-        height: 649
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 768
+        y: 1536
+        width: 768
+        height: 768
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -297,12 +297,12 @@ TextureImporter:
       name: kenraali_juoksu_6
       rect:
         serializedVersion: 2
-        x: 1564
-        y: 1558
-        width: 513
-        height: 647
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1536
+        y: 1536
+        width: 768
+        height: 768
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -319,12 +319,12 @@ TextureImporter:
       name: kenraali_juoksu_7
       rect:
         serializedVersion: 2
-        x: 2360
-        y: 1546
-        width: 462
-        height: 637
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 1536
+        width: 768
+        height: 768
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -341,12 +341,12 @@ TextureImporter:
       name: kenraali_juoksu_8
       rect:
         serializedVersion: 2
-        x: 84
-        y: 780
-        width: 436
-        height: 631
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 768
+        height: 768
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -363,12 +363,12 @@ TextureImporter:
       name: kenraali_juoksu_9
       rect:
         serializedVersion: 2
-        x: 843
-        y: 783
-        width: 473
-        height: 647
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 768
+        y: 768
+        width: 768
+        height: 768
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -385,12 +385,12 @@ TextureImporter:
       name: kenraali_juoksu_10
       rect:
         serializedVersion: 2
-        x: 1555
-        y: 800
-        width: 525
-        height: 638
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1536
+        y: 768
+        width: 768
+        height: 768
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -407,12 +407,12 @@ TextureImporter:
       name: kenraali_juoksu_11
       rect:
         serializedVersion: 2
-        x: 2326
-        y: 781
-        width: 502
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 768
+        width: 768
+        height: 768
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -429,12 +429,12 @@ TextureImporter:
       name: kenraali_juoksu_12
       rect:
         serializedVersion: 2
-        x: 76
-        y: 9
-        width: 384
-        height: 630
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 768
+        height: 768
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -451,7 +451,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6266193ed3d80a24b9fe5225e3568c12
     internalID: 0
     vertices: []
     indices: 

@@ -102,7 +102,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,10 +123,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -180,12 +180,12 @@ TextureImporter:
       name: kenraali_idle_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 3087
-        width: 532
-        height: 647
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -202,12 +202,12 @@ TextureImporter:
       name: kenraali_idle_1
       rect:
         serializedVersion: 2
-        x: 679
-        y: 3087
-        width: 532
-        height: 648
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 640
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -224,12 +224,12 @@ TextureImporter:
       name: kenraali_idle_2
       rect:
         serializedVersion: 2
-        x: 1318
-        y: 3087
-        width: 531
-        height: 649
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -246,12 +246,12 @@ TextureImporter:
       name: kenraali_idle_3
       rect:
         serializedVersion: 2
-        x: 1958
-        y: 3087
-        width: 532
-        height: 652
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1920
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -268,12 +268,12 @@ TextureImporter:
       name: kenraali_idle_4
       rect:
         serializedVersion: 2
-        x: 38
-        y: 2319
-        width: 532
-        height: 653
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -290,12 +290,12 @@ TextureImporter:
       name: kenraali_idle_5
       rect:
         serializedVersion: 2
-        x: 678
-        y: 2319
-        width: 531
-        height: 654
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 640
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -312,12 +312,12 @@ TextureImporter:
       name: kenraali_idle_6
       rect:
         serializedVersion: 2
-        x: 1317
-        y: 2319
-        width: 531
-        height: 656
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -334,12 +334,12 @@ TextureImporter:
       name: kenraali_idle_7
       rect:
         serializedVersion: 2
-        x: 1958
-        y: 2319
-        width: 531
-        height: 656
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1920
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -356,12 +356,12 @@ TextureImporter:
       name: kenraali_idle_8
       rect:
         serializedVersion: 2
-        x: 37
-        y: 1551
-        width: 531
-        height: 656
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -378,12 +378,12 @@ TextureImporter:
       name: kenraali_idle_9
       rect:
         serializedVersion: 2
-        x: 678
-        y: 1551
-        width: 531
-        height: 654
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 640
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -400,12 +400,12 @@ TextureImporter:
       name: kenraali_idle_10
       rect:
         serializedVersion: 2
-        x: 1318
-        y: 1551
-        width: 532
-        height: 652
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -422,12 +422,12 @@ TextureImporter:
       name: kenraali_idle_11
       rect:
         serializedVersion: 2
-        x: 1958
-        y: 1551
-        width: 532
-        height: 648
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1920
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -444,12 +444,12 @@ TextureImporter:
       name: kenraali_idle_12
       rect:
         serializedVersion: 2
-        x: 38
-        y: 783
-        width: 532
-        height: 647
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -466,12 +466,12 @@ TextureImporter:
       name: kenraali_idle_13
       rect:
         serializedVersion: 2
-        x: 678
-        y: 783
-        width: 532
-        height: 644
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 640
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -488,12 +488,12 @@ TextureImporter:
       name: kenraali_idle_14
       rect:
         serializedVersion: 2
-        x: 1318
-        y: 783
-        width: 532
-        height: 643
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -510,12 +510,12 @@ TextureImporter:
       name: kenraali_idle_15
       rect:
         serializedVersion: 2
-        x: 1958
-        y: 783
-        width: 532
-        height: 643
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1920
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -532,12 +532,12 @@ TextureImporter:
       name: kenraali_idle_16
       rect:
         serializedVersion: 2
-        x: 38
-        y: 15
-        width: 532
-        height: 644
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -554,12 +554,12 @@ TextureImporter:
       name: kenraali_idle_17
       rect:
         serializedVersion: 2
-        x: 678
-        y: 15
-        width: 532
-        height: 644
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 640
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -576,7 +576,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3c1571e34b33fd04b83ea9929220adcf
     internalID: 0
     vertices: []
     indices: 

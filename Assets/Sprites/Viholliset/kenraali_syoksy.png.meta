@@ -78,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,10 +99,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -156,12 +156,12 @@ TextureImporter:
       name: kenraali_syoksy_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 1551
-        width: 582
-        height: 622
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.2777778, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,12 +178,12 @@ TextureImporter:
       name: kenraali_syoksy_1
       rect:
         serializedVersion: 2
-        x: 1153
-        y: 1551
-        width: 629
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.2777778, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,12 +200,12 @@ TextureImporter:
       name: kenraali_syoksy_2
       rect:
         serializedVersion: 2
-        x: 2316
-        y: 1551
-        width: 865
-        height: 647
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.2777778, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -222,12 +222,12 @@ TextureImporter:
       name: kenraali_syoksy_3
       rect:
         serializedVersion: 2
-        x: 3464
-        y: 1551
-        width: 909
-        height: 647
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.2777778, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -245,11 +245,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 783
-        width: 937
-        height: 647
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.2777778, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -266,12 +266,12 @@ TextureImporter:
       name: kenraali_syoksy_5
       rect:
         serializedVersion: 2
-        x: 1151
-        y: 783
-        width: 943
-        height: 647
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.2777778, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -288,12 +288,12 @@ TextureImporter:
       name: kenraali_syoksy_6
       rect:
         serializedVersion: 2
-        x: 2303
-        y: 783
-        width: 859
-        height: 647
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.2777778, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -310,12 +310,12 @@ TextureImporter:
       name: kenraali_syoksy_7
       rect:
         serializedVersion: 2
-        x: 3455
-        y: 783
-        width: 765
-        height: 647
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.2777778, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -332,12 +332,12 @@ TextureImporter:
       name: kenraali_syoksy_8
       rect:
         serializedVersion: 2
-        x: 26
-        y: 15
-        width: 731
-        height: 647
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.2777778, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -354,12 +354,12 @@ TextureImporter:
       name: kenraali_syoksy_9
       rect:
         serializedVersion: 2
-        x: 1178
-        y: 15
-        width: 731
-        height: 647
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.2777778, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -376,7 +376,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e82516d6edd1d9441bc12fdc7dc69850
     internalID: 0
     vertices: []
     indices: 

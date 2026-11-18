@@ -75,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,10 +96,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -153,12 +153,12 @@ TextureImporter:
       name: kenraali_suora1_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 1551
-        width: 541
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: kenraali_suora1_1
       rect:
         serializedVersion: 2
-        x: 929
-        y: 1551
-        width: 541
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 896
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: kenraali_suora1_2
       rect:
         serializedVersion: 2
-        x: 1825
-        y: 1551
-        width: 541
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1792
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -219,12 +219,12 @@ TextureImporter:
       name: kenraali_suora1_3
       rect:
         serializedVersion: 2
-        x: 2722
-        y: 1550
-        width: 540
-        height: 643
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2688
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -241,12 +241,12 @@ TextureImporter:
       name: kenraali_suora1_4
       rect:
         serializedVersion: 2
-        x: 48
-        y: 780
-        width: 787
-        height: 652
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -263,12 +263,12 @@ TextureImporter:
       name: kenraali_suora1_5
       rect:
         serializedVersion: 2
-        x: 944
-        y: 781
-        width: 646
-        height: 644
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 896
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -285,12 +285,12 @@ TextureImporter:
       name: kenraali_suora1_6
       rect:
         serializedVersion: 2
-        x: 1826
-        y: 783
-        width: 540
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1792
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -307,12 +307,12 @@ TextureImporter:
       name: kenraali_suora1_7
       rect:
         serializedVersion: 2
-        x: 2720
-        y: 783
-        width: 540
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2688
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -329,12 +329,12 @@ TextureImporter:
       name: kenraali_suora1_8
       rect:
         serializedVersion: 2
-        x: 33
-        y: 15
-        width: 540
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -351,7 +351,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ff0c376631b2eea4db898fca7100b093
     internalID: 0
     vertices: []
     indices: 

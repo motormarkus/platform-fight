@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: b40bed39c90f12e4dbee8b73f07cd2a7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4000407748179057433
+    second: nokkamies_pilli_0
+  - first:
+      213: -6559031731726586563
+    second: nokkamies_pilli_1
+  - first:
+      213: 5878112470938248238
+    second: nokkamies_pilli_2
+  - first:
+      213: 430455569282351210
+    second: nokkamies_pilli_3
+  - first:
+      213: -4575958273812791160
+    second: nokkamies_pilli_4
+  - first:
+      213: -1670318736619758605
+    second: nokkamies_pilli_5
+  - first:
+      213: -4065504226020047036
+    second: nokkamies_pilli_6
+  - first:
+      213: -1165921798003567265
+    second: nokkamies_pilli_7
+  - first:
+      213: -5172753587627972642
+    second: nokkamies_pilli_8
+  - first:
+      213: 3409379225713288717
+    second: nokkamies_pilli_9
+  - first:
+      213: 2722724048115609424
+    second: nokkamies_pilli_10
+  - first:
+      213: -347918181855848971
+    second: nokkamies_pilli_11
+  - first:
+      213: 3966733638080467720
+    second: nokkamies_pilli_12
+  - first:
+      213: -1444888520788098020
+    second: nokkamies_pilli_13
+  - first:
+      213: -4972049148541590048
+    second: nokkamies_pilli_14
+  - first:
+      213: -7935037410802707853
+    second: nokkamies_pilli_15
+  - first:
+      213: -5911247013884933256
+    second: nokkamies_pilli_16
+  - first:
+      213: -5514900242487460509
+    second: nokkamies_pilli_17
+  - first:
+      213: -4710227628517637235
+    second: nokkamies_pilli_18
+  - first:
+      213: -4259443783126144685
+    second: nokkamies_pilli_19
+  - first:
+      213: 3789365913757154161
+    second: nokkamies_pilli_20
+  - first:
+      213: -2453583440302063139
+    second: nokkamies_pilli_21
+  - first:
+      213: -922832819941370461
+    second: nokkamies_pilli_22
+  - first:
+      213: -3498384767971760370
+    second: nokkamies_pilli_23
+  - first:
+      213: 6202201434155060294
+    second: nokkamies_pilli_24
+  - first:
+      213: 8179170835013148480
+    second: nokkamies_pilli_25
+  - first:
+      213: 3762021936615369591
+    second: nokkamies_pilli_26
+  - first:
+      213: -1025777072356023407
+    second: nokkamies_pilli_27
+  - first:
+      213: 4249565921614228373
+    second: nokkamies_pilli_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: nokkamies_pilli_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e4211d1952bb78c0800000000000000
+      internalID: -4000407748179057433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_1
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 4480
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3debe72463a9f4a0800000000000000
+      internalID: -6559031731726586563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_2
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 4480
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2461141620439150800000000000000
+      internalID: 5878112470938248238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_3
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 4480
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a60c9a24f0949f500800000000000000
+      internalID: 430455569282351210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8800166c13eee70c0800000000000000
+      internalID: -4575958273812791160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_5
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 3840
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fb991275f5d1d8e0800000000000000
+      internalID: -1670318736619758605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_6
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 3840
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 447c937427d6497c0800000000000000
+      internalID: -4065504226020047036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_7
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 3840
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f55dc125d40d1dfe0800000000000000
+      internalID: -1165921798003567265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed7aecab400b638b0800000000000000
+      internalID: -5172753587627972642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_9
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 3200
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d06ac35975c805f20800000000000000
+      internalID: 3409379225713288717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_10
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 3200
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05f285d981f09c520800000000000000
+      internalID: 2722724048115609424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_11
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 3200
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f51597c142fb2bf0800000000000000
+      internalID: -347918181855848971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80311682a3bac0730800000000000000
+      internalID: 3966733638080467720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 2560
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c14c262bb89b2fbe0800000000000000
+      internalID: -1444888520788098020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_14
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 2560
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e5256774abbffab0800000000000000
+      internalID: -4972049148541590048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_15
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 2560
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3725ba9348511e190800000000000000
+      internalID: -7935037410802707853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87bccc5f82807fda0800000000000000
+      internalID: -5911247013884933256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_17
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 1920
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36db1dad2732773b0800000000000000
+      internalID: -5514900242487460509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_18
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 1920
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d83c9fe7de8e1aeb0800000000000000
+      internalID: -4710227628517637235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_19
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 1920
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 359250e527a63e4c0800000000000000
+      internalID: -4259443783126144685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17bf77db838869430800000000000000
+      internalID: 3789365913757154161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_21
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 1280
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd1c3065cde13fdd0800000000000000
+      internalID: -2453583440302063139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_22
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 1280
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a5925c80707133f0800000000000000
+      internalID: -922832819941370461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_23
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 1280
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e07e769b69d337fc0800000000000000
+      internalID: -3498384767971760370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64c0b3cf755a21650800000000000000
+      internalID: 6202201434155060294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_25
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 640
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04f91321a80428170800000000000000
+      internalID: 8179170835013148480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_26
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 640
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77baf21f403653430800000000000000
+      internalID: 3762021936615369591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_27
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 640
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 193aa7fff25b3c1f0800000000000000
+      internalID: -1025777072356023407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nokkamies_pilli_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 416
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5144231, y: 0.025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59beb67c0bd79fa30800000000000000
+      internalID: 4249565921614228373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 18843247b9320d745a0ad61168c47091
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      nokkamies_pilli_0: -4000407748179057433
+      nokkamies_pilli_1: -6559031731726586563
+      nokkamies_pilli_10: 2722724048115609424
+      nokkamies_pilli_11: -347918181855848971
+      nokkamies_pilli_12: 3966733638080467720
+      nokkamies_pilli_13: -1444888520788098020
+      nokkamies_pilli_14: -4972049148541590048
+      nokkamies_pilli_15: -7935037410802707853
+      nokkamies_pilli_16: -5911247013884933256
+      nokkamies_pilli_17: -5514900242487460509
+      nokkamies_pilli_18: -4710227628517637235
+      nokkamies_pilli_19: -4259443783126144685
+      nokkamies_pilli_2: 5878112470938248238
+      nokkamies_pilli_20: 3789365913757154161
+      nokkamies_pilli_21: -2453583440302063139
+      nokkamies_pilli_22: -922832819941370461
+      nokkamies_pilli_23: -3498384767971760370
+      nokkamies_pilli_24: 6202201434155060294
+      nokkamies_pilli_25: 8179170835013148480
+      nokkamies_pilli_26: 3762021936615369591
+      nokkamies_pilli_27: -1025777072356023407
+      nokkamies_pilli_28: 4249565921614228373
+      nokkamies_pilli_3: 430455569282351210
+      nokkamies_pilli_4: -4575958273812791160
+      nokkamies_pilli_5: -1670318736619758605
+      nokkamies_pilli_6: -4065504226020047036
+      nokkamies_pilli_7: -1165921798003567265
+      nokkamies_pilli_8: -5172753587627972642
+      nokkamies_pilli_9: 3409379225713288717
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

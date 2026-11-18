@@ -78,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,10 +99,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -156,12 +156,12 @@ TextureImporter:
       name: kenraali_potku1_0
       rect:
         serializedVersion: 2
-        x: 74
-        y: 1548
-        width: 518
-        height: 668
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,12 +178,12 @@ TextureImporter:
       name: kenraali_potku1_1
       rect:
         serializedVersion: 2
-        x: 1056
-        y: 1554
-        width: 423
-        height: 682
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 1536
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,12 +200,12 @@ TextureImporter:
       name: kenraali_potku1_2
       rect:
         serializedVersion: 2
-        x: 2068
-        y: 1553
-        width: 624
-        height: 681
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 1536
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -223,11 +223,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3072
-        y: 1553
-        width: 885
-        height: 679
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 1536
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -244,12 +244,12 @@ TextureImporter:
       name: kenraali_potku1_4
       rect:
         serializedVersion: 2
-        x: 4
-        y: 785
-        width: 640
-        height: 679
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -266,12 +266,12 @@ TextureImporter:
       name: kenraali_potku1_5
       rect:
         serializedVersion: 2
-        x: 1067
-        y: 785
-        width: 502
-        height: 681
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 768
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -288,12 +288,12 @@ TextureImporter:
       name: kenraali_potku1_6
       rect:
         serializedVersion: 2
-        x: 2123
-        y: 785
-        width: 552
-        height: 675
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 768
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -310,12 +310,12 @@ TextureImporter:
       name: kenraali_potku1_7
       rect:
         serializedVersion: 2
-        x: 3105
-        y: 783
-        width: 545
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 768
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -332,12 +332,12 @@ TextureImporter:
       name: kenraali_potku1_8
       rect:
         serializedVersion: 2
-        x: 32
-        y: 15
-        width: 540
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -354,12 +354,12 @@ TextureImporter:
       name: kenraali_potku1_9
       rect:
         serializedVersion: 2
-        x: 1056
-        y: 15
-        width: 541
-        height: 642
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 0
+        width: 1024
+        height: 768
+      alignment: 9
+      pivot: {x: 0.3125, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -376,7 +376,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: de37362abcfd604408934f4665b8e3af
     internalID: 0
     vertices: []
     indices: 

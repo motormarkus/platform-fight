@@ -99,7 +99,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -120,10 +120,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -177,12 +177,12 @@ TextureImporter:
       name: kenraali_kaatuminen_0
       rect:
         serializedVersion: 2
-        x: 198
-        y: 3110
-        width: 839
-        height: 734
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3072
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -199,12 +199,12 @@ TextureImporter:
       name: kenraali_kaatuminen_1
       rect:
         serializedVersion: 2
-        x: 1429
-        y: 3181
-        width: 921
-        height: 665
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 3072
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -221,12 +221,12 @@ TextureImporter:
       name: kenraali_kaatuminen_2
       rect:
         serializedVersion: 2
-        x: 2674
-        y: 3277
-        width: 964
-        height: 604
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 3072
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -243,12 +243,12 @@ TextureImporter:
       name: kenraali_kaatuminen_3
       rect:
         serializedVersion: 2
-        x: 3936
-        y: 3287
-        width: 978
-        height: 583
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 3072
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -265,12 +265,12 @@ TextureImporter:
       name: kenraali_kaatuminen_4
       rect:
         serializedVersion: 2
-        x: 87
-        y: 2263
-        width: 981
-        height: 564
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2048
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -287,12 +287,12 @@ TextureImporter:
       name: kenraali_kaatuminen_5
       rect:
         serializedVersion: 2
-        x: 1369
-        y: 2261
-        width: 981
-        height: 559
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 2048
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -309,12 +309,12 @@ TextureImporter:
       name: kenraali_kaatuminen_6
       rect:
         serializedVersion: 2
-        x: 2691
-        y: 2232
-        width: 906
-        height: 593
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 2048
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -331,12 +331,12 @@ TextureImporter:
       name: kenraali_kaatuminen_7
       rect:
         serializedVersion: 2
-        x: 4111
-        y: 2122
-        width: 679
-        height: 741
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 2048
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -353,12 +353,12 @@ TextureImporter:
       name: kenraali_kaatuminen_8
       rect:
         serializedVersion: 2
-        x: 279
-        y: 1055
-        width: 563
-        height: 784
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1024
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -375,12 +375,12 @@ TextureImporter:
       name: kenraali_kaatuminen_9
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 1101
-        width: 803
-        height: 683
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 1024
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -397,12 +397,12 @@ TextureImporter:
       name: kenraali_kaatuminen_10
       rect:
         serializedVersion: 2
-        x: 2740
-        y: 1100
-        width: 873
-        height: 552
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 1024
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -419,12 +419,12 @@ TextureImporter:
       name: kenraali_kaatuminen_11
       rect:
         serializedVersion: 2
-        x: 4020
-        y: 1047
-        width: 832
-        height: 490
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 1024
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -441,12 +441,12 @@ TextureImporter:
       name: kenraali_kaatuminen_12
       rect:
         serializedVersion: 2
-        x: 96
-        y: 3
-        width: 959
-        height: 455
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -463,12 +463,12 @@ TextureImporter:
       name: kenraali_kaatuminen_13
       rect:
         serializedVersion: 2
-        x: 1391
-        y: 28
-        width: 975
-        height: 342
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 0
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -485,12 +485,12 @@ TextureImporter:
       name: kenraali_kaatuminen_14
       rect:
         serializedVersion: 2
-        x: 2664
-        y: 31
-        width: 1024
-        height: 289
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 0
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -507,12 +507,12 @@ TextureImporter:
       name: kenraali_kaatuminen_15
       rect:
         serializedVersion: 2
-        x: 3936
-        y: 24
-        width: 1051
-        height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3840
+        y: 0
+        width: 1280
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.45, y: 0.015625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -525,33 +525,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: kenraali_kaatuminen_16
-      rect:
-        serializedVersion: 2
-        x: 237
-        y: 0
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 006a1c3604506cb10800000000000000
-      internalID: 2001292858522445312
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a5db1825501c7d44294ce7c55e87c86d
     internalID: 0
     vertices: []
     indices: 
@@ -569,7 +547,6 @@ TextureImporter:
       kenraali_kaatuminen_13: -190954028263887817
       kenraali_kaatuminen_14: 4875245104362942073
       kenraali_kaatuminen_15: -1793326045614669518
-      kenraali_kaatuminen_16: 2001292858522445312
       kenraali_kaatuminen_2: -2527280803585790183
       kenraali_kaatuminen_3: -1388782210459078236
       kenraali_kaatuminen_4: -2623397248401274173

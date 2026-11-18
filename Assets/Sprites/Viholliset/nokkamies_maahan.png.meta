@@ -142,11 +142,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 448
-        width: 992
-        height: 448
+        y: 320
+        width: 768
+        height: 320
       alignment: 9
-      pivot: {x: 0.46471775, y: 0.035714287}
+      pivot: {x: 0.44921875, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -163,12 +163,12 @@ TextureImporter:
       name: nokkamies_maahan_1
       rect:
         serializedVersion: 2
-        x: 992
-        y: 448
-        width: 992
-        height: 448
+        x: 768
+        y: 320
+        width: 768
+        height: 320
       alignment: 9
-      pivot: {x: 0.46471775, y: 0.035714287}
+      pivot: {x: 0.44921875, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -185,12 +185,12 @@ TextureImporter:
       name: nokkamies_maahan_2
       rect:
         serializedVersion: 2
-        x: 1984
-        y: 448
-        width: 992
-        height: 448
+        x: 1536
+        y: 320
+        width: 768
+        height: 320
       alignment: 9
-      pivot: {x: 0.46471775, y: 0.035714287}
+      pivot: {x: 0.44921875, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -207,12 +207,12 @@ TextureImporter:
       name: nokkamies_maahan_3
       rect:
         serializedVersion: 2
-        x: 2976
-        y: 448
-        width: 992
-        height: 448
+        x: 2304
+        y: 320
+        width: 768
+        height: 320
       alignment: 9
-      pivot: {x: 0.46471775, y: 0.035714287}
+      pivot: {x: 0.44921875, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -231,10 +231,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 992
-        height: 448
+        width: 768
+        height: 320
       alignment: 9
-      pivot: {x: 0.46471775, y: 0.035714287}
+      pivot: {x: 0.44921875, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
