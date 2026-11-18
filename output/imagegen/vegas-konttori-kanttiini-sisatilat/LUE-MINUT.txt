@@ -1,0 +1,11 @@
+TYOMAAKONTTORIN ALAKERTA / KANTTIINI
+
+01-kanttiini-vasen-5120x1844.png: vasen sulkeva paatyseina ja pariovet, kanttiinin alku.
+02-kanttiini-oikea-portaat-5120x1844.png: tiskin loppu, ikkunat ja kamerasta poispain ylakertaan nousevat portaat.
+
+Kummankin koko 5120 x 1844. Oikean palan vasen reuna sijoitetaan vasemman palan oikeaan reunaan, samalla korkeudella; palat leikattu yhdesta kokonaisuudesta ilman valia.
+Kanttiini-kokonaisuus-10240x1844.png sisaltaa molemmat palat yhdessa.
+Poydat ja tuolit lisataan peliin erillisina spriteina. Alaosan noin 45 prosenttia on avointa lattiapintaa. Ikkuna- ja ovilasit ovat lapinakyvia; esikatselun siniharmaa tausta ei kuulu PNG-kuviin.
+
+Tarkat yksityiskohdat on tehty 12 paikallisella uudelleenpiirrolla, kohdistettu ja yhdistetty limityksilla. Lahdetarkkuudet.json kertoo natiivit lahdekoot ja sijoituskoot. Lopullinen 5120 x 1844 palakoko ei ole yhden generoinnin natiivitarkkuus.
+Kaytetty sisainen image_gen-kuvatyokalu ja System.Drawing kohdistamiseen, varisovitukseen ja leikkaukseen. Generointiohjeet samassa kansiossa. Unity-projektin kohtauksia ja tuontiasetuksia ei muutettu.

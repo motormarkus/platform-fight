@@ -1,0 +1,17 @@
+VEGASIN TYOMAA — TARKKA VERSIO 2
+
+Paatiedosto: vegas-tyomaa-tarkka-15360x5632.png
+Mitat: 15360 x 5632 pikselia, RGBA PNG
+Koko: 117103198 tavua (117,1 Mt / 111,7 MiB)
+
+Kuva tehtiin sisaisella kuvageneroinnilla 32 paallekkaisena paikallisena uudelleenpiirtona. Osat kohdistettiin, savyt sovitettiin ja yhdistettiin yhdeksi kuvaksi. Tama ei ole yksi natiivisti 15K-koossa generoitu kuva: lahdepalat on skaalattu lopulliseen sommitteluun. Yksityiskohtia on piirretty uudelleen, eika tulos ole vain aiemman pienen kuvan suurennos.
+
+Tyhjat aukot ovat lapinakyvia. Katto nakyy kokonaan. Vasemman uloimman pikselisarakkeen RGBA-arvot vastaavat aiempaa hyvaksyttya kokonaiskuvaa; eroavia pikseleita 0. Liitokset tarkistettiin lahikuvista ja niiden kohdistusta korjattiin. Tekstuurissa voi silti olla pienia paikallisia vaihteluita.
+
+esikatselu.png: pienennetty yleiskuva; tummansininen tausta vain esikatselussa.
+tarkkuusvertailu-100prosenttia.png: vanha vasemmalla, uusi oikealla; skaalaamattomat 1024 x 1024 lahikuvat.
+generointiohje.txt: kaytetty generointiohje.
+tarkistus.json: mitat, tiedostokoko ja alpha-/reunatarkistukset.
+lahdetarkkuudet.json: kunkin lahdepalan natiivikoko ja sijoituskoko.
+
+Unityn sceneja tai tuontiasetuksia ei muutettu.

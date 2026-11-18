@@ -1,0 +1,13 @@
+TYOMAAKONTTORI, YLAKERTA: POMON TOIMISTO
+
+01-pomon-toimisto-vasen-5120x1844.png
+02-pomon-toimisto-oikea-portaat-5120x1844.png
+Sijoita vierekkain samalla korkeudella. Oikean palan x-siirtyma 5120 pikselia.
+
+Pomon-toimisto-kokonaisuus-10240x1844.png sisaltaa molemmat palat yhdessa.
+Esikatselu on pienennetty. Kayta peliin numeroituja PNG-tiedostoja.
+Ikkunoissa on oikea alfakanava. Sinertava esikatselutausta ei kuulu kuviin.
+
+Toteutus: kuusi suoraan tarkkana tehtya paikallista toimiston osaa. Alakerran jo tarkka lattiakuva on kaytetty sellaisenaan etualalla; uutta pienta kokonaiskuvaa ei ole suurennettu lopputulokseksi. Lattia on yhdistetty ylaosaan pehmealla liitoksella. Molemmat lopulliset kuvat leikattu yhdesta yhteisesta kokonaisuudesta.
+Lahdetarkkuudet.json kertoo generointien natiivit koot. 5120 x 1844 on lopullinen palakoko, ei yksittaisen generoinnin natiivitarkkuus.
+Kuvat tehty sisaisella image_gen-tyokalulla. Kohdistus ja tiedostojen leikkaus System.Drawingilla. Generointiohjeet tiedostossa generointiohjeet.json. Unityn kohtauksia tai tuontiasetuksia ei ole muutettu.
