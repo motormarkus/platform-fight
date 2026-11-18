@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: 58b775a0a22baec40b6e0e59be445639
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3275472235259867150
+    second: khan_puuska_73_0
+  - first:
+      213: -2656379570500622469
+    second: khan_puuska_73_1
+  - first:
+      213: 2518497840424241549
+    second: khan_puuska_73_2
+  - first:
+      213: 12448420036021401
+    second: khan_puuska_73_3
+  - first:
+      213: -1660922862774422443
+    second: khan_puuska_73_4
+  - first:
+      213: 2339474951088123563
+    second: khan_puuska_73_5
+  - first:
+      213: 9141738369009575052
+    second: khan_puuska_73_6
+  - first:
+      213: 3042648910918199289
+    second: khan_puuska_73_7
+  - first:
+      213: -8292287355281141749
+    second: khan_puuska_73_8
+  - first:
+      213: -698628207958033253
+    second: khan_puuska_73_9
+  - first:
+      213: 7605611487404584442
+    second: khan_puuska_73_10
+  - first:
+      213: 1263301881620123644
+    second: khan_puuska_73_11
+  - first:
+      213: 8175079883094362975
+    second: khan_puuska_73_12
+  - first:
+      213: 9159106034955006143
+    second: khan_puuska_73_13
+  - first:
+      213: -6468498208017727667
+    second: khan_puuska_73_14
+  - first:
+      213: 7985018951122560373
+    second: khan_puuska_73_15
+  - first:
+      213: 3289155839498258595
+    second: khan_puuska_73_16
+  - first:
+      213: -8828304075584105272
+    second: khan_puuska_73_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5261, y: 0.027}
+  spritePixelsToUnits: 108
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: khan_puuska_73_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 413
+        width: 21
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ff4ea13b5f2b82d0800000000000000
+      internalID: -3275472235259867150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 432
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b77a4bfcad4a22bd0800000000000000
+      internalID: -2656379570500622469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_2
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 10
+        width: 704
+        height: 517
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d89431a317083f220800000000000000
+      internalID: 2518497840424241549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_3
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 318
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99c0346a5c93c2000800000000000000
+      internalID: 12448420036021401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_4
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 269
+        width: 40
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 554710dc47733f8e0800000000000000
+      internalID: -1660922862774422443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_5
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 249
+        width: 24
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bae288ca21c777020800000000000000
+      internalID: 2339474951088123563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_6
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 186
+        width: 39
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c84ef529c9afdde70800000000000000
+      internalID: 9141738369009575052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_7
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 183
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f722875019a93a20800000000000000
+      internalID: 3042648910918199289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 134
+        width: 54
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b001105b590ebec80800000000000000
+      internalID: -8292287355281141749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_9
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 138
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9cf79aa859fd46f0800000000000000
+      internalID: -698628207958033253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_10
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 132
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afd616ef95f8c8960800000000000000
+      internalID: 7605611487404584442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_11
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 81
+        width: 46
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cffcc0a3e56288110800000000000000
+      internalID: 1263301881620123644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 40
+        width: 27
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5b084a17d7b37170800000000000000
+      internalID: 8175079883094362975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_13
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 59
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb031a9696eab1f70800000000000000
+      internalID: 9159106034955006143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_14
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 30
+        width: 17
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4f3ad0c6274b36a0800000000000000
+      internalID: -6468498208017727667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_15
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 51
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5752c6afd6c70de60800000000000000
+      internalID: 7985018951122560373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_16
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 18
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a802303fcd65ad20800000000000000
+      internalID: 3289155839498258595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khan_puuska_73_17
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 6
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c41da5b7309b7580800000000000000
+      internalID: -8828304075584105272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      khan_puuska_73_0: -3275472235259867150
+      khan_puuska_73_1: -2656379570500622469
+      khan_puuska_73_10: 7605611487404584442
+      khan_puuska_73_11: 1263301881620123644
+      khan_puuska_73_12: 8175079883094362975
+      khan_puuska_73_13: 9159106034955006143
+      khan_puuska_73_14: -6468498208017727667
+      khan_puuska_73_15: 7985018951122560373
+      khan_puuska_73_16: 3289155839498258595
+      khan_puuska_73_17: -8828304075584105272
+      khan_puuska_73_2: 2518497840424241549
+      khan_puuska_73_3: 12448420036021401
+      khan_puuska_73_4: -1660922862774422443
+      khan_puuska_73_5: 2339474951088123563
+      khan_puuska_73_6: 9141738369009575052
+      khan_puuska_73_7: 3042648910918199289
+      khan_puuska_73_8: -8292287355281141749
+      khan_puuska_73_9: -698628207958033253
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

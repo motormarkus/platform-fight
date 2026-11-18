@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 28c0d5e25f7e5f1479881c1fece4ecb9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 506203525952082651
+    second: taikuri_harka_47_0
+  - first:
+      213: -3754758488339328939
+    second: taikuri_harka_47_1
+  - first:
+      213: 8840155328783225572
+    second: taikuri_harka_47_2
+  - first:
+      213: 6730337604888218554
+    second: taikuri_harka_47_3
+  - first:
+      213: 1578157447001706734
+    second: taikuri_harka_47_4
+  - first:
+      213: 98575793507572810
+    second: taikuri_harka_47_5
+  - first:
+      213: 4810398891024649503
+    second: taikuri_harka_47_6
+  - first:
+      213: -7193418578029946695
+    second: taikuri_harka_47_7
+  - first:
+      213: 311130452552860204
+    second: taikuri_harka_47_8
+  - first:
+      213: 337057217508370015
+    second: taikuri_harka_47_9
+  - first:
+      213: -4973426391603473841
+    second: taikuri_harka_47_10
+  - first:
+      213: -6714579900170674096
+    second: taikuri_harka_47_11
+  - first:
+      213: 673272830082518635
+    second: taikuri_harka_47_12
+  - first:
+      213: 3069168129725391465
+    second: taikuri_harka_47_13
+  - first:
+      213: 7287379879871789954
+    second: taikuri_harka_47_14
+  - first:
+      213: 2611829923499116346
+    second: taikuri_harka_47_15
+  - first:
+      213: -6147591844025799934
+    second: taikuri_harka_47_16
+  - first:
+      213: 2018768607980431913
+    second: taikuri_harka_47_17
+  - first:
+      213: -6186303002788015354
+    second: taikuri_harka_47_18
+  - first:
+      213: 1027712034770000917
+    second: taikuri_harka_47_19
+  - first:
+      213: -2078015646928103345
+    second: taikuri_harka_47_20
+  - first:
+      213: 3701596851872343480
+    second: taikuri_harka_47_21
+  - first:
+      213: 2189629570842463277
+    second: taikuri_harka_47_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: taikuri_harka_47_0
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 515
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd29c64cc65660700800000000000000
+      internalID: 506203525952082651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_1
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 533
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 550d6256c0b64ebc0800000000000000
+      internalID: -3754758488339328939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_2
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 521
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e296633f6a8eaa70800000000000000
+      internalID: 8840155328783225572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_3
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 497
+        width: 44
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abbc0dd8466f66d50800000000000000
+      internalID: 6730337604888218554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_4
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 479
+        width: 63
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee09c2c26ddb6e510800000000000000
+      internalID: 1578157447001706734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_5
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 473
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4c987379263e5100800000000000000
+      internalID: 98575793507572810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_6
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 467
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1d05770e48f1c240800000000000000
+      internalID: 4810398891024649503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_7
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 437
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b854d76ae7db2c90800000000000000
+      internalID: -7193418578029946695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_8
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 407
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2248378f7b515400800000000000000
+      internalID: 311130452552860204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_9
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 9
+        width: 668
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f566196e0c77da400800000000000000
+      internalID: 337057217508370015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_10
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 395
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f421ce31c07dafab0800000000000000
+      internalID: -4973426391603473841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 365
+        width: 13
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 050695af72501d2a0800000000000000
+      internalID: -6714579900170674096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 341
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6e8df16212f75900800000000000000
+      internalID: 673272830082518635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_13
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 239
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9626b302720e79a20800000000000000
+      internalID: 3069168129725391465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_14
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 209
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28b361bf369f12560800000000000000
+      internalID: 7287379879871789954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_15
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 155
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3786e33a751f3420800000000000000
+      internalID: 2611829923499116346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_16
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 29
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20be0c80acd5faaa0800000000000000
+      internalID: -6147591844025799934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_17
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 27
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92a22626a5b140c10800000000000000
+      internalID: 2018768607980431913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_18
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 29
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60353e50236d52aa0800000000000000
+      internalID: -6186303002788015354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_19
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 29
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51c1cdb86aa234e00800000000000000
+      internalID: 1027712034770000917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_20
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 11
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f48952767c76923e0800000000000000
+      internalID: -2078015646928103345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_21
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 17
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b52e8199b6be5330800000000000000
+      internalID: 3701596851872343480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taikuri_harka_47_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 843
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2c81c75e70236e10800000000000000
+      internalID: 2189629570842463277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      taikuri_harka_47_0: 506203525952082651
+      taikuri_harka_47_1: -3754758488339328939
+      taikuri_harka_47_10: -4973426391603473841
+      taikuri_harka_47_11: -6714579900170674096
+      taikuri_harka_47_12: 673272830082518635
+      taikuri_harka_47_13: 3069168129725391465
+      taikuri_harka_47_14: 7287379879871789954
+      taikuri_harka_47_15: 2611829923499116346
+      taikuri_harka_47_16: -6147591844025799934
+      taikuri_harka_47_17: 2018768607980431913
+      taikuri_harka_47_18: -6186303002788015354
+      taikuri_harka_47_19: 1027712034770000917
+      taikuri_harka_47_2: 8840155328783225572
+      taikuri_harka_47_20: -2078015646928103345
+      taikuri_harka_47_21: 3701596851872343480
+      taikuri_harka_47_22: 2189629570842463277
+      taikuri_harka_47_3: 6730337604888218554
+      taikuri_harka_47_4: 1578157447001706734
+      taikuri_harka_47_5: 98575793507572810
+      taikuri_harka_47_6: 4810398891024649503
+      taikuri_harka_47_7: -7193418578029946695
+      taikuri_harka_47_8: 311130452552860204
+      taikuri_harka_47_9: 337057217508370015
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
