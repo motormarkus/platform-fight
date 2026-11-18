@@ -45,10 +45,11 @@ public class SkeletonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
     void Update()
     {
         if (active && Time.time - lastTick > 0.25f) { active = false; return; }   // väliin tuli osuma, kaatuminen tms.
-        if (active || e == null || e.Hero == null || !e.IsAwake || !e.BrainIdleOrChase || e.IsDead) return;
-        float dx = Mathf.Abs(e.Hero.transform.position.x - transform.position.x), dy = Mathf.Abs(e.Hero.transform.position.y - transform.position.y);
+        if (active || e == null || !e.IsAwake || !e.BrainIdleOrChase || e.IsDead) return;
+        Vector3 tpos; if (!TargetPos(out tpos)) return;
+        float dx = Mathf.Abs(tpos.x - transform.position.x), dy = Mathf.Abs(tpos.y - transform.position.y);
         if (dy > e.depthTolerance + 0.4f) return;
-        if (leapSprites != null && leapSprites.Length > leapHitTo && Time.time >= nextLeap && dx >= leapMinRange && dx <= leapMaxRange && Random.value < leapChancePerSec * Time.deltaTime)
+        if (!e.ally && leapSprites != null && leapSprites.Length > leapHitTo && Time.time >= nextLeap && dx >= leapMinRange && dx <= leapMaxRange && Random.value < leapChancePerSec * Time.deltaTime)
         {
             nextLeap = Time.time + leapCooldown * Random.Range(0.8f, 1.3f); nextThrow = Mathf.Max(nextThrow, Time.time + 1.5f);
             leapDist = Mathf.Clamp(dx - leapStopGap, 0f, leapMaxTravel); Begin(true); return;
@@ -60,11 +61,20 @@ public class SkeletonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         Begin(false);
     }
 
+    /// Kohde: vihollisena hero, kutsuttuna liittolaisena (Temppelin kuninkaan kyky) lähin vihollinen.
+    bool TargetPos(out Vector3 p)
+    {
+        p = Vector3.zero;
+        if (e.ally) { var te = e.TargetEnemy; if (te == null || te.IsDead) return false; p = te.transform.position; return true; }
+        if (e.Hero == null) return false;
+        p = e.Hero.transform.position; return true;
+    }
+
     void Begin(bool isLeap)
     {
         leap = isLeap; leapHit = false;
         active = true; fired = false; t = 0f; lastTick = Time.time; CurrentSprite = (isLeap ? leapSprites : throwSprites)[0];
-        e.FacingRight = e.Hero.transform.position.x > transform.position.x;
+        Vector3 tp; if (TargetPos(out tp)) e.FacingRight = tp.x > transform.position.x;
         e.BrainPhaseSet(Enemy.BrainPhase.Windup);
         Voice(isLeap ? leapVoice : throwVoice);
     }
@@ -156,6 +166,24 @@ public class BoneProjectile : MonoBehaviour
         // kevyt kaari: nousee hetken ja laskee lentomatkan loppupuolella
         transform.position = p;
         transform.rotation = Quaternion.Euler(0f, 0f, age * spin);
+        if (owner != null && owner.ally)   // kutsuttu liittolaisluuranko: luu osuu vihollisiin
+        {
+            foreach (var en in Enemy.All.ToArray())
+            {
+                if (en == null || en == owner || en.ally || !en.isActiveAndEnabled || en.IsDead) continue;
+                Vector3 ep = en.transform.position;
+                bool cr = (ep.x - prevX) * dir >= -0.6f && (ep.x - p.x) * dir <= 0.6f;
+                if (cr && Mathf.Abs(ep.y - depthY) <= 1.0f)
+                {
+                    Enemy.EnemyHits(en, damage, ownerX, true);
+                    HitSpark.Spawn(new Vector3(ep.x - dir * 0.2f, p.y, 0f), true, sr.sortingOrder + 2);
+                    Destroy(gameObject);
+                    return;
+                }
+            }
+            if (travelled >= range) Destroy(gameObject);
+            return;
+        }
         foreach (var target in Players.All)
         {
             if (target == null || !target.enabled || target.GameOver) continue;

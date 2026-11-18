@@ -489,7 +489,7 @@ public class Crate : MonoBehaviour
     float TargetGround()
     {
         if (player == null || !player.useSidewalk) return 0f;
-        return transform.position.y > player.curbDepthY ? player.sidewalkHeight : 0f;
+        return transform.position.y > player.curbDepthY && !SiteLevels.AboveStreet(transform.position) ? player.sidewalkHeight : 0f;
     }
 
     void ApplyVisual()

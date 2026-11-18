@@ -55,6 +55,34 @@ public class Jerrycan : MonoBehaviour
     class Puff { public GameObject go; public SpriteRenderer sr; public Vector3 v; public float age, life, s0, s1; }
     readonly List<Puff> puffs = new List<Puff>();
 
+    /// Vihollisen (taikuri) ampuma gallona: ei räjäytä omistajaansa eikä anna heron kentälle tulitikkuja.
+    public Enemy blastExempt; public bool spawnedByFoe; public float launchMul = 1f;   // taikurin gallona: kerroin vihujen lennätykseen
+    /// Sytyttää gallonan heti (savuaa fuseTime sekuntia ja räjähtää).
+    public void Ignite(float fuseTime) { fuse = fuseTime; lit = true; t = 0f; }
+
+    /// <summary>Heron isku (PlayerController.AttackEnemies) osuu vihollisen ampumaan gallonaan lennossa: se lyödään takaisin ampujaa kohti (nopeasti, nyt ampujakin kärsii räjähdyksestä, enemmän vahinkoa). Ajoitus ratkaisee: iskun pitää osua gallonan ollessa ulottuvilla.</summary>
+    public static bool TryDeflect(Vector3 me, bool facingRight, float reach, float depth)
+    {
+        bool any = false;
+        foreach (var j in All.ToArray())
+        {
+            if (j == null || !j.spawnedByFoe || j.deflected || j.state == S.Boom || j.crate == null || !j.crate.Airborne) continue;
+            Vector3 p = j.transform.position; float dx = p.x - me.x;
+            bool inFront = facingRight ? dx >= -0.3f && dx <= reach + 0.4f : dx <= 0.3f && dx >= -reach - 0.4f;
+            if (!inFront || Mathf.Abs(p.y - me.y) > depth + 0.4f || j.crate.Height > 3.6f) continue;
+            float back = j.blastExempt != null ? Mathf.Sign(j.blastExempt.transform.position.x - me.x) : (facingRight ? 1f : -1f);
+            j.deflected = true; var shooter = j.blastExempt; j.blastExempt = null; j.bossDamage = 45; j.blastRadiusX *= 1.15f;
+            j.crate.kickFlySpeed = 20f; j.crate.kickFlyUp = 2.6f;
+            j.crate.LaunchByKick(back);
+            j.Ignite(Mathf.Max(0.9f, Vector3.Distance(p, shooter != null ? shooter.transform.position : p) / 18f + 0.35f));   // räjähtää suunnilleen perillä
+            HitSpark.Spawn(new Vector3(p.x, p.y + j.crate.Height, 0f), true, Mathf.RoundToInt(-p.y * 100f) + 6);
+            HitFx.OnHit(true);
+            any = true;
+        }
+        return any;
+    }
+    bool deflected;
+
     void OnEnable() { All.Add(this); }
     void OnDisable() { All.Remove(this); }
 
@@ -89,7 +117,7 @@ public class Jerrycan : MonoBehaviour
         var p = Players.Primary;
         if (p != null) crate.kickFlySpeed = p.crateThrowSpeed;
         // TESTAUS: tulitikut heti mukaan, kun kentällä on gallona (poista tämä kun testaus on ohi; muuten ne ostetaan Helvin tiskiltä)
-        if (!Clues.Has(ShopCounter.MatchesClueId))
+        if (!spawnedByFoe && !Clues.Has(ShopCounter.MatchesClueId))
             Clues.Add(ShopCounter.MatchesClueId, ShopCounter.MatchesName, "Tulitikut. Pidä poimintanappia pohjassa jerrygallonan vieressä, niin se syttyy. Sen jälkeen aikaa on 3 sekuntia.", null, false);
     }
 
@@ -225,11 +253,11 @@ public class Jerrycan : MonoBehaviour
             if (p == null || p.GameOver) continue;
             Vector3 q = p.transform.position;
             if (Mathf.Abs(q.x - me.x) > blastRadiusX || Mathf.Abs(q.y - me.y) > blastRadiusY) continue;
-            p.TakeKnockdown(heroDamage, me.x, 7f, 6f);
+            p.TakeKnockdown(heroDamage, me.x, spawnedByFoe ? 24f : 7f, spawnedByFoe ? 9f : 6f);   // taikurin gallona lennättää kauas
         }
         foreach (var e in Enemy.All.ToArray())
         {
-            if (e == null || e.IsDead) continue;
+            if (e == null || e.IsDead || e == blastExempt) continue;
             Vector3 q = e.transform.position;
             if (Mathf.Abs(q.x - me.x) > blastRadiusX || Mathf.Abs(q.y - me.y) > blastRadiusY) continue;
             bool boss = e.maxHealth >= 300;
@@ -237,12 +265,14 @@ public class Jerrycan : MonoBehaviour
             bool center = Mathf.Abs(q.x - me.x) < blastRadiusX * 0.4f && Mathf.Abs(q.y - me.y) < blastRadiusY * 0.6f;
             int dmg = boss ? bossDamage : Mathf.RoundToInt(blastDamage * (center ? 1.5f : 1f));
             float dir = Mathf.Abs(q.x - me.x) < 0.3f ? (Random.value < 0.5f ? -1f : 1f) : Mathf.Sign(q.x - me.x);
-            float vx = boss ? 5f : center ? 22f : Mathf.Lerp(7f, 16f, near);
-            if (e.BlastFromDown(e.displayName == "Robottipomo" ? robotBossDamage : dmg, dir * vx, boss ? 6f : center ? 12f : 9f)) continue;   // maassa makaava lentää myös
+            float vx = boss ? (spawnedByFoe ? 22f : 8f) : center ? 32f : Mathf.Lerp(15f, 26f, near);   // ennen 5 / 22 / 7-16: vihut lensivät liian lyhyelle
+            vx *= launchMul;
+            float upV = boss ? (spawnedByFoe ? 10f : 7f) : center ? 14f : 11f;
+            if (e.BlastFromDown(e.displayName == "Robottipomo" ? robotBossDamage : dmg, dir * vx, upV)) continue;   // maassa makaava lentää myös
             if (e.displayName == "Robottipomo") { float keep = e.heroDamageMul; e.heroDamageMul = 1f; e.TakeHit(robotBossDamage, me.x, true); e.heroDamageMul = keep; }
             else e.TakeHit(dmg, me.x, true);
             // keskelle osunut lentää ruudun laidoille asti, reunalla oleva vain pienen matkan
-            e.Launch(dir * vx, boss ? 6f : center ? 12f : 9f);
+            e.Launch(dir * vx, upV);
         }
         foreach (var j in All.ToArray())
         {

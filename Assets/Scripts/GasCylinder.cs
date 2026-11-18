@@ -29,6 +29,22 @@ public class GasCylinder : MonoBehaviour
     static Sprite[] boomSprs; static AudioClip[] clangs; static AudioClip hissClip; static Sprite softSpr;
     readonly HashSet<Enemy> bowled = new HashSet<Enemy>();
     readonly HashSet<PlayerController> bowledHeroes = new HashSet<PlayerController>();
+    // raketti kuljettaa osuman saaneet mukanaan nokallaan seinään asti, jolloin räjähdys osuu niihin eikä mene ohi
+    readonly List<Transform> carried = new List<Transform>();
+    void CarryAlong()
+    {
+        var a = Area.Current; int n = 0;
+        for (int i = carried.Count - 1; i >= 0; i--)
+        {
+            var tr = carried[i]; if (tr == null) { carried.RemoveAt(i); continue; }
+            var en = tr.GetComponent<Enemy>(); var pl = tr.GetComponent<PlayerController>();
+            bool keep = en != null ? (!en.IsDead && (en.IsAirborneNow || en.IsDownNow)) : pl != null && !pl.GameOver && (pl.IsAirborneThrown || pl.IsFloored);
+            if (!keep) { carried.RemoveAt(i); continue; }
+            float x = transform.position.x + dir * (1.0f - 0.5f * n++);
+            if (a != null && a.walkMaxX > a.walkMinX) x = Mathf.Clamp(x, a.walkMinX + 0.15f, a.walkMaxX - 0.15f);
+            tr.position = new Vector3(x, tr.position.y, tr.position.z);
+        }
+    }
     class Puff { public GameObject go; public SpriteRenderer sr; public Vector3 v; public float age, life, s0, s1; }
     readonly List<Puff> puffs = new List<Puff>();
 
@@ -86,7 +102,7 @@ public class GasCylinder : MonoBehaviour
                 Vector3 p = transform.position; p.x += dx; transform.position = p; travelled += Mathf.Abs(dx);
                 Pose(1f, 0f);
                 EmitSteam(dt, 240f, 7f);
-                Bowl();
+                Bowl(); CarryAlong();
                 var a = Area.Current;
                 bool wall = a != null && a.walkMaxX != 0f && (p.x <= a.walkMinX + 0.3f || p.x >= a.walkMaxX - 0.3f);
                 if (wall || travelled >= maxDistance) Explode();
@@ -169,7 +185,7 @@ public class GasCylinder : MonoBehaviour
             if (Mathf.Abs(q.x - me.x) > 1.4f || Mathf.Abs(q.y - me.y) > 0.8f) continue;
             bowled.Add(e);
             e.TakeHit(rocketDamage, me.x - dir, true);
-            e.Launch(dir * 7f, e.maxHealth >= 300 ? 2f : 5f);
+            e.Launch(dir * 3.5f, e.maxHealth >= 300 ? 2f : 3.5f); carried.Add(e.transform);   // lento pieneksi: pullo kuljettaa mukanaan
             Clang();
             if (CameraFollow.Instance != null) CameraFollow.Shake(0.08f, 0.12f);
         }
@@ -179,7 +195,7 @@ public class GasCylinder : MonoBehaviour
             Vector3 q = p.transform.position;
             if (Mathf.Abs(q.x - me.x) > 1.2f || Mathf.Abs(q.y - me.y) > 0.7f) continue;
             bowledHeroes.Add(p);
-            p.TakeKnockdown(12, me.x - dir, 8f, 5f);
+            if (p.TakeKnockdown(12, me.x - dir, 3.5f, 3.5f)) carried.Add(p.transform);
             Clang();
         }
         for (int ci = Crate.All.Count - 1; ci >= 0; ci--)
@@ -202,6 +218,18 @@ public class GasCylinder : MonoBehaviour
             if (Mathf.Abs(q.x - me.x) < 1.3f && Mathf.Abs(q.y - me.y) < 0.9f) { g.Ignite(0.05f); Explode(); return; }
         }
     }
+
+    /// Pystyssä ja koskematon (Nokkamies voi potkaista).
+    public bool IsIdle => state == S.Idle;
+    /// Vihollinen (Nokkamies) potkaisee pullon: kaatuu, sihisee ja lähtee raketiksi suuntaan dir.
+    public void KickBy(float dir)
+    {
+        if (state != S.Idle) return;
+        seenDisturb = crate.Disturb;
+        BeginHiss(Mathf.Sign(dir));
+    }
+    [Tooltip("Räjähdyksen vahinko pomoille (Jerrycan.bossDamage): hero voi käyttää pulloja pomoa vastaan.")]
+    public int bossBlastDamage = 60;
 
     /// Räjähdys tai toisen pullon osuma sytyttää: räjähtää hetken kuluttua.
     public void Ignite(float delay)
@@ -226,7 +254,7 @@ public class GasCylinder : MonoBehaviour
         var go = new GameObject("Kaasupullon räjähdys");
         go.transform.position = me;
         var jc = go.AddComponent<Jerrycan>();
-        jc.blastRadiusX = blastRadiusX; jc.blastRadiusY = blastRadiusY; jc.blastDamage = blastDamage; jc.heroDamage = 30;
+        jc.blastRadiusX = blastRadiusX; jc.blastRadiusY = blastRadiusY; jc.blastDamage = blastDamage; jc.heroDamage = 30; jc.bossDamage = bossBlastDamage;
         if (boomSprs == null) { var tl = Resources.LoadAll<Texture2D>("Kaasupullo"); System.Array.Sort(tl, (x, y) => string.CompareOrdinal(x.name, y.name)); var l = new List<Sprite>(); foreach (var tx in tl) if (tx.name.StartsWith("boom_")) l.Add(Sprite.Create(tx, new Rect(0, 0, tx.width, tx.height), new Vector2(0.5f, 0.5f), 100f)); boomSprs = l.ToArray(); }
         jc.customBoom = boomSprs; jc.customBoomScale = 3.0f;
         jc.DetonateNow();

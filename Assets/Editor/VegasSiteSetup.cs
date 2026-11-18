@@ -139,7 +139,6 @@ public static partial class BeatEmUpSetup
             Foe(mainariT, "Mainari (katu)", 8200f, 0, 0.3f);
             Foe(kovisT, "Kovis (katu 2)", 11000f, 0, 0.6f);
             Foe(mainariT, "Mainari (1. laatta)", 6000f, 1, 0.5f);
-            Foe(rekkaT, "Rekkamies (1. laatta)", 9800f, 1, 0.5f);
             Foe(mainariT, "Mainari (1. laatta b)", 12000f, 1, 0.5f);
             Foe(kovisT, "Kovis (2. laatta)", 4800f, 2, 0.5f);
             Foe(mainariT, "Mainari (2. laatta)", 10500f, 2, 0.5f);

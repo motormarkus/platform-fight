@@ -51,7 +51,8 @@ public static partial class BeatEmUpSetup
                 e.idleSprites = s["idle"]; e.idleFrameTime = 1f / 12f;
                 e.walkSprites = s["kavely"]; e.walkFrameTime = 1f / 12f;
                 e.runSprites = s["juoksu"]; e.runFrameTime = 1f / 24f; e.runSpeedMultiplier = 1.7f; e.runDistance = 6f;
-                e.maxHealth = 520; e.moveSpeedX = 2.7f; e.moveSpeedY = 1.8f; e.depthTolerance = 0.45f; e.attackCooldown = 0.5f;   // rekkamiehen taso (520 elämää, sama nopeus ja tahti) e.wakeDistance = 13f;
+                e.maxHealth = 442;   // 520 - 15 %: hakkaaminen kesti liian kauan
+                e.moveSpeedX = 2.7f; e.moveSpeedY = 1.8f; e.depthTolerance = 0.45f; e.attackCooldown = 0.5f;   // rekkamiehen taso (520 elämää, sama nopeus ja tahti) e.wakeDistance = 13f;
                 e.comboChance = 0.55f; e.comboArmor = true; e.comboWindupScale = 0.65f; e.comboRecoverFraction = 0.65f; e.attackRange = 2.4f;   // kombo alkaa jabista; muut liikkeet satunnaisesti, ja alakoukku, haymaker ja matala potku tulevat usein avauksena yksinään
                 // J = jabi (osuma kuvassa 8), S = takasuora (osuma 5)
                 e.punchSprites = s["isku1"]; e.punchImpactFrame = 7; e.windupTime = 7 * F; e.punchRecoverTime = (s["isku1"].Length - 7) * F; e.punchActiveTime = 0.12f; e.punchDamage = 11;
@@ -77,7 +78,7 @@ public static partial class BeatEmUpSetup
                 e.grabsHero = true; e.grabChance = 0.5f; e.grabVsBlockChance = 0.9f; e.grabWhenCloseTime = 0.7f;   // heittää herkästi: puolet hyökkäyksistä, lähes aina kun hero torjuu, ja kun hero on lähellä 0,7 s e.grabRange = 2.0f; e.grabReachTime = 0.3f; e.grabLiftTime = 0.8f;
                 e.slideThrow = true; e.throwForward = true; e.throwDamage = 22; e.throwSpeed = 12f; e.throwUp = 7f;   // lentää kauas ja liukuu perille, mutta lyhyemmälle kuin Tomin heitto (16 / 9)
                 e.hurtSprites = s["osuma"]; e.hurtTime = 0.3f;
-                e.knockdownSprites = s["kaatuminen"]; e.airFrameTime = 0.1f; e.thrownStartFrames = new[] { 0, 1, 2 }; e.thrownLoopFrames = new[] { 3, 4, 5 }; e.airLoopFrames = new[] { 3, 4, 5 }; e.thrownLandFrames = new[] { 6, 7, 8, 9, 10, 11 }; e.thrownFrameTime = 0.11f;
+                e.knockdownSprites = s["kaatuminen"]; e.airFrameTime = 0.1f; e.thrownStartFrames = new[] { 0, 1, 2 }; e.thrownLoopFrames = new[] { 4 }; e.airLoopFrames = new[] { 4 };   // ilmalennossa vain yksi kuva (kiertävät kuvat näyttivät huonolta) e.thrownLandFrames = new[] { 6, 7, 8, 9, 10, 11 }; e.thrownFrameTime = 0.11f;
                 e.getUpSprites = s["nousu"]; e.getUpTime = 1.2f;
                 e.hurtSounds = gasp; e.hurtVolume = 0.95f;   // väliaikaiset äänet
                 var g = s["suojaus"];

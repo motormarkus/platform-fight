@@ -30,17 +30,39 @@ public class SiteLevels : MonoBehaviour
     public float[] levelMinX, levelMaxX;
     [Tooltip("Komponentti toimii vain tällä x-alueella (useampi SiteLevels samalla alueella: työmaa ja konttori). 0/0 = ei rajaa.")]
     public float zoneMinX, zoneMaxX;
+    [Tooltip("Reunalta putoaminen: laatan pään yli kävelevä tai lyöty hahmo putoaa kadulle. noDropMin/noDropMax[kerros] = true: tuo pää on seinää vasten (ei pudota).")]
+    public bool edgeDrop = true;
+    public bool[] noDropMin, noDropMax;
+    [Tooltip("Pudotuksen vahinko yksikköä kohden (herolle ja vihuille); hero ei kuole pudotukseen (vähintään 1).")]
+    public float fallDamagePerUnit = 1.2f;
+    [Tooltip("Pitämällä alas laatan etureunalla (ei tikkaita lähellä) näin kauan hero hyppää alempaan kerrokseen.")]
+    public float frontDropHold = 0.3f;
 
     bool InZone(float x) => zoneMaxX <= zoneMinX || (x >= zoneMinX && x <= zoneMaxX);
     float ClampSlabX(int lv, float x)
     {
-        if (lv <= 0) return x;
-        if (levelMinX != null && levelMaxX != null && lv < levelMinX.Length && lv < levelMaxX.Length && levelMaxX[lv] > levelMinX[lv]) return Mathf.Clamp(x, levelMinX[lv], levelMaxX[lv]);
-        if (slabMaxX > slabMinX) return Mathf.Clamp(x, slabMinX, slabMaxX);
-        return x;
+        if (!SlabRange(lv, out float lo, out float hi)) return x;
+        return Mathf.Clamp(x, lo, hi);
     }
+    bool SlabRange(int lv, out float lo, out float hi)
+    {
+        lo = hi = 0f;
+        if (lv <= 0) return false;
+        if (levelMinX != null && levelMaxX != null && lv < levelMinX.Length && lv < levelMaxX.Length && levelMaxX[lv] > levelMinX[lv]) { lo = levelMinX[lv]; hi = levelMaxX[lv]; return true; }
+        if (slabMaxX > slabMinX) { lo = slabMinX; hi = slabMaxX; return true; }
+        return false;
+    }
+    static bool Flag(bool[] a, int i) => a != null && i < a.Length && a[i];
+    /// Onko x laatan pään yli kohdassa, josta voi pudota (ei seinää vasten).
+    bool OverDropEdge(int lv, float x)
+    {
+        if (!edgeDrop || !SlabRange(lv, out float lo, out float hi)) return false;
+        return (x < lo && !Flag(noDropMin, lv)) || (x > hi && !Flag(noDropMax, lv));
+    }
+    float LandY(int lv, float y) => lv == 0 ? Mathf.Clamp(streetMax - 0.2f, streetMin + 0.2f, streetMax) : levelY[lv];
+    int FallDamage(float dh) => Mathf.RoundToInt(Mathf.Clamp(dh * fallDamagePerUnit, 4f, 30f));
 
-    class St { public int ladder = -1, to; public bool scripted, up; public float fromY; }
+    class St { public int ladder = -1, to; public bool scripted, up; public float fromY, downHeld; }
     readonly Dictionary<Transform, St> state = new Dictionary<Transform, St>();
 
     public int LevelOf(float y)
@@ -53,6 +75,22 @@ public class SiteLevels : MonoBehaviour
     float MaxY(int lv) => lv == 0 ? streetMax : levelY[lv] + bandHalf;
     float EntryY(int lv, float y) => lv == 0 ? Mathf.Min(streetMax - 0.15f, Mathf.Max(streetMin + 0.2f, y)) : levelY[lv];
 
+    static readonly List<SiteLevels> live = new List<SiteLevels>();
+    void OnEnable() { live.Add(this); }
+    void OnDisable() { live.Remove(this); }
+
+    /// Onko kohta kerroksen laatalla (ei katutasolla): jalkakäytävän pykälä (Area.useSidewalk) ei koske ylempiä kerroksia.
+    public static bool AboveStreet(Vector3 p)
+    {
+        var a = Area.Current;
+        for (int i = 0; i < live.Count; i++)
+        {
+            var s = live[i];
+            if (s != null && s.area == a && s.InZone(p.x) && p.y > s.streetMax + 0.05f) return true;
+        }
+        return false;
+    }
+
     public static SiteLevels For(Area a) { foreach (var t in FindObjectsByType<SiteLevels>(FindObjectsSortMode.None)) if (t != null && t.area == a) return t; return null; }
 
     void LateUpdate()
@@ -63,7 +101,7 @@ public class SiteLevels : MonoBehaviour
         var prim = Players.Primary;
         if (prim != null && InZone(prim.transform.position.x) && CameraFollow.Instance != null && levelCamOffset != null)
         {
-            int lv = LevelOf(prim.transform.position.y);
+            int lv = LevelOf(prim.transform.position.y + prim.AirHeight);   // pudotessa kamera seuraa näkyvää korkeutta
             if (lv < levelCamOffset.Length) CameraFollow.Instance.OffsetY = levelCamOffset[lv];
         }
         foreach (var en in Enemy.All)
@@ -115,12 +153,30 @@ public class SiteLevels : MonoBehaviour
         }
         int lv = LevelOf(p.y);
         p.y = Mathf.Clamp(p.y, MinY(lv), MaxY(lv));
+        if (lv > 0 && !pl.Scripted && OverDropEdge(lv, p.x))   // laatan pään yli: putoaa kadulle
+        {
+            pl.transform.position = p; st.downHeld = 0f;
+            float ny = LandY(0, p.y); pl.DropToLevel(ny, FallDamage(p.y - ny));
+            return;
+        }
         p.x = ClampSlabX(lv, p.x);
         if (pl.AirHeight < 0.1f && !pl.Scripted)
         {
             float my = CoopInput.Move(pl.playerIndex).y;
             if (my > 0.7f && lv + 1 < levelY.Length) TryClimb(pl, st, p, lv, lv + 1);
             else if (my < -0.7f && lv > 0 && p.y >= levelY[lv] - bandHalf) TryClimb(pl, st, p, lv, lv - 1);
+            // etureunalta alas (ei tikkaita lähellä): pito -> hyppy alempaan kerrokseen
+            if (st.ladder < 0 && my < -0.7f && lv > 0 && p.y <= MinY(lv) + 0.04f && edgeDrop)
+            {
+                st.downHeld += dt;
+                if (st.downHeld >= frontDropHold)
+                {
+                    st.downHeld = 0f; pl.transform.position = p;
+                    float ny = LandY(lv - 1, p.y); pl.DropToLevel(ny, FallDamage(p.y - ny));
+                    return;
+                }
+            }
+            else st.downHeld = 0f;
         }
         pl.transform.position = p;
     }
@@ -152,6 +208,11 @@ public class SiteLevels : MonoBehaviour
         int lv = LevelOf(p.y);
         var hero = en.Hero;
         bool inSite = siteMaxX <= siteMinX || (p.x >= siteMinX && p.x <= siteMaxX);
+        if (lv > 0 && !free && OverDropEdge(lv, p.x))   // lyöty/heitetty laatan pään yli: putoaa kadulle
+        {
+            float ny = LandY(0, p.y); en.DropToLevel(ny, FallDamage(p.y - ny));
+            return;
+        }
         p.x = ClampSlabX(lv, p.x);
         if (free && hero != null && inSite)
         {

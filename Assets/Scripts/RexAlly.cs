@@ -27,8 +27,24 @@ public class RexAlly : MonoBehaviour
 
     void Awake() { e = GetComponent<Enemy>(); if (e != null) { e.ally = true; e.fightsEveryone = false; e.huntsBrawlers = false; e.brawlsWithOthers = false; e.joinsFightWhenSquadComes = false; } }
 
+    // Rex kestää enemmän (520 -> 550 elämää) ja paranee itsekseen; vankilakentässä hän kuoli liian helposti
+    public int hardenedHealth = 550; public float regenPerSec = 5f; bool hardened, defeatDone; float regenAcc;
+    void Start() { Harden(); }
+    void Harden()
+    {
+        if (hardened || e == null) return; hardened = true;
+        if (e.maxHealth < hardenedHealth) { e.maxHealth = hardenedHealth; e.HealFraction(1f); }
+    }
+
     void Update()
     {
+        Harden();
+        if (rescued && e != null && !e.IsDead) { regenAcc += regenPerSec * Time.deltaTime; if (regenAcc >= 1f) { int n = Mathf.FloorToInt(regenAcc); regenAcc -= n; e.HealFraction(n / (float)Mathf.Max(1, e.maxHealth)); } }
+        if (rescued && e != null && e.IsDead && !defeatDone)   // Rex kuoli: game over
+        {
+            defeatDone = true;
+            foreach (var pl in Players.All) if (pl != null && !pl.GameOver) { if (!pl.TakeKnockdown(99999, e.transform.position.x, 6f, 5f, null, true)) pl.Defeat(); if (!pl.GameOver) pl.Defeat(); }
+        }
         if (e == null || e.IsDead) { near = false; return; }
         if (!rescued)
         {

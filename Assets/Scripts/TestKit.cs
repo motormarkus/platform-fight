@@ -33,7 +33,7 @@ public class TestKit : MonoBehaviour
             if (p == null || !p.enabled) continue;
             p.pocketFood = "pizza"; p.pocketFood2 = "pizza"; p.booniPocket = 1;
             Debug.Log("[TestKit] taskuun: 2 pizzaa + Bööni");
-            if (UnityEditor.EditorPrefs.GetBool(MinePref, true))
+            if (UnityEditor.EditorPrefs.GetBool(MinePref, true) && FindFirstObjectByType<GameStart>() == null)   // scenen oma Aloituskohta (aloitusvalikot 331/338/420/421) voittaa
             {
                 var gs = new GameObject("TestKit aloitus: Vankila").AddComponent<GameStart>();   // peli alkaa Kuuasemalta
                 gs.areaName = "Vankila"; gs.sceneName = "Vankila"; gs.position = new Vector2(85004f, -2.2f);   // vankilan sisäpiha, portin luona (valikko 353)

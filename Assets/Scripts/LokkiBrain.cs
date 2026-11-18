@@ -7,7 +7,7 @@ using UnityEngine;
 /// tai harvoin ottaa osuman. Väistön/torjunnan jälkeen heti COUNTER: nopea suora + kaatava lopetus.
 /// Lisäksi pako oikealle (Flee). Käytetään ensiesiintymisessä juna-asemalla (LokkiEncounter).
 /// </summary>
-public class LokkiBrain : MongolBrain, IEnemyBrain
+public class LokkiBrain : MongolBrain, IEnemyBrain, ICornerBurstBrain
 {
     [Tooltip("Täysin voittamaton (kaikki iskut ohi). Oletus pois: Lokkia voi lyödä, mutta hän väistää ja torjuu paljon (reactive).")]
     public bool invulnerable = false;
@@ -15,8 +15,15 @@ public class LokkiBrain : MongolBrain, IEnemyBrain
     public bool reactive = true;
     [Tooltip("Myös kaatava isku voi osua (landChance); jos pois, kaatavat iskut menevät aina ohi.")]
     public bool landKnockdown = true;
+    [Tooltip("Lopputaistelu (linnakkeen katto/alus): heron KAATAVAT iskut menevät perille useammin (finaleKnockLand / finaleKnockLandMid) ja kaatavat Lokin; kevyet iskut pysyvät reaktiivisina. Ei pakoa (ei Flee).")]
+    public bool finale = false;
+    [Range(0f, 1f)] public float finaleKnockLand = 0.8f, finaleKnockLandMid = 0.85f;
+    [Tooltip("Lopputaistelun kombojen tahti: veto (kerroin) ja palautus (osuus) valitaan niin, että askel kestää noin 0,25–0,3 s eli GIF-esikatselun tahdin (nopeampi ei saa olla).")]
+    public float finaleComboWindupScale = 1.22f, finaleComboRecoverFraction = 0.37f;
     public Move fleeMove, blockMove, dodgeMove, counterJab;
     public Move[] counterFinishers;
+    [Tooltip("Nurkkapurkaus (pomo ajettu nurkkaan): jono liikkeitä järjestyksessä (kyynärpääisku + lennättävä tuplahyppypotku). Keskeyttämätön, ei torjuttavissa: Enemy.CornerBurstOn lennättää heron kauas.")]
+    public Move[] burstMoves;
     [Header("Heitto-counter (kiinniotto kädestä tai jalasta)")]
     [Tooltip("Kuvajonot järjestyksessä: käsi = kurotus, vetäminen, selin käännös...; jalka = matala kurotus...")]
     public Move catchHand, catchLeg;
@@ -36,19 +43,46 @@ public class LokkiBrain : MongolBrain, IEnemyBrain
     /// Enemy.TakeHit kutsuu tätä ensimmäisenä: true = isku ohi.
     public new bool InterceptHit(int damage, float attackerX, bool knockdown)
     {
+        bool blocked = InterceptCore(damage, attackerX, knockdown);
+        if (!blocked && !fleeing)
+        {
+            // isku osuu: oma liike ja jono katkeavat, jotta osumareaktio (kipu/kaatuminen) ehtii loppuun eikä Lokki mätki takaisin kesken sen
+            queue.Clear(); ReleaseHeld(); reaction = R.None;
+            if (cur != null) End();
+        }
+        return blocked;
+    }
+
+    /// Nurkkapurkaus: kyynärpääisku ja heti perään lennättävä tuplahyppypotku (burstMoves), ei keskeytettävissä.
+    public new void CornerBurst()
+    {
+        if (e == null || e.Hero == null || cur != null) return;
+        if (burstMoves == null || burstMoves.Length == 0 || !HasSprites(burstMoves[0])) { base.CornerBurst(); return; }
+        queue.Clear(); reaction = R.None; ReleaseHeld(); fleeing = false;
+        for (int i = 1; i < burstMoves.Length; i++) if (HasSprites(burstMoves[i])) queue.Enqueue(burstMoves[i]);
+        Begin(burstMoves[0]);
+    }
+
+    bool InterceptCore(int damage, float attackerX, bool knockdown)
+    {
+        if (e != null && e.CornerBurstOn) return true;   // purkauksen aikana iskut eivät keskeytä (eikä Lokki torju/väistä/ota kiinni)
         if (!reactive) return invulnerable;
         if (fleeing) return true;
         if (reaction != R.None && reactT < reactLen * 0.9f) return true;   // reaktion aikana ei osu
+        if (finale && Enemy.ChainJuggle) return false;   // heron kombo käynnissä: Lokki ei väistä/torju/ota kiinni kesken sen (kombot menevät perille)
+        float lc = finale ? Mathf.Max(landChance, knockdown ? finaleKnockLand : 0.6f) : landChance, mlc = finale ? Mathf.Max(midAttackLandChance, knockdown ? finaleKnockLandMid : 0.8f) : midAttackLandChance;
         bool busy = cur != null || queue.Count > 0;
-        if (busy) return (knockdown && !landKnockdown) || Random.value > midAttackLandChance;   // hyökkäyksen aikana kevyt isku voi osua
-        if (Time.time < nextReactAt || e == null || e.Hero == null) return (knockdown && !landKnockdown) || Random.value > landChance;
+        if (busy) return (knockdown && !landKnockdown) || Random.value > mlc;   // hyökkäyksen aikana kevyt isku voi osua
+        if (Time.time < nextReactAt || e == null || e.Hero == null) return (knockdown && !landKnockdown) || Random.value > lc;
         bool canCatch = HasSprites(knockdown ? (catchLeg ?? catchHand) : catchHand);
-        float cc = canCatch ? catchChance : 0f;
-        float r = Random.value * (dodgeChance + blockChance + cc + landChance);
-        if (r < dodgeChance && HasSprites(dodgeMove)) { StartDodge(); return true; }
-        r -= dodgeChance;
-        if (r < blockChance && HasSprites(blockMove)) { StartBlock(); return true; }
-        r -= blockChance;
+        float fs = finale ? 0.2f : 1f;   // lopputaistelu: väistö, torjunta ja kiinniotto harvinaisempia -> iskut menevät perille
+        float dch = dodgeChance * fs, bch = blockChance * fs;
+        float cc = canCatch ? catchChance * fs : 0f;
+        float r = Random.value * (dch + bch + cc + lc);
+        if (r < dch && HasSprites(dodgeMove)) { StartDodge(); return true; }
+        r -= dch;
+        if (r < bch && HasSprites(blockMove)) { StartBlock(); return true; }
+        r -= bch;
         if (r < cc) { StartCatch(knockdown); return true; }   // kaatava isku (potku) -> jalka, kevyt isku (lyönti) -> käsi
         if (knockdown && !landKnockdown) { if (HasSprites(blockMove)) StartBlock(); return true; }
         return false;   // isku osuu
@@ -134,6 +168,15 @@ public class LokkiBrain : MongolBrain, IEnemyBrain
                 CameraFollow.Shake(0.1f, 0.15f);
             }
         }
+    }
+
+    /// Heron counter-isku (Enemy.CounterHit) tai muu keskeytys: liike katkeaa (Tick ei enää tule) -> jonossa odottava counter/kombo peruuntuu, jotta Lokki ei jatka sarjaansa horjahduksen jälkeen.
+    bool finaleApplied;
+    protected override void Update()
+    {
+        if (!finaleApplied && finale && e != null) { finaleApplied = true; e.comboInOrder = true; e.comboWindupScale = finaleComboWindupScale; e.comboRecoverFraction = finaleComboRecoverFraction; }   // lopputaistelu: pitkät kombot aina samassa järjestyksessä -> rytmi opittavissa
+        if (cur != null && Time.time - lastTick > 0.25f) { queue.Clear(); ReleaseHeld(); if (reaction != R.None) reaction = R.None; }
+        base.Update();
     }
 
     /// Aivon tikki: väistön syvyysliike, heiton vaiheet ja jonon seuraava liike heti edellisen jälkeen.

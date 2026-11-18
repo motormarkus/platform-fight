@@ -7,6 +7,8 @@ import cv2, numpy as np
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "GustavAssets"))
 from make_gustav_sheets import resize_premult, anchor_x, paste, CELL_W, CELL_H, COLS
 from split_sheets import defringe
+import outline as _ol
+_ol.WIDTH_PX = 0.45   # 16.11.2026: kevyesti kapeampi ääriviiva käyttäjän kuville (oli 0,72)
 from outline import add_outline
 UP = "C:/Users/marku/.claude/uploads/6d277d2e-0dfe-4331-9679-b4155f74f179/"
 SRC = {1: "d2a242c9-image.png", 2: "a79364e3-image.png", 3: "12ee0371-image.png", 4: "23160956-image.png"}   # 4 = proteiinishakerin juonti (berserk)

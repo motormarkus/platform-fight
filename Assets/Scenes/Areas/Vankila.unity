@@ -443,6 +443,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -609,6 +610,7 @@ MonoBehaviour:
   body: {fileID: 118052163}
   shadow: {fileID: 1562781413}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -630,6 +632,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -771,6 +774,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -791,6 +830,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -938,6 +978,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -1163,6 +1204,8 @@ MonoBehaviour:
   maxX: 88227.12
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -1999,6 +2042,7 @@ MonoBehaviour:
   - {fileID: 4675902946223169844, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   - {fileID: 2432606676482417776, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -2167,6 +2211,7 @@ MonoBehaviour:
   body: {fileID: 519169026}
   shadow: {fileID: 2004286835}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3.1
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -2320,6 +2365,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -2466,6 +2512,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -2486,6 +2568,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -2633,6 +2716,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -3527,6 +3611,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -3693,6 +3778,7 @@ MonoBehaviour:
   body: {fileID: 1710342495}
   shadow: {fileID: 2057393767}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -3714,6 +3800,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -3855,6 +3942,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -3875,6 +3998,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -4022,6 +4146,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -4542,6 +4667,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -4708,6 +4834,7 @@ MonoBehaviour:
   body: {fileID: 862629915}
   shadow: {fileID: 733384509}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -4729,6 +4856,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -4870,6 +4998,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -4890,6 +5054,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -5037,6 +5202,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -6363,6 +6529,7 @@ MonoBehaviour:
   - {fileID: 4675902946223169844, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   - {fileID: 2432606676482417776, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -6531,6 +6698,7 @@ MonoBehaviour:
   body: {fileID: 2036175245}
   shadow: {fileID: 499404152}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3.1
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -6684,6 +6852,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -6830,6 +6999,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -6850,6 +7055,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -6997,6 +7203,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -7249,6 +7456,7 @@ MonoBehaviour:
   - {fileID: -56227149900102583, guid: b9c1b7fa124accd4d98d979a08fcc9c3, type: 3}
   - {fileID: 5212674337346763198, guid: b9c1b7fa124accd4d98d979a08fcc9c3, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -7422,6 +7630,7 @@ MonoBehaviour:
   body: {fileID: 1218496970}
   shadow: {fileID: 1777716663}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -7508,6 +7717,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -7653,6 +7863,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -7673,6 +7919,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -7820,6 +8067,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -8109,6 +8357,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -8275,6 +8524,7 @@ MonoBehaviour:
   body: {fileID: 1968238705}
   shadow: {fileID: 249004113}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -8296,6 +8546,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -8437,6 +8688,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -8457,6 +8744,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -8604,6 +8892,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -8687,6 +8976,7 @@ MonoBehaviour:
   - {fileID: -56227149900102583, guid: b9c1b7fa124accd4d98d979a08fcc9c3, type: 3}
   - {fileID: 5212674337346763198, guid: b9c1b7fa124accd4d98d979a08fcc9c3, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -8860,6 +9150,7 @@ MonoBehaviour:
   body: {fileID: 1155867035}
   shadow: {fileID: 54189104}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -8946,6 +9237,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -9091,6 +9383,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -9111,6 +9439,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -9258,6 +9587,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -10166,6 +10496,8 @@ MonoBehaviour:
   maxX: 95057.98
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -10643,6 +10975,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -10809,6 +11142,7 @@ MonoBehaviour:
   body: {fileID: 234119368}
   shadow: {fileID: 135974297}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -10830,6 +11164,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -10971,6 +11306,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -10991,6 +11362,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -11138,6 +11510,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -11254,6 +11627,7 @@ MonoBehaviour:
   - {fileID: 4675902946223169844, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   - {fileID: 2432606676482417776, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -11422,6 +11796,7 @@ MonoBehaviour:
   body: {fileID: 1276391119}
   shadow: {fileID: 1026546395}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3.1
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -11575,6 +11950,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -11721,6 +12097,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -11741,6 +12153,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -11888,6 +12301,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -12523,6 +12937,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -12689,6 +13104,7 @@ MonoBehaviour:
   body: {fileID: 575120255}
   shadow: {fileID: 962113264}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -12710,6 +13126,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -12851,6 +13268,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -12871,6 +13324,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -13018,6 +13472,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -13794,6 +14249,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -13960,6 +14416,7 @@ MonoBehaviour:
   body: {fileID: 1525519274}
   shadow: {fileID: 825568812}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -13981,6 +14438,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -14122,6 +14580,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -14142,6 +14636,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -14289,6 +14784,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -14550,6 +15046,7 @@ MonoBehaviour:
   - {fileID: 4675902946223169844, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   - {fileID: 2432606676482417776, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -14718,6 +15215,7 @@ MonoBehaviour:
   body: {fileID: 1183246746}
   shadow: {fileID: 1472648838}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3.1
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -14871,6 +15369,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -15017,6 +15516,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -15037,6 +15572,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -15184,6 +15720,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -15242,6 +15779,8 @@ MonoBehaviour:
   maxX: 94024.66
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -15431,6 +15970,8 @@ MonoBehaviour:
   maxX: 88187.12
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -16298,6 +16839,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -16464,6 +17006,7 @@ MonoBehaviour:
   body: {fileID: 2112784110}
   shadow: {fileID: 377374297}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -16485,6 +17028,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -16626,6 +17170,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -16646,6 +17226,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -16793,6 +17374,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -17592,6 +18174,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -17758,6 +18341,7 @@ MonoBehaviour:
   body: {fileID: 1561606669}
   shadow: {fileID: 1113011577}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -17779,6 +18363,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -17920,6 +18505,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -17940,6 +18561,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -18087,6 +18709,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -18669,6 +19292,7 @@ MonoBehaviour:
   - {fileID: -3461981361681035198, guid: 8255c48826cd55849b73b3b4c553a265, type: 3}
   - {fileID: 1673012805217833932, guid: 8255c48826cd55849b73b3b4c553a265, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -18854,6 +19478,7 @@ MonoBehaviour:
   body: {fileID: 1915157555}
   shadow: {fileID: 1387074215}
   wakeDistance: 16
+  calmFacing: 0
   moveSpeedX: 3.1
   moveSpeedY: 2.3
   attackRange: 2.4
@@ -18994,6 +19619,7 @@ MonoBehaviour:
   altExtraWindup: 0.05
   altReach: 3.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -19150,6 +19776,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -19170,6 +19832,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.4
+  grabVsBlockChance: 0
   grabRange: 2
   grabReachTime: 0.35
   grabLiftTime: 1
@@ -19317,6 +19980,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 1
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -19678,6 +20342,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -19844,6 +20509,7 @@ MonoBehaviour:
   body: {fileID: 2091874296}
   shadow: {fileID: 819811597}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -19865,6 +20531,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -20006,6 +20673,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -20026,6 +20729,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -20173,6 +20877,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -20426,6 +21131,8 @@ MonoBehaviour:
   maxX: 92086.75
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -20836,6 +21543,7 @@ MonoBehaviour:
   - {fileID: 4675902946223169844, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   - {fileID: 2432606676482417776, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -21004,6 +21712,7 @@ MonoBehaviour:
   body: {fileID: 691379165}
   shadow: {fileID: 833583340}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3.1
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -21157,6 +21866,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -21303,6 +22013,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -21323,6 +22069,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -21470,6 +22217,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -21565,6 +22313,8 @@ MonoBehaviour:
   maxX: 88307.12
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -22147,6 +22897,7 @@ MonoBehaviour:
   - {fileID: -56227149900102583, guid: b9c1b7fa124accd4d98d979a08fcc9c3, type: 3}
   - {fileID: 5212674337346763198, guid: b9c1b7fa124accd4d98d979a08fcc9c3, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -22320,6 +23071,7 @@ MonoBehaviour:
   body: {fileID: 1034909703}
   shadow: {fileID: 1345024626}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -22406,6 +23158,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -22551,6 +23304,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -22571,6 +23360,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -22718,6 +23508,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -23073,6 +23864,7 @@ MonoBehaviour:
   - {fileID: 4675902946223169844, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   - {fileID: 2432606676482417776, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -23241,6 +24033,7 @@ MonoBehaviour:
   body: {fileID: 1938843451}
   shadow: {fileID: 816487145}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3.1
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -23394,6 +24187,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -23540,6 +24334,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -23560,6 +24390,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -23707,6 +24538,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -23887,6 +24719,8 @@ MonoBehaviour:
   maxX: 88147.12
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -24620,6 +25454,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -24786,6 +25621,7 @@ MonoBehaviour:
   body: {fileID: 2076099250}
   shadow: {fileID: 1760389483}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -24807,6 +25643,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -24948,6 +25785,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -24968,6 +25841,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -25115,6 +25989,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -25651,6 +26526,7 @@ MonoBehaviour:
   - {fileID: -56227149900102583, guid: b9c1b7fa124accd4d98d979a08fcc9c3, type: 3}
   - {fileID: 5212674337346763198, guid: b9c1b7fa124accd4d98d979a08fcc9c3, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -25824,6 +26700,7 @@ MonoBehaviour:
   body: {fileID: 2097183617}
   shadow: {fileID: 992564049}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -25910,6 +26787,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -26055,6 +26933,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -26075,6 +26989,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -26222,6 +27137,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -26783,6 +27699,8 @@ MonoBehaviour:
   maxX: 93057.484
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -28254,6 +29172,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -28420,6 +29339,7 @@ MonoBehaviour:
   body: {fileID: 609872877}
   shadow: {fileID: 1642198145}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -28441,6 +29361,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -28582,6 +29503,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -28602,6 +29559,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -28749,6 +29707,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -30114,6 +31073,8 @@ MonoBehaviour:
   maxX: 96057.98
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -30474,6 +31435,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -30640,6 +31602,7 @@ MonoBehaviour:
   body: {fileID: 1900776754}
   shadow: {fileID: 384941752}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -30661,6 +31624,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -30802,6 +31766,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -30822,6 +31822,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -30969,6 +31970,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -31313,6 +32315,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -31479,6 +32482,7 @@ MonoBehaviour:
   body: {fileID: 557374630}
   shadow: {fileID: 572350385}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -31500,6 +32504,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -31641,6 +32646,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -31661,6 +32702,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -31808,6 +32850,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -32354,6 +33397,97 @@ MeshRenderer:
   m_SortingOrder: -9990
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &801235456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 801235457}
+  - component: {fileID: 801235458}
+  m_Layer: 0
+  m_Name: Maski
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &801235457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801235456}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.9869847, y: 0.3383948, z: 0}
+  m_LocalScale: {x: 21.344902, y: 2.472885, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1154314007}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!331 &801235458
+SpriteMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801235456}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 15d0c3709176029428a0da2f8cecf0b5, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: 3c4d6f76789b8b84482e4c08a917e520, type: 3}
+  m_MaskAlphaCutoff: 0.2
+  m_FrontSortingLayerID: 0
+  m_BackSortingLayerID: 0
+  m_FrontSortingLayer: 0
+  m_BackSortingLayer: 0
+  m_FrontSortingOrder: 0
+  m_BackSortingOrder: 0
+  m_IsCustomRangeActive: 0
+  m_SpriteSortPoint: 0
+  m_MaskSource: 0
 --- !u!1 &802003525
 GameObject:
   m_ObjectHideFlags: 0
@@ -32600,6 +33734,8 @@ MonoBehaviour:
   maxX: 96057.98
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -34609,6 +35745,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -34775,6 +35912,7 @@ MonoBehaviour:
   body: {fileID: 1492543662}
   shadow: {fileID: 812411438}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -34796,6 +35934,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -34937,6 +36076,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -34957,6 +36132,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -35104,6 +36280,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -35147,6 +36324,8 @@ MonoBehaviour:
   maxX: 94024.66
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -36422,6 +37601,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -36588,6 +37768,7 @@ MonoBehaviour:
   body: {fileID: 65510255}
   shadow: {fileID: 1767089038}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -36609,6 +37790,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -36750,6 +37932,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -36770,6 +37988,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -36917,6 +38136,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -37506,6 +38726,8 @@ MonoBehaviour:
   recruitRange: 2.8
   rescued: 0
   label: REX
+  hardenedHealth: 550
+  regenPerSec: 5
 --- !u!114 &979682101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37546,6 +38768,7 @@ MonoBehaviour:
   - {fileID: -5510578416973795739, guid: cc84647d178eef849b63b391ce2152c6, type: 3}
   - {fileID: 1498711107343158557, guid: cc84647d178eef849b63b391ce2152c6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -37729,6 +38952,7 @@ MonoBehaviour:
   body: {fileID: 365465858}
   shadow: {fileID: 129940410}
   wakeDistance: 0
+  calmFacing: 0
   moveSpeedX: 3.6
   moveSpeedY: 2.5
   attackRange: 2.4
@@ -37919,6 +39143,7 @@ MonoBehaviour:
   altExtraWindup: 0.1
   altReach: 3.4
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -38066,6 +39291,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -38086,6 +39347,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -38233,6 +39495,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -39608,6 +40871,7 @@ MonoBehaviour:
   - {fileID: 4675902946223169844, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   - {fileID: 2432606676482417776, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -39776,6 +41040,7 @@ MonoBehaviour:
   body: {fileID: 1475997557}
   shadow: {fileID: 175132919}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3.1
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -39929,6 +41194,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -40075,6 +41341,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -40095,6 +41397,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -40242,6 +41545,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -40558,6 +41862,8 @@ MonoBehaviour:
   maxX: 91057.98
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -41017,6 +42323,8 @@ MonoBehaviour:
   maxX: 85076.625
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 3
   extraSprites: []
   mirrorEnd: 0
@@ -41115,6 +42423,8 @@ MonoBehaviour:
   maxX: 96057.98
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -42258,6 +43568,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -42424,6 +43735,7 @@ MonoBehaviour:
   body: {fileID: 159161624}
   shadow: {fileID: 1694613101}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -42445,6 +43757,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -42586,6 +43899,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -42606,6 +43955,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -42753,6 +44103,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -43004,6 +44355,98 @@ MeshRenderer:
   m_SortingOrder: -9989
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1154314005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1154314007}
+  - component: {fileID: 1154314006}
+  m_Layer: 0
+  m_Name: Ruokalan tiskin etuosa 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1154314006
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154314005}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -9990
+  m_MaskInteraction: 1
+  m_Sprite: {fileID: 21300000, guid: e9b17a8f461d1ee45bf90dd106848981, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 33.31887, y: 12}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &1154314007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154314005}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 91049.98, y: 1.4, z: 0}
+  m_LocalScale: {x: 1.0012, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 801235457}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1155867033
 GameObject:
   m_ObjectHideFlags: 0
@@ -43131,6 +44574,8 @@ MonoBehaviour:
   maxX: 95057.98
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -43982,6 +45427,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -44148,6 +45594,7 @@ MonoBehaviour:
   body: {fileID: 1760666684}
   shadow: {fileID: 920232197}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -44169,6 +45616,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -44310,6 +45758,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -44330,6 +45814,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -44477,6 +45962,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -44611,6 +46097,8 @@ MonoBehaviour:
   maxX: 88827.12
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -44921,6 +46409,8 @@ MonoBehaviour:
   maxX: 97057.98
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -45383,6 +46873,8 @@ MonoBehaviour:
   maxX: 88067.12
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -45808,6 +47300,8 @@ MonoBehaviour:
   maxX: 89057.98
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -47336,6 +48830,112 @@ MeshRenderer:
   m_SortingOrder: -9990
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1334664848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1334664850}
+  - component: {fileID: 1334664849}
+  m_Layer: 0
+  m_Name: Vankilan ruokalan tiski (Sohvi)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1334664849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334664848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac810e2c04988c48b5c0a4f6c8bc34d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
+  boardAt: {x: 0, y: 0}
+  hasBoardAt: 0
+  boardDoor: {fileID: 0}
+  ownItemsOnly: 0
+  title: VANKILAN RUOKALA
+  npcName: Sohvi
+  prompt: Puhu Sohville
+  items:
+  - name: "Voileip\xE4"
+    price: 6
+    heal: 40
+    stamina: 10
+    comment: Vankilan parasta, tuoretta.
+    takeaway: 
+    sound: {fileID: 0}
+    give: 
+  - name: "Keksej\xE4"
+    price: 3
+    heal: 15
+    stamina: 20
+    comment: Purkista.
+    takeaway: 
+    sound: {fileID: 0}
+    give: 
+  - name: Sipsipussi
+    price: 3
+    heal: 20
+    stamina: 10
+    comment: Suolaista.
+    takeaway: 
+    sound: {fileID: 0}
+    give: 
+  - name: Virvoitusjuoma
+    price: 4
+    heal: 10
+    stamina: 40
+    comment: "Kylm\xE4\xE4 j\xE4\xE4kaapista."
+    takeaway: 
+    sound: {fileID: 0}
+    give: 
+  - name: Kahvi
+    price: 3
+    heal: 0
+    stamina: 60
+    comment: Vahvaa ja mustaa.
+    takeaway: 
+    sound: {fileID: 0}
+    give: 
+  - name: Kalakeitto
+    price: 15
+    heal: 999
+    stamina: 999
+    comment: "P\xE4iv\xE4n keitto. T\xE4ytt\xE4\xE4 kaiken."
+    takeaway: 
+    sound: {fileID: 0}
+    give: 
+  here: {fileID: 646929845}
+  halfWidth: 4.5
+  maxDistanceFromWall: 1.5
+  keeperHalfWidth: 2
+  soundVolume: 0.9
+  refillAllies: 1
+--- !u!4 &1334664850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334664848}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 91031.38, y: -0.27999973, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1334920684
 GameObject:
   m_ObjectHideFlags: 0
@@ -47755,6 +49355,8 @@ MonoBehaviour:
   maxX: 85076.625
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -50421,6 +52023,8 @@ MonoBehaviour:
   maxX: 85076.625
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -51588,6 +53192,8 @@ MonoBehaviour:
   maxX: 88107.12
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -52259,6 +53865,8 @@ MonoBehaviour:
   maxX: 92086.75
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -52692,6 +54300,98 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1609623454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1609623456}
+  - component: {fileID: 1609623455}
+  m_Layer: 0
+  m_Name: Ruokalan tiskin etuosa 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1609623455
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609623454}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -9990
+  m_MaskInteraction: 1
+  m_Sprite: {fileID: 21300000, guid: 139be942b275bb34ea6c2f0575f37b95, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 33.31887, y: 12}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &1609623456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609623454}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 91016.66, y: 1.4, z: 0}
+  m_LocalScale: {x: 1.0012, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1620521041}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1611453712
 GameObject:
   m_ObjectHideFlags: 0
@@ -52743,6 +54443,8 @@ MonoBehaviour:
   maxX: 93057.484
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -52920,6 +54622,97 @@ Transform:
   - {fileID: 1355532625}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1620521040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1620521041}
+  - component: {fileID: 1620521042}
+  m_Layer: 0
+  m_Name: Maski
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1620521041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620521040}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.9067245, y: 0.3383948, z: 0}
+  m_LocalScale: {x: 17.505423, y: 2.472885, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1609623456}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!331 &1620521042
+SpriteMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620521040}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 15d0c3709176029428a0da2f8cecf0b5, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: 3c4d6f76789b8b84482e4c08a917e520, type: 3}
+  m_MaskAlphaCutoff: 0.2
+  m_FrontSortingLayerID: 0
+  m_BackSortingLayerID: 0
+  m_FrontSortingLayer: 0
+  m_BackSortingLayer: 0
+  m_FrontSortingOrder: 0
+  m_BackSortingOrder: 0
+  m_IsCustomRangeActive: 0
+  m_SpriteSortPoint: 0
+  m_MaskSource: 0
 --- !u!1 &1621683928
 GameObject:
   m_ObjectHideFlags: 0
@@ -53138,6 +54931,8 @@ MonoBehaviour:
   maxX: 86057.98
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -53291,6 +55086,7 @@ MonoBehaviour:
   - {fileID: -56227149900102583, guid: b9c1b7fa124accd4d98d979a08fcc9c3, type: 3}
   - {fileID: 5212674337346763198, guid: b9c1b7fa124accd4d98d979a08fcc9c3, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -53464,6 +55260,7 @@ MonoBehaviour:
   body: {fileID: 1608806721}
   shadow: {fileID: 1121112032}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -53550,6 +55347,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -53695,6 +55493,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -53715,6 +55549,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -53862,6 +55697,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -56232,6 +58068,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -56398,6 +58235,7 @@ MonoBehaviour:
   body: {fileID: 1473671776}
   shadow: {fileID: 602794606}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -56419,6 +58257,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -56560,6 +58399,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -56580,6 +58455,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -56727,6 +58603,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -57391,6 +59268,7 @@ MonoBehaviour:
   - {fileID: 4675902946223169844, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   - {fileID: 2432606676482417776, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -57559,6 +59437,7 @@ MonoBehaviour:
   body: {fileID: 1195767970}
   shadow: {fileID: 1384245940}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3.1
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -57712,6 +59591,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -57858,6 +59738,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -57878,6 +59794,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -58025,6 +59942,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -58252,6 +60170,8 @@ MonoBehaviour:
   maxX: 97057.98
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -59447,6 +61367,8 @@ MonoBehaviour:
   maxX: 88267.12
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -59885,6 +61807,7 @@ MonoBehaviour:
   - {fileID: 4675902946223169844, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   - {fileID: 2432606676482417776, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -60053,6 +61976,7 @@ MonoBehaviour:
   body: {fileID: 1790428496}
   shadow: {fileID: 538284432}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3.1
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -60206,6 +62130,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -60352,6 +62277,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -60372,6 +62333,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -60519,6 +62481,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -60707,6 +62670,205 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1484107146}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1878811779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1878811782}
+  - component: {fileID: 1878811781}
+  - component: {fileID: 1878811780}
+  m_Layer: 0
+  m_Name: Sohvi (vankilan ruokala)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1878811780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878811779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573f990b21ea0b743a739e3d2bbd0ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dancer
+  sprites:
+  - {fileID: 974698979, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 72135013, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 786511918, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 1963598305, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 179510917, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -1746504436, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 222703248, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -5313097, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -750001229, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 177325313, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -193494519432214478, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 6685166496961368827, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -3626418025333628301, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 507367267232477596, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 3172528324187399569, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -6301059827939417021, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -2358430876740159141, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 5531886368278842147, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 5706117638094230539, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -5562740268968835200, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 974698979, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 72135013, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 786511918, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 1963598305, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 179510917, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -1746504436, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 222703248, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -5313097, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -750001229, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 177325313, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -193494519432214478, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 6685166496961368827, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -3626418025333628301, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 507367267232477596, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 3172528324187399569, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -6301059827939417021, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -2358430876740159141, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 5531886368278842147, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 5706117638094230539, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -5562740268968835200, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 974698979, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 72135013, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 786511918, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 1963598305, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 179510917, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -1746504436, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 222703248, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -5313097, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -750001229, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 177325313, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -193494519432214478, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 6685166496961368827, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -3626418025333628301, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 507367267232477596, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 3172528324187399569, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -6301059827939417021, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -2358430876740159141, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 5531886368278842147, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: 5706117638094230539, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -5562740268968835200, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  - {fileID: -1352456392, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -1693957707, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: 2081456353, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -105188938, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -1567622869, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -1878056545, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -2129235353, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: 167789771, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -933660636, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: 219550159, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -5004659291310470064, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -4100689375620635784, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: 8134100666284322653, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -4450341265692149344, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: 349633977593995909, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -5793564021719804238, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -3712994787156204063, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -7788967660951842617, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -196404965396854418, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -8290359892676799200, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -3519466423658365009, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: 1324193733122189, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: 2137069677944777474, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -4421717216222538479, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: 153415844944815386, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -4927734312305925799, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: 2570286793919394720, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: 3716801140318806511, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: 7768475994879430326, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  - {fileID: -1626070841529812719, guid: fc93e220d91dc184ca3a35cb86c48ac3, type: 3}
+  frameTime: 0.1
+  startFrame: 0
+  flipX: 0
+  keepOrder: 1
+--- !u!212 &1878811781
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878811779}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -9995
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 974698979, guid: c9bee355fec8b0243a3e0278e0b62192, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2.56, y: 1.92}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &1878811782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878811779}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 91031.38, y: 1.7479392, z: 0}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1880043686
 GameObject:
@@ -62200,6 +64362,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -62366,6 +64529,7 @@ MonoBehaviour:
   body: {fileID: 456338015}
   shadow: {fileID: 990895688}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -62387,6 +64551,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -62528,6 +64693,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -62548,6 +64749,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -62695,6 +64897,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -63650,6 +65853,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -63816,6 +66020,7 @@ MonoBehaviour:
   body: {fileID: 504594183}
   shadow: {fileID: 1883189107}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -63837,6 +66042,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -63978,6 +66184,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -63998,6 +66240,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -64145,6 +66388,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -64812,6 +67056,8 @@ MonoBehaviour:
   maxX: 88027.12
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -64964,6 +67210,7 @@ MonoBehaviour:
   - {fileID: 4675902946223169844, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   - {fileID: 2432606676482417776, guid: c927fd53b825edf4daedaa425200b6da, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -65132,6 +67379,7 @@ MonoBehaviour:
   body: {fileID: 1198197233}
   shadow: {fileID: 1202047336}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3.1
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -65285,6 +67533,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -65431,6 +67680,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -65451,6 +67736,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -65598,6 +67884,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -66033,6 +68320,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -66199,6 +68487,7 @@ MonoBehaviour:
   body: {fileID: 111462167}
   shadow: {fileID: 1489871004}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -66220,6 +68509,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -66361,6 +68651,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -66381,6 +68707,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -66528,6 +68855,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -66611,6 +68939,7 @@ MonoBehaviour:
   - {fileID: -56227149900102583, guid: b9c1b7fa124accd4d98d979a08fcc9c3, type: 3}
   - {fileID: 5212674337346763198, guid: b9c1b7fa124accd4d98d979a08fcc9c3, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -66784,6 +69113,7 @@ MonoBehaviour:
   body: {fileID: 1830395312}
   shadow: {fileID: 294153003}
   wakeDistance: 12
+  calmFacing: 0
   moveSpeedX: 3
   moveSpeedY: 2.4
   attackRange: 2.3
@@ -66870,6 +69200,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 3.2
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -67015,6 +69346,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -67035,6 +69402,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -67182,6 +69550,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -68902,6 +71271,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -69068,6 +71438,7 @@ MonoBehaviour:
   body: {fileID: 410084916}
   shadow: {fileID: 1666908901}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -69089,6 +71460,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -69230,6 +71602,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -69250,6 +71658,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -69397,6 +71806,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -69455,6 +71865,8 @@ MonoBehaviour:
   maxX: 92086.75
   autoSpeed: 0
   bobAmplitude: 0
+  verticalFollow: 0
+  refCamY: 0
   mirrorCopies: 0
   extraSprites: []
   mirrorEnd: 0
@@ -69854,6 +72266,7 @@ MonoBehaviour:
   - {fileID: -6648003317026242006, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   - {fileID: -6309854316958593735, guid: b115bec3948277e4eb30bd64c31ce5d6, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -70020,6 +72433,7 @@ MonoBehaviour:
   body: {fileID: 1996559123}
   shadow: {fileID: 321496031}
   wakeDistance: 13
+  calmFacing: 0
   moveSpeedX: 3.4
   moveSpeedY: 2.4
   attackRange: 1.9
@@ -70041,6 +72455,7 @@ MonoBehaviour:
   altExtraWindup: 0.15
   altReach: 2.3
   strikeStep: 0
+  uppercutStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -70182,6 +72597,42 @@ MonoBehaviour:
   tireThrowCooldown: 2
   tireDamage: 18
   tireRearmTime: 15
+  startsWithStand: 0
+  standIdle: []
+  standWalk: []
+  standRun: []
+  standHurt: []
+  standSwing: []
+  standTackle: []
+  standAirSprite: {fileID: 0}
+  standDropScale: 0.4
+  noStandIdle: []
+  noStandWalk: []
+  noStandRun: []
+  standSwingImpact: 10
+  standSwingDamage: 24
+  standTackleImpact: 12
+  standTackleDamage: 22
+  standSwingWindup: 0.45
+  standSwingRecover: 0.5
+  standSwingStep: 1.5
+  standSwingReach: 3
+  standTackleFrameTime: 0.035
+  standTackleLunge: 10
+  standTackleLungeTime: 0.4
+  standTackleReach: 3.2
+  standTackleKnockSpeed: 14
+  standTackleKnockUp: 3
+  standChargeRange: 14
+  standChargeMinRange: 3.5
+  standTackleNearChance: 0.3
+  standHitSounds: []
+  guardOf: {fileID: 0}
+  guards: []
+  escortShieldDist: 2.4
+  escortFightRange: 6.5
+  escortStandoff: 8
+  commandVoice: {fileID: 0}
   kickComboSprites: []
   kickComboChance: 0.35
   kickDamage1: 14
@@ -70202,6 +72653,7 @@ MonoBehaviour:
   slideUpTime: 0.45
   slideDamage: 18
   grabChance: 0.3
+  grabVsBlockChance: 0
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
@@ -70349,6 +72801,7 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  airLoopFrames: 
   burstSprites: []
   burstFrameTime: 0.09
   burstHold: 1.4
@@ -70623,3 +73076,7 @@ SceneRoots:
   - {fileID: 1150841019}
   - {fileID: 2078015686}
   - {fileID: 586378063}
+  - {fileID: 1878811782}
+  - {fileID: 1334664850}
+  - {fileID: 1609623456}
+  - {fileID: 1154314007}

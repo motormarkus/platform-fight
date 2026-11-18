@@ -203,6 +203,7 @@ MonoBehaviour:
   - {fileID: -285599768890080227, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   - {fileID: 1664280933333174600, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -272,6 +273,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -959,6 +961,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -1028,6 +1031,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -1968,6 +1972,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -2064,6 +2069,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -3273,6 +3279,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -3369,6 +3376,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -4746,6 +4754,7 @@ MonoBehaviour:
   - {fileID: 8573345583376221987, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
   - {fileID: 7549993218733567269, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -4837,6 +4846,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -7679,6 +7689,7 @@ MonoBehaviour:
   - {fileID: -285599768890080227, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   - {fileID: 1664280933333174600, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -7748,6 +7759,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -8658,6 +8670,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -8727,6 +8740,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -9233,6 +9247,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -9329,6 +9344,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -10259,6 +10275,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -10328,6 +10345,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -13608,6 +13626,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -13677,6 +13696,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -14678,6 +14698,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -14747,6 +14768,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -15527,6 +15549,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -15595,6 +15618,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -16394,6 +16418,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -16462,6 +16487,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -18361,6 +18387,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -18430,6 +18457,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -19363,6 +19391,7 @@ MonoBehaviour:
   - {fileID: -285599768890080227, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   - {fileID: 1664280933333174600, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -19432,6 +19461,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -19957,6 +19987,7 @@ MonoBehaviour:
   - {fileID: 3472500492456036285, guid: 9938b6eccc85a0146a5016340e9fce55, type: 3}
   - {fileID: 723826837014770820, guid: 9938b6eccc85a0146a5016340e9fce55, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -20035,6 +20066,7 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -21953,6 +21985,7 @@ MonoBehaviour:
   - {fileID: -285599768890080227, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   - {fileID: 1664280933333174600, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -22022,6 +22055,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -22712,6 +22746,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -22781,6 +22816,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -23391,6 +23427,7 @@ MonoBehaviour:
   - {fileID: -285599768890080227, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   - {fileID: 1664280933333174600, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -23460,6 +23497,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -24078,6 +24116,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -24146,6 +24185,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -24841,6 +24881,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -24937,6 +24978,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -26675,6 +26717,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -26743,6 +26786,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -27594,8 +27638,6 @@ MonoBehaviour:
   m_Script: {fileID: 919983668}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElevatorSwitch
-  whenOpen: []
-  whenClosed: []
 --- !u!4 &330676336
 Transform:
   m_ObjectHideFlags: 0
@@ -28676,6 +28718,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -28745,6 +28788,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -30669,6 +30713,7 @@ MonoBehaviour:
   - {fileID: 4959200201506242937, guid: 9938b6eccc85a0146a5016340e9fce55, type: 3}
   - {fileID: 3472500492456036285, guid: 9938b6eccc85a0146a5016340e9fce55, type: 3}
   - {fileID: 723826837014770820, guid: 9938b6eccc85a0146a5016340e9fce55, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 8078983590122552224, guid: df70a68789b535d4f9372e2e9a6e54da, type: 3}
   - {fileID: -8228731665773186002, guid: df70a68789b535d4f9372e2e9a6e54da, type: 3}
@@ -30759,6 +30804,7 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -31759,6 +31805,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -31828,6 +31875,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -33163,6 +33211,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -33259,6 +33308,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -33806,6 +33856,7 @@ MonoBehaviour:
   - {fileID: -7156526865464322630, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   - {fileID: 1574162170479524631, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   - {fileID: -6447905637871313101, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 1860796496663388232, guid: e4f18af567df4624286d606d1f716372, type: 3}
   - {fileID: 4529355396070365902, guid: e4f18af567df4624286d606d1f716372, type: 3}
@@ -33935,6 +33986,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -35148,6 +35200,7 @@ MonoBehaviour:
   - {fileID: -1165656604600241053, guid: a278ae1becb2b4d4ab112a1e3b21a25a, type: 3}
   - {fileID: -3146448929137541849, guid: a278ae1becb2b4d4ab112a1e3b21a25a, type: 3}
   - {fileID: -8555511364127248110, guid: a278ae1becb2b4d4ab112a1e3b21a25a, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 8693109649213853059, guid: b796a8d7c7811d243ba3e24e242eb226, type: 3}
   - {fileID: -5667764111933620140, guid: b796a8d7c7811d243ba3e24e242eb226, type: 3}
@@ -35300,6 +35353,7 @@ MonoBehaviour:
   - JSU
   - JJSU
   - JSK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -37878,6 +37932,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -37974,6 +38029,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -39694,6 +39750,7 @@ MonoBehaviour:
   - {fileID: 380067980020023316, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 7880061812244339684, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: 7740657278896478111, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
@@ -39775,6 +39832,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -41961,6 +42019,7 @@ MonoBehaviour:
   - {fileID: 1574162170479524631, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   - {fileID: -6447905637871313101, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -42078,6 +42137,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -42663,6 +42723,7 @@ MonoBehaviour:
   - {fileID: 6893393898263772485, guid: 073af2ce1cf21f241859d9470bb0752e, type: 3}
   - {fileID: -7560631632531422465, guid: 073af2ce1cf21f241859d9470bb0752e, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -42732,6 +42793,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -43318,6 +43380,9 @@ MonoBehaviour:
   customBoomFps: 28
   customBoomScale: 2.6
   artScale: 0.8
+  blastExempt: {fileID: 0}
+  spawnedByFoe: 0
+  launchMul: 1
 --- !u!114 &510467431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45314,6 +45379,7 @@ MonoBehaviour:
   - {fileID: 380067980020023316, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 7880061812244339684, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: 7740657278896478111, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
@@ -45395,6 +45461,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -47332,6 +47399,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -47428,6 +47496,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -50936,6 +51005,7 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -51009,6 +51079,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -51667,6 +51738,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -51736,6 +51808,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -54681,6 +54754,7 @@ MonoBehaviour:
   - {fileID: -15495908909661945, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: -3036584792200144593, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: -4490644186938764097, guid: f450867e17fd5604a86eb4d228698597, type: 3}
@@ -54789,6 +54863,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -55284,6 +55359,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -55353,6 +55429,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -56208,6 +56285,7 @@ MonoBehaviour:
   - {fileID: 380067980020023316, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 7880061812244339684, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: 7740657278896478111, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
@@ -56289,6 +56367,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -57262,6 +57341,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -57331,6 +57411,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -58363,6 +58444,7 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -58436,6 +58518,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -59100,6 +59183,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -59168,6 +59252,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -59694,6 +59779,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -59762,6 +59848,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -60566,6 +60653,55 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &774588444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 774588446}
+  - component: {fileID: 774588445}
+  m_Layer: 0
+  m_Name: Aloituskohta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &774588445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774588444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameStart
+  area: {fileID: 0}
+  position: {x: 79433.914, y: -1.8407806}
+  areaName: Linnakkeen katto
+  sceneName: Linnake
+  grantAllPerks: 1
+--- !u!4 &774588446
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774588444}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &775964779
 GameObject:
   m_ObjectHideFlags: 0
@@ -61661,6 +61797,7 @@ MonoBehaviour:
   - {fileID: -611136021339532020, guid: a3f8bb891d7cf0a42b35f9f4234b649d, type: 3}
   - {fileID: -3180026609227250008, guid: a3f8bb891d7cf0a42b35f9f4234b649d, type: 3}
   - {fileID: 7618997901933318299, guid: a3f8bb891d7cf0a42b35f9f4234b649d, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: -8813180785427336344, guid: 31766c19d7e45234199b0a56c4f32236, type: 3}
   - {fileID: 3388941768480489665, guid: 31766c19d7e45234199b0a56c4f32236, type: 3}
@@ -61945,6 +62082,7 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JJSJJK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -62662,6 +62800,7 @@ MonoBehaviour:
   - {fileID: -7156526865464322630, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   - {fileID: 1574162170479524631, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   - {fileID: -6447905637871313101, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 1860796496663388232, guid: e4f18af567df4624286d606d1f716372, type: 3}
   - {fileID: 4529355396070365902, guid: e4f18af567df4624286d606d1f716372, type: 3}
@@ -62791,6 +62930,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -64483,6 +64623,7 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -64556,6 +64697,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -65142,6 +65284,7 @@ MonoBehaviour:
   - {fileID: 805053712945861714, guid: 78a015d30d6aac84896616a47f39bedc, type: 3}
   - {fileID: -9089549132992515379, guid: 78a015d30d6aac84896616a47f39bedc, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -65266,6 +65409,7 @@ MonoBehaviour:
   - JS
   - JU
   - JJK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -66665,6 +66809,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -66734,6 +66879,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -68184,6 +68330,7 @@ MonoBehaviour:
   - {fileID: -285599768890080227, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   - {fileID: 1664280933333174600, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -68253,6 +68400,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -68932,6 +69080,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -69028,6 +69177,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -70439,6 +70589,7 @@ MonoBehaviour:
   - {fileID: 1574162170479524631, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   - {fileID: -6447905637871313101, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -70556,6 +70707,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -73168,6 +73320,7 @@ MonoBehaviour:
   - {fileID: 3472500492456036285, guid: 9938b6eccc85a0146a5016340e9fce55, type: 3}
   - {fileID: 723826837014770820, guid: 9938b6eccc85a0146a5016340e9fce55, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -73246,6 +73399,7 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -73846,6 +74000,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -73915,6 +74070,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -74617,6 +74773,7 @@ MonoBehaviour:
   - {fileID: -8809543910418292196, guid: 7387645db55c3c24f8bef49c646e25e2, type: 3}
   - {fileID: 7103705823146924225, guid: 7387645db55c3c24f8bef49c646e25e2, type: 3}
   - {fileID: 2653444501321457657, guid: 7387645db55c3c24f8bef49c646e25e2, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 6215258451803886396, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
   - {fileID: -2606613493268703749, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
@@ -74732,6 +74889,7 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -75706,6 +75864,7 @@ MonoBehaviour:
   - {fileID: -8809543910418292196, guid: 7387645db55c3c24f8bef49c646e25e2, type: 3}
   - {fileID: 7103705823146924225, guid: 7387645db55c3c24f8bef49c646e25e2, type: 3}
   - {fileID: 2653444501321457657, guid: 7387645db55c3c24f8bef49c646e25e2, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 6215258451803886396, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
   - {fileID: -2606613493268703749, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
@@ -75821,6 +75980,7 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -76613,6 +76773,7 @@ MonoBehaviour:
   - {fileID: 1574162170479524631, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   - {fileID: -6447905637871313101, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -76730,6 +76891,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -77750,6 +77912,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -77846,6 +78009,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -78794,6 +78958,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -78890,6 +79055,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -80987,6 +81153,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -81083,6 +81250,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -81825,68 +81993,6 @@ Transform:
   - {fileID: 848184832}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1049666814
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1049666817}
-  - component: {fileID: 1049666816}
-  - component: {fileID: 1049666815}
-  m_Layer: 0
-  m_Name: Aloituskohta
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1049666815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1049666814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bc0b39a169aa4147a80603dd9fc3f3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AmazonStartAlly
-  joinAtStart: 0
---- !u!114 &1049666816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1049666814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameStart
-  area: {fileID: 0}
-  position: {x: 55240.383, y: -2.230765}
-  areaName: Viidakon katu
-  sceneName: Viidakko
---- !u!4 &1049666817
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1049666814}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1050408866
 GameObject:
   m_ObjectHideFlags: 0
@@ -82278,6 +82384,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -82346,6 +82453,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -83044,6 +83152,7 @@ MonoBehaviour:
   - {fileID: -285599768890080227, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   - {fileID: 1664280933333174600, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -83113,6 +83222,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -84323,6 +84433,7 @@ MonoBehaviour:
   - {fileID: -285599768890080227, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   - {fileID: 1664280933333174600, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -84392,6 +84503,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -85229,6 +85341,7 @@ MonoBehaviour:
   - {fileID: 4959200201506242937, guid: 9938b6eccc85a0146a5016340e9fce55, type: 3}
   - {fileID: 3472500492456036285, guid: 9938b6eccc85a0146a5016340e9fce55, type: 3}
   - {fileID: 723826837014770820, guid: 9938b6eccc85a0146a5016340e9fce55, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 8078983590122552224, guid: df70a68789b535d4f9372e2e9a6e54da, type: 3}
   - {fileID: -8228731665773186002, guid: df70a68789b535d4f9372e2e9a6e54da, type: 3}
@@ -85319,6 +85432,7 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -86101,6 +86215,7 @@ MonoBehaviour:
   - {fileID: 1574162170479524631, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   - {fileID: -6447905637871313101, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -86218,6 +86333,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -88056,6 +88172,7 @@ MonoBehaviour:
   - {fileID: -611136021339532020, guid: a3f8bb891d7cf0a42b35f9f4234b649d, type: 3}
   - {fileID: -3180026609227250008, guid: a3f8bb891d7cf0a42b35f9f4234b649d, type: 3}
   - {fileID: 7618997901933318299, guid: a3f8bb891d7cf0a42b35f9f4234b649d, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: -8813180785427336344, guid: 31766c19d7e45234199b0a56c4f32236, type: 3}
   - {fileID: 3388941768480489665, guid: 31766c19d7e45234199b0a56c4f32236, type: 3}
@@ -88340,6 +88457,7 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JJSJJK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -89283,6 +89401,7 @@ MonoBehaviour:
   - {fileID: -285599768890080227, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   - {fileID: 1664280933333174600, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -89352,6 +89471,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -90388,6 +90508,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -90456,6 +90577,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -91496,6 +91618,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -91592,6 +91715,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -93613,6 +93737,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -93681,6 +93806,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -95272,6 +95398,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -95368,6 +95495,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -95878,6 +96006,7 @@ MonoBehaviour:
   - {fileID: -15495908909661945, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: -3036584792200144593, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: -4490644186938764097, guid: f450867e17fd5604a86eb4d228698597, type: 3}
@@ -95986,6 +96115,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -96475,6 +96605,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -96571,6 +96702,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -97265,6 +97397,7 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -97338,6 +97471,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -98090,6 +98224,7 @@ MonoBehaviour:
   - {fileID: 656513354375155242, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
   - {fileID: 4479621736981282993, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
   - {fileID: -7178211233909573944, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 6215258451803886396, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
   - {fileID: -2606613493268703749, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
@@ -98205,6 +98340,7 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -99011,6 +99147,7 @@ MonoBehaviour:
   - {fileID: 3472500492456036285, guid: 9938b6eccc85a0146a5016340e9fce55, type: 3}
   - {fileID: 723826837014770820, guid: 9938b6eccc85a0146a5016340e9fce55, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -99089,6 +99226,7 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -100121,6 +100259,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -100217,6 +100356,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -101367,6 +101507,7 @@ MonoBehaviour:
   - {fileID: 380067980020023316, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 7880061812244339684, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: 7740657278896478111, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
@@ -101448,6 +101589,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -104731,6 +104873,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -104827,6 +104970,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -105529,6 +105673,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -105598,6 +105743,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -106461,6 +106607,7 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -106534,6 +106681,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -107987,6 +108135,7 @@ MonoBehaviour:
   - {fileID: -285599768890080227, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   - {fileID: 1664280933333174600, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -108056,6 +108205,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -108785,6 +108935,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -108881,6 +109032,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -109410,6 +109562,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -109479,6 +109632,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -110409,6 +110563,7 @@ MonoBehaviour:
   - {fileID: 656513354375155242, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
   - {fileID: 4479621736981282993, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
   - {fileID: -7178211233909573944, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 6215258451803886396, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
   - {fileID: -2606613493268703749, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
@@ -110524,6 +110679,7 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -113337,6 +113493,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -113405,6 +113562,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -114022,6 +114180,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -114090,6 +114249,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -116720,6 +116880,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -116788,6 +116949,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -117555,6 +117717,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -117651,6 +117814,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -118312,6 +118476,7 @@ MonoBehaviour:
   - {fileID: 656513354375155242, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
   - {fileID: 4479621736981282993, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
   - {fileID: -7178211233909573944, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 6215258451803886396, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
   - {fileID: -2606613493268703749, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
@@ -118427,6 +118592,7 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -119876,6 +120042,7 @@ MonoBehaviour:
   - {fileID: -5754639792224449585, guid: 59975def1a83dcc4dbdcb5abe627d4f2, type: 3}
   - {fileID: -5843257896342108595, guid: 59975def1a83dcc4dbdcb5abe627d4f2, type: 3}
   - {fileID: -326992192452717413, guid: 59975def1a83dcc4dbdcb5abe627d4f2, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -119945,6 +120112,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -123059,6 +123227,7 @@ MonoBehaviour:
   - {fileID: 380067980020023316, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 7880061812244339684, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: 7740657278896478111, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
@@ -123140,6 +123309,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -123853,6 +124023,7 @@ MonoBehaviour:
   - {fileID: 7072587210324290381, guid: 7c52e75b2f652c846a201cdc05750b27, type: 3}
   - {fileID: 2364427409523313447, guid: 7c52e75b2f652c846a201cdc05750b27, type: 3}
   - {fileID: 5660845578790402729, guid: 7c52e75b2f652c846a201cdc05750b27, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: -4506090635865557174, guid: 2be2d498b3007d440ae48106be8f5b2c, type: 3}
   - {fileID: -5269365815913450320, guid: 2be2d498b3007d440ae48106be8f5b2c, type: 3}
@@ -123997,6 +124168,7 @@ MonoBehaviour:
   - JSK
   - JJS
   - JU
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -124514,6 +124686,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -124582,6 +124755,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -125108,6 +125282,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -125176,6 +125351,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -126679,6 +126855,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -126748,6 +126925,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -127292,6 +127470,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -127360,6 +127539,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -127956,6 +128136,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -128052,6 +128233,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -128723,6 +128905,7 @@ MonoBehaviour:
   - {fileID: 1265693732786619961, guid: 447902926bed83a45b78fb8a8921764c, type: 3}
   - {fileID: -559092469075345991, guid: 447902926bed83a45b78fb8a8921764c, type: 3}
   - {fileID: -8856411944315897082, guid: 447902926bed83a45b78fb8a8921764c, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 8488964838068974955, guid: ee0ed437ecdd87b47a896494cc7887d4, type: 3}
   - {fileID: 6076335609518271735, guid: ee0ed437ecdd87b47a896494cc7887d4, type: 3}
@@ -128901,6 +129084,7 @@ MonoBehaviour:
   - JS
   - JP
   - JSK
+  comboInOrder: 0
   capSprites:
   - {fileID: 8853284963121268632, guid: d9205fede7edb2a46bcc7358bc774e43, type: 3}
   - {fileID: 6291511276508911976, guid: d9205fede7edb2a46bcc7358bc774e43, type: 3}
@@ -130324,6 +130508,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -130420,6 +130605,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -131133,6 +131319,7 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -131206,6 +131393,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -132598,6 +132786,7 @@ MonoBehaviour:
   - {fileID: -1342199033045434634, guid: 9f93c978301a47449b353f013f6bfa0b, type: 3}
   - {fileID: 4086020540881957434, guid: 9f93c978301a47449b353f013f6bfa0b, type: 3}
   - {fileID: 1810352057518437756, guid: 9f93c978301a47449b353f013f6bfa0b, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 643055148355565380, guid: 5d17c60bce83e534aa355e18802c6e61, type: 3}
   - {fileID: 3388789554017165453, guid: 5d17c60bce83e534aa355e18802c6e61, type: 3}
@@ -132715,6 +132904,7 @@ MonoBehaviour:
   - JSK
   - JJSK
   - JSU
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -133750,6 +133940,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -133819,6 +134010,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -134646,6 +134838,7 @@ MonoBehaviour:
   - {fileID: 1574162170479524631, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   - {fileID: -6447905637871313101, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -134763,6 +134956,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -137059,6 +137253,7 @@ MonoBehaviour:
   - {fileID: -15495908909661945, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: -3036584792200144593, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: -4490644186938764097, guid: f450867e17fd5604a86eb4d228698597, type: 3}
@@ -137167,6 +137362,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -138143,6 +138339,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -138239,6 +138436,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -139342,6 +139540,7 @@ MonoBehaviour:
   - {fileID: 2364427409523313447, guid: 7c52e75b2f652c846a201cdc05750b27, type: 3}
   - {fileID: 5660845578790402729, guid: 7c52e75b2f652c846a201cdc05750b27, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -139473,6 +139672,7 @@ MonoBehaviour:
   - JSK
   - JJS
   - JU
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -140753,6 +140953,7 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -140826,6 +141027,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -142788,6 +142990,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -142857,6 +143060,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -144027,6 +144231,7 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -144100,6 +144305,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -145755,6 +145961,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -145824,6 +146031,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -146463,6 +146671,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -146532,6 +146741,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -147648,6 +147858,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -147744,6 +147955,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -149001,6 +149213,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -149097,6 +149310,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -150417,6 +150631,7 @@ MonoBehaviour:
   - {fileID: -285599768890080227, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   - {fileID: 1664280933333174600, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -150486,6 +150701,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -153494,6 +153710,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -153563,6 +153780,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -154337,6 +154555,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -154406,6 +154625,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -155219,6 +155439,7 @@ MonoBehaviour:
   - {fileID: -1342199033045434634, guid: 9f93c978301a47449b353f013f6bfa0b, type: 3}
   - {fileID: 4086020540881957434, guid: 9f93c978301a47449b353f013f6bfa0b, type: 3}
   - {fileID: 1810352057518437756, guid: 9f93c978301a47449b353f013f6bfa0b, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 643055148355565380, guid: 5d17c60bce83e534aa355e18802c6e61, type: 3}
   - {fileID: 3388789554017165453, guid: 5d17c60bce83e534aa355e18802c6e61, type: 3}
@@ -155336,6 +155557,7 @@ MonoBehaviour:
   - JSK
   - JJSK
   - JSU
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -156096,6 +156318,7 @@ MonoBehaviour:
   - {fileID: 656513354375155242, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
   - {fileID: 4479621736981282993, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
   - {fileID: -7178211233909573944, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 6215258451803886396, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
   - {fileID: -2606613493268703749, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
@@ -156211,6 +156434,7 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -157736,6 +157960,7 @@ MonoBehaviour:
   - {fileID: -285599768890080227, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   - {fileID: 1664280933333174600, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -157805,6 +158030,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -159650,6 +159876,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -159746,6 +159973,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -160349,6 +160577,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -160418,6 +160647,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -160941,6 +161171,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -161037,6 +161268,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -162259,6 +162491,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -162328,6 +162561,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -163519,6 +163753,7 @@ MonoBehaviour:
   - {fileID: 656513354375155242, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
   - {fileID: 4479621736981282993, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
   - {fileID: -7178211233909573944, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 6215258451803886396, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
   - {fileID: -2606613493268703749, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
@@ -163634,6 +163869,7 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -165065,6 +165301,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -165133,6 +165370,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -165827,6 +166065,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -165923,6 +166162,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -166692,6 +166932,7 @@ MonoBehaviour:
   - {fileID: 1368293041270448291, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   - {fileID: 1137416144497062612, guid: 24a879a399aee034b97ff892b662f5fe, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -166788,6 +167029,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -167577,6 +167819,7 @@ MonoBehaviour:
   - {fileID: 380067980020023316, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 7880061812244339684, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: 7740657278896478111, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
@@ -167658,6 +167901,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -168815,6 +169059,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -168884,6 +169129,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -170185,6 +170431,7 @@ MonoBehaviour:
   - {fileID: -2669331735550144204, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   - {fileID: -3240469023741852516, guid: 0fc69fdbf25eb7f4f9fde6af6b485ff4, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -170254,6 +170501,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -170881,6 +171129,7 @@ MonoBehaviour:
   - {fileID: -285599768890080227, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   - {fileID: 1664280933333174600, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -170950,6 +171199,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -172124,6 +172374,7 @@ MonoBehaviour:
   - {fileID: 4861933761211548047, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   - {fileID: -8193899214259124427, guid: 40f3227cef1f8fa4eb3b61c388cfaf1f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -172192,6 +172443,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -174054,6 +174306,7 @@ MonoBehaviour:
   - {fileID: 1574162170479524631, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   - {fileID: -6447905637871313101, guid: 82deadce4e450bd42bc4d5728daffc70, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -174171,6 +174424,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -175427,6 +175681,7 @@ MonoBehaviour:
   - {fileID: -285599768890080227, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   - {fileID: 1664280933333174600, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -175496,6 +175751,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -176535,6 +176791,7 @@ MonoBehaviour:
   - {fileID: -285599768890080227, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   - {fileID: 1664280933333174600, guid: 1107d6f658ba1a143aa22e780be1009f, type: 3}
   calmIdleSprites: []
+  calmIdleLoop: 0
   calmWalkSprites: []
   calmWalkFrameTime: 0.08
   wakeOnFightRadius: 0
@@ -176604,6 +176861,7 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -177405,6 +177663,7 @@ MonoBehaviour:
   - {fileID: 656513354375155242, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
   - {fileID: 4479621736981282993, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
   - {fileID: -7178211233909573944, guid: 481706e67e7cfb7499470ec3b0298c82, type: 3}
+  calmIdleLoop: 0
   calmWalkSprites:
   - {fileID: 6215258451803886396, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
   - {fileID: -2606613493268703749, guid: 1aa91930647b7194d934dd49d6875a37, type: 3}
@@ -177520,6 +177779,7 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  comboInOrder: 0
   capSprites: []
   capCrossSprites: []
   capPickFrameTime: 0.17
@@ -178796,4 +179056,4 @@ SceneRoots:
   - {fileID: 1474673952}
   - {fileID: 1733441196}
   - {fileID: 1238208791}
-  - {fileID: 1049666817}
+  - {fileID: 774588446}

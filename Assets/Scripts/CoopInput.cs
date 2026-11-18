@@ -111,6 +111,8 @@ public static class CoopInput
     /// E / toimintanappi: ei toimi, kun pelaaja on kaatuneen kumppanin vieressä (silloin E nostaa kumppanin ja ohittaa kaiken muun: ovet, tiski, kansi, poiminta).
     public static bool Pick(int i) => !Players.NearFallen(i) && PickRaw(i);
     public static bool PickRaw(int i) => Pressed(i, Key.E, Key.None, Key.Numpad5, Key.Quote, Act.Pick);
+    /// Vasemman tikun painallus (L3): härkä-kyky suojauksen kanssa (ohjaimella; triggerit eivät toimineet yhdistelmässä).
+    public static bool L3Pressed(int i) { var g = PadFor(i); return g != null && g.leftStickButton.wasPressedThisFrame; }
     public static bool Catch(int i) => Pressed(i, Key.O, Key.None, Key.Numpad6, Key.RightAlt, Act.Catch);
 
     public static bool PickHeld(int i) => !Players.NearFallen(i) && PickHeldRaw(i);

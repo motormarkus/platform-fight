@@ -80,6 +80,7 @@ public static partial class BeatEmUpSetup
             sl.levelCamOffset = new[] { 0f, Cam(levelY[1]), Cam(levelY[2]) };
             sl.zoneMinX = x0; sl.zoneMaxX = x1; sl.siteMinX = x0; sl.siteMaxX = x1;
             sl.levelMinX = new[] { 0f, XW(8600f), XW(1250f) }; sl.levelMaxX = new[] { 0f, XW(9150f), XW(7600f) };
+            sl.edgeDrop = true; sl.noDropMin = new[] { false, true, false }; sl.noDropMax = new[] { false, false, false };   // välitasanteen vasen pää on seinää vasten
             sl.climbSpeed = 4.5f;
             sl.ladders = new[]
             {

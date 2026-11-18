@@ -242,7 +242,7 @@ public static partial class BeatEmUpSetup
                     var sh = Object.Instantiate(sohviT.gameObject, furn.transform); sh.name = "Vegasin baarin Sohvi";
                     sh.transform.SetParent(furn.transform, false);
                     var sr = sh.GetComponentInChildren<SpriteRenderer>();
-                    float k = sr != null && sr.sprite != null ? 0.185f * H / sr.sprite.bounds.size.y : 1f;
+                    float k = sr != null && sr.sprite != null ? 0.15f * H / sr.sprite.bounds.size.y : 1f;
                     sh.transform.localScale = Vector3.one * k; sh.transform.position = new Vector3(sx, counterTopY, 0f);
                     if (sr != null) sr.sortingOrder = -9500;
                     var shop = Object.Instantiate(shopT.gameObject, furn.transform); shop.name = "Vegasin baarin tiski";

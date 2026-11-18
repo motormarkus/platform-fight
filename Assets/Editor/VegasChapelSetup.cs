@@ -195,7 +195,7 @@ public static partial class BeatEmUpSetup
             var officiant = Spawn(melvinT.gameObject, "Melvin (vihkijä)", Spot(1.68f, 0.12f), -1);
             var don = Spawn(donT.gameObject, "Don (häävieras)", Spot(1.22f, 0.50f), 1);
             // sulhanen: Tankki-Tony alttarin edessä vihkijän vieressä (morsian tulee hänen vasemmalle puolelleen, x ~1,42); Donin porukkaa, ei vartija
-            var groom = Spawn(tonyT.gameObject, "Tankki-Tony (sulhanen)", Spot(1.54f, 0.14f), 1);
+            var groom = Spawn(tonyT.gameObject, "Tankki-Tony (sulhanen)", Spot(1.575f, 0.14f), -1);   // sulhanen katsoo morsianta (vasemmalle)
             groom.brawlGroup = DonCrew;
             // yksi Tony Donin vartijana vieraana
             var guard = Spawn(tonyT.gameObject, "Tankki-Tony (häävieras)", Spot(1.22f - 0.07f, 0.72f), 1);
@@ -205,7 +205,7 @@ public static partial class BeatEmUpSetup
             var puli1 = Spawn(puliT.gameObject, "Puliukko (häävieras 1)", Spot(0.62f, 0.72f), 1); puli1.fightsEveryone = true;
             var puli2 = Spawn(puliT.gameObject, "Puliukko (häävieras 2)", Spot(0.90f, 0.30f), 1); puli2.fightsEveryone = true;
             Spawn(jakuzaT.gameObject, "Jakuza (häävieras 1)", Spot(1.00f, 0.78f), 1);
-            Spawn(jakuzaT.gameObject, "Jakuza (häävieras 2)", Spot(1.42f, 0.28f), 1);
+            Spawn(jakuzaT.gameObject, "Jakuza (häävieras 2)", Spot(1.08f, 0.30f), 1);   // ei kenenkään pariskunnan edessä (alttarin edusta vapaa)
 
             // portsarit (4) ovat poikkeuksellisesti jo paikalla (rauhassa kuten vieraat): kaksi oven puolella katsoo huoneeseen, kaksi alttarin sivuilla; rähinän alkaessa mukaan
             int bouncers = 0;
@@ -278,7 +278,7 @@ public static partial class BeatEmUpSetup
                     float brideH = DonScale * 6.0f * 0.46f;     // Donin korkeus (600 px / 100 x DonScale) x 0.92
                     float s = brideH / 4.8f;                       // morsiankuvan hahmo ~480 px
                     var bGo = new GameObject("Morsian"); bGo.transform.SetParent(root.transform, false);
-                    bGo.transform.position = Spot(1.42f, 0.14f);
+                    bGo.transform.position = Spot(1.485f, 0.14f);
                     var vis = new GameObject("Visual").AddComponent<SpriteRenderer>(); vis.transform.SetParent(bGo.transform, false); vis.transform.localScale = Vector3.one * s; vis.sprite = bIdle[0];
                     var shd = new GameObject("Shadow").AddComponent<SpriteRenderer>(); shd.transform.SetParent(bGo.transform, false); shd.transform.localScale = new Vector3(1.6f, 0.48f, 1f);
                     var br = bGo.AddComponent<ChapelBride>();

@@ -4,9 +4,9 @@ Ajo: python Tools/PrisonAssets/warden_outline.py"""
 import os, glob, shutil, numpy as np
 from PIL import Image, ImageFilter
 S = "Assets/Sprites/Viholliset"; O = "Tools/PrisonAssets/alkuperaiset"
-OUT_PX = 7        # MaxFilter-koko (7 = 3 px ulos)
+OUT_PX = 5        # MaxFilter-koko (5 = 2 px ulos; 16.11.2026: ohuempi ja tummempi, ei sumeaa hehkua)
 IN_PX = 5         # MinFilter-koko (2 px sisään)
-OUT_ALPHA = 0.6; IN_DARK = 0.28
+OUT_ALPHA = 0.85; IN_DARK = 0.2
 os.makedirs(O, exist_ok=True)
 for f in sorted(glob.glob(os.path.join(S, "warden_*.png"))):
     n = os.path.basename(f); bak = os.path.join(O, n)

@@ -28,11 +28,17 @@ public class MongolBrain : MonoBehaviour, IEnemyBrain, IPartialBrain, ICornerBur
     public Sprite rockSprite;
     public float globalCooldown = 1.6f, chancePerSec = 0.9f, rockSpeed = 12f; public int rockDamage = 18;
     public float rockHeight = 1.45f;
+    [Tooltip("Raivo: kun elämät putoavat alle tämän osuuden (0 = ei raivoa), erikoisliikkeet tulevat tiheämmin (rageScale kertoo jäähtymiset), liike ja perusiskut nopeutuvat (rageSpeed).")]
+    [Range(0f, 1f)] public float rageBelow = 0f;
+    public float rageScale = 0.55f, rageSpeed = 1.2f;
+    bool raged;
+    public bool Raged => raged;
+    float CdScale => raged ? rageScale : 1f;
 
-    protected Enemy e; protected Move cur; protected float t, lastTick, nextAny = 2f; bool hitDone, hitSoundDone, released; protected float dirSign = 1f;
+    protected Enemy e; protected Move cur; protected float t, lastTick, nextAny = 2f; protected bool hitDone; bool hitSoundDone, released; protected float dirSign = 1f;
 
     public bool Active => cur != null;
-    public Sprite CurrentSprite { get; private set; }
+    public Sprite CurrentSprite { get; protected set; }
     public bool HasSprite => cur != null && CurrentSprite != null;
     public bool ArmorNow => false;
     public bool InterceptHit(int damage, float attackerX, bool knockdown) => false;
@@ -41,9 +47,16 @@ public class MongolBrain : MonoBehaviour, IEnemyBrain, IPartialBrain, ICornerBur
 
     void OnDisable() { cur = null; CurrentSprite = null; }
 
-    void Update()
+    protected virtual void Update()
     {
         if (cur != null && Time.time - lastTick > 0.25f) { End(); return; }   // väliin tuli kaatuminen tms.
+        if (!raged && rageBelow > 0f && e != null && !e.IsDead && e.Health > 0 && e.Health <= e.maxHealth * rageBelow)
+        {
+            raged = true;   // kerran: nopeampi ja aggressiivisempi loppuun asti
+            e.moveSpeedX *= rageSpeed; e.moveSpeedY *= rageSpeed; e.attackCooldown /= rageSpeed;
+            chancePerSec /= rageScale; nextAny = Mathf.Min(nextAny, Time.time + 0.3f);
+            CameraFollow.Shake(0.12f, 0.25f);
+        }
         if (cur != null || e == null || e.Hero == null || !e.IsAwake || !e.BrainIdleOrChase || e.IsDead || moves == null || Time.time < nextAny) return;
         float dx = Mathf.Abs(e.Hero.transform.position.x - transform.position.x), dy = Mathf.Abs(e.Hero.transform.position.y - transform.position.y);
         if (dy > e.depthTolerance + 0.8f) return;
@@ -78,14 +91,14 @@ public class MongolBrain : MonoBehaviour, IEnemyBrain, IPartialBrain, ICornerBur
         cur = m; t = 0f; hitDone = false; hitSoundDone = false; released = false; lastTick = Time.time;
         e.FacingRight = e.Hero.transform.position.x > transform.position.x;
         dirSign = e.FacingRight ? 1f : -1f;
-        m.nextTime = Time.time + m.cooldown * Random.Range(0.8f, 1.3f);
-        nextAny = Time.time + globalCooldown * Random.Range(0.8f, 1.4f) + m.sprites.Length * m.frameTime;
+        m.nextTime = Time.time + m.cooldown * CdScale * Random.Range(0.8f, 1.3f);
+        nextAny = Time.time + globalCooldown * CdScale * Random.Range(0.8f, 1.4f) + m.sprites.Length * m.frameTime;
         CurrentSprite = m.sprites[0];
         e.BrainPhaseSet(Enemy.BrainPhase.Windup);
         if (m.sound != null) e.PlayExtraSound(m.sound, m.soundVolume); else if (m.releaseFrame < 0) HitFx.PlayWhoosh();
     }
 
-    void End()
+    protected void End()
     {
         cur = null; CurrentSprite = null;
         if (e != null && !e.IsDead) e.BrainPhaseSet(Enemy.BrainPhase.Chase);

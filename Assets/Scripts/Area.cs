@@ -110,6 +110,7 @@ public class Area : MonoBehaviour
 
     [Header("Jalkakäytävä")]
     [Tooltip("Painovoiman kerroin tällä alueella (1 = normaali; kuun pinta 0.4).")] public float gravityScale = 1f;
+    [Tooltip("Katto: hero ei hyppää tämän (maailman y) yläpuolelle (pää osuu kattoon). Aluksen sisätilat.")] public bool useCeiling; public float ceilingY;
     [Tooltip("Kamera seuraa korkeita hyppyjä: nousu = (hypyn korkeus - 1,5) * tämä. 0 = ei.")] public float camJumpLift = 0f;
     public bool useSidewalk = true;
     public float sidewalkHeight = 0.42f;

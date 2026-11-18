@@ -11,6 +11,7 @@ import make_king_sheets as m
 from key_video import key_frame
 
 TARGET_H, FOOT, COLS, PAD = 600.0, 16, 4, 12
+ONLY = os.environ.get("NK_ONLY_C") and ["kaatuminen", "maahan", "nousu"]   # NK_ONLY_C=1: tee vain kaatuminen/maahan/nousu
 KEY_HI, KEY_RANGE = 0.85, 0.60   # alfa = 1, kun vihreän osuus <= KEY_HI-KEY_RANGE (Lokki: tiukempi, valkoinen puku ei vaadi neonliivin varaa)
 def up(v, q=32): return int(-(-v // q) * q)
 
@@ -117,22 +118,35 @@ def main(vA, vB, vC, vD, guard, outs):
     dims = {}
     def sheet(name, vid, idx, mode, k, floor):
         s = Sheet(name); [s.add(vid[i], mode, k, floor) for i in idx]; s.save(outs, dims); print("   kuvat", list(idx))
-    sheet("idle", D, m.best_loop(D, 156, 238, 16, 54, "low")[::2], "low", kD, fD)
-    sheet("kavely", B, m.best_loop(B, 54, 120, 16, 50, "torso")[::2], "torso", kB, fB)
-    sheet("juoksu", B, m.best_loop(B, 126, 238, 10, 30, "torso")[::2], "torso", kB, fB)
-    sheet("suora1", A, list(range(22, 33, 2)), "low", kA, fA); print("   suora1: osuma indeksi 3 (kuva 28)")
-    sheet("suora2", A, list(range(32, 41, 2)), "low", kA, fA); print("   suora2: osuma indeksi 2 (kuva 36)")
-    sheet("suora3", A, list(range(40, 49, 2)), "low", kA, fA); print("   suora3: osuma indeksi 2 (kuva 44)")
-    sheet("suora4", A, list(range(48, 59, 2)), "low", kA, fA); print("   suora4: osuma indeksi 2-3 (kuvat 52-54)")
-    sheet("potku1", A, list(range(58, 79, 2)), "low", kA, fA); print("   potku1: osuma indeksit 3-4 (kuvat 64-66)")
-    sheet("potku2", A, list(range(78, 107, 2)), "low", kA, fA); print("   potku2 (takapotku): osuma indeksit 4-5 (kuvat 86-88)")
-    sheet("potku3", A, list(range(108, 139, 2)), "low", kA, fA); print("   potku3 (suora + korkea potku): suora osuma indeksi 3 (kuva 114), potku indeksit 6-8 (kuvat 120-124)")
-    sheet("syoksy2", A, list(range(170, 215, 2)), "low", kA, fA); print("   syoksy2: osuma indeksit 5-8 (kuvat 180-186)")
-    sheet("syoksy", D, list(range(30, 80, 4)) + list(range(80, 96, 2)) + list(range(96, 134, 6)) + list(range(138, 151, 3)), "low", kD, fD)
-    sheet("osuma", C, list(range(20, 31, 2)), "low", kC, fC)
-    sheet("kaatuminen", C, list(range(30, 93, 3)), "com", kC, fC)
-    sheet("maahan", C, [96, 108, 120, 132, 138], "com", kC, fC)
-    sheet("nousu", C, list(range(138, 223, 4)) + [228], "com", kC, fC)
+    if not ONLY: sheet("idle", D, m.best_loop(D, 156, 238, 16, 54, "low")[::2], "low", kD, fD)
+    if not ONLY: sheet("kavely", B, m.best_loop(B, 54, 120, 16, 50, "torso")[::2], "torso", kB, fB)
+    if not ONLY: sheet("juoksu", B, m.best_loop(B, 126, 238, 10, 30, "torso")[::2], "torso", kB, fB)
+    if not ONLY: sheet("suora1", A, list(range(22, 33, 2)), "low", kA, fA); print("   suora1: osuma indeksi 3 (kuva 28)")
+    if not ONLY: sheet("suora2", A, list(range(32, 41, 2)), "low", kA, fA); print("   suora2: osuma indeksi 2 (kuva 36)")
+    if not ONLY: sheet("suora3", A, list(range(40, 49, 2)), "low", kA, fA); print("   suora3: osuma indeksi 2 (kuva 44)")
+    if not ONLY: sheet("suora4", A, list(range(48, 59, 2)), "low", kA, fA); print("   suora4: osuma indeksi 2-3 (kuvat 52-54)")
+    if not ONLY: sheet("potku1", A, list(range(58, 79, 2)), "low", kA, fA); print("   potku1: osuma indeksit 3-4 (kuvat 64-66)")
+    if not ONLY: sheet("potku2", A, list(range(78, 107, 2)), "low", kA, fA); print("   potku2 (takapotku): osuma indeksit 4-5 (kuvat 86-88)")
+    if not ONLY: sheet("potku3", A, list(range(108, 139, 2)), "low", kA, fA); print("   potku3 (suora + korkea potku): suora osuma indeksi 3 (kuva 114), potku indeksit 6-8 (kuvat 120-124)")
+    if not ONLY: sheet("syoksy2", A, list(range(170, 215, 2)), "low", kA, fA); print("   syoksy2: osuma indeksit 5-8 (kuvat 180-186)")
+    if not ONLY: sheet("syoksy", D, list(range(30, 80, 4)) + list(range(80, 96, 2)) + list(range(96, 134, 6)) + list(range(138, 151, 3)), "low", kD, fD)
+    # Video C: hahmo kaatuu kohti kameraa -> makaavana se näkyy ~1,4x suurempana (makaava pituus 790 px vs seisova 515 px).
+    # Kuvakohtainen korjaus: 1,0 seisovana (<= 56), liukuu LYING_K:hon kaatuessa (84), pysyy makuulla, palaa 1,0:aan noustessa (150 -> 196).
+    LYING_K = 0.74
+    def corrC(i):
+        if i <= 56: return 1.0
+        if i < 84: return 1.0 + (LYING_K - 1.0) * (i - 56) / 28.0
+        if i <= 150: return LYING_K
+        if i < 196: return LYING_K + (1.0 - LYING_K) * (i - 150) / 46.0
+        return 1.0
+    def sheetC(name, idx, mode):
+        s = Sheet(name); [s.add(C[i], mode, kC * corrC(i), fC) for i in idx]; s.save(outs, dims); print("   kuvat", list(idx))
+    if not ONLY: sheet("osuma", C, list(range(20, 31, 2)), "low", kC, fC)
+    sheetC("kaatuminen", list(range(30, 93, 3)), "com")
+    sheetC("maahan", [96, 108, 120, 132, 138], "com")
+    sheetC("nousu", list(range(138, 223, 4)) + [228], "com")
+    if ONLY:   # vain C-videon sheetit: muut dims säilyvät
+        pth = os.path.join(HERE, "dims.json"); d0 = json.load(open(pth)); d0.update(dims); json.dump(d0, open(pth, "w"), indent=1); return
     # suoja: valmis lapinakyva kuva, 5 hahmoa vierekkain
     G = cv2.cvtColor(cv2.imread(guard, cv2.IMREAD_UNCHANGED), cv2.COLOR_BGRA2RGBA)
     cols = (G[..., 3] > 20).sum(0) > 3; runs = []; s0 = None

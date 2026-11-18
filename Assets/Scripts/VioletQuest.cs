@@ -22,6 +22,17 @@ public class VioletQuest : MonoBehaviour
     public const string Answer = "Hoidan homman.";
     public const string Reminder = "Kappeli on kadulla, kasinon oikealla puolella. Pidä kiirettä, ole kiltti!";
 
+    [Tooltip("Näkyvissä heti (yleisössä), ei pakotettua kohtaamista rajalla.")]
+    public bool startVisible;
+    [Tooltip("Ei puhu ennen kuin lukko avataan (BeginTalk avaa).")]
+    public bool locked;
+    /// Aloittaa puheen (showroom: taikurin voiton jälkeen): Violetti kertoo häistä.
+    public void BeginTalk(PlayerController p)
+    {
+        locked = false; appeared = true; SetVisible(true); appearT = 9f;
+        if (p != null && !talking) Open(p);
+    }
+
     PlayerController pc, talkPc;
     bool near, talking, appeared;
     int lastSide;
@@ -35,7 +46,8 @@ public class VioletQuest : MonoBehaviour
         if (body == null) body = GetComponentInChildren<SpriteRenderer>();
         if (shadow != null && shadow.sprite == null) shadow.sprite = PlayerController.CreateShadowSprite();
         t = Random.value * 3f;
-        SetVisible(false);   // ilmestyy vasta, kun hero yrittää ohittaa
+        if (startVisible) { appeared = true; appearT = 9f; SetVisible(true); }
+        else SetVisible(false);   // ilmestyy vasta, kun hero yrittää ohittaa
     }
 
     void SetVisible(bool v) { if (body != null) body.enabled = v; if (shadow != null) shadow.enabled = v; }
@@ -51,7 +63,7 @@ public class VioletQuest : MonoBehaviour
         t += Time.deltaTime;
         bool done = Clues.Has(QuestId);
         if (!appeared && done) { appeared = true; SetVisible(true); }   // tehtävä jo hyväksytty: Violetti on paikallaan
-        if (!appeared && !talking)
+        if (!appeared && !talking && triggerX != 0f)
         {
             foreach (var q in Players.All)
             {
@@ -69,7 +81,7 @@ public class VioletQuest : MonoBehaviour
         {
             Vector3 hp = pc.transform.position, me = transform.position;
             bool inRange = Mathf.Abs(hp.x - me.x) <= rangeX && Mathf.Abs(hp.y - me.y) <= rangeY;
-            near = inRange && !talking && !PokerService.BlocksCombat && !pc.Riding && pc.AirHeight <= 0.05f && Time.unscaledTime - closedAt > 0.4f;
+            near = inRange && !locked && !talking && !PokerService.BlocksCombat && !pc.Riding && pc.AirHeight <= 0.05f && Time.unscaledTime - closedAt > 0.4f;
             body.flipX = !(hp.x > me.x);   // kuvat katsovat oikealle
             if (near && CoopInput.Pick(pc.playerIndex)) Open(pc);
             else if (talking && Time.unscaledTime - openedAt > 0.4f && CoopInput.Pick(pc.playerIndex)) Accept();

@@ -15,11 +15,24 @@ public class GameStart : MonoBehaviour
     public string areaName;
     [Tooltip("Alueen scenen nimi: ladataan, jos alue ei ole vielä ladattuna.")]
     public string sceneName;
+    [Tooltip("Testaus: antaa kaikki pomokyvyt (elämä +70 %, pyörähdyspotku, luurankokutsu, härkä).")]
+    public bool grantAllPerks;
 
     IEnumerator Start()
     {
         var pc = Players.Primary;
         if (pc == null) yield break;
+        if (grantAllPerks)
+        {
+            foreach (var sn in new[] { "Viidakko", "Vegas" })   // luurankokuninkaan ja taikurin mallit
+            {
+                bool had = SceneManager.GetSceneByName(sn).isLoaded;
+                if (!had) { var l = SceneManager.LoadSceneAsync(sn, LoadSceneMode.Additive); if (l != null) while (!l.isDone) yield return null; }
+                BossPerks.GrantAll();
+                if (!had) { var u = SceneManager.UnloadSceneAsync(sn); if (u != null) while (!u.isDone) yield return null; }
+            }
+            GameHUD.Popup("KYVYT: luurankokutsu " + (BossPerks.HasSkeletonCall ? "OK" : "PUUTTUU") + ", härkä " + (BossPerks.HasBull ? "OK" : "PUUTTUU"), pc.transform.position + new Vector3(0f, 3f, 0f), new Color(1f, 0.9f, 0.4f));
+        }
         if (area == null && !string.IsNullOrEmpty(areaName))
         {
             area = Area.Find(areaName);

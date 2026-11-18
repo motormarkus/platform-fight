@@ -138,8 +138,10 @@ public class Pickup : MonoBehaviour
     /// Vihun kuolema: tavallisesta vihusta pieni todennakoisyys ruokaan, pomosta aina voimakuvake ja iso annos.
     public static void DropFromEnemy(Vector3 pos, bool boss, string enemyName = "")
     {
+        if (enemyName == "Taikuri") BossPerks.Defeated(enemyName, pos);   // taikuri ei ole "pomo" mutta pudottaa härkä-kyvyn
         if (boss)
         {
+            BossPerks.Defeated(enemyName, pos);   // pomon palkinto: energia tai erikoisliikkeen taso
             SpawnPowerUp(pos + new Vector3(-0.5f, -0.05f, 0f));
             SpawnFood(pos + new Vector3(0.6f, -0.05f, 0f), true, "pizza");   // pomo pudottaa aina pizzan (täysi lataus) ja voimakuvakkeen
             return;

@@ -651,6 +651,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void LateUpdate()
     {
+        var ceilA = Area.Current;
+        if (ceilA != null && ceilA.useCeiling && height > 0f)   // aluksen katto: pää ei mene kuvan katon läpi (esim. painottomuudessa)
+        {
+            float maxH = ceilA.ceilingY - HeadHeight - transform.position.y;
+            if (height > maxH) { height = Mathf.Max(0f, maxH); if (verticalVel > 0f) verticalVel = 0f; }
+        }
         if (Enemy.ChainJuggle && megaOwner)
         {
             float dir = facingRight ? 1f : -1f;
@@ -1807,6 +1813,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (playerIndex == 0) Players.MakeTemplate(this);
         Players.Register(this);
         maxHealth = GameSettings.StartHealth; healthBoost = 0;   // vaikeustaso: alkuenergia (voimakuvakkeet pidentävät palkkia)
+        { int lb = BossPerks.LifeBonus(maxHealth); maxHealth += lb; healthBoost += lb; }   // pomopudotukset: +10 % per voitettu energiapomo
         SortByFrameNumber(idleSprites);
         HeroIdle = idleSprites;
         SortByFrameNumber(actionSprites);
@@ -1871,8 +1878,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (invulnTimer > 0f)
         {
             invulnTimer -= dt;
-            if (body != null) body.enabled = invulnTimer <= 0f || Mathf.FloorToInt(invulnTimer * 12f) % 2 == 0;
+            if (body != null) body.enabled = (invulnTimer <= 0f || Mathf.FloorToInt(invulnTimer * 12f) % 2 == 0) && !BullHidden;
         }
+        if (BullHidden && body != null) body.enabled = false;
         if (GameOver) { ApplyVisual(); return; }
         if (GameMenu.IsOpen) { ApplyVisual(); return; }   // valikko auki: ei ohjausta
         UpdateStamina(dt);
@@ -1933,8 +1941,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         bool spinKickInput = HasRubyMoveArt && kickPressed && Time.time <= spinArmedUntil;               // Ruby: eteen, taakse + potku = kierrepotku
         bool specialPressed = !Scripted && SpecialPressed();
         bool pushPressed = !Scripted && PushPressed();
-        if (pushPressed) lastPushPressAt = Time.time;
         bool blockHeld = !Scripted && BlockHeld();
+        if ((pushPressed || (!Scripted && CoopInput.L3Pressed(playerIndex))) && blockHeld && BossPerks.TryBull(this)) pushPressed = false;   // suojaus + pusku/kärrynpyörä: muutu häräksi (taikurin kyky)
+        if (pushPressed) lastPushPressAt = Time.time;
+        if (specialPressed && blockHeld && BossPerks.TrySummonSkeletons(this)) specialPressed = false;   // suojaus + erikoisliike: Temppelin kuninkaan luurankojen kutsu
         if (!(blockHeld && move.y < -0.5f)) duckReady = true;   // alasväistö vaatii uuden painalluksen (alas + suojaus)
         bool catchPressed = !Scripted && CatchPressed();
         // nappauspainallus muistetaan hetken: toimii heti edellisen liikkeen loputtua (ennen hukkui)
@@ -2946,7 +2956,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 // tuulimylly: osumat nollataan joka kierroksella, joten jokainen kierros osuu uudestaan
                 if (specialHitEvery > 0f && stateTime >= specialHitFrom)
                 {
-                    int round = (int)((stateTime - specialHitFrom) / specialHitEvery);
+                    int round = (int)((stateTime - specialHitFrom) / (specialHitEvery / BossPerks.SpecialFactor));   // matala taso: harvemmin osuu
                     if (round != specialRound) { specialRound = round; specialHits.Clear(); specialCrates.Clear(); }
                 }
                 if (stateTime >= specialHitFrom && stateTime <= specialHitTo) AttackAround();
@@ -2979,6 +2989,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 break;   // tarttuja liikuttaa (SetHeld)
 
             case State.Thrown:
+                if (creamSlip)
+                {
+                    if (Time.time < creamSlipUntil)
+                    {   // kermassa liukastuminen: sätkii, liukuu eteenpäin matalalla
+                        MoveOnGround(airVel * dt);
+                        airVel = Vector2.MoveTowards(airVel, Vector2.zero, 2.2f * dt);
+                        height = 0.08f + 0.09f * Mathf.Abs(Mathf.Sin(stateTime * 16f)); verticalVel = 0f; heldRot = 0f;
+                        break;
+                    }
+                    creamSlip = false; verticalVel = 3.2f;   // pieni hypähdys ja selälleen
+                }
                 MoveOnGround(airVel * dt);
                 verticalVel -= gravity * 1.6f * dt;   // heitetty iskeytyy maahan nopeasti
                 height += verticalVel * dt;
@@ -3129,6 +3150,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     void Enter(State s)
     {
         if (s != State.Special) mayhemOn = false;
+        if (s != State.Thrown) creamSlip = false;
         if (s != State.KneeStrike) duckKnee = false;   // väistöstä lähtenyt polviisku kaataa vain itse iskun ajan
         bool panState = s == State.PanPick || s == State.PanHold || s == State.PanSwing || s == State.PanThrow;
         if (!panState && Pan.HeldBy(this) != null) Pan.DropHeld(this);
@@ -3403,6 +3425,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         knockedDown = true;
     }
 
+    /// Pakotettu häviö (esim. pelastettava kaveri Rex kuolee): energia nollaan, GameOver.
+    public void Defeat() { if (GameOver) return; health = 0; DeadAt = Time.time; GameOver = true; }
+
     void ApplyDamage(int damage)
     {
         if (IsDrunk) damage = Mathf.CeilToInt(damage * drunkDamageTaken);
@@ -3447,7 +3472,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public void AddMoney(int amount) { money += amount; }
     [ContextMenu("Lisää 1000 mk")] void Add1000Marks() { money += 1000; }   // testausta varten: Playssa hahmon (Player) komponentin kolmen pisteen valikosta
     int healthBoost;
-    public const int MaxHealthCap = 400;
+    public const int MaxHealthCap = 500;
     /// Voimakuvake: energiapalkki pitenee (ja täyttyy saman verran).
     public void AddMaxHealth(int amount)
     {
@@ -3463,6 +3488,39 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     }
     /// Kuinka korkealla pelaaja on hypyssä (vihollisen lyönti menee ali, jos korkealla).
     public float AirHeight => height;
+
+    bool creamSlip; float creamSlipUntil;
+    /// Liukastuminen kermaläikässä (CreamPuddle): kävellessä/juostessa sätkii hetken liukuen suuntaan dir ja kaatuu selälleen (ei vahinkoa).
+    public bool CreamSlip(float dir, float time, float speed)
+    {
+        if (state != State.Ground || height > 0.01f || GameOver || Riding || Scripted || invulnTimer > 0f) return false;
+        DropCrate(); Bottle.DropHeld(this);
+        facingRight = dir > 0f; heldRot = 0f;
+        height = 0.1f; verticalVel = 0f; airVel = new Vector2(Mathf.Sign(dir) * speed, 0f);
+        pendingDamage = 0;
+        Enter(State.Thrown);
+        knockedDown = true; creamSlip = true; creamSlipUntil = Time.time + time;
+        PlayClip(hurtSounds);
+        return true;
+    }
+
+    /// Putoaminen kerroksen reunalta (SiteLevels): jalat siirtyvät alemmalle tasolle (newY), korkeus kasvaa saman verran (hahmo pysyy kuvassa paikallaan) ja hero putoaa.
+    /// Ilmassa/lennossa olevaan lisätään vain korkeus (oma fysiikka jatkuu); muuten pudotaan hyppytilassa. Vahinko ei tapa (vähintään 1).
+    public void DropToLevel(float newY, int damage)
+    {
+        float dh = transform.position.y - newY;
+        if (dh <= 0.01f) return;
+        var p = transform.position; p.y = newY; transform.position = p;
+        height += dh;
+        bool ownPhysics = state == State.Air || state == State.Hurt || state == State.PieHit || state == State.Thrown;
+        if (!ownPhysics)
+        {
+            verticalVel = 0f; jumpKick = false; scissor = false;
+            airVel = new Vector2((facingRight ? 1f : -1f) * 1.2f, 0f);
+            Enter(State.Air);
+        }
+        if (damage > 0) health = Mathf.Max(1, health - damage);
+    }
 
     // ---------------- Huumaus (Gustavin hiekka) ----------------
     float dazeLen;
@@ -3674,6 +3732,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             any |= LifeRing.KickTires(me, side, reach, attackDepth);
         }
         lastHitEnemies.Clear();
+        if (MirrorImages.TryHit(me, facingRight, reach, attackDepth)) any = true;
+        if (Jerrycan.TryDeflect(me, facingRight, reach, attackDepth)) any = true;   // taikurin ampuman gallonan voi lyödä takaisin   // taikurin peilikuvat häviävät savuna, kun niihin osuu
         bool drunkKnock = IsDrunk && !knockdown && UnityEngine.Random.value < drunkKnockChance;   // kännissä heilautus kaataa
         foreach (var e in Enemy.All.ToArray())
         {
@@ -3804,6 +3864,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public void FaceTowards(float x) { facingRight = x >= transform.position.x; }
     /// Ohjattu liike (esim. kävely Auroran luo): napit eivät toimi, liike tulee ScriptedMove-arvosta.
     public bool Scripted { get; set; }
+    /// Härkämuodossa (HeroBull): hero on piilossa.
+    public bool BullHidden { get; set; }
+    public void GrantInvulnerable(float t) { invulnTimer = Mathf.Max(invulnTimer, t); }
     public Vector2 ScriptedMove { get; set; }
     public void Face(bool right) { facingRight = right; }
 
@@ -3831,19 +3894,20 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         Vector3 me = transform.position;
         bool any = false;
+        float sf = BossPerks.SpecialFactor, reach = specialReach * (0.5f + 0.5f * sf); int dmg = Mathf.Max(1, Mathf.RoundToInt(specialDamage * sf));   // pomopudotusten taso (4 = täysi voima)
         foreach (var e in Enemy.All.ToArray())
         {
             if (e == null || e.IsDead || specialHits.Contains(e)) continue;
             Vector3 p = e.transform.position;
-            if (Mathf.Abs(p.x - me.x) > specialReach || Mathf.Abs(p.y - me.y) > attackDepth + 0.15f) continue;
-            if (e.TakeHit(specialDamage, me.x, true)) { specialHits.Add(e); any = true; }
+            if (Mathf.Abs(p.x - me.x) > reach || Mathf.Abs(p.y - me.y) > attackDepth + 0.15f) continue;
+            if (e.TakeHit(dmg, me.x, true)) { specialHits.Add(e); any = true; }
         }
         foreach (var c in Crate.All.ToArray())
         {
             if (c == null || !c.CanBeHit || specialCrates.Contains(c)) continue;
             Vector3 p = c.transform.position;
-            if (Mathf.Abs(p.x - me.x) > specialReach || Mathf.Abs(p.y - me.y) > attackDepth + 0.15f) continue;
-            if (c.TakeHit(specialDamage)) { specialCrates.Add(c); any = true; }
+            if (Mathf.Abs(p.x - me.x) > reach || Mathf.Abs(p.y - me.y) > attackDepth + 0.15f) continue;
+            if (c.TakeHit(dmg)) { specialCrates.Add(c); any = true; }
         }
         if (!any) return;
         // koko erikoisliikkeestä vain ensimmäinen osuma tärähtää ja pysäyttää; loput vain äänenä, ettei peli pätki joukon keskellä
@@ -5364,7 +5428,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     float dkSlide;   // tuplapotkun liuku jäällä
     Vector2 iceVel; float iceStamp = -99f;   // liukas pinta (Area.slippery): nykyinen vauhti
-    bool OnIce => Area.Current != null && Area.Current.slippery;
+    bool OnIce => (Area.Current != null && Area.Current.slippery) || (CreamPuddle.All.Count > 0 && CreamPuddle.At(transform.position)) || (IcePatch.All.Count > 0 && IcePatch.At(transform.position));   // jää, kermaläikkä tai taikurin jäälaikka
 
     void Walk(Vector2 move, float dt)
     {
@@ -5445,7 +5509,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     float TargetGroundHeight()
     {
-        return useSidewalk && transform.position.y > curbDepthY ? sidewalkHeight : 0f;
+        return useSidewalk && transform.position.y > curbDepthY && !SiteLevels.AboveStreet(transform.position) ? sidewalkHeight : 0f;
     }
 
     /// Kynnyksen yli astuminen. Maassa noustaan/laskeudutaan nopealla askeleella;
@@ -5612,6 +5676,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (HasThrowSprites) return thrownSprites[Mathf.Clamp(heldPose, 0, 3)];
                 return Action(F_HURT);
             case State.Thrown:
+                if (creamSlip) return HasFallArt ? fallSprites[Mathf.Min((int)(stateTime / 0.075f), Mathf.Min(3, fallSprites.Length - 1))] : Action(F_HURT);
                 if (knockedDown && HasFallArt) return fallSprites[verticalVel > 0f ? 3 : 4];
                 if (HasThrowSprites) return thrownSprites[4];
                 return Action(F_HURT);

@@ -47,8 +47,8 @@ public static partial class BeatEmUpSetup
             // Violetti kasinolla: päätehtävän antaja (VioletQuest): pyytää apua häiden estämiseen, ainoa vastaus "Hoidan homman."
             foreach (var old in scene.GetRootGameObjects().Where(g => g.name == "Vegasin Violetti (kasino)").ToArray()) Undo.DestroyObjectImmediate(old);
             string casinoInfo = "";
-            var casino = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.gameObject.scene == scene && a.areaName == "Vegasin kasino");
-            if (casino == null) casinoInfo = " Kasinon Violettia ei lisätty: alue \"Vegasin kasino\" puuttuu (aja 376).";
+            Area casino = null;   // häistä kertoo Violetti nyt vasta showroomissa taikurin voiton jälkeen (valikko 415): kasinolle ei enää pakotettua kohtaamista
+            if (casino == null) casinoInfo = " Kasinon Violettia ei lisätä (häistä kertoo showroomin Violetti, valikko 415).";
             else
             {
                 var qgo = Object.Instantiate(tmpl.gameObject);

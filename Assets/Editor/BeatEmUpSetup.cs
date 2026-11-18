@@ -363,6 +363,7 @@ public static partial class BeatEmUpSetup
             case "rex_matalapotku": return new Vector3(832, 768, 320f / 832f);
             case "rex_potku1": case "rex_potku2": case "rex_potku3": return new Vector3(1280, 768, 320f / 1280f);
             case "nokkamies_idle": return new Vector3(352, 704, 180f / 352f);
+            case "nokkamies_pilli": return new Vector3(416, 640, 214f / 416f);
             case "nokkamies_kavely": return new Vector3(416, 704, 197f / 416f);
             case "nokkamies_juoksu": return new Vector3(512, 640, 288f / 512f);
             case "nokkamies_suora1": return new Vector3(512, 704, 192f / 512f);
@@ -375,9 +376,9 @@ public static partial class BeatEmUpSetup
             case "nokkamies_syoksy2": return new Vector3(736, 704, 404f / 736f);
             case "nokkamies_syoksy": return new Vector3(736, 640, 294f / 736f);
             case "nokkamies_osuma": return new Vector3(416, 704, 183f / 416f);
-            case "nokkamies_kaatuminen": return new Vector3(1024, 704, 496f / 1024f);
-            case "nokkamies_maahan": return new Vector3(992, 448, 461f / 992f);
-            case "nokkamies_nousu": return new Vector3(928, 704, 402f / 928f);
+            case "nokkamies_kaatuminen": return new Vector3(768, 704, 371f / 768f);
+            case "nokkamies_maahan": return new Vector3(768, 320, 345f / 768f);
+            case "nokkamies_nousu": return new Vector3(704, 704, 302f / 704f);
             case "nokkamies_suoja": return new Vector3(352, 640, 183f / 352f);
             case "lokki_idle": return new Vector3(448, 704, 222f / 448f);
             case "lokki_kavely": return new Vector3(544, 704, 224f / 544f);
@@ -395,6 +396,8 @@ public static partial class BeatEmUpSetup
             case "lokki_aalto": return new Vector3(704, 704, 281f / 704f);
             case "lokki_suoja": return new Vector3(480, 704, 231f / 480f);
             case "lokki_polvi": return new Vector3(512, 704, 229f / 512f);
+            case "lokki_kyynarpaa": return new Vector3(736, 704, 273f / 736f);
+            case "lokki_tuplapotku": return new Vector3(800, 768, 458f / 800f);
             case "lokki_vaisto": return new Vector3(416, 704, 190f / 416f);
             case "lokki_osuma": return new Vector3(480, 704, 246f / 480f);
             case "lokki_kaatuminen": return new Vector3(768, 704, 386f / 768f);

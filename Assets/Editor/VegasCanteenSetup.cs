@@ -100,7 +100,7 @@ public static partial class BeatEmUpSetup
             }
             if (sohviT != null && counterT != null)
             {
-                float hx = X0 + 4650f / ppu, hy = cy + (922f - 770f) / ppu;   // jalat hieman tiskin yläreunan (748 px) alapuolella: etukaista peittää nilkat
+                float hx = X0 + 4007f / ppu, hy = cy + (922f - 985f) / ppu;   // jalat 985 px (etutiskin alareuna 1012 px: kengät eivät saa näkyä tiskin alta): tiski peittää jalat, Sohvi seisoo tiskin TAKANA (ei takatason päällä)
                 var sg = Object.Instantiate(sohviT.gameObject); sg.name = "Sohvi (kanttiini)";
                 UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(sg, scene); sg.transform.SetParent(root.transform, false);
                 sg.transform.position = new Vector3(hx, hy, 0f); sg.transform.localScale = Vector3.one * 1.35f;

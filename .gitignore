@@ -53,3 +53,6 @@ desktop.ini
 
 # Työvaiheiden välitiedostot (monta Gt)
 *.pkl
+
+# Python-välimuistit (isot, luodaan uudelleen)
+*.npy

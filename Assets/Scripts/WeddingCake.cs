@@ -13,6 +13,11 @@ public class WeddingCake : MonoBehaviour
     public float collapseFrameTime = 0.11f;
     public AudioClip[] sounds;
     [Range(0f, 1f)] public float soundVolume = 0.9f;
+    [Tooltip("Luhistuessa kerma läiskähtää lattialle (CreamPuddle): liukas, hahmot liukastelevat.")]
+    public bool spillCream = true;
+    [Tooltip("Läikkiä lattialle (1 pöydän eteen + loput sivuille).")]
+    public int creamPuddles = 3;
+    bool spilled;
 
     SpriteRenderer body;
     int seen;
@@ -32,6 +37,7 @@ public class WeddingCake : MonoBehaviour
     void Update()
     {
         if (body == null || sprites == null || sprites.Length < 2) return;
+        if (collapsing && !spilled && (t >= collapseFrameTime * 2f || table == null || !table.isActiveAndEnabled)) SpillCream();
         if (table == null || !table.isActiveAndEnabled) { body.enabled = false; return; }   // pöytä poistui: kakku (ja sirpaleet) pois
         Vector3 tp = table.transform.position;
         transform.position = new Vector3(tp.x, tp.y + tableTop, 0f);
@@ -48,6 +54,19 @@ public class WeddingCake : MonoBehaviour
         int f = 1 + (int)(t / collapseFrameTime);
         body.sprite = sprites[Mathf.Min(f, sprites.Length - 1)];
         body.transform.localRotation = Quaternion.identity;
+    }
+
+    /// Kerma lattialle: pisarat lentävät kakusta, läikät pöydän eteen ja sivuille (ei päällekkäin).
+    void SpillCream()
+    {
+        spilled = true;
+        if (!spillCream) return;
+        Vector3 tp = table != null ? table.transform.position : transform.position - Vector3.up * tableTop;
+        CreamPuddle.Splash(transform.position + Vector3.up * 0.4f, 10, 4f);
+        CreamPuddle.Spawn(new Vector3(tp.x + Random.Range(-0.3f, 0.3f), tp.y - 0.6f, 0f), -1, Random.value < 0.5f);
+        float side = Random.value < 0.5f ? -1f : 1f;
+        for (int i = 1; i < creamPuddles; i++, side = -side)
+            CreamPuddle.Spawn(new Vector3(tp.x + side * Random.Range(2.6f, 3.4f) * (1f + (i - 1) / 2), tp.y - Random.Range(0.2f, 0.9f), 0f), -1, Random.value < 0.5f);
     }
 
     void Collapse()

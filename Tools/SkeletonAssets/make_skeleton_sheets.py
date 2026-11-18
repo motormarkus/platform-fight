@@ -6,9 +6,10 @@ Iskukuvista jätetään pois valkoisen osumasalaman kuvat (peli piirtää oman).
 import os, sys, glob
 import av, cv2, numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, "..", "KingAssets")); sys.path.insert(0, os.path.join(HERE, "..", "GymAssets"))
+sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(HERE, "..", "KingAssets")); sys.path.insert(0, os.path.join(HERE, "..", "GymAssets"))
 import make_king_sheets as m
-from key_video import key_frame
+from key_skel import key_frame
+m.key_frame = key_frame   # m.load ja zip-kuvat käyttävät samaa (sinivihreät osat säilyvät)
 
 m.TARGET_H = 640.0
 m.DIMS.update({"l_idle": (640, 320, 768), "l_kavely": (640, 320, 768), "l_juoksu": (640, 320, 768), "l_jab": (768, 300, 768), "l_takasuora": (768, 300, 768),
@@ -104,7 +105,7 @@ def main(vA, vB, vC, zdir, jabimg, burstimg, outs, resdir, vN=None, vR=None):
     Z = zip_frames(zdir)
     zx0, zx1, zy0, zy1 = bbox(Z[0]); kz = m.TARGET_H / (zy1 - zy0); print("zip mittakaava", round(kz, 3), "lattia", zy1)
     zi = lambda n: n - 1
-    sheet("osuma", Z, [zi(n) for n in range(45, 62, 2)], "low", kz, zy1)
+    sheet("osuma", Z, [zi(n) for n in [46] + list(range(47, 62, 2))], "low", kz, zy1)
     sheet("kaatuminen", Z, [zi(n) for n in list(range(72, 92, 2)) + [94]], "com", kz, zy1)
     sheet("maahan", Z, [zi(n) for n in (88, 90, 92, 96, 100, 106)], "com", kz, zy1)
     # räjähdys: 3x2 ruudukko, ensimmäinen kuva = osumapose; mittakaava osuma-sarjan viimeisen kuvan korkeudesta

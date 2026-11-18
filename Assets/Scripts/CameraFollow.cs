@@ -4,6 +4,9 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public static CameraFollow Instance { get; private set; }
+    /// Kallistus (astetta, z-akselin ympäri) ja lisäzoom (1 = ei); aluksen syöksy (ShipFinale). Nollataan scenen vaihtuessa.
+    public static float TiltDeg = 0f, ZoomMul = 1f;
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)] static void ResetStatics() { TiltDeg = 0f; ZoomMul = 1f; }
 
     public Transform target;
     public float smoothTime = 0.15f;
@@ -165,10 +168,13 @@ public class CameraFollow : MonoBehaviour
             float k = Mathf.Clamp01(shakeTime / Mathf.Max(shakeDuration, 0.001f));
             offset = (Vector3)(Random.insideUnitCircle * shakeAmp * k);
         }
-        float zoomDrop = FitWidth(GetComponent<Camera>());
+        var camC = GetComponent<Camera>();
+        float zoomDrop = FitWidth(camC);
+        if (ZoomMul > 1.001f && camC != null) camC.orthographicSize /= ZoomMul;
         Vector3 pos = basePos + offset + new Vector3(0f, -zoomDrop, 0f);
         if (target != null) pos.x = ClampX(pos.x);   // tärähdyskään ei vie kuvan päädyn yli
         transform.position = pos;
+        transform.rotation = Quaternion.Euler(0f, 0f, TiltDeg);
         KeepPlayersOnScreen();
     }
 }

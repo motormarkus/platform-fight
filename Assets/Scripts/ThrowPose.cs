@@ -49,5 +49,5 @@ public static class ThrowPose
         return -1;
     }
     public static float Total(float[] times) { float s = 0f; foreach (var x in times) s += x; return s; }
-    public static float Start(float[] times, int index) { float s = 0f; for (int i = 0; i < index; i++) s += times[i]; return s; }
+    public static float Start(float[] times, int index) { float s = 0f; for (int i = 0; i < index && i < times.Length; i++) s += times[i]; return s; }   // turvallinen: liian suuri indeksi (esim. Rubyn ja Roccon voimalyönnin aikataulukko vaihtuu kesken) ei kaada Updatea
 }
