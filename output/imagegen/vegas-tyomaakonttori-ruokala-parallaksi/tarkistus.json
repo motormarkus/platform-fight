@@ -1,0 +1,20 @@
+﻿{
+    "width":  5120,
+    "height":  1844,
+    "outsideWindowsChangedChannels":  0,
+    "extractedWindowPixels":  1112254,
+    "windowPixelsStillOpaque":  0,
+    "recomposedDifferentChannels":  3209394,
+    "note":  "Foreground outside canteen panes is pixel-exact. The continuous room background was reconstructed to remove all mullions and fill occluded areas; visible interior rendering may differ slightly.",
+    "parallaxMarginPx":  256,
+    "motionChecks":  [
+                         {
+                             "shiftPx":  -96,
+                             "transparentHoles":  0
+                         },
+                         {
+                             "shiftPx":  96,
+                             "transparentHoles":  0
+                         }
+                     ]
+}

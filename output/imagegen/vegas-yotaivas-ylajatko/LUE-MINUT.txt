@@ -1,0 +1,13 @@
+VEGASIN YOTAIVAAN SAUMATON YLAJATKO
+
+Lahde: Assets/Sprites/Taustat/vegas_taivas.png, 5120x1844. Tama on projektin kaytossa oleva kauimmainen parallaksitaso.
+
+1. vegas-yotaivas-ylajatko-5120x3788.png: pelkka uusi ylaosa. Aseta suoraan alkuperaisen taivaan ylapuolelle samalla skaalalla ja samalla vaakasuuntaisella kohdistuksella. Uuden alareuna vastaa alkuperaisen ylareunaa kaikista RGBA-kanavista.
+2. vegas-yotaivas-korkea-5120x5632.png: ylaosa ja alkuperainen taivas valmiiksi yhdessa. Alkuperainen kuva on sailytetty sellaisenaan alimmassa 1844 pikselissa.
+3. vegas-yotaivas-koko-tyomaan-leveys-15360x5632.png: sama korkea taivas kolmesti, jarjestyksessa A / vaakapeili(A) / A. Tama on saman kokoinen kuin viimeisin yhtenainen tyomaakuva. Peilauksen vuoksi molemmat vaakasaumat tasmaavat.
+
+Taivas on kokonaan peittava, koska se on kauimmainen taso. Hotellit ja kasvillisuus sailytetaan erillisina aiempina parallaksikerroksina. Esikatselu tyomaan kanssa nayttaa vain uuden taivaan ja tyomaan.
+
+Ylaosan ja alkuperaisen liitos on sovitettu 384 pikselin matkalla, alkuperaista muuttamatta. Jos kaytat yhtenaista versiota, kohdista alareuna vanhan taivaan alareunaan ja kayta samaa PPU-arvoa. Jos peilaat vaakasuunnassa, peilaa koko pystypino samalla tavalla.
+
+Sisaanrakennettu image_gen-kuvatyokalu; uusi osa skaalattu vientikokoon. Generointiohje tiedostossa generointiohje.txt. Unity-sceneja, tuontiasetuksia tai alkuperaista taivastiedostoa ei ole muutettu.

@@ -1,0 +1,18 @@
+RUOKALAN IKKUNAT JA PARALLAKSI
+
+01-katukuva-ikkunat-lapinakyvat-5120x1844.png
+Alkuperäinen katukuva, josta vain neljä alakerran ruokalan ikkunaruutua on poistettu alpha-kanavaan. Karmit, ulkovalot, pariovet, yläkerran ikkunat, julkisivu ja katu ovat alkuperäiset. Ikkuna-aukkojen ulkopuolella muuttuneita RGBA-kanava-arvoja: 0. Koko 5120 x 1844.
+
+alkuperainen-ikkunasisalto-5120x1844.png
+Täsmälleen alkuperäiset irrotetut ikkunapikselit, samalla 5120 x 1844 kankaalla. Tämän ja 01-kuvan yhdistelmä palauttaa alkuperäisen näkymän. Tässä tiedostossa karmien ja seinän peittämät alueet ovat tyhjiä, joten tämä on tarkka eroteltu lähde, ei yksinään valmis liikkuva tausta.
+
+02-ruokala-parallaksi-5120x1844.png
+Yhtenäinen sisätilatausta samankokoisella läpinäkyvällä kankaalla. Ulkokarmit, pilari ja ulkovalaisin on poistettu, ja niiden takana piilossa ollut tila on täydennetty sisäisellä image_gen-kuvageneroinnilla. Tausta säilyttää saman ruokalan aiheen, kalusteet ja tunnelman, mutta näkyvän sisätilan piirtotavassa ja yksityiskohdissa on pieniä eroja alkuperäiseen. Tätä taustaa käytetään 01-kuvan takana. Tasot samalla PPU-arvolla ja samassa keskipisteessä.
+
+03-ruokala-parallaksi-liikevara-5632x1844.png
+02-taustan versio, jossa on 256 pikseliä lisämarginaalia molemmilla sivuilla. Lisämarginaali on peilattu reunasta. Molempien spritejen keskipistepivotilla (0.5,0.5) käytä samaa sijaintia ja PPU-arvoa kuin 01-kuvassa. Jos kohdistat vasempia reunoja, 03-kuvan vasen reuna on 256 pikseliä etualan vasemmalla puolella. Testattu taustan vaakasiirrolla -96 ja +96 pikseliä: ikkunoihin ei avaudu läpinäkyviä aukkoja. Käytä maltillista parallaksiliikettä.
+
+Kaikissa PNG-tiedostoissa on alpha-kanava. Esikatselujen siniharmaa ei kuulu tasoihin. Yhdistetty-tarkistus.png ja liike-*.png ovat kerrosten tarkistuskuvia. Ruokala-tausta-lahikuva.png on pelkkä sisätilan lähikuva.
+
+Generointiohje.txt sisältää sisäisen kuvageneroinnin kehotteen taustan täydentämiseen. Etuala ja tarkka alkuperäinen ikkunasisältö erotettiin alkuperäisestä PNG:stä maskilla. Alkuperäistä lähdetiedostoa ei korvattu; Unity-scenejä tai tuontiasetuksia ei muutettu.
+

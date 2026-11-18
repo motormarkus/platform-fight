@@ -1,0 +1,16 @@
+TYÖMAAKONTTORI — KAIKKI LASIAUKOT TYHJINÄ
+
+Pelitiedosto: vegas-tyomaakonttori-lasit-tyhjat-5120x1844.png
+Koko: 5120 x 1844 pikseliä, RGBA PNG, 11611132 tavua.
+
+Ruokalan aiemmin tyhjennettyjen ikkunoiden lisäksi pariovien kaksi lasiruutua ja yläkerran kaikki ikkunaruudut on tyhjennetty läpinäkyviksi. Sisätiloja ei ole lisätty. Oven karmit, kahvat, kiinnityslevyt, saranat ja umpinaiset alaosat ovat säilyneet.
+
+Lähde: vegas-tyomaakonttori-ruokala-parallaksi/01-katukuva-ikkunat-lapinakyvat-5120x1844.png
+Uusien lasimaskien ulkopuolella muuttuneita RGBA-kanava-arvoja: 0.
+Kahvojen säilytettävissä pikseleissä muuttuneita RGBA-kanava-arvoja: 0.
+Uusia läpinäkyviksi tyhjennettyjä pikseleitä: 586056.
+
+Sisäistä kuvagenerointia käytettiin aukkojen ja kahvojen alpha-viitteen tekemiseen. Lopulliset poistot kohdistettiin alkuperäiseen täysikokoiseen kuvaan maskilla, jotta muut pikselit säilyivät. Generointiohje.txt sisältää kehotteen. Esikatselu.png on pienennetty tarkistuskuva siniharmaalla katselutaustalla; lopullisessa PNG:ssä aukot ovat aidosti läpinäkyviä.
+
+Aiemmat kuvat, parallaksit ja Unityn asetukset on jätetty ennalleen. Tämä uusi kuva korvaa tarvittaessa vanhan etualakuvan samalla sijainnilla, pivotilla ja PPU-arvolla.
+

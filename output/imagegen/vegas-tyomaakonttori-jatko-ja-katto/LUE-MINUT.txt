@@ -1,0 +1,22 @@
+TYOMAAKONTTORIN OIKEA JATKO JA KATTO
+
+Kolme uutta PNG-palaa, kukin 5120 x 1844 pikselia:
+02-katu-oikea-5120x1844.png
+03-yla-vasen-5120x1844.png
+04-yla-oikea-5120x1844.png
+
+Sommittelu, vasemmasta ylakulmasta mitattuna:
+03-yla-vasen: x=0, y=0
+04-yla-oikea: x=5120, y=0
+Alkuperainen katupala: x=0, y=1844
+02-katu-oikea: x=5120, y=1844
+
+Yhtenainen kuva: tyomaakonttori-kokonaisuus-10240x3688.png
+Esikatselu on pienennetty katselua varten; kayta peliin numeroituja PNG-tiedostoja.
+Taivas ja lasiaukot ovat lapinakyvia, esikatselun siniharmaa tausta ei kuulu kuviin.
+
+Tarkkuus: uudet alueet on piirretty uudelleen 17 paikallisena yksityiskohtarajauksena. Tyhja lapinakyva rajaus ei tarvinnut uudelleenpiirtoa. Rajaukset on kohdistettu, varisovitettu ja yhdistetty limityksilla. Kokonaisuus ei ole yhdesta pienesta kuvasta pelkastaan suurennettu. Lahdetarkkuudet.json sisaltaa natiivien rajausten koot ja lopulliset sijoituskoot; 5120 x 1844 on lopullinen palakoko, ei yhden generoinnin natiivitarkkuus.
+
+Alkuperainen alavasen katupala on kopioitu muuttamattomana. Tarkistus.json raportoi sen pikselierot seka vanhaan palaan osuvien yla- ja oikean rajapikselien erot. Uudet palat on leikattu yhdesta kokonaisuudesta.
+
+Menetelma: sisainen image_gen-kuvatyokalu; ohje tiedostossa generointiohje.txt. Lopullinen kohdistus, alfa ja leikkaus System.Drawing-tyokaluilla. Unityn kohtauksia tai tuontiasetuksia ei muutettu.

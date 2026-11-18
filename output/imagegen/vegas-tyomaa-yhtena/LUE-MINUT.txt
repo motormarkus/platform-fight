@@ -1,0 +1,10 @@
+YHTENAINEN TYOMAA
+
+Pelitiedosto: vegas-tyomaa-yhtenainen-15360x5632.png
+Yksi lapinakyva RGBA PNG. Leveys 3 x 5120 = 15360 pikselia; korkeus 5632 pikselia. Katto nakyy kokonaan. Rakennuksen leveytta kasvatettu 15 prosenttia uuden generoinnin alkuperaisesta sommittelusta, ja pystysuunnalle annettu lisaa tilaa.
+
+Aseta kokonaisuus samalle PPU-arvolle kuin aiempi katu ja kohdista ALAREUNAT. Vasen reuna liittyy aiemman kappelikuvan oikeaan reunaan. PNG:n kadun takareuna on noin y=4984, reunakiven kirkas ylasyrja y=5174 ja alareuna y=5203. Ylhaalta mitatut koordinaatit.
+
+Kuva tehtiin yhdella sisaanrakennetun image_gen-tyokalun generoinnilla vanhaa kuvaa tyyliviitteena kayttaen. Se ei ole kuuden vanhan palan yhdistelma. Natiivikuva 2172x724 on skaalattu 15360x5632 vientikokoon, joten vienti ei ole natiivia 15K-generointia. Kadun vasemmalla reunalla on kapea, asteittain sulautuva sovitus aiempaan katumateriaaliin.
+
+Tausta ja rakenteiden valit ovat aidosti lapinakyvia. Esikatselun siniharmaa tausta ei ole pelitiedostossa. Unity-sceneja, tuontiasetuksia tai aiempia kuvia ei ole muutettu. Esikatselu.png on vain katselua varten. Generointiohje.txt sisaltaa alkuperaisen generointikehotteen; lopullinen koko ja 15 prosentin suurennus tehtiin kayttajan myohemman tarkennuksen mukaan.

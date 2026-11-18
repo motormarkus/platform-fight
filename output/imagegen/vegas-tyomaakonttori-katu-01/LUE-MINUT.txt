@@ -1,0 +1,19 @@
+TYÖMAAKONTTORI — KATUTASON ENSIMMÄINEN PALA
+
+Pelitiedosto: vegas-tyomaakonttori-katu-01-5120x1844.png
+Koko: 5120 x 1844 pikseliä, RGBA PNG, 15510636 tavua.
+
+Aseta työmaakokonaisuuden oikealle puolelle samalla PPU-arvolla ja kohdista kuvien ALAREUNAT. Edellinen kuva on vegas-tyomaa-tarkka-v2/vegas-tyomaa-tarkka-15360x5632.png. Pikselikoordinaateissa uusi kuva alkaa kohdasta x=15360, y=3788, kun koko työmaakuvan vasen yläkulma on 0,0. Kadun takareuna noin y=1196, reunakivi noin y=1386..1415 tässä katupalassa.
+
+Rakennuksen alakerrassa on ruokala. Yläkerta jatkuu yläreunan yli ja rakennuksen julkisivu oikealle. Tässä kuvassa ei ole kattoa. Seuraavassa yläjatkossa voidaan piirtää loput yläkerrasta, käytettävä katto ja katolle johtava kulku; katolle nousua ei ole tässä ensimmäisessä palassa.
+
+Tausta rakennuksen ulkopuolella on aidosti läpinäkyvä. Tummansininen on vain esikatselun taustaväri. Rakennuksen ikkunoiden läpi näkyvät sisätilat kuuluvat kuvaan.
+
+Sisäisen image_gen-työkalun sommittelugeneroinnin jälkeen kuusi päällekkäistä aluetta piirrettiin uudelleen yksityiskohtaisemmin. Osat kohdistettiin ja sävyt sovitettiin. Valmis kuva on koottu ja skaalattu näistä lähdealueista, ei yksi natiivisti 5120-pikselisenä generoitu kuva. Generointiohje.txt ja tarkennusohje.txt sisältävät käytetyt kehotteet. Lahdetarkkuudet.json sisältää alkuperäiset osakoot.
+
+Vasen reuna vastaa työmaakokonaisuuden oikeaa reunaa: RGBA-eroavia pikseleitä 0. Katuliitos ja sisäiset liitokset tarkistettu myös lähikuvista.
+Katuliitos-esikatselu.png näyttää edellisen katupalan ja uuden palan rinnakkain.
+Katuliitos-100prosenttia.png ja yksityiskohdat-100prosenttia.png ovat skaalaamattomia tarkistuskatseluja.
+Esikatselu.png on pienennetty yleiskuva.
+
+Unityn scenejä tai import-asetuksia ei muutettu.
