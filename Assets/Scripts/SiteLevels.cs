@@ -37,6 +37,8 @@ public class SiteLevels : MonoBehaviour
     public float fallDamagePerUnit = 1.2f;
     [Tooltip("Pitämällä alas laatan etureunalla (ei tikkaita lähellä) näin kauan hero hyppää alempaan kerrokseen.")]
     public float frontDropHold = 0.3f;
+    [Tooltip("Tikkaat/portaat suljettu (esim. areenan kehä näytösottelun aikana).")]
+    public bool laddersLocked;
 
     bool InZone(float x) => zoneMaxX <= zoneMinX || (x >= zoneMinX && x <= zoneMaxX);
     float ClampSlabX(int lv, float x)
@@ -183,6 +185,7 @@ public class SiteLevels : MonoBehaviour
 
     void TryClimb(PlayerController pl, St st, Vector3 p, int from, int to)
     {
+        if (laddersLocked) return;
         int li = NearestLadder(p.x, from, to, 0.6f);
         if (li < 0) return;
         st.ladder = li; st.to = to; st.up = to > from; st.fromY = p.y;
@@ -214,7 +217,7 @@ public class SiteLevels : MonoBehaviour
             return;
         }
         p.x = ClampSlabX(lv, p.x);
-        if (free && hero != null && inSite)
+        if (free && hero != null && inSite && !en.stayOnLevel && en.duelFoe == null)
         {
             int hl = LevelOf(hero.transform.position.y);
             if (hl != lv)

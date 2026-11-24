@@ -1,0 +1,1911 @@
+fileFormatVersion: 2
+guid: 4f53f9c3f0245a84b9dc908f65e113b3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 793395663678074472
+    second: muotokuvat_0
+  - first:
+      213: 9222057114531206058
+    second: muotokuvat_1
+  - first:
+      213: 600175966555479988
+    second: muotokuvat_2
+  - first:
+      213: 7810000362639576795
+    second: muotokuvat_3
+  - first:
+      213: 8135613533255853067
+    second: muotokuvat_4
+  - first:
+      213: 5016483685599979742
+    second: muotokuvat_5
+  - first:
+      213: -6366310361751939771
+    second: muotokuvat_6
+  - first:
+      213: -4430016324175444930
+    second: muotokuvat_7
+  - first:
+      213: 6711304545774689328
+    second: muotokuvat_8
+  - first:
+      213: -1286357187039822415
+    second: muotokuvat_9
+  - first:
+      213: 738429052879094305
+    second: muotokuvat_10
+  - first:
+      213: 1185026143456303102
+    second: muotokuvat_11
+  - first:
+      213: -2860984646181376649
+    second: muotokuvat_12
+  - first:
+      213: 6928873911057829324
+    second: muotokuvat_13
+  - first:
+      213: -1219324973391316332
+    second: muotokuvat_14
+  - first:
+      213: -4003253747925964473
+    second: muotokuvat_15
+  - first:
+      213: -1158901721295862112
+    second: muotokuvat_16
+  - first:
+      213: 7866808639754464315
+    second: muotokuvat_17
+  - first:
+      213: -6991777727437277618
+    second: muotokuvat_18
+  - first:
+      213: 422832519335247926
+    second: muotokuvat_19
+  - first:
+      213: -391864379825381060
+    second: muotokuvat_20
+  - first:
+      213: 4706122369362994518
+    second: muotokuvat_21
+  - first:
+      213: 1176801879504062132
+    second: muotokuvat_22
+  - first:
+      213: 4302983633978976272
+    second: muotokuvat_23
+  - first:
+      213: 5611081759930119990
+    second: muotokuvat_24
+  - first:
+      213: 7727267906227015039
+    second: muotokuvat_25
+  - first:
+      213: -4141530027309664498
+    second: muotokuvat_26
+  - first:
+      213: 180150792286622578
+    second: muotokuvat_27
+  - first:
+      213: -2414519581092815905
+    second: muotokuvat_28
+  - first:
+      213: -4618389650568855222
+    second: muotokuvat_29
+  - first:
+      213: 3252746216440180253
+    second: muotokuvat_30
+  - first:
+      213: 4038287550329105753
+    second: muotokuvat_31
+  - first:
+      213: 8518002955851354805
+    second: muotokuvat_32
+  - first:
+      213: 259540769795916484
+    second: muotokuvat_33
+  - first:
+      213: -6431417762089917388
+    second: muotokuvat_34
+  - first:
+      213: -5220325990034032939
+    second: muotokuvat_35
+  - first:
+      213: -3275858435627918460
+    second: muotokuvat_36
+  - first:
+      213: 1026935415860617718
+    second: muotokuvat_37
+  - first:
+      213: -274947165537235361
+    second: muotokuvat_38
+  - first:
+      213: -8832207426799427626
+    second: muotokuvat_39
+  - first:
+      213: -3413010462043258799
+    second: muotokuvat_40
+  - first:
+      213: 8829262441508068403
+    second: muotokuvat_41
+  - first:
+      213: 7337035789545457999
+    second: muotokuvat_42
+  - first:
+      213: -3342064995634763321
+    second: muotokuvat_43
+  - first:
+      213: 4575707606442231412
+    second: muotokuvat_44
+  - first:
+      213: -1414198689438173755
+    second: muotokuvat_45
+  - first:
+      213: 6784503442569356803
+    second: muotokuvat_46
+  - first:
+      213: 556209800797646577
+    second: muotokuvat_47
+  - first:
+      213: 1620420236336708765
+    second: muotokuvat_48
+  - first:
+      213: 7380737710004848179
+    second: muotokuvat_49
+  - first:
+      213: 2248979727915011185
+    second: muotokuvat_50
+  - first:
+      213: 875407724598296354
+    second: muotokuvat_51
+  - first:
+      213: -3182800099788760685
+    second: muotokuvat_52
+  - first:
+      213: -100147479660546642
+    second: muotokuvat_53
+  - first:
+      213: -7035889932936786787
+    second: muotokuvat_54
+  - first:
+      213: 5570310714293988425
+    second: muotokuvat_55
+  - first:
+      213: -442014541446364809
+    second: muotokuvat_56
+  - first:
+      213: -2575420933554112682
+    second: muotokuvat_57
+  - first:
+      213: -1414496938266429359
+    second: muotokuvat_58
+  - first:
+      213: 5375829305870079618
+    second: muotokuvat_59
+  - first:
+      213: -8165380438431442579
+    second: muotokuvat_60
+  - first:
+      213: -1798973971154985101
+    second: muotokuvat_61
+  - first:
+      213: 4705460337572203474
+    second: muotokuvat_62
+  - first:
+      213: -4820444704448621296
+    second: muotokuvat_63
+  - first:
+      213: 2945057144694590251
+    second: muotokuvat_64
+  - first:
+      213: -4296877322867980776
+    second: muotokuvat_65
+  - first:
+      213: -4907016952583559675
+    second: muotokuvat_66
+  - first:
+      213: 3186374395939778518
+    second: muotokuvat_67
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: muotokuvat_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 1923
+        width: 153
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86eeddb0725b20b00800000000000000
+      internalID: 793395663678074472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_1
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 1923
+        width: 140
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa31ff9c5145bff70800000000000000
+      internalID: 9222057114531206058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_2
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 1923
+        width: 152
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bf14499cd0445800800000000000000
+      internalID: 600175966555479988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_3
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 1923
+        width: 125
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdecdce53f1b26c60800000000000000
+      internalID: 7810000362639576795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_4
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 1923
+        width: 121
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b046397776187e070800000000000000
+      internalID: 8135613533255853067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_5
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 1923
+        width: 155
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed8aab565512e9540800000000000000
+      internalID: 5016483685599979742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_6
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 1923
+        width: 175
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54513e5c47256a7a0800000000000000
+      internalID: -6366310361751939771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_7
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 1923
+        width: 183
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e344758df9b6582c0800000000000000
+      internalID: -4430016324175444930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_8
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 1683
+        width: 139
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03c5d562de7532d50800000000000000
+      internalID: 6711304545774689328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_9
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 1683
+        width: 151
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bd783c24f0f52ee0800000000000000
+      internalID: -1286357187039822415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_10
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 1683
+        width: 178
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 122cfacaf4d6f3a00800000000000000
+      internalID: 738429052879094305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_11
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 1683
+        width: 167
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef7934abffe027010800000000000000
+      internalID: 1185026143456303102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_12
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 1683
+        width: 168
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77d23885f9dbb48d0800000000000000
+      internalID: -2860984646181376649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_13
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 1683
+        width: 186
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccdc2128c1e482060800000000000000
+      internalID: 6928873911057829324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_14
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 1683
+        width: 127
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a7f3f9566141fe0800000000000000
+      internalID: -1219324973391316332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_15
+      rect:
+        serializedVersion: 2
+        x: 1347
+        y: 1683
+        width: 186
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7492f192de59178c0800000000000000
+      internalID: -4003253747925964473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_16
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 1443
+        width: 143
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a6429c4601caefe0800000000000000
+      internalID: -1158901721295862112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_17
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 1443
+        width: 173
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3ce98817c48c2d60800000000000000
+      internalID: 7866808639754464315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_18
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 1443
+        width: 186
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e46fc9f633738fe90800000000000000
+      internalID: -6991777727437277618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_19
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 1443
+        width: 186
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6300672afe33ed500800000000000000
+      internalID: 422832519335247926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_20
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1443
+        width: 174
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3121683c61df8af0800000000000000
+      internalID: -391864379825381060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_21
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 1443
+        width: 186
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 655a66f5c518f4140800000000000000
+      internalID: 4706122369362994518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_22
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 1443
+        width: 91
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b60ade0317d45010800000000000000
+      internalID: 1176801879504062132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_23
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 1443
+        width: 125
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 018e2a121d447bb30800000000000000
+      internalID: 4302983633978976272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_24
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1203
+        width: 175
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 637fe42c1219edd40800000000000000
+      internalID: 5611081759930119990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_25
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 1203
+        width: 186
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7d00fa4835cc3b60800000000000000
+      internalID: 7727267906227015039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_26
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 1203
+        width: 186
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e07f79702645686c0800000000000000
+      internalID: -4141530027309664498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_27
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 1203
+        width: 186
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 273df3ce036008200800000000000000
+      internalID: 180150792286622578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_28
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 1203
+        width: 145
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdbdcb1db37ed7ed0800000000000000
+      internalID: -2414519581092815905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_29
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 1203
+        width: 164
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a41c083051f28efb0800000000000000
+      internalID: -4618389650568855222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_30
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 1203
+        width: 122
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1ea9673373142d20800000000000000
+      internalID: 3252746216440180253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_31
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 1203
+        width: 149
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95daf3a9121ea0830800000000000000
+      internalID: 4038287550329105753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_32
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 963
+        width: 123
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b25f3bde86063670800000000000000
+      internalID: 8518002955851354805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_33
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 963
+        width: 165
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c2ca6c74f21a9300800000000000000
+      internalID: 259540769795916484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_34
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 963
+        width: 116
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4342e78de930fb6a0800000000000000
+      internalID: -6431417762089917388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_35
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 963
+        width: 120
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d63848ab2dad87b0800000000000000
+      internalID: -5220325990034032939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_36
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 963
+        width: 119
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48b5ee9eb10d982d0800000000000000
+      internalID: -3275858435627918460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_37
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 963
+        width: 133
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f1e3add158604e00800000000000000
+      internalID: 1026935415860617718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_38
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 963
+        width: 155
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5e072a72013f2cf0800000000000000
+      internalID: -274947165537235361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_39
+      rect:
+        serializedVersion: 2
+        x: 1361
+        y: 963
+        width: 158
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6df9d0fe322bd6580800000000000000
+      internalID: -8832207426799427626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_40
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 723
+        width: 167
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1504833511d82a0d0800000000000000
+      internalID: -3413010462043258799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_41
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 723
+        width: 130
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33c59ce3967d78a70800000000000000
+      internalID: 8829262441508068403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_42
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 723
+        width: 169
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f494f246d2362d560800000000000000
+      internalID: 7337035789545457999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_43
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 723
+        width: 133
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c92ceee7999e91d0800000000000000
+      internalID: -3342064995634763321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_44
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 723
+        width: 140
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 476ca0e23dd208f30800000000000000
+      internalID: 4575707606442231412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_45
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 723
+        width: 151
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c5f632e8c1cf5ce0800000000000000
+      internalID: -1414198689438173755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_46
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 723
+        width: 169
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 306e2c76fe5672e50800000000000000
+      internalID: 6784503442569356803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_47
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 723
+        width: 169
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fe622deddd08b700800000000000000
+      internalID: 556209800797646577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_48
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 483
+        width: 146
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9c34bd9e93ec7610800000000000000
+      internalID: 1620420236336708765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_49
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 483
+        width: 152
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3364b29a7d5ad6660800000000000000
+      internalID: 7380737710004848179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_50
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 483
+        width: 183
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17ccd6d952bf53f10800000000000000
+      internalID: 2248979727915011185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_51
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 483
+        width: 186
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22f705affa2162c00800000000000000
+      internalID: 875407724598296354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_52
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 483
+        width: 113
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39953052c2c64d3d0800000000000000
+      internalID: -3182800099788760685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_53
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 483
+        width: 118
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea5bea9d5643c9ef0800000000000000
+      internalID: -100147479660546642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_54
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 483
+        width: 166
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9c4e8c326f7b5e90800000000000000
+      internalID: -7035889932936786787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_55
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 483
+        width: 145
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94cab06f418bd4d40800000000000000
+      internalID: 5570310714293988425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_56
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 243
+        width: 186
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 771488fcd16add9f0800000000000000
+      internalID: -442014541446364809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_57
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 243
+        width: 73
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 657f66c5e44424cd0800000000000000
+      internalID: -2575420933554112682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_58
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 243
+        width: 94
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15870ca6782be5ce0800000000000000
+      internalID: -1414496938266429359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_59
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 243
+        width: 121
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28655857548ca9a40800000000000000
+      internalID: 5375829305870079618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_60
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 243
+        width: 70
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d69de57d0cdbeae80800000000000000
+      internalID: -8165380438431442579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_61
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 243
+        width: 130
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37f122164b2c807e0800000000000000
+      internalID: -1798973971154985101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_62
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 243
+        width: 129
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2db4ea51f372d4140800000000000000
+      internalID: 4705460337572203474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_63
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 243
+        width: 107
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0155de3c4175a1db0800000000000000
+      internalID: -4820444704448621296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_64
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 3
+        width: 103
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2b4fb89ed1fed820800000000000000
+      internalID: 2945057144694590251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_65
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 3
+        width: 110
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 816c50737dc6e54c0800000000000000
+      internalID: -4296877322867980776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_66
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 3
+        width: 128
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 506ef628416c6ebb0800000000000000
+      internalID: -4907016952583559675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muotokuvat_67
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 3
+        width: 163
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dfe36781a6483c20800000000000000
+      internalID: 3186374395939778518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      muotokuvat_0: 793395663678074472
+      muotokuvat_1: 9222057114531206058
+      muotokuvat_10: 738429052879094305
+      muotokuvat_11: 1185026143456303102
+      muotokuvat_12: -2860984646181376649
+      muotokuvat_13: 6928873911057829324
+      muotokuvat_14: -1219324973391316332
+      muotokuvat_15: -4003253747925964473
+      muotokuvat_16: -1158901721295862112
+      muotokuvat_17: 7866808639754464315
+      muotokuvat_18: -6991777727437277618
+      muotokuvat_19: 422832519335247926
+      muotokuvat_2: 600175966555479988
+      muotokuvat_20: -391864379825381060
+      muotokuvat_21: 4706122369362994518
+      muotokuvat_22: 1176801879504062132
+      muotokuvat_23: 4302983633978976272
+      muotokuvat_24: 5611081759930119990
+      muotokuvat_25: 7727267906227015039
+      muotokuvat_26: -4141530027309664498
+      muotokuvat_27: 180150792286622578
+      muotokuvat_28: -2414519581092815905
+      muotokuvat_29: -4618389650568855222
+      muotokuvat_3: 7810000362639576795
+      muotokuvat_30: 3252746216440180253
+      muotokuvat_31: 4038287550329105753
+      muotokuvat_32: 8518002955851354805
+      muotokuvat_33: 259540769795916484
+      muotokuvat_34: -6431417762089917388
+      muotokuvat_35: -5220325990034032939
+      muotokuvat_36: -3275858435627918460
+      muotokuvat_37: 1026935415860617718
+      muotokuvat_38: -274947165537235361
+      muotokuvat_39: -8832207426799427626
+      muotokuvat_4: 8135613533255853067
+      muotokuvat_40: -3413010462043258799
+      muotokuvat_41: 8829262441508068403
+      muotokuvat_42: 7337035789545457999
+      muotokuvat_43: -3342064995634763321
+      muotokuvat_44: 4575707606442231412
+      muotokuvat_45: -1414198689438173755
+      muotokuvat_46: 6784503442569356803
+      muotokuvat_47: 556209800797646577
+      muotokuvat_48: 1620420236336708765
+      muotokuvat_49: 7380737710004848179
+      muotokuvat_5: 5016483685599979742
+      muotokuvat_50: 2248979727915011185
+      muotokuvat_51: 875407724598296354
+      muotokuvat_52: -3182800099788760685
+      muotokuvat_53: -100147479660546642
+      muotokuvat_54: -7035889932936786787
+      muotokuvat_55: 5570310714293988425
+      muotokuvat_56: -442014541446364809
+      muotokuvat_57: -2575420933554112682
+      muotokuvat_58: -1414496938266429359
+      muotokuvat_59: 5375829305870079618
+      muotokuvat_6: -6366310361751939771
+      muotokuvat_60: -8165380438431442579
+      muotokuvat_61: -1798973971154985101
+      muotokuvat_62: 4705460337572203474
+      muotokuvat_63: -4820444704448621296
+      muotokuvat_64: 2945057144694590251
+      muotokuvat_65: -4296877322867980776
+      muotokuvat_66: -4907016952583559675
+      muotokuvat_67: 3186374395939778518
+      muotokuvat_7: -4430016324175444930
+      muotokuvat_8: 6711304545774689328
+      muotokuvat_9: -1286357187039822415
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

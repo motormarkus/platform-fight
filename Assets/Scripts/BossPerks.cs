@@ -20,6 +20,24 @@ public static class BossPerks
     static void ResetOnLoad() { Reset(); }
     public static void Reset() { LifeCount = 0; SpecialLevel = 0; done.Clear(); bullSprites = null; bullNext = 0f; skelTemplate = null; skelNext = 0f; }
 
+    // ---- tallennus (SaveGame) ----
+    public static string[] DoneKeys() { var a = new string[done.Count]; done.CopyTo(a); return a; }
+    public static bool IsDone(string key) => done.Contains(key);
+    /// Palauttaa tallennetun tilan. Härän ja luurankojen mallit säilyvät, jos ne ovat jo muistissa; muuten SaveGame lataa niiden scenen ja kutsuu Recache.
+    public static void Restore(int lifeCount, int specialLevel, string[] keys)
+    {
+        LifeCount = Mathf.Max(0, lifeCount); SpecialLevel = Mathf.Clamp(specialLevel, 0, MaxSpecialLevel);
+        done.Clear(); if (keys != null) foreach (var k in keys) if (!string.IsNullOrEmpty(k)) done.Add(k);
+        bullNext = 0f; skelNext = 0f;
+        if (!done.Contains("Taikuri")) bullSprites = null;
+        if (!done.Contains("Temppelin kuningas")) skelTemplate = null;
+    }
+    public static void Recache()
+    {
+        if (done.Contains("Temppelin kuningas")) CacheSkeletons();
+        if (done.Contains("Taikuri")) CacheBull();
+    }
+
     static readonly string[] LifeBosses = { "Metsuri", "Kapteeni", "Deacon", "Gustav", "Timppa", "Nokkamies", "Koe-olento" };
     static readonly string[] SpecialBosses = { "Horhe", "Romuukko", "Yakuza-pomo", "Joulupukki" };
 

@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: 7c6550be08adc5840b0cd7fac93a11f0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3519795153709398038
+    second: regina_idle_0
+  - first:
+      213: -5678180230236179968
+    second: regina_idle_1
+  - first:
+      213: 998268210117037804
+    second: regina_idle_2
+  - first:
+      213: 4414268339368446767
+    second: regina_idle_3
+  - first:
+      213: -8029546839297321196
+    second: regina_idle_4
+  - first:
+      213: 7453555564694165230
+    second: regina_idle_5
+  - first:
+      213: -6745147543207180154
+    second: regina_idle_6
+  - first:
+      213: 8240429621080536323
+    second: regina_idle_7
+  - first:
+      213: 8888530872062257699
+    second: regina_idle_8
+  - first:
+      213: -961513809797181940
+    second: regina_idle_9
+  - first:
+      213: 7458797705915822519
+    second: regina_idle_10
+  - first:
+      213: 1976622577063777623
+    second: regina_idle_11
+  - first:
+      213: 6798392832621995848
+    second: regina_idle_12
+  - first:
+      213: 2315952729924710697
+    second: regina_idle_13
+  - first:
+      213: 7334776774841459299
+    second: regina_idle_14
+  - first:
+      213: 6182265656236564526
+    second: regina_idle_15
+  - first:
+      213: -1993915909338239957
+    second: regina_idle_16
+  - first:
+      213: -3980197325702483976
+    second: regina_idle_17
+  - first:
+      213: 2050289867361728363
+    second: regina_idle_18
+  - first:
+      213: -3891636289678375759
+    second: regina_idle_19
+  - first:
+      213: -5778246850460246496
+    second: regina_idle_20
+  - first:
+      213: 5500226585142356049
+    second: regina_idle_21
+  - first:
+      213: 8442788224384963856
+    second: regina_idle_22
+  - first:
+      213: 7045344501728880720
+    second: regina_idle_23
+  - first:
+      213: -1868554078992595831
+    second: regina_idle_24
+  - first:
+      213: -1735012438367371262
+    second: regina_idle_25
+  - first:
+      213: -6194883234822675177
+    second: regina_idle_26
+  - first:
+      213: 1383136319324817061
+    second: regina_idle_27
+  - first:
+      213: -4963738793573543227
+    second: regina_idle_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: regina_idle_0
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 5391
+        width: 372
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6187dfa2b03d8d030800000000000000
+      internalID: 3519795153709398038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_1
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 5391
+        width: 372
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00270263a2d0331b0800000000000000
+      internalID: -5678180230236179968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_2
+      rect:
+        serializedVersion: 2
+        x: 2691
+        y: 5391
+        width: 372
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cee4796e5af8add00800000000000000
+      internalID: 998268210117037804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_3
+      rect:
+        serializedVersion: 2
+        x: 3843
+        y: 5391
+        width: 372
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2b4f47baa1a24d30800000000000000
+      internalID: 4414268339368446767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_4
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 4623
+        width: 372
+        height: 607
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 417925821b1519090800000000000000
+      internalID: -8029546839297321196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_5
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 4623
+        width: 372
+        height: 607
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee65b33ab49507760800000000000000
+      internalID: 7453555564694165230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_6
+      rect:
+        serializedVersion: 2
+        x: 2691
+        y: 4623
+        width: 372
+        height: 609
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6888989fb0c6462a0800000000000000
+      internalID: -6745147543207180154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_7
+      rect:
+        serializedVersion: 2
+        x: 3843
+        y: 4623
+        width: 372
+        height: 609
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 305bc19a413eb5270800000000000000
+      internalID: 8240429621080536323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_8
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 3855
+        width: 372
+        height: 609
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32a2d541cb76a5b70800000000000000
+      internalID: 8888530872062257699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_9
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 3855
+        width: 372
+        height: 609
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0e0868c84408a2f0800000000000000
+      internalID: -961513809797181940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_10
+      rect:
+        serializedVersion: 2
+        x: 2691
+        y: 3855
+        width: 372
+        height: 609
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b17c90cef8f28760800000000000000
+      internalID: 7458797705915822519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_11
+      rect:
+        serializedVersion: 2
+        x: 3842
+        y: 3855
+        width: 372
+        height: 607
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75557e0e2cf5e6b10800000000000000
+      internalID: 1976622577063777623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_12
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 3087
+        width: 372
+        height: 607
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 847eef7034eb85e50800000000000000
+      internalID: 6798392832621995848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_13
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 3087
+        width: 372
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92132c7ccbae32020800000000000000
+      internalID: 2315952729924710697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_14
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 3087
+        width: 372
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 362e53b8d9c5ac560800000000000000
+      internalID: 7334776774841459299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_15
+      rect:
+        serializedVersion: 2
+        x: 3842
+        y: 3087
+        width: 372
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e20e31bfbd1dbc550800000000000000
+      internalID: 6182265656236564526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_16
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 2319
+        width: 372
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2ce4ef6b003454e0800000000000000
+      internalID: -1993915909338239957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_17
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 2319
+        width: 372
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ff2b89ce9f73c8c0800000000000000
+      internalID: -3980197325702483976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_18
+      rect:
+        serializedVersion: 2
+        x: 2691
+        y: 2319
+        width: 372
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b67bdae75c7147c10800000000000000
+      internalID: 2050289867361728363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_19
+      rect:
+        serializedVersion: 2
+        x: 3842
+        y: 2319
+        width: 372
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b483bec9612ef9c0800000000000000
+      internalID: -3891636289678375759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_20
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 1551
+        width: 372
+        height: 607
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02e1ccd9a1b8fcfa0800000000000000
+      internalID: -5778246850460246496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_21
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 1551
+        width: 372
+        height: 607
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 158e19f00fab45c40800000000000000
+      internalID: 5500226585142356049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_22
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 1551
+        width: 372
+        height: 609
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0151154882fca2570800000000000000
+      internalID: 8442788224384963856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_23
+      rect:
+        serializedVersion: 2
+        x: 3842
+        y: 1551
+        width: 372
+        height: 607
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0582dc91f7716c160800000000000000
+      internalID: 7045344501728880720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_24
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 783
+        width: 372
+        height: 607
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9840a0617ff8116e0800000000000000
+      internalID: -1868554078992595831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_25
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 783
+        width: 372
+        height: 607
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2008a3a316ffbe7e0800000000000000
+      internalID: -1735012438367371262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_26
+      rect:
+        serializedVersion: 2
+        x: 2691
+        y: 783
+        width: 372
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7152f53158a570aa0800000000000000
+      internalID: -6194883234822675177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_27
+      rect:
+        serializedVersion: 2
+        x: 3843
+        y: 783
+        width: 372
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a60c4d7723e13310800000000000000
+      internalID: 1383136319324817061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_idle_28
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 15
+        width: 372
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c21933cdd14d1bb0800000000000000
+      internalID: -4963738793573543227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      regina_idle_0: 3519795153709398038
+      regina_idle_1: -5678180230236179968
+      regina_idle_10: 7458797705915822519
+      regina_idle_11: 1976622577063777623
+      regina_idle_12: 6798392832621995848
+      regina_idle_13: 2315952729924710697
+      regina_idle_14: 7334776774841459299
+      regina_idle_15: 6182265656236564526
+      regina_idle_16: -1993915909338239957
+      regina_idle_17: -3980197325702483976
+      regina_idle_18: 2050289867361728363
+      regina_idle_19: -3891636289678375759
+      regina_idle_2: 998268210117037804
+      regina_idle_20: -5778246850460246496
+      regina_idle_21: 5500226585142356049
+      regina_idle_22: 8442788224384963856
+      regina_idle_23: 7045344501728880720
+      regina_idle_24: -1868554078992595831
+      regina_idle_25: -1735012438367371262
+      regina_idle_26: -6194883234822675177
+      regina_idle_27: 1383136319324817061
+      regina_idle_28: -4963738793573543227
+      regina_idle_3: 4414268339368446767
+      regina_idle_4: -8029546839297321196
+      regina_idle_5: 7453555564694165230
+      regina_idle_6: -6745147543207180154
+      regina_idle_7: 8240429621080536323
+      regina_idle_8: 8888530872062257699
+      regina_idle_9: -961513809797181940
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

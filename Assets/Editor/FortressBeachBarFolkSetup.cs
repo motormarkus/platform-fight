@@ -58,7 +58,7 @@ public static partial class BeatEmUpSetup
 
             // ---- tiskin ääressä (px 520–4770) ----
             Stroller("Puliukko", Walk("puliukko_idle"), Walk("puliukko_kavely"), null, 1000f, 0.12f, 800f, 1300f);
-            Stroller("Rekkamies", Walk("rekkamies_calm"), Walk("rekkamies_kavely"), null, 1900f, 0.14f, 1650f, 2200f);
+            Stroller("Rekkamies", Walk("rekkamies_calm"), Walk("rekkamies_kavely"), null, 1900f, 0.14f, 1650f, 2200f, 1.06f);   // sama koko kuin tappelussa (visualScale 1.06)
             var rex = Stroller("Rex", Walk("rex_idle"), Walk("rex_kavely"), null, 3200f, 0.14f, 3000f, 3500f, 1.15f);
             if (rex != null)
             {
@@ -69,7 +69,7 @@ public static partial class BeatEmUpSetup
                 spot.clueText = "Rex antoi sinulle lentolipun: \"Maailma on nyt auki. Minne vain.\" Maailmanpallo (F8 / kartta-nappi) aukeaa, ja voit matkustaa vapaasti.";
                 spot.emptyText = "Rex: Mukavaa, kun pääsit tänne asti.";
             }
-            Stroller("Tom", Walk("tom_idle"), Walk("tom_kavely"), null, 3900f, 0.12f, 3700f, 4100f);
+            Stroller("Tom", Walk("tom_idle"), Walk("tom_kavely"), null, 3900f, 0.12f, 3700f, 4100f, 1.25f);   // iso mies: sama koko kuin salilla (visualScale 1.25)
 
             // ---- Candi: juttelee, kävelee tiskille ja nojaa siihen ----
             var cTalk = Walk("violetti_candi_puhe"); var cWalk = Walk("violetti_candi_kavely"); var cTurn = Walk("violetti_candi_kaanto"); var cBack = Walk("violetti_candi_selin");

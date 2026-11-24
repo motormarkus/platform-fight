@@ -1,0 +1,1079 @@
+fileFormatVersion: 2
+guid: 261fec2938f857949b2e441f609954b5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4067739919919992276
+    second: regina_nousu_0
+  - first:
+      213: -2415702354163761307
+    second: regina_nousu_1
+  - first:
+      213: -343959489350386986
+    second: regina_nousu_2
+  - first:
+      213: -2518451555539933696
+    second: regina_nousu_3
+  - first:
+      213: 2513767055293765205
+    second: regina_nousu_4
+  - first:
+      213: 3777703965511471289
+    second: regina_nousu_5
+  - first:
+      213: 6002746891305026333
+    second: regina_nousu_6
+  - first:
+      213: -1594529987457416908
+    second: regina_nousu_7
+  - first:
+      213: 4824975947265339724
+    second: regina_nousu_8
+  - first:
+      213: 7218329918593105738
+    second: regina_nousu_9
+  - first:
+      213: 2113237382523580258
+    second: regina_nousu_10
+  - first:
+      213: 279225893345081943
+    second: regina_nousu_11
+  - first:
+      213: 9095864626192440067
+    second: regina_nousu_12
+  - first:
+      213: 2452213234796431405
+    second: regina_nousu_13
+  - first:
+      213: 5698342608124656110
+    second: regina_nousu_14
+  - first:
+      213: 3716826965746254586
+    second: regina_nousu_15
+  - first:
+      213: -6858320565683072447
+    second: regina_nousu_16
+  - first:
+      213: -6392564887873020475
+    second: regina_nousu_17
+  - first:
+      213: -8986173257138027138
+    second: regina_nousu_18
+  - first:
+      213: 6238942735399470347
+    second: regina_nousu_19
+  - first:
+      213: -7673706094493170785
+    second: regina_nousu_20
+  - first:
+      213: -4232715143950331084
+    second: regina_nousu_21
+  - first:
+      213: 1889459295718068864
+    second: regina_nousu_22
+  - first:
+      213: 3233276833812423953
+    second: regina_nousu_23
+  - first:
+      213: -4876931354608983684
+    second: regina_nousu_24
+  - first:
+      213: 2765886246708722259
+    second: regina_nousu_25
+  - first:
+      213: 4714722397990211353
+    second: regina_nousu_26
+  - first:
+      213: -7057692792867332662
+    second: regina_nousu_27
+  - first:
+      213: -941275017983353352
+    second: regina_nousu_28
+  - first:
+      213: 3919395594325078350
+    second: regina_nousu_29
+  - first:
+      213: 5532083215370039925
+    second: regina_nousu_30
+  - first:
+      213: -6922965492917190873
+    second: regina_nousu_31
+  - first:
+      213: 5902799602286756197
+    second: regina_nousu_32
+  - first:
+      213: 39475890038893406
+    second: regina_nousu_33
+  - first:
+      213: -7423622343619490745
+    second: regina_nousu_34
+  - first:
+      213: -3227851406166238783
+    second: regina_nousu_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: regina_nousu_0
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 6152
+        width: 855
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ddc185c7e3837830800000000000000
+      internalID: 4067739919919992276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_1
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 6152
+        width: 782
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56f7ef00283b97ed0800000000000000
+      internalID: -2415702354163761307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_2
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 6163
+        width: 733
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6da3524baa20a3bf0800000000000000
+      internalID: -343959489350386986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_3
+      rect:
+        serializedVersion: 2
+        x: 3744
+        y: 6155
+        width: 693
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 006230057a9ac0dd0800000000000000
+      internalID: -2518451555539933696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_4
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 5382
+        width: 658
+        height: 349
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5565dda71d1b2e220800000000000000
+      internalID: 2513767055293765205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_5
+      rect:
+        serializedVersion: 2
+        x: 1469
+        y: 5391
+        width: 644
+        height: 365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b055e2ddb91d6430800000000000000
+      internalID: 3777703965511471289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_6
+      rect:
+        serializedVersion: 2
+        x: 2632
+        y: 5389
+        width: 628
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1301d46e7a0e4350800000000000000
+      internalID: 6002746891305026333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_7
+      rect:
+        serializedVersion: 2
+        x: 3765
+        y: 5389
+        width: 630
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43184e1bc671fd9e0800000000000000
+      internalID: -1594529987457416908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_8
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 4621
+        width: 635
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c41fd8a6f02c5f240800000000000000
+      internalID: 4824975947265339724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_9
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 4608
+        width: 637
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4ff05d01d8ac2460800000000000000
+      internalID: 7218329918593105738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_10
+      rect:
+        serializedVersion: 2
+        x: 2531
+        y: 4608
+        width: 647
+        height: 398
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26fe467f33ab35d10800000000000000
+      internalID: 2113237382523580258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_11
+      rect:
+        serializedVersion: 2
+        x: 3688
+        y: 4608
+        width: 658
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75abce8787200e300800000000000000
+      internalID: 279225893345081943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_12
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 3840
+        width: 643
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30bdd318fa00b3e70800000000000000
+      internalID: 9095864626192440067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_13
+      rect:
+        serializedVersion: 2
+        x: 1411
+        y: 3840
+        width: 586
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d288d85d1f2080220800000000000000
+      internalID: 2452213234796431405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_14
+      rect:
+        serializedVersion: 2
+        x: 2563
+        y: 3840
+        width: 569
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee93eb53964941f40800000000000000
+      internalID: 5698342608124656110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_15
+      rect:
+        serializedVersion: 2
+        x: 3714
+        y: 3840
+        width: 572
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af206e8ce62d49330800000000000000
+      internalID: 3716826965746254586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_16
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 3072
+        width: 579
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14254be48c952d0a0800000000000000
+      internalID: -6858320565683072447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_17
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 3072
+        width: 562
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cd91be8a1c0947a0800000000000000
+      internalID: -6392564887873020475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_18
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 3073
+        width: 600
+        height: 414
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e754c2e8803ba4380800000000000000
+      internalID: -8986173257138027138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_19
+      rect:
+        serializedVersion: 2
+        x: 3730
+        y: 3073
+        width: 590
+        height: 424
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b054d7dcc5d259650800000000000000
+      internalID: 6238942735399470347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_20
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 2322
+        width: 550
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f930cfec6f4818590800000000000000
+      internalID: -7673706094493170785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_21
+      rect:
+        serializedVersion: 2
+        x: 1457
+        y: 2322
+        width: 475
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4339c61a0006245c0800000000000000
+      internalID: -4232715143950331084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_22
+      rect:
+        serializedVersion: 2
+        x: 2632
+        y: 2321
+        width: 445
+        height: 541
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 082d5daf735b83a10800000000000000
+      internalID: 1889459295718068864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_23
+      rect:
+        serializedVersion: 2
+        x: 3805
+        y: 2326
+        width: 412
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 115a3e35628eedc20800000000000000
+      internalID: 3233276833812423953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_24
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 1558
+        width: 379
+        height: 628
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c712196a5c8a15cb0800000000000000
+      internalID: -4876931354608983684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_25
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 1555
+        width: 321
+        height: 657
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35a363813e6626620800000000000000
+      internalID: 2765886246708722259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_26
+      rect:
+        serializedVersion: 2
+        x: 2717
+        y: 1555
+        width: 269
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91fc8c29a0f0e6140800000000000000
+      internalID: 4714722397990211353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_27
+      rect:
+        serializedVersion: 2
+        x: 3889
+        y: 1555
+        width: 274
+        height: 664
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acdde435cc90e0e90800000000000000
+      internalID: -7057692792867332662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_28
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 783
+        width: 314
+        height: 651
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fd1725bb5befe2f0800000000000000
+      internalID: -941275017983353352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_29
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 783
+        width: 315
+        height: 628
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e413af5f68d746630800000000000000
+      internalID: 3919395594325078350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_30
+      rect:
+        serializedVersion: 2
+        x: 2729
+        y: 783
+        width: 349
+        height: 614
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5723808cf58e5cc40800000000000000
+      internalID: 5532083215370039925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_31
+      rect:
+        serializedVersion: 2
+        x: 3875
+        y: 783
+        width: 368
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72f326a409facef90800000000000000
+      internalID: -6922965492917190873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_32
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 15
+        width: 368
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5618e92c6f4fae150800000000000000
+      internalID: 5902799602286756197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_33
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 15
+        width: 368
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5be5f2ec1f3c8000800000000000000
+      internalID: 39475890038893406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_34
+      rect:
+        serializedVersion: 2
+        x: 2713
+        y: 15
+        width: 368
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74c48ed7fcef9f890800000000000000
+      internalID: -7423622343619490745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_nousu_35
+      rect:
+        serializedVersion: 2
+        x: 3868
+        y: 15
+        width: 368
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c957bb7f3e5433d0800000000000000
+      internalID: -3227851406166238783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      regina_nousu_0: 4067739919919992276
+      regina_nousu_1: -2415702354163761307
+      regina_nousu_10: 2113237382523580258
+      regina_nousu_11: 279225893345081943
+      regina_nousu_12: 9095864626192440067
+      regina_nousu_13: 2452213234796431405
+      regina_nousu_14: 5698342608124656110
+      regina_nousu_15: 3716826965746254586
+      regina_nousu_16: -6858320565683072447
+      regina_nousu_17: -6392564887873020475
+      regina_nousu_18: -8986173257138027138
+      regina_nousu_19: 6238942735399470347
+      regina_nousu_2: -343959489350386986
+      regina_nousu_20: -7673706094493170785
+      regina_nousu_21: -4232715143950331084
+      regina_nousu_22: 1889459295718068864
+      regina_nousu_23: 3233276833812423953
+      regina_nousu_24: -4876931354608983684
+      regina_nousu_25: 2765886246708722259
+      regina_nousu_26: 4714722397990211353
+      regina_nousu_27: -7057692792867332662
+      regina_nousu_28: -941275017983353352
+      regina_nousu_29: 3919395594325078350
+      regina_nousu_3: -2518451555539933696
+      regina_nousu_30: 5532083215370039925
+      regina_nousu_31: -6922965492917190873
+      regina_nousu_32: 5902799602286756197
+      regina_nousu_33: 39475890038893406
+      regina_nousu_34: -7423622343619490745
+      regina_nousu_35: -3227851406166238783
+      regina_nousu_4: 2513767055293765205
+      regina_nousu_5: 3777703965511471289
+      regina_nousu_6: 6002746891305026333
+      regina_nousu_7: -1594529987457416908
+      regina_nousu_8: 4824975947265339724
+      regina_nousu_9: 7218329918593105738
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -17,7 +17,7 @@ public static partial class BeatEmUpSetup
     // ulkobaarin portaat (ulkokuvissa, 5 palan ranta: px vasemmasta reunasta) ja vastaavat paikat sisällä (px sisätilojen vasemmasta reunasta)
     const float FortBarOutLeftStairsPx = 900f, FortBarOutRightStairsPx = 7250f, FortBarInLeftPx = 450f, FortBarInRightPx = 14550f;
     // tiski (kuvan 1 rivit/sarakkeet), Sohvin paikka ja lavan lattiarivi
-    const float FortBarCounterX0 = 520f, FortBarCounterX1 = 4770f, FortBarCounterTop = 884f, FortBarCounterBottom = 1195f, FortBarSohviPx = 2600f, FortBarStageFloorRow = 1115f, FortBarStagePx = 7500f;
+    const float FortBarCounterX0 = 520f, FortBarCounterX1 = 4770f, FortBarCounterTop = 955f, FortBarCounterBottom = 1220f, FortBarSohviPx = 2600f, FortBarStageFloorRow = 1115f, FortBarStagePx = 7500f;
 
     [MenuItem("Beat em up/424. Linnake: rantabaarin sisätilat (tiski + Sohvi, lava + mariachi-bändi, terassi, ovet)", false, 424)]
     static void AddFortressBeachBar()
@@ -27,7 +27,7 @@ public static partial class BeatEmUpSetup
         for (int i = 1; i <= 3; i++)
         {
             string d = T + "rantabaari_sisa_" + i + ".png";
-            if (!File.Exists(d)) { Info("Puuttuu " + d + " (kopioi kuvat kansiosta output/imagegen/total-fist-rantabaari-sisatilat-3x5k)."); return; }
+            if (!File.Exists(d)) { Info("Puuttuu " + d + " (kopioi kuvat kansiosta output/imagegen/total-fist-rantabaari-sisatilat-3x5k-uusi-kuvitus)."); return; }
             AssetDatabase.ImportAsset(d, ImportAssetOptions.ForceUpdate);
         }
         // tiskin etuosa: leikataan kuvasta 1 (peittää Sohvin jalat; Sohvi tiskin takana)

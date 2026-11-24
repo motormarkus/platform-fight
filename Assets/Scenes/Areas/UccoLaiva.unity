@@ -3015,6 +3015,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.5
@@ -5971,6 +5972,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
@@ -13694,6 +13696,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 2.2
@@ -21284,6 +21287,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.8
@@ -25934,6 +25938,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -28103,6 +28108,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -44045,6 +44051,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.3
@@ -45879,6 +45886,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -46412,6 +46420,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -48597,7 +48606,7 @@ Transform:
   m_GameObject: {fileID: 611318185}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15032.502, y: 1.864938, z: 0}
+  m_LocalPosition: {x: 15032.502, y: 1.9004596, z: 0}
   m_LocalScale: {x: 0.888041, y: 0.888041, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48616,29 +48625,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tourist
   sitLoop:
-  - {fileID: -8316673876304492918, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -8316673876304492918, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -8100974235439107176, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -8316673876304492918, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -8316673876304492918, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -1343059557035979302, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -1343059557035979302, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -8316673876304492918, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -8316673876304492918, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -5758536540980870915, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -4711374494931413686, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -976955749669149592, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -976955749669149592, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -4711374494931413686, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -5758536540980870915, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -8316673876304492918, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -4963872749515100407, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: 8229007433332837129, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: 5758307091075295268, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -6015452763060161133, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -8316673876304492918, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  - {fileID: -8316673876304492918, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
-  sitFrameTime: 0.22
+  - {fileID: 5091046108772191613, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -6626337196711972257, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -347634287086386155, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -1285610338530360703, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 7784321672326258354, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -3451915850156823784, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 8629564918312321825, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 8344285484348733796, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -2131888067901884109, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -1424043552856564551, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 6704238476649601480, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -4549991354034922804, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -1657228693323529563, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -3575793035666377496, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -1445492071190757323, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -1550740336693831437, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -4281089098937298433, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 5750733053567965267, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -884362032923135329, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 2399765813000242800, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 5375891451027383981, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 6199160728222494272, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 490877054497396500, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 8719473039438864204, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -1588630232072673010, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -4599200338619007482, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -9124396817781178327, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 3608902734200444571, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -1793450631424184467, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -541671706638425100, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 614936997067488852, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 7892633529161248433, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -4355065377582804011, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -7473900802100901714, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 8515637240023303097, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -1735523136753982277, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 5336821872843481705, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 8639628471674839295, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 3865219286544833169, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 7889791223705073416, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 1378989103283425908, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -4345551962496741196, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -5841369006624390472, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 7876482276269216307, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -8753478179557476519, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -6537009586541807362, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 3894027672246541593, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: 4803569391917807595, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  - {fileID: -3526480870191231697, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
+  sitFrameTime: 0.16666667
   sitStartFrame: 28
   standUp:
   - {fileID: 9063160273709890215, guid: e6d311d054df9d34a80765dab7697622, type: 3}
@@ -48649,6 +48685,24 @@ MonoBehaviour:
   - {fileID: 3018869422133741756, guid: e6d311d054df9d34a80765dab7697622, type: 3}
   - {fileID: -6914313378361240992, guid: e6d311d054df9d34a80765dab7697622, type: 3}
   - {fileID: 7868728901491441211, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: -1210155277, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: 1897502157, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: 134938104, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: -706884683, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: 1483456723, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: -50850901, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: 435428617, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: -1532901400, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: -1135534024, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: 1783053924, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: -69622891, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: 1611318354, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: -2032437578, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: -1366145761, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: -1451569345, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: -1909800977, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: 2053713433, guid: e6d311d054df9d34a80765dab7697622, type: 3}
+  - {fileID: -1736356797, guid: e6d311d054df9d34a80765dab7697622, type: 3}
   idle:
   - {fileID: 3675920611742126820, guid: bfdf1feb2dbe8bc469b893823c0d8651, type: 3}
   - {fileID: 8512984545796523511, guid: bfdf1feb2dbe8bc469b893823c0d8651, type: 3}
@@ -48658,6 +48712,13 @@ MonoBehaviour:
   - {fileID: -2410641294427564732, guid: bfdf1feb2dbe8bc469b893823c0d8651, type: 3}
   - {fileID: -1146735860, guid: bfdf1feb2dbe8bc469b893823c0d8651, type: 3}
   - {fileID: 1883251682, guid: bfdf1feb2dbe8bc469b893823c0d8651, type: 3}
+  - {fileID: 403189622, guid: bfdf1feb2dbe8bc469b893823c0d8651, type: 3}
+  - {fileID: 857627174, guid: bfdf1feb2dbe8bc469b893823c0d8651, type: 3}
+  - {fileID: 449398824, guid: bfdf1feb2dbe8bc469b893823c0d8651, type: 3}
+  - {fileID: -132879388, guid: bfdf1feb2dbe8bc469b893823c0d8651, type: 3}
+  - {fileID: 697209456, guid: bfdf1feb2dbe8bc469b893823c0d8651, type: 3}
+  - {fileID: -768267763, guid: bfdf1feb2dbe8bc469b893823c0d8651, type: 3}
+  - {fileID: 1313103762, guid: bfdf1feb2dbe8bc469b893823c0d8651, type: 3}
   walk:
   - {fileID: 6788895591285195650, guid: f4ad8616cac0919448a42447fb27a52a, type: 3}
   - {fileID: 1796841765343880693, guid: f4ad8616cac0919448a42447fb27a52a, type: 3}
@@ -48679,15 +48740,56 @@ MonoBehaviour:
   - {fileID: 1908980157, guid: f4ad8616cac0919448a42447fb27a52a, type: 3}
   - {fileID: -574974501, guid: f4ad8616cac0919448a42447fb27a52a, type: 3}
   - {fileID: 804990511, guid: f4ad8616cac0919448a42447fb27a52a, type: 3}
-  standFrameTime: 0.11
-  idleFrameTime: 0.16
-  walkFrameTime: 0.065
-  standOffsetY: 0.14208657
+  - {fileID: -91326725, guid: f4ad8616cac0919448a42447fb27a52a, type: 3}
+  - {fileID: -760219042, guid: f4ad8616cac0919448a42447fb27a52a, type: 3}
+  - {fileID: -1929346622, guid: f4ad8616cac0919448a42447fb27a52a, type: 3}
+  - {fileID: -766160035, guid: f4ad8616cac0919448a42447fb27a52a, type: 3}
+  - {fileID: 89966688, guid: f4ad8616cac0919448a42447fb27a52a, type: 3}
+  - {fileID: -1905758399, guid: f4ad8616cac0919448a42447fb27a52a, type: 3}
+  - {fileID: -568332610, guid: f4ad8616cac0919448a42447fb27a52a, type: 3}
+  - {fileID: 4712501, guid: f4ad8616cac0919448a42447fb27a52a, type: 3}
+  turn:
+  - {fileID: -25557648211067927, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -4055658283850552809, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: 7452033681132027898, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: 6132982858119628632, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -4088164395515262656, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: 2027729209131115608, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -5186977580671579001, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -6195034729643112626, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: 8862321024134619867, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -8023003256349063694, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -3582936065262133258, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: 7864763454119606340, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -6932159678068517840, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -3670678631968908731, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -3613248153500136042, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: 5607397199386075340, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -5327927123185058338, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -3499873943616419431, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -4961916817029405148, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: 8149075065833224800, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: 9147997957200366854, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: 3097638600104037297, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -3088226910543637060, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: 2249400896534724732, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -5403225998215084402, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: 2126680341459735262, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -6681187491376746490, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: 7280147887577422530, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: -7327722482454700244, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: 3570023589856376368, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  - {fileID: 1246719247173130346, guid: 28118ecced0f4304e98582d71399e58c, type: 3}
+  standFrameTime: 0.083333336
+  idleFrameTime: 0.125
+  walkFrameTime: 0.083333336
+  turnFrameTime: 0.1
+  standOffsetY: 0
   triggerDistance: 3.5
   walkToX: 15040.672
   walkToY: 1.0130041
   walkSpeed: 1.4
-  idleBeforeWalk: 1.2
+  idleBeforeWalk: 0
   kissIntro:
   - sprite: {fileID: -176222272144659104, guid: 5e1c1f0d3a2eda54ea1bc3efeb27099a, type: 3}
     time: 0.4
@@ -50417,11 +50519,11 @@ MonoBehaviour:
   glowStrength: 0.4
   danceCenterPx: 206.5
   danceCellW: 384
-  idleFeetPx: {x: 317, y: 767}
+  idleFeetPx: {x: 317, y: 447}
   kissFeetPx: {x: 336, y: 495}
   kissHeroStartPx: 113
   kissHeroEndPx: 104
-  idleCellH: 768
+  idleCellH: 448
   kissCellH: 512
   kissPrompt: Suutele Auroraa
   stopPrompt: Lopeta tanssi
@@ -50474,7 +50576,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -96
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -8316673876304492918, guid: f53ba25f269a5cf43b637b647ee9ca07, type: 3}
+  m_Sprite: {fileID: 5091046108772191613, guid: 1c3896baf8947eb4cacccc5ba2ef1345, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -60505,6 +60607,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.5
@@ -60953,6 +61056,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.4
@@ -69455,6 +69559,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.4
@@ -91595,6 +91700,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.3
@@ -92203,6 +92309,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.8
@@ -97744,6 +97851,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -98784,6 +98892,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -106770,6 +106879,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.5
@@ -119363,6 +119473,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -136125,6 +136236,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.5
@@ -137081,6 +137193,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.5
@@ -143931,6 +144044,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.4
@@ -151986,6 +152100,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -154986,6 +155101,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6

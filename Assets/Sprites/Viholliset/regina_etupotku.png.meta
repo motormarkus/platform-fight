@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 46b523dc49cd2a846bfe3de9e6080d14
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3188461685197366773
+    second: regina_etupotku_0
+  - first:
+      213: -2099828005438227628
+    second: regina_etupotku_1
+  - first:
+      213: -2171914716330996392
+    second: regina_etupotku_2
+  - first:
+      213: 7788134936521433644
+    second: regina_etupotku_3
+  - first:
+      213: 7251514194868999238
+    second: regina_etupotku_4
+  - first:
+      213: -6585035310234482296
+    second: regina_etupotku_5
+  - first:
+      213: 2461208498342244573
+    second: regina_etupotku_6
+  - first:
+      213: 2616490972147590056
+    second: regina_etupotku_7
+  - first:
+      213: 2541331818739177962
+    second: regina_etupotku_8
+  - first:
+      213: 7616346882715933912
+    second: regina_etupotku_9
+  - first:
+      213: 2033573075595106423
+    second: regina_etupotku_10
+  - first:
+      213: 8913282408218896200
+    second: regina_etupotku_11
+  - first:
+      213: 1848347756516627484
+    second: regina_etupotku_12
+  - first:
+      213: 4911125465415119112
+    second: regina_etupotku_13
+  - first:
+      213: 4175597890457931965
+    second: regina_etupotku_14
+  - first:
+      213: -5524499710155359732
+    second: regina_etupotku_15
+  - first:
+      213: -8921055732394086392
+    second: regina_etupotku_16
+  - first:
+      213: -9173050563822086119
+    second: regina_etupotku_17
+  - first:
+      213: 9122418829914018156
+    second: regina_etupotku_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: regina_etupotku_0
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 3091
+        width: 330
+        height: 607
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0a1ed19dfe40c3d0800000000000000
+      internalID: -3188461685197366773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_1
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 3087
+        width: 327
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45bff6eed89ebd2e0800000000000000
+      internalID: -2099828005438227628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_2
+      rect:
+        serializedVersion: 2
+        x: 2755
+        y: 3087
+        width: 321
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85dc5a2a21fcbd1e0800000000000000
+      internalID: -2171914716330996392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_3
+      rect:
+        serializedVersion: 2
+        x: 3929
+        y: 3087
+        width: 342
+        height: 632
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c226b222673051c60800000000000000
+      internalID: 7788134936521433644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_4
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 2319
+        width: 344
+        height: 632
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6449ed47dbd82a460800000000000000
+      internalID: 7251514194868999238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_5
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 2319
+        width: 377
+        height: 632
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 889c11c36414d94a0800000000000000
+      internalID: -6585035310234482296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_6
+      rect:
+        serializedVersion: 2
+        x: 2745
+        y: 2319
+        width: 534
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd0bcd5d618f72220800000000000000
+      internalID: 2461208498342244573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_7
+      rect:
+        serializedVersion: 2
+        x: 3882
+        y: 2319
+        width: 600
+        height: 618
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a3afd82da4af4420800000000000000
+      internalID: 2616490972147590056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_8
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 1551
+        width: 609
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae9985813df944320800000000000000
+      internalID: 2541331818739177962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_9
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 1551
+        width: 586
+        height: 621
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dcdf6ef223b2b960800000000000000
+      internalID: 7616346882715933912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_10
+      rect:
+        serializedVersion: 2
+        x: 2748
+        y: 1551
+        width: 497
+        height: 623
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77815ab10f3b83c10800000000000000
+      internalID: 2033573075595106423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_11
+      rect:
+        serializedVersion: 2
+        x: 3853
+        y: 1551
+        width: 400
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84720ac202752bb70800000000000000
+      internalID: 8913282408218896200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_12
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 783
+        width: 354
+        height: 621
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c145098dd76a6a910800000000000000
+      internalID: 1848347756516627484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_13
+      rect:
+        serializedVersion: 2
+        x: 1531
+        y: 783
+        width: 328
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 801717d2792d72440800000000000000
+      internalID: 4911125465415119112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_14
+      rect:
+        serializedVersion: 2
+        x: 2699
+        y: 783
+        width: 311
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db09d997824b2f930800000000000000
+      internalID: 4175597890457931965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_15
+      rect:
+        serializedVersion: 2
+        x: 3868
+        y: 788
+        width: 295
+        height: 609
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0af07e98c80553b0800000000000000
+      internalID: -5524499710155359732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_16
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 20
+        width: 293
+        height: 609
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8003031c31b023480800000000000000
+      internalID: -8921055732394086392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_17
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 17
+        width: 311
+        height: 609
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91810b4fc17c2b080800000000000000
+      internalID: -9173050563822086119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_etupotku_18
+      rect:
+        serializedVersion: 2
+        x: 2670
+        y: 17
+        width: 351
+        height: 609
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c611c59d797599e70800000000000000
+      internalID: 9122418829914018156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      regina_etupotku_0: -3188461685197366773
+      regina_etupotku_1: -2099828005438227628
+      regina_etupotku_10: 2033573075595106423
+      regina_etupotku_11: 8913282408218896200
+      regina_etupotku_12: 1848347756516627484
+      regina_etupotku_13: 4911125465415119112
+      regina_etupotku_14: 4175597890457931965
+      regina_etupotku_15: -5524499710155359732
+      regina_etupotku_16: -8921055732394086392
+      regina_etupotku_17: -9173050563822086119
+      regina_etupotku_18: 9122418829914018156
+      regina_etupotku_2: -2171914716330996392
+      regina_etupotku_3: 7788134936521433644
+      regina_etupotku_4: 7251514194868999238
+      regina_etupotku_5: -6585035310234482296
+      regina_etupotku_6: 2461208498342244573
+      regina_etupotku_7: 2616490972147590056
+      regina_etupotku_8: 2541331818739177962
+      regina_etupotku_9: 7616346882715933912
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

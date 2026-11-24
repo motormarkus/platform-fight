@@ -247,8 +247,8 @@ public sealed class ShipFinale : MonoBehaviour
             GUI.color = Color.black; GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), px); GUI.color = Color.white;
             if (vidShown && vidRt != null)
             {
-                float W = Screen.width, H = Screen.height, w = Mathf.Min(W, H * 16f / 9f), h = w * 9f / 16f;
-                GUI.DrawTexture(new Rect((W - w) * 0.5f, (H - h) * 0.5f, w, h), vidRt, ScaleMode.StretchToFill, false);
+                float vW = Screen.width, vH = Screen.height, vw = Mathf.Min(vW, vH * 16f / 9f), vh = vw * 9f / 16f;
+                GUI.DrawTexture(new Rect((vW - vw) * 0.5f, (vH - vh) * 0.5f, vw, vh), vidRt, ScaleMode.StretchToFill, false);
             }
             if (vidFadeAt >= 0f) { GUI.color = new Color(0f, 0f, 0f, Mathf.Clamp01((Time.time - vidFadeAt) / 0.9f)); GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), px); GUI.color = Color.white; }
             return;

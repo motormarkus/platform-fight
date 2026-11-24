@@ -1050,7 +1050,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (health <= 0)
         {
             if (undying) { health = 1; undyingFallen = true; }
-            else if (sparring) { health = 1; sparKO = true; Clues.WinBelt(); }
+            else if (sparring) { health = 1; sparKO = true; if (sparBelt) Clues.WinBelt(); }
             knockVel = new Vector2(fromLeft ? 4.5f : -4.5f, 0f);
             verticalVel = 7f;
             height = Mathf.Max(height, 0.05f);
@@ -2151,6 +2151,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.Airborne:
                 Move(knockVel * dt);
+                // pelaajan heitto (niskalenkki, kuperkeikka, kombon heitto): vihu kiihtyy lennossa kohti maata
+                if (thrownByPlayer && hardAccel > 0f && Mathf.Abs(knockVel.x) > 0.1f)
+                    knockVel.x = Mathf.MoveTowards(knockVel.x, Mathf.Sign(knockVel.x) * hardMaxVx, hardAccel * dt);
                 // lentävä vihu rikkoo pöydät (ja niiden pullot) tieltään
                 if (height < 1.8f && Mathf.Abs(knockVel.x) > 2f)
                     for (int ci = Crate.All.Count - 1; ci >= 0; ci--)
@@ -2172,7 +2175,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 else
                 {
                     if (creamSlip) { creamSlip = false; verticalVel = 3.2f; stateTime = 0f; }   // pieni hypähdys ja selälleen
-                    verticalVel -= (thrownByPlayer ? 48f : (chainHover && !launched ? 11f : 30f)) * ShipGravity() * dt;
+                    verticalVel -= (thrownByPlayer ? (hardAccel > 0f ? 60f : 48f) : (chainHover && !launched ? 11f : 30f)) * ShipGravity() * dt;
                 }   // heitetty iskeytyy maahan nopeasti; kombon aikana vihu leijuu ilmassa, ettei ehdi maahan ennen seuraavia iskuja
                 height += verticalVel * dt;
                 var ceilA = Area.Current;
@@ -2237,8 +2240,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         if (thrownByEnemy) HitFx.OnHitQuiet(); else HitFx.OnLand(); thudDone = true;
                         HitFx.PlayClip(SlamSound, 1f);
                         DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.3f);
-                        knockVel *= OnIceNow ? 0.8f : 0.55f;   // liukuu vähän iskun jälkeen (jäällä pitkälle)
-                        if (OnIceNow) { slideLand = true; softSlide = true; }
+                        if (hardAccel > 0f) HardLanding();   // kova tömähdys ja pitkä liuku selällään
+                        else
+                        {
+                            knockVel *= OnIceNow ? 0.8f : 0.55f;   // liukuu vähän iskun jälkeen (jäällä pitkälle)
+                            if (OnIceNow) { slideLand = true; softSlide = true; }
+                        }
                         LandDust();
                         Enter(State.Down);
                         break;
@@ -2251,7 +2258,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         thrownByPlayer = false;
                         PlayHurtSound();
                         if (thrownByEnemy) HitFx.OnHitQuiet(); else HitFx.OnLand(); thudDone = true;
-                        if (slideLand) { knockVel *= 1.35f * slideScaleE; DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.2f); }   // liukuu lattiaa pitkin
+                        if (hardAccel > 0f) { HitFx.PlayClip(SlamSound, 0.9f); HardLanding(); }
+                        else if (slideLand) { knockVel *= 1.35f * slideScaleE; DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.2f); }   // liukuu lattiaa pitkin
                         else if (OnIceNow && Mathf.Abs(knockVel.x) > 0.5f) { slideLand = true; softSlide = false; knockVel *= 1.3f; DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.2f); }   // Roccon heitto jäällä: vihu liukuu pitkälle
                         else knockVel = Vector2.zero;
                     }
@@ -2279,8 +2287,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         SlideSmash();
                         if (Mathf.Abs(transform.position.x - x0) < Mathf.Abs(knockVel.x * dt) * 0.3f) knockVel = Vector2.zero;   // törmäsi päätyyn: liuku loppuu heti, pääsee ylös
                     }
-                    knockVel = Vector2.MoveTowards(knockVel, Vector2.zero, (OnIceNow && slideLand ? Mathf.Min(3.4f, Area.Current.GlideNow + 2f) : softSlide ? 11f : slideLand ? 7.5f : 9f) * dt);   // pieni liuku sammuu nopeasti
-                    if (slideLand && knockVel.sqrMagnitude < 0.01f) { slideLand = false; softSlide = false; }
+                    knockVel = Vector2.MoveTowards(knockVel, Vector2.zero, (OnIceNow && slideLand ? Mathf.Min(3.4f, Area.Current.GlideNow + 2f) : hardSlide ? hardSlideDecel : softSlide ? 11f : slideLand ? 7.5f : 9f) * dt);   // pieni liuku sammuu nopeasti
+                    if (slideLand && knockVel.sqrMagnitude < 0.01f) { slideLand = false; softSlide = false; hardSlide = false; }
                 }
                 if (stateTime >= downTime + (ringFall ? 0.6f : 0f) && !sparKO && !(slideLand && !(OnIceNow && knockVel.magnitude < 2.5f)))   // liuku loppuun ennen ylösnousua
                 {
@@ -3894,7 +3902,19 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     /// Kombo menee aina loppuun (vaikka varjonyrkkeilynä), ellei rosvo itse saa kaatavaa iskua.
-    bool ComboTargetOk() => true;
+    /// Kombo jatkuu, ellei hero ole ehtinyt selän taakse (silloin kombo katkeaa ja vihu kääntyy normaalisti).
+    bool ComboTargetOk()
+    {
+        if (enemyTarget != null || player == null) return true;
+        return !HeroBehind(0.35f);
+    }
+    /// Hero on selän puolella vähintään marginin verran.
+    public bool HeroBehind(float margin)
+    {
+        if (player == null) return false;
+        float dx = player.transform.position.x - transform.position.x;
+        return facingRight ? dx < -margin : dx > margin;
+    }
 
     string ComboBreakReason()
     {
@@ -3902,6 +3922,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (enemyTarget != null)
             return TargetDown(enemyTarget) ? "kombo katkesi: kohde maassa" : $"kombo katkesi: kohde liian kaukana ({Mathf.Abs(enemyTarget.transform.position.x - me.x):F1})";
         if (player == null || player.IsDown) return "kombo katkesi: hero maassa";
+        if (HeroBehind(0.35f)) return "kombo katkesi: hero selän takana";
         return $"kombo katkesi: hero liian kaukana ({Mathf.Abs(player.transform.position.x - me.x):F1})";
     }
 
@@ -4117,7 +4138,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             return true;
         }
         // kombon aikana tavallinen isku uppoaa, mutta ei katkaise sarjaa (vasen–oikea–vasen menee loppuun)
-        if (!chainLock && ((comboArmor && comboSeq != null && comboSeq.Length >= comboArmorMinLength) || (usingAlt && altHitAllAround && altExtraImpactFrames != null) || counterActive || (brain != null && brain.ArmorNow)) && (!knockdown || (brain is KingBrain kingArmor && kingArmor.Active) || (brain is AlienBrain alienArmor && alienArmor.SuperArmor)) && health > damage   // pyörähdyspotku (erikoisliike) ei katkea tavalliseen iskuun: 1,1 s lataus katkesi aina ennen osumaa
+        if (!chainLock && ((comboArmor && comboSeq != null && comboSeq.Length >= comboArmorMinLength && !((attackerX > transform.position.x) != facingRight && Mathf.Abs(attackerX - transform.position.x) > 0.25f)) || (usingAlt && altHitAllAround && altExtraImpactFrames != null) || counterActive || (brain != null && brain.ArmorNow)) && (!knockdown || (brain is KingBrain kingArmor && kingArmor.Active) || (brain is AlienBrain alienArmor && alienArmor.SuperArmor)) && health > damage   // pyörähdyspotku (erikoisliike) ei katkea tavalliseen iskuun: 1,1 s lataus katkesi aina ennen osumaa
             && (state == State.Windup || state == State.Punch || state == State.Recover))
         {
             awake = true;
@@ -4242,7 +4263,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         comboHits++; lastHitTime = Time.time;
         if ((player != null && player.InPunchChain && !breaksCombos) || chainLock) comboHits = 0;   // hero on kombossa: vastaisku koskee vain irrallisia, ajoitettuja lyöntejä
         health = Mathf.Max(0, health - Dmg(damage));
-        if (sparring && health <= 0) { knockdown = true; sparKO = true; health = 1; Clues.WinBelt(); }
+        if (sparring && health <= 0) { knockdown = true; sparKO = true; health = 1; if (sparBelt) Clues.WinBelt(); }
         else if (undying && health <= 0) { knockdown = true; undyingFallen = true; health = 1; }   // uusiutuva pomo: ei kuole, kaatuu ja aivo ajaa pakoon   // sparraus: nollasta kaatuu kanveesiin (ei kuole) ja jää makaamaan, kunnes hero lähtee kehästä
         LastHit = this; LastHitTime = Time.time;
         bool fromLeft = attackerX < transform.position.x;
@@ -4487,6 +4508,15 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Header("Sparraus ja toinen kaatumistapa (Marcus)")]
     [Tooltip("Sparraus: nollaan lyöty kaatuu mutta ei kuole (energia täyttyy takaisin).")]
     public bool sparring;
+    [Tooltip("Sparrauksen KO antaa mestaruusvyön (salin Marcus). Areenan ottelussa pois.")]
+    public bool sparBelt = true;
+    [Tooltip("Nyrkkeilijäaivojen vastustaja toinen vihu (näytösottelu); tyhjä = hero.")]
+    public Enemy duelFoe;
+    [Tooltip("Pysyy omalla kerroksellaan (SiteLevels): ei lähde tikkaille heron perään.")]
+    public bool stayOnLevel;
+    /// Kaatumassa, maassa tai nousemassa (ei kannata lyödä).
+    public bool DownOrRising => state == State.Down || state == State.GetUp || state == State.Airborne || state == State.Dead;
+    public float Height => height;
     /// Sparraus: energia loppui, makaa kanveesissa kunnes SparReset.
     public bool SparKO => sparKO;
     bool sparKO;
@@ -4717,6 +4747,30 @@ public class Enemy : MonoBehaviour, IBottleHolder
         ReleaseThrow(vx, up, damage);
     }
 
+    // Pelaajan kova heitto: lennossa kiihtyvä vauhti, maahan osuessa tömähdys ja liuku selällään (kaataa tiellä olevat).
+    float hardAccel, hardMaxVx, hardSlideSpeed, hardSlideDecel;
+    bool hardSlide;
+    /// Kutsu heti ReleaseThrow'n jälkeen: vihu kiihtyy lennossa (accel, enintään maxVx) ja liukuu maahan osuttuaan (slideSpeed, hidastuu decel).
+    public void HardThrow(float accel, float maxVx, float slideSpeed, float slideDecel, float burst = 0f)
+    {
+        if (state != State.Airborne) return;
+        if (burst > 0f && Mathf.Abs(knockVel.x) > 0.01f)   // irtoamishetken singahdus: lähtee heti kovaa
+            knockVel.x = Mathf.Sign(knockVel.x) * Mathf.Max(Mathf.Abs(knockVel.x), burst * Clues.LaunchMul);
+        hardAccel = Mathf.Max(0f, accel); hardMaxVx = Mathf.Max(Mathf.Abs(knockVel.x), maxVx * Clues.LaunchMul);
+        hardSlideSpeed = slideSpeed; hardSlideDecel = Mathf.Max(1f, slideDecel);
+    }
+    void HardLanding()
+    {
+        float sx = Mathf.Abs(knockVel.x) > 0.1f ? Mathf.Sign(knockVel.x) : 0f;
+        knockVel = new Vector2(sx * Mathf.Min(Mathf.Abs(knockVel.x) * 0.65f, hardSlideSpeed), 0f);
+        hardAccel = 0f;
+        if (sx != 0f) { slideLand = true; softSlide = false; hardSlide = true; }
+        if (!thrownByEnemy && CameraFollow.Instance != null) CameraFollow.Shake(0.2f, 0.25f);
+        DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.5f);
+    }
+    /// Kombon heitto: lyönnistä horjuva vihu (ei aivojen ohjaama) voidaan napata niskalenkkiin.
+    public bool ComboGrabbable => state == State.Hurt && health > 0 && !BrainDrives && isActiveAndEnabled;
+
     void SlideSmash()
     {
         Vector3 me = transform.position;
@@ -4738,6 +4792,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public void ReleaseThrow(float vx, float up, int damage)
     {
         if (state != State.Held) return;
+        hardAccel = 0f; hardSlide = false;
         awake = true;
         health = Mathf.Max(0, health - Dmg(damage));
         LastHit = this; LastHitTime = Time.time;

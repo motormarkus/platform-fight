@@ -43,6 +43,7 @@ public class GameHUD : MonoBehaviour
         {
             Time.timeScale = 1f;
             pops.Clear();
+            if (SaveGame.Continue()) return;   // tallennus: takaisin kentän alkuun
             GameMenu.SkipTitleOnce = true;   // uusi peli suoraan, ei aloitusvalikkoa
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

@@ -70,7 +70,7 @@ public static class Loc
         { "Reunaton ikkuna", "Borderless window" }, { "Ikkuna", "Windowed" }, { "FPS-raja", "FPS limit" }, { "Rajaton", "Unlimited" },
         { "Kirkkaus", "Brightness" }, { "Ruudun tärinä", "Screen shake" }, { "Pidä E: nosta", "Hold E: revive" }, { "Molempien pelaajien pitää olla oven luona.", "Both players must be at the door." }, { "Asetukset", "Options" }, { "Tekijät", "Credits" }, { "Lopeta", "Quit" },
         { "Helppo", "Easy" }, { "Normaali", "Normal" }, { "Vaikea", "Hard" }, { "Takaisin", "Back" },
-        { "Jatka", "Resume" }, { "Aloita alusta", "Restart" }, { "Päävalikkoon", "Main menu" }, { "Lopeta peli", "Quit game" },
+        { "Jatka", "Resume" }, { "Jatka peliä", "Continue" }, { "Uusi peli", "New game" }, { "Kentän alkuun", "Restart level" }, { "PELI TALLENNETTU", "GAME SAVED" }, { "Aloita alusta", "Restart" }, { "Päävalikkoon", "Main menu" }, { "Lopeta peli", "Quit game" },
         { "Kyllä, lopeta", "Yes, quit" }, { "Ei", "No" }, { "Lopetetaanko peli?", "Quit the game?" },
         { "Äänet", "Sound" }, { "Musiikki", "Music" }, { "Koko näyttö", "Fullscreen" }, { "Päällä", "On" }, { "Pois", "Off" },
         { "Resoluutio", "Resolution" }, { "Kieli", "Language" }, { "Vaikeustaso", "Difficulty" },

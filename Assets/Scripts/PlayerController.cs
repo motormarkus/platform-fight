@@ -287,6 +287,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float counterThrowUp = 9f;
     [Tooltip("Niskalenkissä hero liukuu heiton aikana näin paljon eteenpäin (yksikköä).")]
     public float counterThrowSlide = 0.8f;
+    [Tooltip("Irtoamishetken singahdus (yksikköä/s): vihu lähtee otteesta heti tällä vauhdilla.")]
+    public float throwReleaseBurst = 19f;
+    [Tooltip("Heitetty vihu kiihtyy lennossa (yksikköä/s²): niskalenkki, kuperkeikka ja kombon heitto.")]
+    public float throwFlightAccel = 32f;
+    [Tooltip("Lennon enimmäisvauhti kiihtymisen jälkeen (yksikköä/s).")]
+    public float throwFlightMaxSpeed = 27f;
+    [Tooltip("Maahan tömähtäneen vihun liukuvauhti selällään (yksikköä/s); kaataa tiellä olevat.")]
+    public float throwLandSlideSpeed = 10f;
+    [Tooltip("Liu'un hidastuvuus (yksikköä/s²): pienempi = pidempi liuku.")]
+    public float throwLandSlideDecel = 15f;
 
     [Header("Kuperkeikkaheitto isoille vastuksille (Kovis): sama nappi, valitaan automaattisesti")]
     [Tooltip("kuperkeikka.png: 8 kuvaa (0 ote, 1 kyykky, 2 istahdus, 3 selälleen, 4 jalat vatsaan, 5 potku pään yli, 6–7 makaa). Lopuksi kip-up.")]
@@ -2258,8 +2268,18 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (kickPressed && Time.time <= dashArmedUntil && (HasKnee || HasKneeStrikeArt) && !ScissorMotion(kickPressed) && stateTime >= total * comboInputFrom)
                 { kneeStrikeQueued = true; dashKneeQueued = true; flurryKickQueued = false; backKickQueued = false; dashArmedUntil = -9f; }
 
+                // kombon heitto: toisesta lyönnistä alkaen vastaheitto-nappi = osuman saanut vihu niskalenkkiin (iso vastus kuperkeikalla)
+                if (catchPressed && HasCounterThrow && comboIndex >= 1 && stateTime >= total * comboInputFrom)
+                { comboThrowQueued = true; comboQueued = false; catchBufferUntil = 0f; }
+
                 // ketjussa isku katkaistaan heti osuman jälkeen, palautusta ei odoteta
                 float cancelAt = hit.ImpactTime + flurryCancelAfterImpact;
+                if (comboThrowQueued && stateTime >= cancelAt)
+                {
+                    comboThrowQueued = false;
+                    Enemy grabFoe = attackHit ? ComboGrabTarget() : null;
+                    if (grabFoe != null) { StartCounterThrow(grabFoe); break; }
+                }
                 if (kneeStrikeQueued && stateTime >= cancelAt)
                 {
                     attackHit = false;
@@ -3867,6 +3887,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Härkämuodossa (HeroBull): hero on piilossa.
     public bool BullHidden { get; set; }
     public void GrantInvulnerable(float t) { invulnTimer = Mathf.Max(invulnTimer, t); }
+    /// Asettaa loukkaamattomuuden tarkalleen (esim. kapselista ulos: pitkä suoja pois)
+    public void SetInvulnerable(float t) { invulnTimer = t; }
     public Vector2 ScriptedMove { get; set; }
     public void Face(bool right) { facingRight = right; }
 
@@ -4854,6 +4876,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 counterReleased = true;
                 if (monkeyFlip) heldEnemy.ReleaseThrow(-dir * monkeyFlipSpeed, monkeyFlipUp, monkeyFlipDamage);
                 else heldEnemy.ReleaseThrow(-dir * counterThrowSpeed, counterThrowUp, counterThrowDamage);
+                heldEnemy.HardThrow(throwFlightAccel, throwFlightMaxSpeed, throwLandSlideSpeed, throwLandSlideDecel, throwReleaseBurst);   // kiihtyy lennossa, tömähtää ja liukuu
                 heldEnemy = null;
             }
         }
@@ -4883,6 +4906,21 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     }
 
     float grabStartOffset, grabStartDepth;
+    bool comboThrowQueued;
+
+    /// Kombon heiton kohde: lähin juuri lyöty vihu, joka horjuu osumasta edessä.
+    Enemy ComboGrabTarget()
+    {
+        Enemy best = null; float bd = float.MaxValue;
+        foreach (var e in lastHitEnemies)
+        {
+            if (e == null || !e.ComboGrabbable) continue;
+            float dx = e.transform.position.x - transform.position.x;
+            if ((dx > 0f) != facingRight || Mathf.Abs(dx) > 2.4f || Mathf.Abs(e.transform.position.y - transform.position.y) > 0.6f) continue;
+            if (Mathf.Abs(dx) < bd) { bd = Mathf.Abs(dx); best = e; }
+        }
+        return best;
+    }
 
     static Vector3 CatmullRom(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t)
     {
@@ -5040,6 +5078,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         PlayGrunt();
         comboIndex = index;
         comboQueued = false;
+        comboThrowQueued = false;
         quickPunchActive = false;
         Enter(State.Punch);
         attackLunge = ChaseLunge(punchCombo[index].lunge, punchCombo[index].reach);

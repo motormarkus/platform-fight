@@ -118,7 +118,9 @@ public class GameMenu : MonoBehaviour
     {
         switch (page)
         {
-            case Page.Title: return new[] { "Aloita peli", Loc.T("Pelaajia") + ":  < " + (Players.CoopWanted ? 2 : 1) + " >", "Asetukset", "Tekijät", "Lopeta" };
+            case Page.Title:
+                if (SaveGame.Has) return new[] { "Jatka peliä", "Uusi peli", Loc.T("Pelaajia") + ":  < " + (Players.CoopWanted ? 2 : 1) + " >", "Asetukset", "Tekijät", "Lopeta" };
+                return new[] { "Aloita peli", Loc.T("Pelaajia") + ":  < " + (Players.CoopWanted ? 2 : 1) + " >", "Asetukset", "Tekijät", "Lopeta" };
             case Page.Character: return new[] { "Rocco", HeroineName(), "Takaisin" };
             case Page.Difficulty: return new[] { "Helppo", "Normaali", "Vaikea", "Takaisin" };
             case Page.Pause:
@@ -130,6 +132,7 @@ public class GameMenu : MonoBehaviour
                 if (Clues.Has(ShopCounter.SkateboardId) && pc0 != null && pc0.boardSprite != null && !pc0.Skating) list.Add("Ota rullalauta");
                 if (Clues.Has(CaveDarkness.TorchId) && CaveDarkness.InCave) list.Add(CaveDarkness.TorchLit ? "Sammuta soihtu" : "Sytytä soihtu");
                 if (Clues.All.Count > 0) list.Add("Tapauskansio");
+                if (SaveGame.Has) list.Add("Kentän alkuun");
                 list.AddRange(new[] { "Asetukset", "Aloita alusta", "Päävalikkoon", "Lopeta peli" });
                 return list.ToArray();
             }
@@ -197,7 +200,7 @@ public class GameMenu : MonoBehaviour
         if (dy != 0) sel = (sel + dy + items.Length) % items.Length;
         int dx = NavX();
         if (page == Page.Options && dx != 0 && optSection >= 0 && sel < SectionRows[optSection].Length) Adjust(SectionRows[optSection][sel], dx);
-        if (page == Page.Title && dx != 0 && sel == 1) Players.SetCoop(!Players.CoopWanted);
+        if (page == Page.Title && dx != 0 && sel == (SaveGame.Has ? 2 : 1)) Players.SetCoop(!Players.CoopWanted);
         if (page == Page.Character && dx != 0 && sel < 2) sel = 1 - sel;
         if (ConfirmPressed()) Choose(sel);
         else if (BackPressed())
@@ -252,6 +255,7 @@ public class GameMenu : MonoBehaviour
         switch (page)
         {
             case Page.Title:
+                if (SaveGame.Has) { if (i == 0) { open = false; SaveGame.Continue(); break; } i--; }   // "Jatka peliä" ensin, muut rivit siirtyvät yhdellä
                 if (i == 0) { page = Page.Character; sel = Mathf.Clamp(GameSettings.Character, 0, 1); }
                 else if (i == 1) Players.SetCoop(!Players.CoopWanted);   // 1 / 2 pelaajaa
                 else if (i == 2) { back = Page.Title; page = Page.Options; optSection = -1; sel = 0; }
@@ -294,6 +298,7 @@ public class GameMenu : MonoBehaviour
                 else if (lbl == "Sytytä soihtu" || lbl == "Sammuta soihtu") { CaveDarkness.TorchLit = lbl == "Sytytä soihtu"; Close(); }
                 else if (lbl == "Tapauskansio") { back = Page.Pause; page = Page.Case; sel = Mathf.Max(0, Clues.All.Count - 1); }
                 else if (lbl == "Asetukset") { back = Page.Pause; page = Page.Options; optSection = -1; sel = 0; }
+                else if (lbl == "Kentän alkuun") { open = false; SaveGame.Continue(); }
                 else if (lbl == "Aloita alusta") { SkipTitleOnce = true; Restart(); }
                 else if (lbl == "Päävalikkoon") Restart();
                 else { back = Page.Pause; page = Page.ConfirmQuit; sel = 1; }

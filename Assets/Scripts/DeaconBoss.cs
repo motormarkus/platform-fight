@@ -103,6 +103,10 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
     /// Kombon aikana tavalliset osumat eivät katkaise iskusarjaa.
     public bool ArmorNow => mode == Mode.Act && comboRunning && !dodging;
 
+    [Header("Areenan ottelu (RingMatch)")]
+    [Tooltip("Odottaa vuoroaan: seisoo paikallaan eikä herää.")]
+    public bool hold;
+
     void Awake()
     {
         e = GetComponent<Enemy>();
@@ -145,8 +149,19 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
     /// Enemy kutsuu tätä jokaisella ruudulla, kun se on perustilassa (ei osumaa, kaatumista tms.).
     public void Tick(float dt)
     {
-        var hero = e.Hero;
-        if (hero == null) return;
+        var hero = Foe.Of(e);
+        if (!hero.Valid) return;
+        if (hold)
+        {
+            // areenan ottelu: odottaa vuoroaan kehässä (ei sikaria, ei tervetulopuhetta)
+            if (mode >= Mode.Fight) { AbortAction(); mode = Mode.Dormant; }
+            e.IsAwake = false;
+            e.BrainPhaseSet(Enemy.BrainPhase.Idle);
+            e.FacingRight = hero.transform.position.x > transform.position.x;
+            animClock += dt;
+            CurrentSprite = Loop(idle, idleFrameTime);
+            return;
+        }
         if (Time.time - lastTick > 0.25f) AbortAction();   // väliin tuli osuma tms.: aiempi toiminta keskeytyi
         lastTick = Time.time;
         modeTime += dt;
@@ -196,12 +211,12 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
     /// Nurkkapurkaus (pomo ajettu nurkkaan): vimmattu sarja, jota ei voi keskeyttää.
     public void CornerBurst()
     {
-        if ((mode != Mode.Fight && mode != Mode.Act) || e.Hero == null) return;
+        if ((mode != Mode.Fight && mode != Mode.Act) || !Foe.Of(e).Valid) return;
         plan = new List<Step> { new Step(Kind.Jab), new Step(Kind.Jab), new Step(Kind.Cross), new Step(Kind.Jab), new Step(Kind.HookF), new Step(Kind.HookR), new Step(Kind.UpperR, true) };
         plan.RemoveAll(s => !CanDo(s.kind));
         if (plan.Count == 0) return;
         planPos = 0; reactivePlan = false; comboRunning = plan.Count > 1; fastStep = true; dodging = false;
-        StartStep(e.Hero);
+        StartStep(Foe.Of(e));
     }
 
     /// Enemy.TakeHit kutsuu tätä ensimmäisenä: true = isku ohi (väistö).
@@ -215,13 +230,13 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
         Kind[] ks = { Kind.DodgeCam, Kind.DodgeAway, Kind.Duck };
         plan = new List<Step> { new Step(ks[Random.Range(0, ks.Length)]) };
         planPos = 0; reactivePlan = true; comboRunning = false; fastStep = false;
-        StartStep(e.Hero);
+        StartStep(Foe.Of(e));
         return true;
     }
 
     // ---------------- intro ----------------
 
-    void IntroUpdate(PlayerController hero)
+    void IntroUpdate(Foe hero)
     {
         int i = Mathf.Min((int)(modeTime / introFrameTime), Mathf.Max(0, (intro != null ? intro.Length : 1) - 1));
         if (!Has(intro)) { StartFight(); return; }
@@ -229,7 +244,7 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
         if (!released && i >= introReleaseFrame)
         {
             released = true;
-            DeaconCigar.Spawn(transform.position + new Vector3(e.FacingRight ? 1.1f : -1.1f, 0f, 0f), 2.4f, hero, e, cigarDamage, cigarSpeed);
+            if (!hero.IsEnemy) DeaconCigar.Spawn(transform.position + new Vector3(e.FacingRight ? 1.1f : -1.1f, 0f, 0f), 2.4f, hero.hero, e, cigarDamage, cigarSpeed);
             if (cigarThrowSound != null && e.Audio != null) e.Audio.PlayOneShotLeveled(cigarThrowSound, cigarVolume);
         }
         if (i >= introEndFrame) StartFight();
@@ -246,7 +261,7 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
 
     // ---------------- taistelu ----------------
 
-    void FightUpdate(float dt, PlayerController hero)
+    void FightUpdate(float dt, Foe hero)
     {
         Vector3 me = transform.position, hp = hero.transform.position;
         float dx = hp.x - me.x, adx = Mathf.Abs(dx), dy = hp.y - me.y;
@@ -341,7 +356,7 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
 
     // ---------------- toiminnan suoritus ----------------
 
-    void StartStep(PlayerController hero)
+    void StartStep(Foe hero)
     {
         if (planPos >= plan.Count) { EndPlan(); return; }
         cur = plan[planPos];
@@ -369,7 +384,7 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
     }
     float prevLunge;
 
-    void ActUpdate(float dt, PlayerController hero)
+    void ActUpdate(float dt, Foe hero)
     {
         t += dt;
         Vector3 me = transform.position, hp = hero.transform.position;
@@ -430,9 +445,9 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
         }
     }
 
-    bool ComboTargetOk(PlayerController hero)
+    bool ComboTargetOk(Foe hero)
     {
-        if (hero == null || hero.IsFloored) return false;
+        if (!hero.Valid || hero.IsFloored) return false;
         Vector3 me = transform.position, hp = hero.transform.position;
         return Mathf.Abs(hp.x - me.x) < 3.4f && Mathf.Abs(hp.y - me.y) <= e.depthTolerance + 0.6f;
     }
@@ -454,7 +469,7 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
         decisionTimer = Mathf.Max(decisionTimer, 0.4f);
     }
 
-    void TryHit(PlayerController hero, Atk a)
+    void TryHit(Foe hero, Atk a)
     {
         Vector3 me = transform.position, hp = hero.transform.position;
         float dx = hp.x - me.x;
@@ -466,7 +481,7 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
         if (cur.finisher)
         {
             bool k = hero.TakeKnockdown(a.damage + finisherBonus, me.x, 4.5f, 5f, e);
-            if (k) { HitFx.Freeze(0.1f); CameraFollow.Shake(0.2f, 0.18f); }
+            if (k && !hero.IsEnemy) { HitFx.Freeze(0.1f); CameraFollow.Shake(0.2f, 0.18f); }
             return;
         }
         hero.TakeHit(a.damage, me.x, e, follow);

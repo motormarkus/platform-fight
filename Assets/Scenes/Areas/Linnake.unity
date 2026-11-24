@@ -1996,6 +1996,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -2490,6 +2491,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -10480,6 +10482,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -15023,6 +15026,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 2.4
@@ -15101,6 +15105,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -17711,7 +17716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8680bd71042773c4cb9b273ef7650a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
-  prompt: Mene ulos rannalle
+  prompt: Poistu baarista
   here: {fileID: 1044094397}
   target: {fileID: 947853212}
   targetName: 
@@ -17724,7 +17729,8 @@ MonoBehaviour:
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
-  confirmText: 
+  confirmText: "Poistutko baarista? Peli p\xE4\xE4ttyy ja lopputekstit alkavat."
+  endCredits: 1
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 2.4
@@ -22644,6 +22650,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -22876,6 +22883,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -23603,7 +23611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8680bd71042773c4cb9b273ef7650a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
-  prompt: Mene ulos rannalle
+  prompt: Poistu baarista
   here: {fileID: 1044094397}
   target: {fileID: 947853212}
   targetName: 
@@ -23616,7 +23624,8 @@ MonoBehaviour:
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
-  confirmText: 
+  confirmText: "Poistutko baarista? Peli p\xE4\xE4ttyy ja lopputekstit alkavat."
+  endCredits: 1
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 2.4
@@ -29469,6 +29478,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -35969,6 +35979,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 4
@@ -37492,6 +37503,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 'Pomohuone 1: avain'
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -39814,6 +39826,8 @@ MonoBehaviour:
   midAttackLandChance: 0.35
   reactCooldown: 0.5
   dodgeDepth: 1
+  knockSpamFactor: 0.45
+  knockSpamDecay: 2.5
 --- !u!114 &1461274343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47891,6 +47905,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -48333,6 +48348,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
@@ -49405,6 +49421,7 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  endCredits: 0
   requiredClue: 
   lockedClueText: Ovi on lukossa.
   halfWidth: 2.4
@@ -57416,6 +57433,8 @@ MonoBehaviour:
   midAttackLandChance: 0.35
   reactCooldown: 0.5
   dodgeDepth: 1
+  knockSpamFactor: 0.45
+  knockSpamDecay: 2.5
 --- !u!114 &2029520462
 MonoBehaviour:
   m_ObjectHideFlags: 0

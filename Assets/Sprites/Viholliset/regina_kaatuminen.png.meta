@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 561153ec13a44564d84803b9270c8492
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8809363097723019838
+    second: regina_kaatuminen_0
+  - first:
+      213: -206207520182760610
+    second: regina_kaatuminen_1
+  - first:
+      213: 5583661435263975650
+    second: regina_kaatuminen_2
+  - first:
+      213: -5554308875597746117
+    second: regina_kaatuminen_3
+  - first:
+      213: -7847686374876438225
+    second: regina_kaatuminen_4
+  - first:
+      213: -7531469233403945120
+    second: regina_kaatuminen_5
+  - first:
+      213: 6302551837310348691
+    second: regina_kaatuminen_6
+  - first:
+      213: -3180677211714474
+    second: regina_kaatuminen_7
+  - first:
+      213: 3539340087792363977
+    second: regina_kaatuminen_8
+  - first:
+      213: 5777512240087999321
+    second: regina_kaatuminen_9
+  - first:
+      213: 7282681889959436629
+    second: regina_kaatuminen_10
+  - first:
+      213: 5622371837681733941
+    second: regina_kaatuminen_11
+  - first:
+      213: 1862974306093517144
+    second: regina_kaatuminen_12
+  - first:
+      213: -8279943449435437076
+    second: regina_kaatuminen_13
+  - first:
+      213: -4633447689753628732
+    second: regina_kaatuminen_14
+  - first:
+      213: 3207531745944937844
+    second: regina_kaatuminen_15
+  - first:
+      213: -6747416709423317192
+    second: regina_kaatuminen_16
+  - first:
+      213: 8675722337715375046
+    second: regina_kaatuminen_17
+  - first:
+      213: -5755122560319146962
+    second: regina_kaatuminen_18
+  - first:
+      213: -7394029447835231546
+    second: regina_kaatuminen_19
+  - first:
+      213: 1851176304525942624
+    second: regina_kaatuminen_20
+  - first:
+      213: -8166171552322729686
+    second: regina_kaatuminen_21
+  - first:
+      213: -656008264438322519
+    second: regina_kaatuminen_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: regina_kaatuminen_0
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 5135
+        width: 433
+        height: 607
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cdd8c6cfeadeb580800000000000000
+      internalID: -8809363097723019838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_1
+      rect:
+        serializedVersion: 2
+        x: 1537
+        y: 5135
+        width: 450
+        height: 607
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b0e795a57632df0800000000000000
+      internalID: -206207520182760610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_2
+      rect:
+        serializedVersion: 2
+        x: 2681
+        y: 5135
+        width: 473
+        height: 609
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e005faed762d7d40800000000000000
+      internalID: 5583661435263975650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_3
+      rect:
+        serializedVersion: 2
+        x: 3823
+        y: 5135
+        width: 499
+        height: 609
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b30723171812be2b0800000000000000
+      internalID: -5554308875597746117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_4
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 4111
+        width: 522
+        height: 611
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2121d422da671390800000000000000
+      internalID: -7847686374876438225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_5
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 4111
+        width: 548
+        height: 630
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06f9c2ab2a8da7790800000000000000
+      internalID: -7531469233403945120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_6
+      rect:
+        serializedVersion: 2
+        x: 2624
+        y: 4111
+        width: 583
+        height: 647
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39d6e51f089277750800000000000000
+      internalID: 6302551837310348691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_7
+      rect:
+        serializedVersion: 2
+        x: 3772
+        y: 4111
+        width: 597
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65c86a0e033b4fff0800000000000000
+      internalID: -3180677211714474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_8
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 3089
+        width: 621
+        height: 614
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c9e920ce034e1130800000000000000
+      internalID: 3539340087792363977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_9
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 3089
+        width: 649
+        height: 621
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 953aae395c8dd2050800000000000000
+      internalID: 5777512240087999321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3089
+        width: 672
+        height: 609
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 551e337f798411560800000000000000
+      internalID: 7282681889959436629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_11
+      rect:
+        serializedVersion: 2
+        x: 3689
+        y: 3118
+        width: 711
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5311e24d56da60e40800000000000000
+      internalID: 5622371837681733941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_12
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 2185
+        width: 726
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 859426cc24d9ad910800000000000000
+      internalID: 1862974306093517144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_13
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 2147
+        width: 696
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce704104d4bb71d80800000000000000
+      internalID: -8279943449435437076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_14
+      rect:
+        serializedVersion: 2
+        x: 2521
+        y: 2094
+        width: 651
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cf61ee00efa2bfb0800000000000000
+      internalID: -4633447689753628732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_15
+      rect:
+        serializedVersion: 2
+        x: 3663
+        y: 2070
+        width: 672
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47526d2f021738c20800000000000000
+      internalID: 3207531745944937844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_16
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 1035
+        width: 717
+        height: 447
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83fb94b804c5c52a0800000000000000
+      internalID: -6747416709423317192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_17
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 1024
+        width: 761
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cb427d008b566870800000000000000
+      internalID: 8675722337715375046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_18
+      rect:
+        serializedVersion: 2
+        x: 2469
+        y: 1027
+        width: 832
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e243759f582b120b0800000000000000
+      internalID: -5755122560319146962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_19
+      rect:
+        serializedVersion: 2
+        x: 3626
+        y: 1027
+        width: 862
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cad0077461236990800000000000000
+      internalID: -7394029447835231546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_20
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 1
+        width: 881
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06f93ef7a03b0b910800000000000000
+      internalID: 1851176304525942624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_21
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 1
+        width: 895
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2947e84d3eebae80800000000000000
+      internalID: -8166171552322729686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: regina_kaatuminen_22
+      rect:
+        serializedVersion: 2
+        x: 2441
+        y: 0
+        width: 897
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aaee6c85f365e6f0800000000000000
+      internalID: -656008264438322519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      regina_kaatuminen_0: -8809363097723019838
+      regina_kaatuminen_1: -206207520182760610
+      regina_kaatuminen_10: 7282681889959436629
+      regina_kaatuminen_11: 5622371837681733941
+      regina_kaatuminen_12: 1862974306093517144
+      regina_kaatuminen_13: -8279943449435437076
+      regina_kaatuminen_14: -4633447689753628732
+      regina_kaatuminen_15: 3207531745944937844
+      regina_kaatuminen_16: -6747416709423317192
+      regina_kaatuminen_17: 8675722337715375046
+      regina_kaatuminen_18: -5755122560319146962
+      regina_kaatuminen_19: -7394029447835231546
+      regina_kaatuminen_2: 5583661435263975650
+      regina_kaatuminen_20: 1851176304525942624
+      regina_kaatuminen_21: -8166171552322729686
+      regina_kaatuminen_22: -656008264438322519
+      regina_kaatuminen_3: -5554308875597746117
+      regina_kaatuminen_4: -7847686374876438225
+      regina_kaatuminen_5: -7531469233403945120
+      regina_kaatuminen_6: 6302551837310348691
+      regina_kaatuminen_7: -3180677211714474
+      regina_kaatuminen_8: 3539340087792363977
+      regina_kaatuminen_9: 5777512240087999321
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

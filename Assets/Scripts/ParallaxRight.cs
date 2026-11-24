@@ -45,6 +45,6 @@ public sealed class ParallaxRight : MonoBehaviour
         float half = cam.orthographicSize * cam.aspect * Mathf.Max(1f, CameraFollow.ZoomMul);
         float center = x + (half - w * 0.5f) + factor * (endCamX - x);
         float y = transform.position.y, z = transform.position.z;
-        for (int i = 0; i < items.Length; i++) if (items[i] != null) items[i].transform.position = new Vector3(center - i * w, y, z);
+        for (int i = 0; i < items.Length; i++) if (items[i] != null) items[i].transform.position = new Vector3(center - i * (w - 0.02f), y, z);   // kopiot limittyvät hieman: ei saumaviivaa (float-tarkkuus suurilla x:illä)
     }
 }

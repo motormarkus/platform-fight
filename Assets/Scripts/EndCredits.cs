@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Lopputekstit: Total Fist -logo ylimpänä, sen alla "Pääosissa / Starring" ja kuva nimen vieressä, sitten pomot, viholliset ja muut hahmot, tilastot ja kiitos.
@@ -80,9 +81,9 @@ public sealed class EndCredits : MonoBehaviour
         new Cast(2, "Gestapo", "Gestapo", "Sprites/Viholliset/gestapo_idle.png"),
 
         new Cast(3, "Sohvi", "Sofie", "Sprites/Sohvi/sohvi_seisoo_idle.png"),
-        new Cast(3, "Sini", "Siny", "Resources/Sini/counter_00.png"),
+        new Cast(3, "Sini", "Siny", "Sprites/Lopputekstit/sini_pose.png"),
         new Cast(3, "Candy", "Candy", "Sprites/Candi/candi_0_00.png"),
-        new Cast(3, "Dina", "Dina", "Resources/Dina/counter_00.png"),
+        new Cast(3, "Dina", "Dina", "Sprites/Lopputekstit/dina_pose.png"),
         new Cast(3, "Mama", "Mama", "Sprites/Myyjat/mama_myyja_00.png"),
         new Cast(3, "Helvi", "Helga", "Sprites/Helvi/helvi_idle.png"),
         new Cast(3, "Pablo", "Pablo", "Sprites/Myyjat/pablo_idle_00.png"),
@@ -157,10 +158,13 @@ public sealed class EndCredits : MonoBehaviour
 
     void Update()
     {
-        float speed = 85f * (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.Space) ? 3f : 1f);
+        var kb = Keyboard.current; var gp = Gamepad.current;
+        bool fast = (kb != null && (kb.enterKey.isPressed || kb.spaceKey.isPressed)) || (gp != null && gp.buttonSouth.isPressed);
+        bool skip = (kb != null && (kb.enterKey.wasPressedThisFrame || kb.spaceKey.wasPressedThisFrame || kb.escapeKey.wasPressedThisFrame)) || (gp != null && (gp.buttonSouth.wasPressedThisFrame || gp.startButton.wasPressedThisFrame));
+        float speed = 85f * (fast ? 3f : 1f);
         if (Time.unscaledTime - startAt > 1.2f) scroll += speed * Time.unscaledDeltaTime;
         if (scroll > total && endAt < 0f) endAt = Time.unscaledTime;
-        if (endAt >= 0f && Time.unscaledTime - endAt > 2.5f && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape)))
+        if (endAt >= 0f && Time.unscaledTime - endAt > 2.5f && skip)
         {
             Time.timeScale = 1f; inst = null; SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

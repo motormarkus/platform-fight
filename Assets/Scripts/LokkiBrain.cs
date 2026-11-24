@@ -32,6 +32,12 @@ public class LokkiBrain : MongolBrain, IEnemyBrain, ICornerBurstBrain
     public int throwDamage = 26; public float throwSpeed = 9f, throwUp = 6f, grabReach = 3.6f;
     [Range(0f, 1f)] public float dodgeChance = 0.35f, blockChance = 0.25f, catchChance = 0.2f, landChance = 0.2f, counterAfterBlock = 0.75f, midAttackLandChance = 0.35f;
     public float reactCooldown = 0.5f, dodgeDepth = 1.0f;
+    [Header("Kaatavien iskujen spämmäys")]
+    [Tooltip("Jokainen peräkkäinen kaatava isku kertoo osumistodennäköisyyden tällä (0,45: 1. isku 80 %, 2. 36 %, 3. 16 %). Lokki lukee toistuvan iskun ja torjuu/väistää/ottaa kiinni.")]
+    [Range(0.1f, 1f)] public float knockSpamFactor = 0.45f;
+    [Tooltip("Kuinka nopeasti spämmilaskuri palautuu (s per isku): rauhallinen, vaihteleva tappelu pitää kaatavat iskut tehokkaina.")]
+    public float knockSpamDecay = 2.5f;
+    float knockSpam, lastKnockAt = -99f;
 
     enum R { None, Dodge, Block, Catch }
     R reaction; float reactT, reactLen, dodgeDirY, nextReactAt;
@@ -70,14 +76,41 @@ public class LokkiBrain : MongolBrain, IEnemyBrain, ICornerBurstBrain
         if (fleeing) return true;
         if (reaction != R.None && reactT < reactLen * 0.9f) return true;   // reaktion aikana ei osu
         if (finale && Enemy.ChainJuggle) return false;   // heron kombo käynnissä: Lokki ei väistä/torju/ota kiinni kesken sen (kombot menevät perille)
+        // isku selän takaa: Lokki ei näe sitä, joten ei väistöä, torjuntaa eikä kiinniottoa (isku osuu ja katkaisee oman liikkeen)
+        if (e != null && (attackerX > transform.position.x) != e.FacingRight && Mathf.Abs(attackerX - transform.position.x) > 0.25f) return knockdown && !landKnockdown;
         float lc = finale ? Mathf.Max(landChance, knockdown ? finaleKnockLand : 0.6f) : landChance, mlc = finale ? Mathf.Max(midAttackLandChance, knockdown ? finaleKnockLandMid : 0.8f) : midAttackLandChance;
+        if (knockdown)
+        {
+            // samaa kaatavaa iskua toistetaan: Lokki oppii sen ja torjuu (laskuri palautuu ajan myötä)
+            knockSpam = Mathf.Max(0f, knockSpam - (Time.time - lastKnockAt) / Mathf.Max(0.1f, knockSpamDecay));
+            lastKnockAt = Time.time;
+            float spamMul = Mathf.Pow(knockSpamFactor, knockSpam);
+            knockSpam += 1f;
+            lc *= spamMul; mlc *= spamMul;
+        }
         bool busy = cur != null || queue.Count > 0;
         if (busy) return (knockdown && !landKnockdown) || Random.value > mlc;   // hyökkäyksen aikana kevyt isku voi osua
-        if (Time.time < nextReactAt || e == null || e.Hero == null) return (knockdown && !landKnockdown) || Random.value > lc;
+        if (Time.time < nextReactAt || e == null || e.Hero == null)
+        {
+            bool miss = (knockdown && !landKnockdown) || Random.value > lc;
+            if (miss && knockdown && e != null && HasSprites(blockMove)) StartBlock();   // kaatava isku torjutaan näkyvästi (ei läpi menevää huti-iskua)
+            return miss;
+        }
         bool canCatch = HasSprites(knockdown ? (catchLeg ?? catchHand) : catchHand);
         float fs = finale ? 0.2f : 1f;   // lopputaistelu: väistö, torjunta ja kiinniotto harvinaisempia -> iskut menevät perille
         float dch = dodgeChance * fs, bch = blockChance * fs;
         float cc = canCatch ? catchChance * fs : 0f;
+        if (knockdown && landKnockdown)
+        {
+            // kaatava isku: ensin osuuko (lc, spämmäys pienentää), muuten väistö/torjunta/kiinniotto suhteessa
+            if (Random.value < lc) return false;
+            float rk = Random.value * (dch + bch + cc);
+            if (rk < dch && HasSprites(dodgeMove)) { StartDodge(); return true; }
+            rk -= dch;
+            if (rk >= bch && rk - bch < cc) { StartCatch(true); return true; }
+            if (HasSprites(blockMove)) StartBlock(); else if (HasSprites(dodgeMove)) StartDodge();
+            return true;
+        }
         float r = Random.value * (dch + bch + cc + lc);
         if (r < dch && HasSprites(dodgeMove)) { StartDodge(); return true; }
         r -= dch;

@@ -88,11 +88,18 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
         // kanveesiin lyöty Marcus nousee, kun hero lähtee kehästä (Enemy ei anna aivojen ajaa maassa ollessa, joten tämä tehdään täällä)
         if (e.SparKO && !heroInRing) e.SparReset();
         // sparraus-suoja (hero ei kuole) vain kun tappelu on käynnissä
-        PlayerController.Sparring = heroInRing && mode != Mode.Dormant && !e.SparKO;
+        SetHeroSparring(heroInRing && mode != Mode.Dormant && !e.SparKO);
     }
 
+    [Header("Areenan ottelu (RingMatch)")]
+    [Tooltip("Odottaa vuoroaan: seisoo paikallaan eikä herää.")]
+    public bool hold;
+    [Tooltip("Salin sparraus: aivo hoitaa heron sparraussuojan ja häviön (YOU LOSE). Areenalla RingMatch hoitaa ne.")]
+    public bool manageHeroSparring = true;
+    void SetHeroSparring(bool v) { if (manageHeroSparring) PlayerController.Sparring = v; }
+
     void OnEnable() { PlayerController.SparDefeated += OnHeroDefeated; }
-    void OnDisable() { PlayerController.SparDefeated -= OnHeroDefeated; PlayerController.Sparring = false; }
+    void OnDisable() { PlayerController.SparDefeated -= OnHeroDefeated; SetHeroSparring(false); }
 
     // ---------------- häviö: hero kaatuu, YOU LOSE, jatkuu kehän ulkopuolelta ----------------
     bool defeating;
@@ -100,7 +107,7 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
 
     void OnHeroDefeated(PlayerController hero)
     {
-        if (defeating || mode == Mode.Dormant || hero == null || !isActiveAndEnabled) return;
+        if (!manageHeroSparring || defeating || mode == Mode.Dormant || hero == null || !isActiveAndEnabled) return;
         defeating = true;
         ScreenFader.Host.StartCoroutine(DefeatRoutine(hero));
     }
@@ -109,7 +116,7 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
     {
         // Marcus rauhoittuu, hero kaatuu
         mode = Mode.Dormant; plan.Clear(); dodging = false; comboRunning = false; e.IsAwake = false;
-        PlayerController.Sparring = false;
+        SetHeroSparring(false);
         e.BrainPhaseSet(Enemy.BrainPhase.Idle);
         hero.SparKnockOut(transform.position.x);
         loseStart = Time.unscaledTime; loseUntil = Time.unscaledTime + 4.2f;
@@ -150,7 +157,7 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
         loseStyle.normal.textColor = new Color(0.95f, 0.15f, 0.12f, a);
         GUI.Label(r, "YOU LOSE", loseStyle);
     }
-    void OnDestroy() { PlayerController.Sparring = false; }
+    void OnDestroy() { SetHeroSparring(false); }
 
     void Add(Kind k, Sprite[] frames, int impact, float reach, float lunge, int damage)
     {
@@ -165,8 +172,18 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
     /// Enemy kutsuu tätä jokaisella ruudulla, kun se on perustilassa.
     public void Tick(float dt)
     {
-        var hero = e.Hero;
-        if (hero == null) return;
+        var hero = Foe.Of(e);
+        if (!hero.Valid) return;
+        if (hold)
+        {
+            // areenan ottelu: odottaa vuoroaan (kehässä paikallaan, ei herää heron lähestymisestä)
+            if (mode != Mode.Dormant) Rest();
+            e.IsAwake = false;
+            e.BrainPhaseSet(Enemy.BrainPhase.Idle);
+            e.FacingRight = hero.transform.position.x > transform.position.x;
+            CurrentSprite = Ping(idle, idleFrameTime);
+            return;
+        }
         if (Time.time - lastTick > 0.25f) AbortAction();   // väliin tuli osuma tms.
         lastTick = Time.time;
         animClock += dt;
@@ -180,21 +197,21 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
             e.IsAwake = false;
             e.BrainPhaseSet(Enemy.BrainPhase.Idle);
             CurrentSprite = Ping(idle, idleFrameTime);
-            PlayerController.Sparring = false;
+            SetHeroSparring(false);
             return;
         }
         if (mode == Mode.Dormant)
         {
             e.BrainPhaseSet(Enemy.BrainPhase.Idle);
             CurrentSprite = Ping(idle, idleFrameTime);
-            PlayerController.Sparring = false;
+            SetHeroSparring(false);
             bool near = Mathf.Abs(dx) <= wakeDistance && Mathf.Abs(hp.y - me.y) < 3f;
             if (e.IsAwake || near) { mode = Mode.Fight; e.IsAwake = true; decisionTimer = 0.6f; }
             else return;
         }
         // hero lähti kehästä (toinen alue tai kaukana): takaisin lepoon ja energia täyteen
         if (Mathf.Abs(dx) > 18f || Mathf.Abs(hp.y - me.y) > 6f) { Rest(); return; }
-        PlayerController.Sparring = true;
+        SetHeroSparring(true);
 
         if (mode == Mode.Fight) FightUpdate(dt, hero);
         else ActUpdate(dt, hero);
@@ -203,7 +220,7 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
     void Rest()
     {
         mode = Mode.Dormant; e.IsAwake = false; e.WarHeal(); plan.Clear(); dodging = false; comboRunning = false;
-        PlayerController.Sparring = false;
+        SetHeroSparring(false);
         e.BrainPhaseSet(Enemy.BrainPhase.Idle);
     }
 
@@ -218,11 +235,12 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
     {
         if (mode == Mode.Act && dodging && t < dodgeLen * 0.85f) return true;   // väistön aikana ei osu
         // osumaputki: hero hakkaa jatkuvasti -> väistö ja vastasarja (toimii myös osumatilasta)
-        if (mode != Mode.Dormant && e.Hero != null)
+        var foe = Foe.Of(e);
+        if (mode != Mode.Dormant && foe.Valid)
         {
             float now = Time.time;
             hitTimes.Add(now); hitTimes.RemoveAll(x => now - x > 1.1f);
-            if (hitTimes.Count >= 3 && now >= nextBreakerTime && Has(dodge) && !knockdown && Mathf.Abs(e.Hero.transform.position.x - transform.position.x) < 4f)
+            if (hitTimes.Count >= 3 && now >= nextBreakerTime && Has(dodge) && !knockdown && Mathf.Abs(foe.transform.position.x - transform.position.x) < 4f)
             {
                 nextBreakerTime = now + breakerCooldown; hitTimes.Clear();
                 plan = new List<Step> { new Step(Kind.Dodge) };
@@ -230,7 +248,7 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
                 if (atks.ContainsKey(Kind.Hook)) plan.Add(new Step(Kind.Hook, true));
                 planPos = 0; comboRunning = plan.Count > 1; fastStep = false;
                 lastTick = now;   // muuten seuraava Tick luulee toiminnan keskeytyneen
-                StartStep(e.Hero);
+                StartStep(foe);
                 return true;
             }
         }
@@ -241,13 +259,13 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
         plan = new List<Step> { new Step(Kind.Dodge) };
         if (Random.value < counterAfterDodge) plan.Add(new Step(Random.value < 0.5f ? Kind.Cross : Kind.Jab));
         planPos = 0; comboRunning = false; fastStep = false;
-        StartStep(e.Hero);
+        StartStep(foe);
         return true;
     }
 
     // ---------------- taistelu ----------------
 
-    void FightUpdate(float dt, PlayerController hero)
+    void FightUpdate(float dt, Foe hero)
     {
         Vector3 me = transform.position, hp = hero.transform.position;
         float dx = hp.x - me.x, adx = Mathf.Abs(dx), dy = hp.y - me.y;
@@ -318,7 +336,7 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
 
     // ---------------- toiminnan suoritus ----------------
 
-    void StartStep(PlayerController hero)
+    void StartStep(Foe hero)
     {
         if (planPos >= plan.Count) { EndPlan(); return; }
         cur = plan[planPos];
@@ -341,7 +359,7 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
         prevLunge = a.lunge * (prevWasDodge ? 1.5f : 1f);
     }
 
-    void ActUpdate(float dt, PlayerController hero)
+    void ActUpdate(float dt, Foe hero)
     {
         t += dt;
         Vector3 me = transform.position, hp = hero.transform.position;
@@ -383,9 +401,9 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
         }
     }
 
-    bool ComboTargetOk(PlayerController hero)
+    bool ComboTargetOk(Foe hero)
     {
-        if (hero == null || hero.IsFloored) return false;
+        if (!hero.Valid || hero.IsFloored) return false;
         Vector3 me = transform.position, hp = hero.transform.position;
         return Mathf.Abs(hp.x - me.x) < 3.4f && Mathf.Abs(hp.y - me.y) <= e.depthTolerance + 0.6f;
     }
@@ -407,7 +425,7 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
         decisionTimer = Mathf.Max(decisionTimer, 0.15f);
     }
 
-    void TryHit(PlayerController hero, Atk a)
+    void TryHit(Foe hero, Atk a)
     {
         Vector3 me = transform.position, hp = hero.transform.position;
         float dx = hp.x - me.x;

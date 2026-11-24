@@ -62,3 +62,19 @@ public static partial class BeatEmUpSetup
         finally { if (opened && sc.IsValid()) EditorSceneManager.CloseScene(sc, true); }
     }
 }
+
+public static partial class BeatEmUpSetup
+{
+    /// Komentorivi: 427 (lopputekstien muotokuvat + baarin ovet), 428 (Aurora), 426 (aloitus hytistä).
+    public static void RunCreditsAuroraCabinBatch()
+    {
+        batch = true;
+        try
+        {
+            Step("427 lopputekstit", CreditsPortraits.RunBatch);
+            Step("428 Aurora", UpdateAuroraSheets);
+            Step("426 aloitus hytistä", StartAtShipCabin);
+        }
+        finally { batch = false; }
+    }
+}

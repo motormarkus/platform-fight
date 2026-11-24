@@ -23,7 +23,7 @@ public sealed class EscapePod : MonoBehaviour
         released = true; if (who != null) who.BullHidden = false;
         foreach (var r in hidden) if (r != null) r.enabled = true;
         hidden.Clear();
-        if (who != null) { who.Scripted = false; who.ScriptedMove = Vector2.zero; who.GrantInvulnerable(1.5f); }
+        if (who != null) { who.Scripted = false; who.ScriptedMove = Vector2.zero; who.SetInvulnerable(1.5f); }   // kapselin 30 s suoja pois: muuten hero vilkkuisi rannalla
         return who;
     }
 
