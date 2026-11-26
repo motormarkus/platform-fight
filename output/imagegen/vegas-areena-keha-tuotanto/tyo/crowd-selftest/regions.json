@@ -1,0 +1,58 @@
+{
+  "canvasWidth": 300,
+  "canvasHeight": 120,
+  "people": [
+    {
+      "id": "test0",
+      "regions": [
+        {
+          "amplitudeX": 1.5,
+          "ellipse": [
+            50,
+            44,
+            14,
+            19
+          ],
+          "kind": "head",
+          "feather": 4,
+          "amplitudeY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "test1",
+      "regions": [
+        {
+          "amplitudeX": 1.5,
+          "ellipse": [
+            150,
+            44,
+            14,
+            19
+          ],
+          "kind": "head",
+          "feather": 4,
+          "amplitudeY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "test2",
+      "regions": [
+        {
+          "amplitudeX": 1.5,
+          "ellipse": [
+            250,
+            44,
+            14,
+            19
+          ],
+          "kind": "head",
+          "feather": 4,
+          "amplitudeY": 1.5
+        }
+      ]
+    }
+  ],
+  "excludePolygons": []
+}

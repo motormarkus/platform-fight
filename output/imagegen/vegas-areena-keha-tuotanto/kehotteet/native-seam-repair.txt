@@ -1,0 +1,11 @@
+Precise seamless-joint repair on an ALREADY NATIVE1536x1024 game-art crop. Keep actual1536x1024 output size, framing and object positions exactly. No resizing.
+
+The source is finished hand-painted arcade arena artwork, but has a conspicuous JAGGED VERTICAL COLOR/GEOMETRY STITCH near x730, through the dark marble spectator barrier and the foreground floor. Repair this local join into ONE continuous painted surface.
+
+ONLY edit the lower barrier and emptyfloor, below the main foreground horizontal brass rail at y380:
+- Make the dark marble panels below that rail a coherent material, matching texture scale, illumination and continuous gold moldings. The lower thin brass skirting around y550 must be a straight, clean unbroken horizontal molding without a diagonal bite, nick, color step or doubled edge where it crosses x730.
+- The entire warm dark stone floor below approximately y580 must have continuous coherent painted grain and smoothly varying amber light reflections. Remove the wavy dark/red vertical boundary at x730 completely. No rectangular correction patch, band, blurstripe, strong new reflectedlight or new floor pattern. Match naturalillumination on BOTH far edges, not an abrupt global recoloring.
+- Preserve every chair, person, hand, face, upperbody, goldfronttoprail, verticalendpost atx1070, foldingchair/tableonright and ringsteps atfarright exactly where they are. No new geometry, objects or words. Do not straighten or move the entirescene.
+- Preserve the outermost15% on the left and right, so this repaired1536x1024patch canbe compositedinto the approved larger nativepanorama.
+
+Same crisp paintedgrain, confidence outlinedarchitecture andsourcepalette. Keep all high-resolution detail native and avoid smoothing away texture. Output only the corrected native1536x1024crop.

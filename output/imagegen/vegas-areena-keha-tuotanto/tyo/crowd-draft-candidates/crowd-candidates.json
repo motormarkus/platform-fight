@@ -1,0 +1,3447 @@
+{
+  "source": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-panoraama-luonnos-v2\\panoraama-luonnos-v2.png",
+  "canvasWidth": 6129,
+  "canvasHeight": 770,
+  "warning": "Skin-tone candidates only, not a semantic people mask. Inspect every accepted ellipse. Never accept unreviewed furniture, gold trim or posters.",
+  "candidates": [
+    {
+      "id": "candidate001",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        161,
+        94,
+        31,
+        36
+      ],
+      "skinPixels": 497,
+      "fillRatio": 0.4453405017921147,
+      "ellipse": [
+        176.5,
+        112.0,
+        11.47,
+        13.68
+      ]
+    },
+    {
+      "id": "candidate002",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1211,
+        119,
+        23,
+        24
+      ],
+      "skinPixels": 244,
+      "fillRatio": 0.4420289855072464,
+      "ellipse": [
+        1222.5,
+        131.0,
+        8.51,
+        9.120000000000001
+      ]
+    },
+    {
+      "id": "candidate003",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        6083,
+        92,
+        46,
+        79
+      ],
+      "skinPixels": 1341,
+      "fillRatio": 0.3690148596587782,
+      "ellipse": [
+        6106.0,
+        131.5,
+        17.02,
+        30.02
+      ]
+    },
+    {
+      "id": "candidate004",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        39,
+        159,
+        44,
+        88
+      ],
+      "skinPixels": 2312,
+      "fillRatio": 0.5971074380165289,
+      "ellipse": [
+        61.0,
+        203.0,
+        16.28,
+        33.44
+      ]
+    },
+    {
+      "id": "candidate005",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        144,
+        207,
+        44,
+        48
+      ],
+      "skinPixels": 1063,
+      "fillRatio": 0.5033143939393939,
+      "ellipse": [
+        166.0,
+        231.0,
+        16.28,
+        18.240000000000002
+      ]
+    },
+    {
+      "id": "candidate006",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        353,
+        193,
+        25,
+        49
+      ],
+      "skinPixels": 752,
+      "fillRatio": 0.6138775510204082,
+      "ellipse": [
+        365.5,
+        217.5,
+        9.25,
+        18.62
+      ]
+    },
+    {
+      "id": "candidate007",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        576,
+        193,
+        25,
+        36
+      ],
+      "skinPixels": 575,
+      "fillRatio": 0.6388888888888888,
+      "ellipse": [
+        588.5,
+        211.0,
+        9.25,
+        13.68
+      ]
+    },
+    {
+      "id": "candidate008",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        744,
+        206,
+        26,
+        40
+      ],
+      "skinPixels": 550,
+      "fillRatio": 0.5288461538461539,
+      "ellipse": [
+        757.0,
+        226.0,
+        9.62,
+        15.2
+      ]
+    },
+    {
+      "id": "candidate009",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1049,
+        196,
+        39,
+        47
+      ],
+      "skinPixels": 1090,
+      "fillRatio": 0.5946535733769777,
+      "ellipse": [
+        1068.5,
+        219.5,
+        14.43,
+        17.86
+      ]
+    },
+    {
+      "id": "candidate010",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1576,
+        203,
+        25,
+        38
+      ],
+      "skinPixels": 637,
+      "fillRatio": 0.6705263157894736,
+      "ellipse": [
+        1588.5,
+        222.0,
+        9.25,
+        14.44
+      ]
+    },
+    {
+      "id": "candidate011",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1866,
+        169,
+        24,
+        20
+      ],
+      "skinPixels": 213,
+      "fillRatio": 0.44375,
+      "ellipse": [
+        1878.0,
+        179.0,
+        8.879999999999999,
+        7.6
+      ]
+    },
+    {
+      "id": "candidate012",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2276,
+        158,
+        22,
+        30
+      ],
+      "skinPixels": 352,
+      "fillRatio": 0.5333333333333333,
+      "ellipse": [
+        2287.0,
+        173.0,
+        8.14,
+        11.4
+      ]
+    },
+    {
+      "id": "candidate013",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2389,
+        205,
+        42,
+        34
+      ],
+      "skinPixels": 795,
+      "fillRatio": 0.5567226890756303,
+      "ellipse": [
+        2410.0,
+        222.0,
+        15.54,
+        12.92
+      ]
+    },
+    {
+      "id": "candidate014",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2412,
+        172,
+        18,
+        29
+      ],
+      "skinPixels": 243,
+      "fillRatio": 0.46551724137931033,
+      "ellipse": [
+        2421.0,
+        186.5,
+        6.66,
+        11.02
+      ]
+    },
+    {
+      "id": "candidate015",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2519,
+        207,
+        39,
+        33
+      ],
+      "skinPixels": 424,
+      "fillRatio": 0.32944832944832947,
+      "ellipse": [
+        2538.5,
+        223.5,
+        14.43,
+        12.540000000000001
+      ]
+    },
+    {
+      "id": "candidate016",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2623,
+        162,
+        30,
+        37
+      ],
+      "skinPixels": 637,
+      "fillRatio": 0.5738738738738739,
+      "ellipse": [
+        2638.0,
+        180.5,
+        11.1,
+        14.06
+      ]
+    },
+    {
+      "id": "candidate017",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2627,
+        194,
+        30,
+        45
+      ],
+      "skinPixels": 422,
+      "fillRatio": 0.3125925925925926,
+      "ellipse": [
+        2642.0,
+        216.5,
+        11.1,
+        17.1
+      ]
+    },
+    {
+      "id": "candidate018",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2927,
+        174,
+        16,
+        26
+      ],
+      "skinPixels": 215,
+      "fillRatio": 0.5168269230769231,
+      "ellipse": [
+        2935.0,
+        187.0,
+        5.92,
+        9.88
+      ]
+    },
+    {
+      "id": "candidate019",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3041,
+        175,
+        22,
+        23
+      ],
+      "skinPixels": 189,
+      "fillRatio": 0.37351778656126483,
+      "ellipse": [
+        3052.0,
+        186.5,
+        8.14,
+        8.74
+      ]
+    },
+    {
+      "id": "candidate020",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3258,
+        169,
+        16,
+        30
+      ],
+      "skinPixels": 245,
+      "fillRatio": 0.5104166666666666,
+      "ellipse": [
+        3266.0,
+        184.0,
+        5.92,
+        11.4
+      ]
+    },
+    {
+      "id": "candidate021",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3396,
+        154,
+        30,
+        39
+      ],
+      "skinPixels": 673,
+      "fillRatio": 0.5752136752136752,
+      "ellipse": [
+        3411.0,
+        173.5,
+        11.1,
+        14.82
+      ]
+    },
+    {
+      "id": "candidate022",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3549,
+        168,
+        19,
+        31
+      ],
+      "skinPixels": 260,
+      "fillRatio": 0.44142614601018676,
+      "ellipse": [
+        3558.5,
+        183.5,
+        7.03,
+        11.78
+      ]
+    },
+    {
+      "id": "candidate023",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3632,
+        185,
+        46,
+        54
+      ],
+      "skinPixels": 1466,
+      "fillRatio": 0.5901771336553945,
+      "ellipse": [
+        3655.0,
+        212.0,
+        17.02,
+        20.52
+      ]
+    },
+    {
+      "id": "candidate024",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3694,
+        189,
+        61,
+        75
+      ],
+      "skinPixels": 1463,
+      "fillRatio": 0.3197814207650273,
+      "ellipse": [
+        3724.5,
+        226.5,
+        22.57,
+        28.5
+      ]
+    },
+    {
+      "id": "candidate025",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3786,
+        191,
+        54,
+        48
+      ],
+      "skinPixels": 1537,
+      "fillRatio": 0.5929783950617284,
+      "ellipse": [
+        3813.0,
+        215.0,
+        19.98,
+        18.240000000000002
+      ]
+    },
+    {
+      "id": "candidate026",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3819,
+        159,
+        38,
+        34
+      ],
+      "skinPixels": 530,
+      "fillRatio": 0.4102167182662539,
+      "ellipse": [
+        3838.0,
+        176.0,
+        14.06,
+        12.92
+      ]
+    },
+    {
+      "id": "candidate027",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3834,
+        191,
+        38,
+        52
+      ],
+      "skinPixels": 811,
+      "fillRatio": 0.4104251012145749,
+      "ellipse": [
+        3853.0,
+        217.0,
+        14.06,
+        19.76
+      ]
+    },
+    {
+      "id": "candidate028",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3868,
+        151,
+        29,
+        62
+      ],
+      "skinPixels": 817,
+      "fillRatio": 0.45439377085650723,
+      "ellipse": [
+        3882.5,
+        182.0,
+        10.73,
+        23.56
+      ]
+    },
+    {
+      "id": "candidate029",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3982,
+        202,
+        72,
+        101
+      ],
+      "skinPixels": 1624,
+      "fillRatio": 0.22332233223322331,
+      "ellipse": [
+        4018.0,
+        252.5,
+        26.64,
+        38.38
+      ]
+    },
+    {
+      "id": "candidate030",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3987,
+        175,
+        20,
+        29
+      ],
+      "skinPixels": 280,
+      "fillRatio": 0.4827586206896552,
+      "ellipse": [
+        3997.0,
+        189.5,
+        7.4,
+        11.02
+      ]
+    },
+    {
+      "id": "candidate031",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4161,
+        175,
+        20,
+        30
+      ],
+      "skinPixels": 285,
+      "fillRatio": 0.475,
+      "ellipse": [
+        4171.0,
+        190.0,
+        7.4,
+        11.4
+      ]
+    },
+    {
+      "id": "candidate032",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4284,
+        166,
+        30,
+        31
+      ],
+      "skinPixels": 447,
+      "fillRatio": 0.4806451612903226,
+      "ellipse": [
+        4299.0,
+        181.5,
+        11.1,
+        11.78
+      ]
+    },
+    {
+      "id": "candidate033",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4561,
+        207,
+        17,
+        27
+      ],
+      "skinPixels": 192,
+      "fillRatio": 0.41830065359477125,
+      "ellipse": [
+        4569.5,
+        220.5,
+        6.29,
+        10.26
+      ]
+    },
+    {
+      "id": "candidate034",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4574,
+        200,
+        37,
+        38
+      ],
+      "skinPixels": 560,
+      "fillRatio": 0.39829302987197723,
+      "ellipse": [
+        4592.5,
+        219.0,
+        13.69,
+        14.44
+      ]
+    },
+    {
+      "id": "candidate035",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4582,
+        172,
+        19,
+        27
+      ],
+      "skinPixels": 234,
+      "fillRatio": 0.45614035087719296,
+      "ellipse": [
+        4591.5,
+        185.5,
+        7.03,
+        10.26
+      ]
+    },
+    {
+      "id": "candidate036",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4674,
+        163,
+        49,
+        78
+      ],
+      "skinPixels": 2090,
+      "fillRatio": 0.5468341182626897,
+      "ellipse": [
+        4698.5,
+        202.0,
+        18.13,
+        29.64
+      ]
+    },
+    {
+      "id": "candidate037",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4717,
+        193,
+        51,
+        60
+      ],
+      "skinPixels": 785,
+      "fillRatio": 0.2565359477124183,
+      "ellipse": [
+        4742.5,
+        223.0,
+        18.87,
+        22.8
+      ]
+    },
+    {
+      "id": "candidate038",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4862,
+        167,
+        33,
+        47
+      ],
+      "skinPixels": 386,
+      "fillRatio": 0.2488716956802063,
+      "ellipse": [
+        4878.5,
+        190.5,
+        12.209999999999999,
+        17.86
+      ]
+    },
+    {
+      "id": "candidate039",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4964,
+        175,
+        19,
+        27
+      ],
+      "skinPixels": 252,
+      "fillRatio": 0.49122807017543857,
+      "ellipse": [
+        4973.5,
+        188.5,
+        7.03,
+        10.26
+      ]
+    },
+    {
+      "id": "candidate040",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5065,
+        193,
+        60,
+        45
+      ],
+      "skinPixels": 1490,
+      "fillRatio": 0.5518518518518518,
+      "ellipse": [
+        5095.0,
+        215.5,
+        22.2,
+        17.1
+      ]
+    },
+    {
+      "id": "candidate041",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5084,
+        160,
+        30,
+        39
+      ],
+      "skinPixels": 649,
+      "fillRatio": 0.5547008547008547,
+      "ellipse": [
+        5099.0,
+        179.5,
+        11.1,
+        14.82
+      ]
+    },
+    {
+      "id": "candidate042",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5231,
+        209,
+        20,
+        20
+      ],
+      "skinPixels": 186,
+      "fillRatio": 0.465,
+      "ellipse": [
+        5241.0,
+        219.0,
+        7.4,
+        7.6
+      ]
+    },
+    {
+      "id": "candidate043",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5367,
+        184,
+        20,
+        25
+      ],
+      "skinPixels": 291,
+      "fillRatio": 0.582,
+      "ellipse": [
+        5377.0,
+        196.5,
+        7.4,
+        9.5
+      ]
+    },
+    {
+      "id": "candidate044",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5452,
+        195,
+        37,
+        33
+      ],
+      "skinPixels": 249,
+      "fillRatio": 0.20393120393120392,
+      "ellipse": [
+        5470.5,
+        211.5,
+        13.69,
+        12.540000000000001
+      ]
+    },
+    {
+      "id": "candidate045",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5493,
+        172,
+        24,
+        28
+      ],
+      "skinPixels": 342,
+      "fillRatio": 0.5089285714285714,
+      "ellipse": [
+        5505.0,
+        186.0,
+        8.879999999999999,
+        10.64
+      ]
+    },
+    {
+      "id": "candidate046",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5543,
+        199,
+        15,
+        27
+      ],
+      "skinPixels": 222,
+      "fillRatio": 0.5481481481481482,
+      "ellipse": [
+        5550.5,
+        212.5,
+        5.55,
+        10.26
+      ]
+    },
+    {
+      "id": "candidate047",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5608,
+        168,
+        35,
+        39
+      ],
+      "skinPixels": 372,
+      "fillRatio": 0.2725274725274725,
+      "ellipse": [
+        5625.5,
+        187.5,
+        12.95,
+        14.82
+      ]
+    },
+    {
+      "id": "candidate048",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5623,
+        176,
+        19,
+        29
+      ],
+      "skinPixels": 326,
+      "fillRatio": 0.5916515426497277,
+      "ellipse": [
+        5632.5,
+        190.5,
+        7.03,
+        11.02
+      ]
+    },
+    {
+      "id": "candidate049",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5718,
+        162,
+        62,
+        72
+      ],
+      "skinPixels": 1943,
+      "fillRatio": 0.4352598566308244,
+      "ellipse": [
+        5749.0,
+        198.0,
+        22.94,
+        27.36
+      ]
+    },
+    {
+      "id": "candidate050",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        186,
+        210,
+        45,
+        42
+      ],
+      "skinPixels": 474,
+      "fillRatio": 0.2507936507936508,
+      "ellipse": [
+        208.5,
+        231.0,
+        16.65,
+        15.96
+      ]
+    },
+    {
+      "id": "candidate051",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        267,
+        221,
+        62,
+        44
+      ],
+      "skinPixels": 1484,
+      "fillRatio": 0.5439882697947214,
+      "ellipse": [
+        298.0,
+        243.0,
+        22.94,
+        16.72
+      ]
+    },
+    {
+      "id": "candidate052",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        718,
+        242,
+        66,
+        55
+      ],
+      "skinPixels": 2226,
+      "fillRatio": 0.6132231404958678,
+      "ellipse": [
+        751.0,
+        269.5,
+        24.419999999999998,
+        20.9
+      ]
+    },
+    {
+      "id": "candidate053",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        896,
+        216,
+        45,
+        42
+      ],
+      "skinPixels": 632,
+      "fillRatio": 0.3343915343915344,
+      "ellipse": [
+        918.5,
+        237.0,
+        16.65,
+        15.96
+      ]
+    },
+    {
+      "id": "candidate054",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1042,
+        251,
+        25,
+        36
+      ],
+      "skinPixels": 246,
+      "fillRatio": 0.2733333333333333,
+      "ellipse": [
+        1054.5,
+        269.0,
+        9.25,
+        13.68
+      ]
+    },
+    {
+      "id": "candidate055",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1055,
+        238,
+        41,
+        58
+      ],
+      "skinPixels": 913,
+      "fillRatio": 0.38393608074011776,
+      "ellipse": [
+        1075.5,
+        267.0,
+        15.17,
+        22.04
+      ]
+    },
+    {
+      "id": "candidate056",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1076,
+        238,
+        27,
+        34
+      ],
+      "skinPixels": 324,
+      "fillRatio": 0.35294117647058826,
+      "ellipse": [
+        1089.5,
+        255.0,
+        9.99,
+        12.92
+      ]
+    },
+    {
+      "id": "candidate057",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1410,
+        257,
+        30,
+        23
+      ],
+      "skinPixels": 365,
+      "fillRatio": 0.5289855072463768,
+      "ellipse": [
+        1425.0,
+        268.5,
+        11.1,
+        8.74
+      ]
+    },
+    {
+      "id": "candidate058",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1418,
+        211,
+        24,
+        36
+      ],
+      "skinPixels": 450,
+      "fillRatio": 0.5208333333333334,
+      "ellipse": [
+        1430.0,
+        229.0,
+        8.879999999999999,
+        13.68
+      ]
+    },
+    {
+      "id": "candidate059",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1590,
+        242,
+        30,
+        37
+      ],
+      "skinPixels": 407,
+      "fillRatio": 0.36666666666666664,
+      "ellipse": [
+        1605.0,
+        260.5,
+        11.1,
+        14.06
+      ]
+    },
+    {
+      "id": "candidate060",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2042,
+        256,
+        63,
+        58
+      ],
+      "skinPixels": 1962,
+      "fillRatio": 0.5369458128078818,
+      "ellipse": [
+        2073.5,
+        285.0,
+        23.31,
+        22.04
+      ]
+    },
+    {
+      "id": "candidate061",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2079,
+        225,
+        67,
+        88
+      ],
+      "skinPixels": 1846,
+      "fillRatio": 0.3130936227951153,
+      "ellipse": [
+        2112.5,
+        269.0,
+        24.79,
+        33.44
+      ]
+    },
+    {
+      "id": "candidate062",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2250,
+        260,
+        38,
+        46
+      ],
+      "skinPixels": 1048,
+      "fillRatio": 0.5995423340961098,
+      "ellipse": [
+        2269.0,
+        283.0,
+        14.06,
+        17.48
+      ]
+    },
+    {
+      "id": "candidate063",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2300,
+        251,
+        24,
+        50
+      ],
+      "skinPixels": 272,
+      "fillRatio": 0.22666666666666666,
+      "ellipse": [
+        2312.0,
+        276.0,
+        8.879999999999999,
+        19.0
+      ]
+    },
+    {
+      "id": "candidate064",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2311,
+        231,
+        24,
+        33
+      ],
+      "skinPixels": 380,
+      "fillRatio": 0.4797979797979798,
+      "ellipse": [
+        2323.0,
+        247.5,
+        8.879999999999999,
+        12.540000000000001
+      ]
+    },
+    {
+      "id": "candidate065",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2340,
+        264,
+        39,
+        36
+      ],
+      "skinPixels": 925,
+      "fillRatio": 0.6588319088319088,
+      "ellipse": [
+        2359.5,
+        282.0,
+        14.43,
+        13.68
+      ]
+    },
+    {
+      "id": "candidate066",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2600,
+        238,
+        22,
+        18
+      ],
+      "skinPixels": 198,
+      "fillRatio": 0.5,
+      "ellipse": [
+        2611.0,
+        247.0,
+        8.14,
+        6.84
+      ]
+    },
+    {
+      "id": "candidate067",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2730,
+        226,
+        32,
+        28
+      ],
+      "skinPixels": 225,
+      "fillRatio": 0.25111607142857145,
+      "ellipse": [
+        2746.0,
+        240.0,
+        11.84,
+        10.64
+      ]
+    },
+    {
+      "id": "candidate068",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2969,
+        246,
+        63,
+        58
+      ],
+      "skinPixels": 1872,
+      "fillRatio": 0.5123152709359606,
+      "ellipse": [
+        3000.5,
+        275.0,
+        23.31,
+        22.04
+      ]
+    },
+    {
+      "id": "candidate069",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3029,
+        273,
+        30,
+        31
+      ],
+      "skinPixels": 412,
+      "fillRatio": 0.443010752688172,
+      "ellipse": [
+        3044.0,
+        288.5,
+        11.1,
+        11.78
+      ]
+    },
+    {
+      "id": "candidate070",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3098,
+        269,
+        25,
+        34
+      ],
+      "skinPixels": 353,
+      "fillRatio": 0.4152941176470588,
+      "ellipse": [
+        3110.5,
+        286.0,
+        9.25,
+        12.92
+      ]
+    },
+    {
+      "id": "candidate071",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3122,
+        267,
+        36,
+        36
+      ],
+      "skinPixels": 640,
+      "fillRatio": 0.49382716049382713,
+      "ellipse": [
+        3140.0,
+        285.0,
+        13.32,
+        13.68
+      ]
+    },
+    {
+      "id": "candidate072",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3137,
+        235,
+        20,
+        31
+      ],
+      "skinPixels": 354,
+      "fillRatio": 0.5709677419354838,
+      "ellipse": [
+        3147.0,
+        250.5,
+        7.4,
+        11.78
+      ]
+    },
+    {
+      "id": "candidate073",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3152,
+        269,
+        36,
+        34
+      ],
+      "skinPixels": 393,
+      "fillRatio": 0.32107843137254904,
+      "ellipse": [
+        3170.0,
+        286.0,
+        13.32,
+        12.92
+      ]
+    },
+    {
+      "id": "candidate074",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3435,
+        260,
+        52,
+        44
+      ],
+      "skinPixels": 1072,
+      "fillRatio": 0.46853146853146854,
+      "ellipse": [
+        3461.0,
+        282.0,
+        19.24,
+        16.72
+      ]
+    },
+    {
+      "id": "candidate075",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3455,
+        235,
+        17,
+        29
+      ],
+      "skinPixels": 234,
+      "fillRatio": 0.4746450304259635,
+      "ellipse": [
+        3463.5,
+        249.5,
+        6.29,
+        11.02
+      ]
+    },
+    {
+      "id": "candidate076",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3582,
+        234,
+        22,
+        29
+      ],
+      "skinPixels": 295,
+      "fillRatio": 0.46238244514106586,
+      "ellipse": [
+        3593.0,
+        248.5,
+        8.14,
+        11.02
+      ]
+    },
+    {
+      "id": "candidate077",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3688,
+        255,
+        58,
+        49
+      ],
+      "skinPixels": 1463,
+      "fillRatio": 0.5147783251231527,
+      "ellipse": [
+        3717.0,
+        279.5,
+        21.46,
+        18.62
+      ]
+    },
+    {
+      "id": "candidate078",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3746,
+        266,
+        27,
+        37
+      ],
+      "skinPixels": 371,
+      "fillRatio": 0.3713713713713714,
+      "ellipse": [
+        3759.5,
+        284.5,
+        9.99,
+        14.06
+      ]
+    },
+    {
+      "id": "candidate079",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3968,
+        261,
+        57,
+        43
+      ],
+      "skinPixels": 1414,
+      "fillRatio": 0.5769073847409221,
+      "ellipse": [
+        3996.5,
+        282.5,
+        21.09,
+        16.34
+      ]
+    },
+    {
+      "id": "candidate080",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4139,
+        263,
+        53,
+        40
+      ],
+      "skinPixels": 1315,
+      "fillRatio": 0.6202830188679245,
+      "ellipse": [
+        4165.5,
+        283.0,
+        19.61,
+        15.2
+      ]
+    },
+    {
+      "id": "candidate081",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4430,
+        243,
+        58,
+        61
+      ],
+      "skinPixels": 1436,
+      "fillRatio": 0.40587902769926515,
+      "ellipse": [
+        4459.0,
+        273.5,
+        21.46,
+        23.18
+      ]
+    },
+    {
+      "id": "candidate082",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4485,
+        267,
+        32,
+        36
+      ],
+      "skinPixels": 442,
+      "fillRatio": 0.3836805555555556,
+      "ellipse": [
+        4501.0,
+        285.0,
+        11.84,
+        13.68
+      ]
+    },
+    {
+      "id": "candidate083",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4582,
+        261,
+        54,
+        42
+      ],
+      "skinPixels": 1001,
+      "fillRatio": 0.44135802469135804,
+      "ellipse": [
+        4609.0,
+        282.0,
+        19.98,
+        15.96
+      ]
+    },
+    {
+      "id": "candidate084",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4607,
+        238,
+        19,
+        31
+      ],
+      "skinPixels": 343,
+      "fillRatio": 0.5823429541595926,
+      "ellipse": [
+        4616.5,
+        253.5,
+        7.03,
+        11.78
+      ]
+    },
+    {
+      "id": "candidate085",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4707,
+        265,
+        46,
+        37
+      ],
+      "skinPixels": 814,
+      "fillRatio": 0.4782608695652174,
+      "ellipse": [
+        4730.0,
+        283.5,
+        17.02,
+        14.06
+      ]
+    },
+    {
+      "id": "candidate086",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4832,
+        211,
+        22,
+        27
+      ],
+      "skinPixels": 201,
+      "fillRatio": 0.3383838383838384,
+      "ellipse": [
+        4843.0,
+        224.5,
+        8.14,
+        10.26
+      ]
+    },
+    {
+      "id": "candidate087",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4873,
+        274,
+        25,
+        29
+      ],
+      "skinPixels": 331,
+      "fillRatio": 0.45655172413793105,
+      "ellipse": [
+        4885.5,
+        288.5,
+        9.25,
+        11.02
+      ]
+    },
+    {
+      "id": "candidate088",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4888,
+        241,
+        19,
+        45
+      ],
+      "skinPixels": 398,
+      "fillRatio": 0.4654970760233918,
+      "ellipse": [
+        4897.5,
+        263.5,
+        7.03,
+        17.1
+      ]
+    },
+    {
+      "id": "candidate089",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5020,
+        238,
+        27,
+        36
+      ],
+      "skinPixels": 474,
+      "fillRatio": 0.4876543209876543,
+      "ellipse": [
+        5033.5,
+        256.0,
+        9.99,
+        13.68
+      ]
+    },
+    {
+      "id": "candidate090",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5125,
+        269,
+        45,
+        34
+      ],
+      "skinPixels": 641,
+      "fillRatio": 0.4189542483660131,
+      "ellipse": [
+        5147.5,
+        286.0,
+        16.65,
+        12.92
+      ]
+    },
+    {
+      "id": "candidate091",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5142,
+        233,
+        33,
+        36
+      ],
+      "skinPixels": 475,
+      "fillRatio": 0.3998316498316498,
+      "ellipse": [
+        5158.5,
+        251.0,
+        12.209999999999999,
+        13.68
+      ]
+    },
+    {
+      "id": "candidate092",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5425,
+        230,
+        33,
+        59
+      ],
+      "skinPixels": 957,
+      "fillRatio": 0.4915254237288136,
+      "ellipse": [
+        5441.5,
+        259.5,
+        12.209999999999999,
+        22.42
+      ]
+    },
+    {
+      "id": "candidate093",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5465,
+        265,
+        21,
+        39
+      ],
+      "skinPixels": 309,
+      "fillRatio": 0.3772893772893773,
+      "ellipse": [
+        5475.5,
+        284.5,
+        7.77,
+        14.82
+      ]
+    },
+    {
+      "id": "candidate094",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5560,
+        238,
+        19,
+        31
+      ],
+      "skinPixels": 284,
+      "fillRatio": 0.48217317487266553,
+      "ellipse": [
+        5569.5,
+        253.5,
+        7.03,
+        11.78
+      ]
+    },
+    {
+      "id": "candidate095",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5680,
+        236,
+        28,
+        34
+      ],
+      "skinPixels": 421,
+      "fillRatio": 0.4422268907563025,
+      "ellipse": [
+        5694.0,
+        253.0,
+        10.36,
+        12.92
+      ]
+    },
+    {
+      "id": "candidate096",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5685,
+        277,
+        20,
+        24
+      ],
+      "skinPixels": 230,
+      "fillRatio": 0.4791666666666667,
+      "ellipse": [
+        5695.0,
+        289.0,
+        7.4,
+        9.120000000000001
+      ]
+    },
+    {
+      "id": "candidate097",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5767,
+        210,
+        28,
+        26
+      ],
+      "skinPixels": 285,
+      "fillRatio": 0.3914835164835165,
+      "ellipse": [
+        5781.0,
+        223.0,
+        10.36,
+        9.88
+      ]
+    },
+    {
+      "id": "candidate098",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5825,
+        270,
+        35,
+        63
+      ],
+      "skinPixels": 564,
+      "fillRatio": 0.25578231292517006,
+      "ellipse": [
+        5842.5,
+        301.5,
+        12.95,
+        23.94
+      ]
+    },
+    {
+      "id": "candidate099",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5896,
+        225,
+        37,
+        47
+      ],
+      "skinPixels": 391,
+      "fillRatio": 0.22484186313973548,
+      "ellipse": [
+        5914.5,
+        248.5,
+        13.69,
+        17.86
+      ]
+    },
+    {
+      "id": "candidate100",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        572,
+        324,
+        68,
+        60
+      ],
+      "skinPixels": 1965,
+      "fillRatio": 0.48161764705882354,
+      "ellipse": [
+        606.0,
+        354.0,
+        25.16,
+        22.8
+      ]
+    },
+    {
+      "id": "candidate101",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        641,
+        314,
+        24,
+        37
+      ],
+      "skinPixels": 198,
+      "fillRatio": 0.22297297297297297,
+      "ellipse": [
+        653.0,
+        332.5,
+        8.879999999999999,
+        14.06
+      ]
+    },
+    {
+      "id": "candidate102",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        650,
+        287,
+        29,
+        42
+      ],
+      "skinPixels": 565,
+      "fillRatio": 0.4638752052545156,
+      "ellipse": [
+        664.5,
+        308.0,
+        10.73,
+        15.96
+      ]
+    },
+    {
+      "id": "candidate103",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        689,
+        324,
+        47,
+        52
+      ],
+      "skinPixels": 1563,
+      "fillRatio": 0.6395253682487725,
+      "ellipse": [
+        712.5,
+        350.0,
+        17.39,
+        19.76
+      ]
+    },
+    {
+      "id": "candidate104",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        709,
+        301,
+        20,
+        27
+      ],
+      "skinPixels": 224,
+      "fillRatio": 0.4148148148148148,
+      "ellipse": [
+        719.0,
+        314.5,
+        7.4,
+        10.26
+      ]
+    },
+    {
+      "id": "candidate105",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        977,
+        294,
+        28,
+        35
+      ],
+      "skinPixels": 578,
+      "fillRatio": 0.5897959183673469,
+      "ellipse": [
+        991.0,
+        311.5,
+        10.36,
+        13.3
+      ]
+    },
+    {
+      "id": "candidate106",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1137,
+        329,
+        21,
+        23
+      ],
+      "skinPixels": 216,
+      "fillRatio": 0.4472049689440994,
+      "ellipse": [
+        1147.5,
+        340.5,
+        7.77,
+        8.74
+      ]
+    },
+    {
+      "id": "candidate107",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1147,
+        302,
+        24,
+        31
+      ],
+      "skinPixels": 409,
+      "fillRatio": 0.5497311827956989,
+      "ellipse": [
+        1159.0,
+        317.5,
+        8.879999999999999,
+        11.78
+      ]
+    },
+    {
+      "id": "candidate108",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1284,
+        338,
+        32,
+        23
+      ],
+      "skinPixels": 232,
+      "fillRatio": 0.31521739130434784,
+      "ellipse": [
+        1300.0,
+        349.5,
+        11.84,
+        8.74
+      ]
+    },
+    {
+      "id": "candidate109",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1307,
+        328,
+        30,
+        46
+      ],
+      "skinPixels": 469,
+      "fillRatio": 0.3398550724637681,
+      "ellipse": [
+        1322.0,
+        351.0,
+        11.1,
+        17.48
+      ]
+    },
+    {
+      "id": "candidate110",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1309,
+        292,
+        26,
+        37
+      ],
+      "skinPixels": 541,
+      "fillRatio": 0.5623700623700624,
+      "ellipse": [
+        1322.0,
+        310.5,
+        9.62,
+        14.06
+      ]
+    },
+    {
+      "id": "candidate111",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1630,
+        339,
+        20,
+        32
+      ],
+      "skinPixels": 315,
+      "fillRatio": 0.4921875,
+      "ellipse": [
+        1640.0,
+        355.0,
+        7.4,
+        12.16
+      ]
+    },
+    {
+      "id": "candidate112",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1663,
+        280,
+        29,
+        20
+      ],
+      "skinPixels": 211,
+      "fillRatio": 0.36379310344827587,
+      "ellipse": [
+        1677.5,
+        290.0,
+        10.73,
+        7.6
+      ]
+    },
+    {
+      "id": "candidate113",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1674,
+        289,
+        26,
+        41
+      ],
+      "skinPixels": 637,
+      "fillRatio": 0.5975609756097561,
+      "ellipse": [
+        1687.0,
+        309.5,
+        9.62,
+        15.58
+      ]
+    },
+    {
+      "id": "candidate114",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2304,
+        321,
+        23,
+        18
+      ],
+      "skinPixels": 233,
+      "fillRatio": 0.5628019323671497,
+      "ellipse": [
+        2315.5,
+        330.0,
+        8.51,
+        6.84
+      ]
+    },
+    {
+      "id": "candidate115",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2357,
+        339,
+        20,
+        31
+      ],
+      "skinPixels": 308,
+      "fillRatio": 0.4967741935483871,
+      "ellipse": [
+        2367.0,
+        354.5,
+        7.4,
+        11.78
+      ]
+    },
+    {
+      "id": "candidate116",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2454,
+        321,
+        23,
+        32
+      ],
+      "skinPixels": 354,
+      "fillRatio": 0.48097826086956524,
+      "ellipse": [
+        2465.5,
+        337.0,
+        8.51,
+        12.16
+      ]
+    },
+    {
+      "id": "candidate117",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2720,
+        338,
+        22,
+        47
+      ],
+      "skinPixels": 366,
+      "fillRatio": 0.3539651837524178,
+      "ellipse": [
+        2731.0,
+        361.5,
+        8.14,
+        17.86
+      ]
+    },
+    {
+      "id": "candidate118",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2733,
+        317,
+        34,
+        39
+      ],
+      "skinPixels": 768,
+      "fillRatio": 0.579185520361991,
+      "ellipse": [
+        2750.0,
+        336.5,
+        12.58,
+        14.82
+      ]
+    },
+    {
+      "id": "candidate119",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2758,
+        348,
+        17,
+        40
+      ],
+      "skinPixels": 203,
+      "fillRatio": 0.2985294117647059,
+      "ellipse": [
+        2766.5,
+        368.0,
+        6.29,
+        15.2
+      ]
+    },
+    {
+      "id": "candidate120",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2868,
+        324,
+        23,
+        33
+      ],
+      "skinPixels": 409,
+      "fillRatio": 0.538866930171278,
+      "ellipse": [
+        2879.5,
+        340.5,
+        8.51,
+        12.540000000000001
+      ]
+    },
+    {
+      "id": "candidate121",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2965,
+        318,
+        42,
+        29
+      ],
+      "skinPixels": 378,
+      "fillRatio": 0.3103448275862069,
+      "ellipse": [
+        2986.0,
+        332.5,
+        15.54,
+        11.02
+      ]
+    },
+    {
+      "id": "candidate122",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3219,
+        324,
+        19,
+        25
+      ],
+      "skinPixels": 215,
+      "fillRatio": 0.45263157894736844,
+      "ellipse": [
+        3228.5,
+        336.5,
+        7.03,
+        9.5
+      ]
+    },
+    {
+      "id": "candidate123",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3313,
+        346,
+        30,
+        29
+      ],
+      "skinPixels": 231,
+      "fillRatio": 0.2655172413793103,
+      "ellipse": [
+        3328.0,
+        360.5,
+        11.1,
+        11.02
+      ]
+    },
+    {
+      "id": "candidate124",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3444,
+        323,
+        18,
+        31
+      ],
+      "skinPixels": 337,
+      "fillRatio": 0.6039426523297491,
+      "ellipse": [
+        3453.0,
+        338.5,
+        6.66,
+        11.78
+      ]
+    },
+    {
+      "id": "candidate125",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3559,
+        317,
+        40,
+        28
+      ],
+      "skinPixels": 504,
+      "fillRatio": 0.45,
+      "ellipse": [
+        3579.0,
+        331.0,
+        14.8,
+        10.64
+      ]
+    },
+    {
+      "id": "candidate126",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3587,
+        347,
+        44,
+        41
+      ],
+      "skinPixels": 648,
+      "fillRatio": 0.35920177383592017,
+      "ellipse": [
+        3609.0,
+        367.5,
+        16.28,
+        15.58
+      ]
+    },
+    {
+      "id": "candidate127",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3683,
+        319,
+        25,
+        34
+      ],
+      "skinPixels": 419,
+      "fillRatio": 0.4929411764705882,
+      "ellipse": [
+        3695.5,
+        336.0,
+        9.25,
+        12.92
+      ]
+    },
+    {
+      "id": "candidate128",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3790,
+        323,
+        18,
+        31
+      ],
+      "skinPixels": 344,
+      "fillRatio": 0.6164874551971327,
+      "ellipse": [
+        3799.0,
+        338.5,
+        6.66,
+        11.78
+      ]
+    },
+    {
+      "id": "candidate129",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4003,
+        318,
+        33,
+        29
+      ],
+      "skinPixels": 202,
+      "fillRatio": 0.2110762800417973,
+      "ellipse": [
+        4019.5,
+        332.5,
+        12.209999999999999,
+        11.02
+      ]
+    },
+    {
+      "id": "candidate130",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4007,
+        335,
+        19,
+        24
+      ],
+      "skinPixels": 195,
+      "fillRatio": 0.4276315789473684,
+      "ellipse": [
+        4016.5,
+        347.0,
+        7.03,
+        9.120000000000001
+      ]
+    },
+    {
+      "id": "candidate131",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4166,
+        323,
+        20,
+        31
+      ],
+      "skinPixels": 303,
+      "fillRatio": 0.48870967741935484,
+      "ellipse": [
+        4176.0,
+        338.5,
+        7.4,
+        11.78
+      ]
+    },
+    {
+      "id": "candidate132",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4412,
+        334,
+        21,
+        25
+      ],
+      "skinPixels": 216,
+      "fillRatio": 0.4114285714285714,
+      "ellipse": [
+        4422.5,
+        346.5,
+        7.77,
+        9.5
+      ]
+    },
+    {
+      "id": "candidate133",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4540,
+        325,
+        28,
+        25
+      ],
+      "skinPixels": 283,
+      "fillRatio": 0.4042857142857143,
+      "ellipse": [
+        4554.0,
+        337.5,
+        10.36,
+        9.5
+      ]
+    },
+    {
+      "id": "candidate134",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4681,
+        323,
+        21,
+        32
+      ],
+      "skinPixels": 355,
+      "fillRatio": 0.5282738095238095,
+      "ellipse": [
+        4691.5,
+        339.0,
+        7.77,
+        12.16
+      ]
+    },
+    {
+      "id": "candidate135",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4894,
+        281,
+        19,
+        22
+      ],
+      "skinPixels": 205,
+      "fillRatio": 0.4904306220095694,
+      "ellipse": [
+        4903.5,
+        292.0,
+        7.03,
+        8.36
+      ]
+    },
+    {
+      "id": "candidate136",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5049,
+        324,
+        20,
+        44
+      ],
+      "skinPixels": 416,
+      "fillRatio": 0.4727272727272727,
+      "ellipse": [
+        5059.0,
+        346.0,
+        7.4,
+        16.72
+      ]
+    },
+    {
+      "id": "candidate137",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5162,
+        318,
+        31,
+        42
+      ],
+      "skinPixels": 534,
+      "fillRatio": 0.41013824884792627,
+      "ellipse": [
+        5177.5,
+        339.0,
+        11.47,
+        15.96
+      ]
+    },
+    {
+      "id": "candidate138",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5290,
+        324,
+        18,
+        31
+      ],
+      "skinPixels": 299,
+      "fillRatio": 0.53584229390681,
+      "ellipse": [
+        5299.0,
+        339.5,
+        6.66,
+        11.78
+      ]
+    },
+    {
+      "id": "candidate139",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5400,
+        323,
+        21,
+        31
+      ],
+      "skinPixels": 353,
+      "fillRatio": 0.5422427035330261,
+      "ellipse": [
+        5410.5,
+        338.5,
+        7.77,
+        11.78
+      ]
+    },
+    {
+      "id": "candidate140",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5514,
+        330,
+        22,
+        22
+      ],
+      "skinPixels": 221,
+      "fillRatio": 0.45661157024793386,
+      "ellipse": [
+        5525.0,
+        341.0,
+        8.14,
+        8.36
+      ]
+    },
+    {
+      "id": "candidate141",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5701,
+        315,
+        30,
+        39
+      ],
+      "skinPixels": 456,
+      "fillRatio": 0.38974358974358975,
+      "ellipse": [
+        5716.0,
+        334.5,
+        11.1,
+        14.82
+      ]
+    },
+    {
+      "id": "candidate142",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5931,
+        316,
+        20,
+        34
+      ],
+      "skinPixels": 315,
+      "fillRatio": 0.4632352941176471,
+      "ellipse": [
+        5941.0,
+        333.0,
+        7.4,
+        12.92
+      ]
+    },
+    {
+      "id": "candidate143",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        6031,
+        315,
+        21,
+        34
+      ],
+      "skinPixels": 209,
+      "fillRatio": 0.2927170868347339,
+      "ellipse": [
+        6041.5,
+        332.0,
+        7.77,
+        12.92
+      ]
+    },
+    {
+      "id": "candidate144",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        6052,
+        318,
+        74,
+        97
+      ],
+      "skinPixels": 3308,
+      "fillRatio": 0.4608526051825021,
+      "ellipse": [
+        6089.0,
+        366.5,
+        27.38,
+        36.86
+      ]
+    },
+    {
+      "id": "candidate145",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        631,
+        393,
+        42,
+        50
+      ],
+      "skinPixels": 1038,
+      "fillRatio": 0.4942857142857143,
+      "ellipse": [
+        652.0,
+        418.0,
+        15.54,
+        19.0
+      ]
+    },
+    {
+      "id": "candidate146",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        692,
+        395,
+        32,
+        25
+      ],
+      "skinPixels": 391,
+      "fillRatio": 0.48875,
+      "ellipse": [
+        708.0,
+        407.5,
+        11.84,
+        9.5
+      ]
+    },
+    {
+      "id": "candidate147",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        997,
+        380,
+        76,
+        108
+      ],
+      "skinPixels": 3265,
+      "fillRatio": 0.39778265107212474,
+      "ellipse": [
+        1035.0,
+        434.0,
+        28.12,
+        41.04
+      ]
+    },
+    {
+      "id": "candidate148",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1205,
+        394,
+        59,
+        85
+      ],
+      "skinPixels": 1385,
+      "fillRatio": 0.2761714855433699,
+      "ellipse": [
+        1234.5,
+        436.5,
+        21.83,
+        32.3
+      ]
+    },
+    {
+      "id": "candidate149",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1395,
+        403,
+        35,
+        35
+      ],
+      "skinPixels": 496,
+      "fillRatio": 0.4048979591836735,
+      "ellipse": [
+        1412.5,
+        420.5,
+        12.95,
+        13.3
+      ]
+    },
+    {
+      "id": "candidate150",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1748,
+        395,
+        29,
+        69
+      ],
+      "skinPixels": 926,
+      "fillRatio": 0.46276861569215394,
+      "ellipse": [
+        1762.5,
+        429.5,
+        10.73,
+        26.22
+      ]
+    },
+    {
+      "id": "candidate151",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2251,
+        358,
+        34,
+        39
+      ],
+      "skinPixels": 443,
+      "fillRatio": 0.33408748114630465,
+      "ellipse": [
+        2268.0,
+        377.5,
+        12.58,
+        14.82
+      ]
+    },
+    {
+      "id": "candidate152",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2737,
+        410,
+        27,
+        27
+      ],
+      "skinPixels": 485,
+      "fillRatio": 0.6652949245541838,
+      "ellipse": [
+        2750.5,
+        423.5,
+        9.99,
+        10.26
+      ]
+    },
+    {
+      "id": "candidate153",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3454,
+        350,
+        19,
+        31
+      ],
+      "skinPixels": 214,
+      "fillRatio": 0.3633276740237691,
+      "ellipse": [
+        3463.5,
+        365.5,
+        7.03,
+        11.78
+      ]
+    },
+    {
+      "id": "candidate154",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3546,
+        362,
+        25,
+        26
+      ],
+      "skinPixels": 406,
+      "fillRatio": 0.6246153846153846,
+      "ellipse": [
+        3558.5,
+        375.0,
+        9.25,
+        9.88
+      ]
+    },
+    {
+      "id": "candidate155",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        3570,
+        362,
+        17,
+        25
+      ],
+      "skinPixels": 248,
+      "fillRatio": 0.5835294117647059,
+      "ellipse": [
+        3578.5,
+        374.5,
+        6.29,
+        9.5
+      ]
+    },
+    {
+      "id": "candidate156",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4562,
+        354,
+        22,
+        33
+      ],
+      "skinPixels": 239,
+      "fillRatio": 0.32920110192837465,
+      "ellipse": [
+        4573.0,
+        370.5,
+        8.14,
+        12.540000000000001
+      ]
+    },
+    {
+      "id": "candidate157",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        4591,
+        362,
+        15,
+        25
+      ],
+      "skinPixels": 183,
+      "fillRatio": 0.488,
+      "ellipse": [
+        4598.5,
+        374.5,
+        5.55,
+        9.5
+      ]
+    },
+    {
+      "id": "candidate158",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5165,
+        352,
+        20,
+        34
+      ],
+      "skinPixels": 268,
+      "fillRatio": 0.3941176470588235,
+      "ellipse": [
+        5175.0,
+        369.0,
+        7.4,
+        12.92
+      ]
+    },
+    {
+      "id": "candidate159",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5271,
+        355,
+        35,
+        29
+      ],
+      "skinPixels": 347,
+      "fillRatio": 0.341871921182266,
+      "ellipse": [
+        5288.5,
+        369.5,
+        12.95,
+        11.02
+      ]
+    },
+    {
+      "id": "candidate160",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5304,
+        354,
+        39,
+        33
+      ],
+      "skinPixels": 454,
+      "fillRatio": 0.35275835275835277,
+      "ellipse": [
+        5323.5,
+        370.5,
+        14.43,
+        12.540000000000001
+      ]
+    },
+    {
+      "id": "candidate161",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5406,
+        414,
+        23,
+        20
+      ],
+      "skinPixels": 276,
+      "fillRatio": 0.6,
+      "ellipse": [
+        5417.5,
+        424.0,
+        8.51,
+        7.6
+      ]
+    },
+    {
+      "id": "candidate162",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5584,
+        384,
+        33,
+        25
+      ],
+      "skinPixels": 309,
+      "fillRatio": 0.37454545454545457,
+      "ellipse": [
+        5600.5,
+        396.5,
+        12.209999999999999,
+        9.5
+      ]
+    },
+    {
+      "id": "candidate163",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5670,
+        366,
+        26,
+        25
+      ],
+      "skinPixels": 185,
+      "fillRatio": 0.2846153846153846,
+      "ellipse": [
+        5683.0,
+        378.5,
+        9.62,
+        9.5
+      ]
+    },
+    {
+      "id": "candidate164",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        5705,
+        417,
+        32,
+        31
+      ],
+      "skinPixels": 290,
+      "fillRatio": 0.2923387096774194,
+      "ellipse": [
+        5721.0,
+        432.5,
+        11.84,
+        11.78
+      ]
+    },
+    {
+      "id": "candidate165",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        30,
+        435,
+        61,
+        73
+      ],
+      "skinPixels": 920,
+      "fillRatio": 0.20660229059061308,
+      "ellipse": [
+        60.5,
+        471.5,
+        22.57,
+        27.740000000000002
+      ]
+    },
+    {
+      "id": "candidate166",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        42,
+        447,
+        38,
+        61
+      ],
+      "skinPixels": 1781,
+      "fillRatio": 0.768334771354616,
+      "ellipse": [
+        61.0,
+        477.5,
+        14.06,
+        23.18
+      ]
+    },
+    {
+      "id": "candidate167",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        566,
+        427,
+        67,
+        71
+      ],
+      "skinPixels": 1286,
+      "fillRatio": 0.27033844860206013,
+      "ellipse": [
+        599.5,
+        462.5,
+        24.79,
+        26.98
+      ]
+    },
+    {
+      "id": "candidate168",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        635,
+        439,
+        24,
+        39
+      ],
+      "skinPixels": 186,
+      "fillRatio": 0.1987179487179487,
+      "ellipse": [
+        647.0,
+        458.5,
+        8.879999999999999,
+        14.82
+      ]
+    },
+    {
+      "id": "candidate169",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        670,
+        432,
+        43,
+        42
+      ],
+      "skinPixels": 414,
+      "fillRatio": 0.2292358803986711,
+      "ellipse": [
+        691.5,
+        453.0,
+        15.91,
+        15.96
+      ]
+    },
+    {
+      "id": "candidate170",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        712,
+        420,
+        24,
+        42
+      ],
+      "skinPixels": 527,
+      "fillRatio": 0.5228174603174603,
+      "ellipse": [
+        724.0,
+        441.0,
+        8.879999999999999,
+        15.96
+      ]
+    },
+    {
+      "id": "candidate171",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        867,
+        440,
+        20,
+        29
+      ],
+      "skinPixels": 236,
+      "fillRatio": 0.4068965517241379,
+      "ellipse": [
+        877.0,
+        454.5,
+        7.4,
+        11.02
+      ]
+    },
+    {
+      "id": "candidate172",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1192,
+        435,
+        38,
+        27
+      ],
+      "skinPixels": 470,
+      "fillRatio": 0.4580896686159844,
+      "ellipse": [
+        1211.0,
+        448.5,
+        14.06,
+        10.26
+      ]
+    },
+    {
+      "id": "candidate173",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1422,
+        451,
+        29,
+        39
+      ],
+      "skinPixels": 301,
+      "fillRatio": 0.2661361626878868,
+      "ellipse": [
+        1436.5,
+        470.5,
+        10.73,
+        14.82
+      ]
+    },
+    {
+      "id": "candidate174",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1459,
+        478,
+        23,
+        19
+      ],
+      "skinPixels": 305,
+      "fillRatio": 0.6979405034324943,
+      "ellipse": [
+        1470.5,
+        487.5,
+        8.51,
+        7.22
+      ]
+    },
+    {
+      "id": "candidate175",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1710,
+        475,
+        20,
+        27
+      ],
+      "skinPixels": 276,
+      "fillRatio": 0.5111111111111111,
+      "ellipse": [
+        1720.0,
+        488.5,
+        7.4,
+        10.26
+      ]
+    },
+    {
+      "id": "candidate176",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1712,
+        442,
+        46,
+        60
+      ],
+      "skinPixels": 1226,
+      "fillRatio": 0.44420289855072465,
+      "ellipse": [
+        1735.0,
+        472.0,
+        17.02,
+        22.8
+      ]
+    },
+    {
+      "id": "candidate177",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1745,
+        448,
+        38,
+        54
+      ],
+      "skinPixels": 979,
+      "fillRatio": 0.4770955165692008,
+      "ellipse": [
+        1764.0,
+        475.0,
+        14.06,
+        20.52
+      ]
+    },
+    {
+      "id": "candidate178",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1778,
+        425,
+        17,
+        37
+      ],
+      "skinPixels": 228,
+      "fillRatio": 0.3624801271860095,
+      "ellipse": [
+        1786.5,
+        443.5,
+        6.29,
+        14.06
+      ]
+    },
+    {
+      "id": "candidate179",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        1791,
+        468,
+        22,
+        32
+      ],
+      "skinPixels": 345,
+      "fillRatio": 0.4900568181818182,
+      "ellipse": [
+        1802.0,
+        484.0,
+        8.14,
+        12.16
+      ]
+    },
+    {
+      "id": "candidate180",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2257,
+        433,
+        72,
+        75
+      ],
+      "skinPixels": 1428,
+      "fillRatio": 0.2644444444444444,
+      "ellipse": [
+        2293.0,
+        470.5,
+        26.64,
+        28.5
+      ]
+    },
+    {
+      "id": "candidate181",
+      "accepted": false,
+      "kind": "head_or_hand_candidate",
+      "bbox": [
+        2426,
+        436,
+        68,
+        72
+      ],
+      "skinPixels": 1810,
+      "fillRatio": 0.36968954248366015,
+      "ellipse": [
+        2460.0,
+        472.0,
+        25.16,
+        27.36
+      ]
+    }
+  ]
+}

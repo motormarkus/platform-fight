@@ -1,0 +1,264 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "nativeParts": 25,
+  "partWidth": 1536,
+  "partHeight": 1024,
+  "productionMaster": [
+    15000,
+    1884
+  ],
+  "noUpscaling": true,
+  "guideOnly": "tyo/oppaat is composition reference only; no guide pixels included in production master",
+  "sources": [
+    {
+      "id": "r0c00",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-b932cbb1-3919-4e0c-b9fc-1279edb1c78c.png",
+      "workspaceFile": "natiivit/r0c00.png",
+      "promptFile": "kehotteet/r0c00.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "EDEB137082B06529811A1332CA6FC29D70E28ECDE3CB0B886C96969823B9559B"
+    },
+    {
+      "id": "r0c01",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-833c01d5-93bc-42f3-914d-cfb4d833b335.png",
+      "workspaceFile": "natiivit/r0c01.png",
+      "promptFile": "kehotteet/r0c01.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "C4486E622349B7F0BA569DC1CC2CE914E1D65AFBD71F8D60B5EBF4C8E11EB464"
+    },
+    {
+      "id": "r0c02",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-a41bb969-3b02-45ca-8364-e2328a2ed427.png",
+      "workspaceFile": "natiivit/r0c02.png",
+      "promptFile": "kehotteet/r0c02.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "E43F08241AFFEF99F1C9099AA18E1F17FF8C16FF6EB5308D59225EC2BF579D57"
+    },
+    {
+      "id": "r0c03",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-a00a4143-2fa7-42b7-b1c5-7e799054b197.png",
+      "workspaceFile": "natiivit/r0c03.png",
+      "promptFile": "kehotteet/r0c03.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "1B8A63341AA1A0DB8BC52265322EE04C39A56D107A052D458ED2D4CB6A143B54"
+    },
+    {
+      "id": "r0c04",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-eedeb2ee-cd82-462f-a915-9ef18b6e51a4.png",
+      "workspaceFile": "natiivit/r0c04.png",
+      "promptFile": "kehotteet/r0c04.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "951229A90D514E25F91098CC0E38529D01D6CC66B6F66B646A88A4D166D5DEFB"
+    },
+    {
+      "id": "r0c05",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-ce3bcc87-6d80-4a77-bbd0-15c990b62051.png",
+      "workspaceFile": "natiivit/r0c05.png",
+      "promptFile": "kehotteet/r0c05.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "C571274500C33A529659FF83632234EC622ADA772145855DDD9192D9583CDBEF"
+    },
+    {
+      "id": "r0c06",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-966a21e2-e84b-456f-be99-14e8e8e71a38.png",
+      "workspaceFile": "natiivit/r0c06.png",
+      "promptFile": "kehotteet/r0c06.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "33F6C9CDCCA5AB2D7BA66D081D88CFD099EB7F7F94F73DA7285217361FA759D8"
+    },
+    {
+      "id": "r0c07",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-41c92c18-d564-4412-8440-e7dff21d6de7.png",
+      "workspaceFile": "natiivit/r0c07.png",
+      "promptFile": "kehotteet/r0c07.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "9C52F544C4ADA6E3B8B77453425D38CDEC559EAFE9AB92C6DBC13268CB9D0971"
+    },
+    {
+      "id": "r0c08",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-f2dc4406-fab5-4bd3-a7ba-32d0d0f5b212.png",
+      "workspaceFile": "natiivit/r0c08.png",
+      "promptFile": "kehotteet/r0c08.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "369483C84916E0AD79B655EF362F1DA0457D1AA223B7D4D3F13BC28C99EACDEF"
+    },
+    {
+      "id": "r0c09",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-472d4f0c-749d-46ea-bb32-234e8e5b97a8.png",
+      "workspaceFile": "natiivit/r0c09.png",
+      "promptFile": "kehotteet/r0c09.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "802D10E65ED08AB1E74F0723213C1C5DF2286D06841CDDD0D95DAA63CDCADAC9"
+    },
+    {
+      "id": "r0c10",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-7bfa8aa2-306c-4147-ac21-54487eb53a70.png",
+      "workspaceFile": "natiivit/r0c10.png",
+      "promptFile": "kehotteet/r0c10.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "43872318C03455576BC56098BD413F7FE7D3D7A54BCAFEE0B5219E7232BFB75A"
+    },
+    {
+      "id": "r0c11",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-a81b31e5-9217-4808-a95d-fff3a82be69e.png",
+      "workspaceFile": "natiivit/r0c11.png",
+      "promptFile": "kehotteet/r0c11.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "52113F4DDC875CB486EBB292AF9430F5BF90A643581B88369CEC414A62C8E515"
+    },
+    {
+      "id": "r1c00",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-3ffee907-5bea-4310-8a74-9545ccf27926.png",
+      "workspaceFile": "natiivit/r1c00.png",
+      "promptFile": "kehotteet/r1c00.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "C54B0A32026D3F17E080EB4B256D335EB4C37E35968DE98E2BCD2775D73C721F"
+    },
+    {
+      "id": "r1c01",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-61402851-6625-4b3f-849b-f3898fbc04c7.png",
+      "workspaceFile": "natiivit/r1c01.png",
+      "promptFile": "kehotteet/r1c01.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "CC4797F05E6CD40C61194CB7A7D408E150A45F289A4DA987149F59BDB3CE375F"
+    },
+    {
+      "id": "r1c02",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-2b741f41-ae65-4818-b033-c1f934980127.png",
+      "workspaceFile": "natiivit/r1c02.png",
+      "promptFile": "kehotteet/r1c02.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "42161336842EF5838615F93B84F442F29FB0D072BBDBE6D63A90EA081EDE4702"
+    },
+    {
+      "id": "r1c03",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-907f3e32-0ecb-4805-a371-68356d518eed.png",
+      "workspaceFile": "natiivit/r1c03.png",
+      "promptFile": "kehotteet/r1c03.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "5B010E4AF41A9A2CEEADD838B1DE1535CF4570B01609A2C6FD6A81C2B005A380"
+    },
+    {
+      "id": "r1c04",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-292b2289-43f1-44af-af70-33c319a1c98c.png",
+      "workspaceFile": "natiivit/r1c04.png",
+      "promptFile": "kehotteet/r1c04.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "34E86525BCE1A30DCF22A345E4ABEE579626B0F54192E7B4E61BDA486F464EFA"
+    },
+    {
+      "id": "r1c05",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-db67a0d7-4864-4f60-890e-20b614c51c00.png",
+      "workspaceFile": "natiivit/r1c05.png",
+      "promptFile": "kehotteet/r1c05.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "63110A3C5A44CC0F743446F738C0F5EBDC8BB3AAFA1378AB2979C9459399AF06"
+    },
+    {
+      "id": "r1c06",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-fbff3ff6-a6ee-47db-9ef0-0b4b880964d0.png",
+      "workspaceFile": "natiivit/r1c06.png",
+      "promptFile": "kehotteet/r1c06.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "067BB6F36055DC4B316DCA3D2A9F96BE12D94FC88170E08E969F6F79E14F4D35"
+    },
+    {
+      "id": "r1c07",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-60fa829f-28b3-4da9-b542-a62cf1d6cf54.png",
+      "workspaceFile": "natiivit/r1c07.png",
+      "promptFile": "kehotteet/r1c07.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "234CDD21B68075FC64B72C011E76DB12E90B1D52FF8D656B71E4A6823BACCFDA"
+    },
+    {
+      "id": "r1c08",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-38835179-c08b-4dc1-914e-97f28e5639d9.png",
+      "workspaceFile": "natiivit/r1c08.png",
+      "promptFile": "kehotteet/r1c08.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "5848FE0C431F44642D3EC2FE344A1E2021245DB409EAEA0D0D26400B1E114584"
+    },
+    {
+      "id": "r1c09",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-70575dd1-59c3-48d5-9532-a7c6ce8fdc22.png",
+      "workspaceFile": "natiivit/r1c09.png",
+      "promptFile": "kehotteet/r1c09.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "CFC623462F156318A17B3CFBBD60A0921136BDD7BDDF34F03716FD9FBD093DBA"
+    },
+    {
+      "id": "r1c10",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-ce1b66cd-8721-40f2-9306-221c3b17c8e7.png",
+      "workspaceFile": "natiivit/r1c10.png",
+      "promptFile": "kehotteet/r1c10.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "0EE3F54C63116F706E940C75F6EEA94972250DABA596023D7FE421DBF18291BF"
+    },
+    {
+      "id": "r1c11",
+      "generatedFile": "C:\\Users\\marku\\.codex\\generated_images\\01a207f3-74e0-7c63-b5d8-b78973c50087\\exec-a4836257-0cc5-4b88-a8db-40ae64511d24.png",
+      "workspaceFile": "natiivit/r1c11.png",
+      "promptFile": "kehotteet/r1c11.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "0C3FA12AA96FCFDEE036BDD4907D7E606D24D01BE876AF03EFC5879A1E2DB7B0"
+    },
+    {
+      "id": "native-seam-repair",
+      "generatedFile": "C:/Users/marku/.codex/generated_images/01a207f3-74e0-7c63-b5d8-b78973c50087/exec-6b58882f-0435-4f15-8215-d54149a309d4.png",
+      "workspaceFile": "natiivit/native-seam-repair.png",
+      "promptFile": "kehotteet/native-seam-repair.txt",
+      "sourceScale": 1,
+      "actualWidth": 1536,
+      "actualHeight": 1024,
+      "sha256": "0431BD9DFF12ED0F7EAE9511055203D4F9AD5F728F476CBEC571E9C69649E34C"
+    }
+  ]
+}

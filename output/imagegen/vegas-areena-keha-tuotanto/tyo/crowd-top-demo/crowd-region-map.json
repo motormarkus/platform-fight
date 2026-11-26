@@ -1,0 +1,2477 @@
+[
+  {
+    "index": 1,
+    "id": "r0c00-blondtracksuit/0",
+    "kind": "head",
+    "bounds": [
+      1387,
+      466,
+      77,
+      101
+    ]
+  },
+  {
+    "index": 2,
+    "id": "r0c00-blondtracksuit/1",
+    "kind": "chest",
+    "bounds": [
+      1385,
+      594,
+      81,
+      48
+    ]
+  },
+  {
+    "index": 3,
+    "id": "r0c01-clapwoman/0",
+    "kind": "head",
+    "bounds": [
+      1810,
+      508,
+      69,
+      91
+    ]
+  },
+  {
+    "index": 4,
+    "id": "r0c01-clapwoman/1",
+    "kind": "chest",
+    "bounds": [
+      1808,
+      624,
+      73,
+      43
+    ]
+  },
+  {
+    "index": 5,
+    "id": "r0c01-beardcap/0",
+    "kind": "head",
+    "bounds": [
+      2200,
+      520,
+      75,
+      97
+    ]
+  },
+  {
+    "index": 6,
+    "id": "r0c01-beardcap/1",
+    "kind": "chest",
+    "bounds": [
+      2198,
+      644,
+      79,
+      45
+    ]
+  },
+  {
+    "index": 7,
+    "id": "r0c01-grayman/0",
+    "kind": "head",
+    "bounds": [
+      2576,
+      497,
+      73,
+      95
+    ]
+  },
+  {
+    "index": 8,
+    "id": "r0c01-grayman/1",
+    "kind": "chest",
+    "bounds": [
+      2574,
+      618,
+      77,
+      45
+    ]
+  },
+  {
+    "index": 9,
+    "id": "r0c01-greenvarsity/0",
+    "kind": "head",
+    "bounds": [
+      1583,
+      713,
+      73,
+      95
+    ]
+  },
+  {
+    "index": 10,
+    "id": "r0c01-greenvarsity/1",
+    "kind": "chest",
+    "bounds": [
+      1581,
+      834,
+      77,
+      45
+    ]
+  },
+  {
+    "index": 11,
+    "id": "r0c01-greenvarsity/2",
+    "kind": "hand",
+    "bounds": [
+      1743,
+      741,
+      39,
+      45
+    ]
+  },
+  {
+    "index": 12,
+    "id": "r0c01-purplewoman/0",
+    "kind": "head",
+    "bounds": [
+      1986,
+      733,
+      71,
+      93
+    ]
+  },
+  {
+    "index": 13,
+    "id": "r0c01-purplewoman/1",
+    "kind": "chest",
+    "bounds": [
+      1984,
+      852,
+      75,
+      44
+    ]
+  },
+  {
+    "index": 14,
+    "id": "r0c01-purplewoman/2",
+    "kind": "hand",
+    "bounds": [
+      1998,
+      842,
+      33,
+      39
+    ]
+  },
+  {
+    "index": 15,
+    "id": "r0c01-redcapbeard/0",
+    "kind": "head",
+    "bounds": [
+      2403,
+      735,
+      79,
+      95
+    ]
+  },
+  {
+    "index": 16,
+    "id": "r0c01-redcapbeard/1",
+    "kind": "chest",
+    "bounds": [
+      2401,
+      856,
+      83,
+      45
+    ]
+  },
+  {
+    "index": 17,
+    "id": "r0c02-bluecapjersey/0",
+    "kind": "head",
+    "bounds": [
+      3082,
+      534,
+      73,
+      93
+    ]
+  },
+  {
+    "index": 18,
+    "id": "r0c02-bluecapjersey/1",
+    "kind": "chest",
+    "bounds": [
+      3080,
+      653,
+      77,
+      44
+    ]
+  },
+  {
+    "index": 19,
+    "id": "r0c02-bluecapjersey/2",
+    "kind": "hand",
+    "bounds": [
+      3243,
+      464,
+      47,
+      45
+    ]
+  },
+  {
+    "index": 20,
+    "id": "r0c02-redwoman/0",
+    "kind": "head",
+    "bounds": [
+      3458,
+      512,
+      73,
+      93
+    ]
+  },
+  {
+    "index": 21,
+    "id": "r0c02-redwoman/1",
+    "kind": "chest",
+    "bounds": [
+      3456,
+      631,
+      77,
+      44
+    ]
+  },
+  {
+    "index": 22,
+    "id": "r0c02-redwoman/2",
+    "kind": "hand",
+    "bounds": [
+      3532,
+      627,
+      33,
+      45
+    ]
+  },
+  {
+    "index": 23,
+    "id": "r0c02-bluehoodie/0",
+    "kind": "head",
+    "bounds": [
+      3835,
+      495,
+      75,
+      97
+    ]
+  },
+  {
+    "index": 24,
+    "id": "r0c02-bluehoodie/1",
+    "kind": "chest",
+    "bounds": [
+      3833,
+      619,
+      79,
+      45
+    ]
+  },
+  {
+    "index": 25,
+    "id": "r0c02-blondcapwoman/0",
+    "kind": "head",
+    "bounds": [
+      2798,
+      741,
+      73,
+      95
+    ]
+  },
+  {
+    "index": 26,
+    "id": "r0c02-blondcapwoman/1",
+    "kind": "chest",
+    "bounds": [
+      2796,
+      862,
+      77,
+      45
+    ]
+  },
+  {
+    "index": 27,
+    "id": "r0c02-sunglasses/0",
+    "kind": "head",
+    "bounds": [
+      3195,
+      740,
+      75,
+      95
+    ]
+  },
+  {
+    "index": 28,
+    "id": "r0c02-sunglasses/1",
+    "kind": "chest",
+    "bounds": [
+      3193,
+      861,
+      79,
+      45
+    ]
+  },
+  {
+    "index": 29,
+    "id": "r0c02-fedorabeard/0",
+    "kind": "head",
+    "bounds": [
+      3594,
+      760,
+      81,
+      97
+    ]
+  },
+  {
+    "index": 30,
+    "id": "r0c02-fedorabeard/1",
+    "kind": "chest",
+    "bounds": [
+      3592,
+      884,
+      85,
+      45
+    ]
+  },
+  {
+    "index": 31,
+    "id": "r0c03-beigecap/0",
+    "kind": "head",
+    "bounds": [
+      4427,
+      510,
+      75,
+      93
+    ]
+  },
+  {
+    "index": 32,
+    "id": "r0c03-beigecap/1",
+    "kind": "chest",
+    "bounds": [
+      4425,
+      629,
+      79,
+      44
+    ]
+  },
+  {
+    "index": 33,
+    "id": "r0c03-beigecap/2",
+    "kind": "hand",
+    "bounds": [
+      4566,
+      425,
+      49,
+      45
+    ]
+  },
+  {
+    "index": 34,
+    "id": "r0c03-grayjacket/0",
+    "kind": "head",
+    "bounds": [
+      5088,
+      569,
+      73,
+      97
+    ]
+  },
+  {
+    "index": 35,
+    "id": "r0c03-grayjacket/1",
+    "kind": "chest",
+    "bounds": [
+      5086,
+      693,
+      77,
+      45
+    ]
+  },
+  {
+    "index": 36,
+    "id": "r0c03-leatherwoman/0",
+    "kind": "head",
+    "bounds": [
+      4079,
+      739,
+      75,
+      97
+    ]
+  },
+  {
+    "index": 37,
+    "id": "r0c03-leatherwoman/1",
+    "kind": "chest",
+    "bounds": [
+      4077,
+      863,
+      79,
+      45
+    ]
+  },
+  {
+    "index": 38,
+    "id": "r0c03-yellowhoodie/0",
+    "kind": "head",
+    "bounds": [
+      4513,
+      719,
+      81,
+      99
+    ]
+  },
+  {
+    "index": 39,
+    "id": "r0c03-yellowhoodie/1",
+    "kind": "chest",
+    "bounds": [
+      4511,
+      845,
+      85,
+      46
+    ]
+  },
+  {
+    "index": 40,
+    "id": "r0c03-yellowhoodie/2",
+    "kind": "hand",
+    "bounds": [
+      4677,
+      798,
+      41,
+      47
+    ]
+  },
+  {
+    "index": 41,
+    "id": "r0c04-blondtracksuit/0",
+    "kind": "head",
+    "bounds": [
+      5559,
+      395,
+      61,
+      79
+    ]
+  },
+  {
+    "index": 42,
+    "id": "r0c04-blondtracksuit/1",
+    "kind": "chest",
+    "bounds": [
+      5557,
+      497,
+      65,
+      38
+    ]
+  },
+  {
+    "index": 43,
+    "id": "r0c04-clapwoman/0",
+    "kind": "head",
+    "bounds": [
+      5892,
+      427,
+      55,
+      71
+    ]
+  },
+  {
+    "index": 44,
+    "id": "r0c04-clapwoman/1",
+    "kind": "chest",
+    "bounds": [
+      5890,
+      520,
+      59,
+      34
+    ]
+  },
+  {
+    "index": 45,
+    "id": "r0c04-beardcap/0",
+    "kind": "head",
+    "bounds": [
+      6172,
+      427,
+      59,
+      77
+    ]
+  },
+  {
+    "index": 46,
+    "id": "r0c04-beardcap/1",
+    "kind": "chest",
+    "bounds": [
+      6170,
+      527,
+      63,
+      37
+    ]
+  },
+  {
+    "index": 47,
+    "id": "r0c04-greenvarsity/0",
+    "kind": "head",
+    "bounds": [
+      5643,
+      581,
+      65,
+      83
+    ]
+  },
+  {
+    "index": 48,
+    "id": "r0c04-greenvarsity/1",
+    "kind": "chest",
+    "bounds": [
+      5641,
+      688,
+      69,
+      39
+    ]
+  },
+  {
+    "index": 49,
+    "id": "r0c04-greenvarsity/2",
+    "kind": "hand",
+    "bounds": [
+      5778,
+      600,
+      35,
+      41
+    ]
+  },
+  {
+    "index": 50,
+    "id": "r0c04-purplewoman/0",
+    "kind": "head",
+    "bounds": [
+      6010,
+      586,
+      61,
+      79
+    ]
+  },
+  {
+    "index": 51,
+    "id": "r0c04-purplewoman/1",
+    "kind": "chest",
+    "bounds": [
+      6008,
+      688,
+      65,
+      38
+    ]
+  },
+  {
+    "index": 52,
+    "id": "r0c04-redcapbeard/0",
+    "kind": "head",
+    "bounds": [
+      6361,
+      583,
+      63,
+      81
+    ]
+  },
+  {
+    "index": 53,
+    "id": "r0c04-redcapbeard/1",
+    "kind": "chest",
+    "bounds": [
+      6359,
+      688,
+      67,
+      38
+    ]
+  },
+  {
+    "index": 54,
+    "id": "r0c04-navypolo/0",
+    "kind": "head",
+    "bounds": [
+      5635,
+      799,
+      75,
+      93
+    ]
+  },
+  {
+    "index": 55,
+    "id": "r0c04-navypolo/1",
+    "kind": "chest",
+    "bounds": [
+      5633,
+      918,
+      79,
+      44
+    ]
+  },
+  {
+    "index": 56,
+    "id": "r0c04-beigehoodie/0",
+    "kind": "head",
+    "bounds": [
+      5987,
+      796,
+      65,
+      87
+    ]
+  },
+  {
+    "index": 57,
+    "id": "r0c04-beigehoodie/1",
+    "kind": "chest",
+    "bounds": [
+      5985,
+      908,
+      69,
+      41
+    ]
+  },
+  {
+    "index": 58,
+    "id": "r0c05-grayman/0",
+    "kind": "head",
+    "bounds": [
+      6433,
+      415,
+      63,
+      81
+    ]
+  },
+  {
+    "index": 59,
+    "id": "r0c05-grayman/1",
+    "kind": "chest",
+    "bounds": [
+      6431,
+      520,
+      67,
+      38
+    ]
+  },
+  {
+    "index": 60,
+    "id": "r0c05-bluecapjersey/0",
+    "kind": "head",
+    "bounds": [
+      6785,
+      438,
+      63,
+      81
+    ]
+  },
+  {
+    "index": 61,
+    "id": "r0c05-bluecapjersey/1",
+    "kind": "chest",
+    "bounds": [
+      6783,
+      543,
+      67,
+      38
+    ]
+  },
+  {
+    "index": 62,
+    "id": "r0c05-bluecapjersey/2",
+    "kind": "hand",
+    "bounds": [
+      6899,
+      378,
+      39,
+      37
+    ]
+  },
+  {
+    "index": 63,
+    "id": "r0c05-redwoman/0",
+    "kind": "head",
+    "bounds": [
+      7148,
+      427,
+      63,
+      83
+    ]
+  },
+  {
+    "index": 64,
+    "id": "r0c05-redwoman/1",
+    "kind": "chest",
+    "bounds": [
+      7146,
+      534,
+      67,
+      39
+    ]
+  },
+  {
+    "index": 65,
+    "id": "r0c05-redwoman/2",
+    "kind": "hand",
+    "bounds": [
+      7210,
+      502,
+      33,
+      43
+    ]
+  },
+  {
+    "index": 66,
+    "id": "r0c05-bluehoodie/0",
+    "kind": "head",
+    "bounds": [
+      7438,
+      409,
+      65,
+      85
+    ]
+  },
+  {
+    "index": 67,
+    "id": "r0c05-bluehoodie/1",
+    "kind": "chest",
+    "bounds": [
+      7436,
+      518,
+      69,
+      41
+    ]
+  },
+  {
+    "index": 68,
+    "id": "r0c05-blondcapwoman/0",
+    "kind": "head",
+    "bounds": [
+      6679,
+      590,
+      65,
+      83
+    ]
+  },
+  {
+    "index": 69,
+    "id": "r0c05-blondcapwoman/1",
+    "kind": "chest",
+    "bounds": [
+      6677,
+      697,
+      69,
+      39
+    ]
+  },
+  {
+    "index": 70,
+    "id": "r0c05-sunglasses/0",
+    "kind": "head",
+    "bounds": [
+      6997,
+      579,
+      67,
+      85
+    ]
+  },
+  {
+    "index": 71,
+    "id": "r0c05-sunglasses/1",
+    "kind": "chest",
+    "bounds": [
+      6995,
+      688,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 72,
+    "id": "r0c05-fedorabeard/0",
+    "kind": "head",
+    "bounds": [
+      7317,
+      594,
+      71,
+      89
+    ]
+  },
+  {
+    "index": 73,
+    "id": "r0c05-fedorabeard/1",
+    "kind": "chest",
+    "bounds": [
+      7315,
+      708,
+      75,
+      42
+    ]
+  },
+  {
+    "index": 74,
+    "id": "r0c05-brownjacket/0",
+    "kind": "head",
+    "bounds": [
+      6695,
+      796,
+      73,
+      95
+    ]
+  },
+  {
+    "index": 75,
+    "id": "r0c05-brownjacket/1",
+    "kind": "chest",
+    "bounds": [
+      6693,
+      917,
+      77,
+      45
+    ]
+  },
+  {
+    "index": 76,
+    "id": "r0c05-burgundywoman/0",
+    "kind": "head",
+    "bounds": [
+      7010,
+      805,
+      67,
+      85
+    ]
+  },
+  {
+    "index": 77,
+    "id": "r0c05-burgundywoman/1",
+    "kind": "chest",
+    "bounds": [
+      7008,
+      914,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 78,
+    "id": "r0c05-bluecapbeer/0",
+    "kind": "head",
+    "bounds": [
+      7271,
+      798,
+      71,
+      91
+    ]
+  },
+  {
+    "index": 79,
+    "id": "r0c05-bluecapbeer/1",
+    "kind": "chest",
+    "bounds": [
+      7269,
+      914,
+      75,
+      43
+    ]
+  },
+  {
+    "index": 80,
+    "id": "r0c05-greenhoodie/0",
+    "kind": "head",
+    "bounds": [
+      7572,
+      795,
+      71,
+      91
+    ]
+  },
+  {
+    "index": 81,
+    "id": "r0c05-greenhoodie/1",
+    "kind": "chest",
+    "bounds": [
+      7570,
+      911,
+      75,
+      43
+    ]
+  },
+  {
+    "index": 82,
+    "id": "r0c06-beigecap/0",
+    "kind": "head",
+    "bounds": [
+      7840,
+      437,
+      65,
+      81
+    ]
+  },
+  {
+    "index": 83,
+    "id": "r0c06-beigecap/1",
+    "kind": "chest",
+    "bounds": [
+      7838,
+      542,
+      69,
+      38
+    ]
+  },
+  {
+    "index": 84,
+    "id": "r0c06-beigecap/2",
+    "kind": "hand",
+    "bounds": [
+      7941,
+      384,
+      41,
+      37
+    ]
+  },
+  {
+    "index": 85,
+    "id": "r0c06-graynavy/0",
+    "kind": "head",
+    "bounds": [
+      8321,
+      400,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 86,
+    "id": "r0c06-graynavy/1",
+    "kind": "chest",
+    "bounds": [
+      8319,
+      512,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 87,
+    "id": "r0c06-clapleatherwoman/0",
+    "kind": "head",
+    "bounds": [
+      8672,
+      424,
+      67,
+      85
+    ]
+  },
+  {
+    "index": 88,
+    "id": "r0c06-clapleatherwoman/1",
+    "kind": "chest",
+    "bounds": [
+      8670,
+      533,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 89,
+    "id": "r0c06-leatherwoman/0",
+    "kind": "head",
+    "bounds": [
+      7661,
+      594,
+      65,
+      83
+    ]
+  },
+  {
+    "index": 90,
+    "id": "r0c06-leatherwoman/1",
+    "kind": "chest",
+    "bounds": [
+      7659,
+      701,
+      69,
+      39
+    ]
+  },
+  {
+    "index": 91,
+    "id": "r0c06-yellowhoodie/0",
+    "kind": "head",
+    "bounds": [
+      8032,
+      570,
+      71,
+      89
+    ]
+  },
+  {
+    "index": 92,
+    "id": "r0c06-yellowhoodie/1",
+    "kind": "chest",
+    "bounds": [
+      8030,
+      684,
+      75,
+      42
+    ]
+  },
+  {
+    "index": 93,
+    "id": "r0c06-yellowhoodie/2",
+    "kind": "hand",
+    "bounds": [
+      8151,
+      643,
+      37,
+      41
+    ]
+  },
+  {
+    "index": 94,
+    "id": "r0c06-redhairclap/0",
+    "kind": "head",
+    "bounds": [
+      8442,
+      581,
+      67,
+      85
+    ]
+  },
+  {
+    "index": 95,
+    "id": "r0c06-redhairclap/1",
+    "kind": "chest",
+    "bounds": [
+      8440,
+      690,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 96,
+    "id": "r0c06-blackshirt/0",
+    "kind": "head",
+    "bounds": [
+      8747,
+      578,
+      69,
+      87
+    ]
+  },
+  {
+    "index": 97,
+    "id": "r0c06-blackshirt/1",
+    "kind": "chest",
+    "bounds": [
+      8745,
+      690,
+      73,
+      41
+    ]
+  },
+  {
+    "index": 98,
+    "id": "r0c06-orangewoman/0",
+    "kind": "head",
+    "bounds": [
+      7856,
+      799,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 99,
+    "id": "r0c06-orangewoman/1",
+    "kind": "chest",
+    "bounds": [
+      7854,
+      911,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 100,
+    "id": "r0c06-grayvest/0",
+    "kind": "head",
+    "bounds": [
+      8118,
+      801,
+      69,
+      87
+    ]
+  },
+  {
+    "index": 101,
+    "id": "r0c06-grayvest/1",
+    "kind": "chest",
+    "bounds": [
+      8116,
+      913,
+      73,
+      41
+    ]
+  },
+  {
+    "index": 102,
+    "id": "r0c06-leatherwomanfront/0",
+    "kind": "head",
+    "bounds": [
+      8425,
+      801,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 103,
+    "id": "r0c06-leatherwomanfront/1",
+    "kind": "chest",
+    "bounds": [
+      8423,
+      913,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 104,
+    "id": "r0c06-plaidcap/0",
+    "kind": "head",
+    "bounds": [
+      8715,
+      798,
+      71,
+      91
+    ]
+  },
+  {
+    "index": 105,
+    "id": "r0c06-plaidcap/1",
+    "kind": "chest",
+    "bounds": [
+      8713,
+      914,
+      75,
+      43
+    ]
+  },
+  {
+    "index": 106,
+    "id": "r0c07-beardolive/0",
+    "kind": "head",
+    "bounds": [
+      8973,
+      413,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 107,
+    "id": "r0c07-beardolive/1",
+    "kind": "chest",
+    "bounds": [
+      8971,
+      525,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 108,
+    "id": "r0c07-graybaseball/0",
+    "kind": "head",
+    "bounds": [
+      9356,
+      421,
+      67,
+      85
+    ]
+  },
+  {
+    "index": 109,
+    "id": "r0c07-graybaseball/1",
+    "kind": "chest",
+    "bounds": [
+      9354,
+      530,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 110,
+    "id": "r0c07-graybaseball/2",
+    "kind": "hand",
+    "bounds": [
+      9485,
+      370,
+      37,
+      37
+    ]
+  },
+  {
+    "index": 111,
+    "id": "r0c07-redwoman/0",
+    "kind": "head",
+    "bounds": [
+      9747,
+      432,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 112,
+    "id": "r0c07-redwoman/1",
+    "kind": "chest",
+    "bounds": [
+      9745,
+      544,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 113,
+    "id": "r0c07-tanvarsity/0",
+    "kind": "head",
+    "bounds": [
+      9123,
+      581,
+      69,
+      87
+    ]
+  },
+  {
+    "index": 114,
+    "id": "r0c07-tanvarsity/1",
+    "kind": "chest",
+    "bounds": [
+      9121,
+      693,
+      73,
+      41
+    ]
+  },
+  {
+    "index": 115,
+    "id": "r0c07-tanvarsity/2",
+    "kind": "hand",
+    "bounds": [
+      9230,
+      607,
+      37,
+      41
+    ]
+  },
+  {
+    "index": 116,
+    "id": "r0c07-purplewoman/0",
+    "kind": "head",
+    "bounds": [
+      9452,
+      590,
+      69,
+      87
+    ]
+  },
+  {
+    "index": 117,
+    "id": "r0c07-purplewoman/1",
+    "kind": "chest",
+    "bounds": [
+      9450,
+      702,
+      73,
+      41
+    ]
+  },
+  {
+    "index": 118,
+    "id": "r0c07-grayman/0",
+    "kind": "head",
+    "bounds": [
+      9773,
+      595,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 119,
+    "id": "r0c07-grayman/1",
+    "kind": "chest",
+    "bounds": [
+      9771,
+      707,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 120,
+    "id": "r0c07-whiteclapwoman/0",
+    "kind": "head",
+    "bounds": [
+      9016,
+      804,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 121,
+    "id": "r0c07-whiteclapwoman/1",
+    "kind": "chest",
+    "bounds": [
+      9014,
+      916,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 122,
+    "id": "r0c07-whiteclapwoman2/0",
+    "kind": "head",
+    "bounds": [
+      9245,
+      804,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 123,
+    "id": "r0c07-whiteclapwoman2/1",
+    "kind": "chest",
+    "bounds": [
+      9243,
+      916,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 124,
+    "id": "r0c07-bluecapjersey/0",
+    "kind": "head",
+    "bounds": [
+      9516,
+      802,
+      69,
+      91
+    ]
+  },
+  {
+    "index": 125,
+    "id": "r0c07-bluecapjersey/1",
+    "kind": "chest",
+    "bounds": [
+      9514,
+      918,
+      73,
+      43
+    ]
+  },
+  {
+    "index": 126,
+    "id": "r0c07-blondcapwoman/0",
+    "kind": "head",
+    "bounds": [
+      9800,
+      803,
+      67,
+      89
+    ]
+  },
+  {
+    "index": 127,
+    "id": "r0c07-blondcapwoman/1",
+    "kind": "chest",
+    "bounds": [
+      9798,
+      917,
+      71,
+      42
+    ]
+  },
+  {
+    "index": 128,
+    "id": "r0c08-whiteclapwoman/0",
+    "kind": "head",
+    "bounds": [
+      10167,
+      434,
+      67,
+      85
+    ]
+  },
+  {
+    "index": 129,
+    "id": "r0c08-whiteclapwoman/1",
+    "kind": "chest",
+    "bounds": [
+      10165,
+      543,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 130,
+    "id": "r0c08-blackshirt/0",
+    "kind": "head",
+    "bounds": [
+      10491,
+      412,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 131,
+    "id": "r0c08-blackshirt/1",
+    "kind": "chest",
+    "bounds": [
+      10489,
+      524,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 132,
+    "id": "r0c08-bluecapbeard/0",
+    "kind": "head",
+    "bounds": [
+      10845,
+      429,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 133,
+    "id": "r0c08-bluecapbeard/1",
+    "kind": "chest",
+    "bounds": [
+      10843,
+      541,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 134,
+    "id": "r0c08-bluecapbeard/2",
+    "kind": "hand",
+    "bounds": [
+      10940,
+      369,
+      37,
+      37
+    ]
+  },
+  {
+    "index": 135,
+    "id": "r0c08-whiteclapwoman2/0",
+    "kind": "head",
+    "bounds": [
+      11199,
+      432,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 136,
+    "id": "r0c08-whiteclapwoman2/1",
+    "kind": "chest",
+    "bounds": [
+      11197,
+      544,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 137,
+    "id": "r0c08-grayman/0",
+    "kind": "head",
+    "bounds": [
+      10177,
+      596,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 138,
+    "id": "r0c08-grayman/1",
+    "kind": "chest",
+    "bounds": [
+      10175,
+      708,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 139,
+    "id": "r0c08-purplewoman/0",
+    "kind": "head",
+    "bounds": [
+      10544,
+      591,
+      67,
+      89
+    ]
+  },
+  {
+    "index": 140,
+    "id": "r0c08-purplewoman/1",
+    "kind": "chest",
+    "bounds": [
+      10542,
+      705,
+      71,
+      42
+    ]
+  },
+  {
+    "index": 141,
+    "id": "r0c08-purplewoman/2",
+    "kind": "hand",
+    "bounds": [
+      10693,
+      676,
+      35,
+      39
+    ]
+  },
+  {
+    "index": 142,
+    "id": "r0c08-beigecap/0",
+    "kind": "head",
+    "bounds": [
+      10921,
+      594,
+      69,
+      89
+    ]
+  },
+  {
+    "index": 143,
+    "id": "r0c08-beigecap/1",
+    "kind": "chest",
+    "bounds": [
+      10919,
+      708,
+      73,
+      42
+    ]
+  },
+  {
+    "index": 144,
+    "id": "r0c08-whiteclapwoman3/0",
+    "kind": "head",
+    "bounds": [
+      11270,
+      596,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 145,
+    "id": "r0c08-whiteclapwoman3/1",
+    "kind": "chest",
+    "bounds": [
+      11268,
+      708,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 146,
+    "id": "r0c08-whiteclapwomanfront/0",
+    "kind": "head",
+    "bounds": [
+      10195,
+      804,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 147,
+    "id": "r0c08-whiteclapwomanfront/1",
+    "kind": "chest",
+    "bounds": [
+      10193,
+      916,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 148,
+    "id": "r0c08-bluecapjersey/0",
+    "kind": "head",
+    "bounds": [
+      10488,
+      800,
+      69,
+      91
+    ]
+  },
+  {
+    "index": 149,
+    "id": "r0c08-bluecapjersey/1",
+    "kind": "chest",
+    "bounds": [
+      10486,
+      916,
+      73,
+      43
+    ]
+  },
+  {
+    "index": 150,
+    "id": "r0c08-blondcapwoman2/0",
+    "kind": "head",
+    "bounds": [
+      10801,
+      801,
+      67,
+      89
+    ]
+  },
+  {
+    "index": 151,
+    "id": "r0c08-blondcapwoman2/1",
+    "kind": "chest",
+    "bounds": [
+      10799,
+      915,
+      71,
+      42
+    ]
+  },
+  {
+    "index": 152,
+    "id": "r0c08-plaidcap/0",
+    "kind": "head",
+    "bounds": [
+      11118,
+      802,
+      71,
+      91
+    ]
+  },
+  {
+    "index": 153,
+    "id": "r0c08-plaidcap/1",
+    "kind": "chest",
+    "bounds": [
+      11116,
+      918,
+      75,
+      43
+    ]
+  },
+  {
+    "index": 154,
+    "id": "r0c09-grayclapman/0",
+    "kind": "head",
+    "bounds": [
+      11499,
+      416,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 155,
+    "id": "r0c09-grayclapman/1",
+    "kind": "chest",
+    "bounds": [
+      11497,
+      528,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 156,
+    "id": "r0c09-bluecappolo/0",
+    "kind": "head",
+    "bounds": [
+      11805,
+      426,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 157,
+    "id": "r0c09-bluecappolo/1",
+    "kind": "chest",
+    "bounds": [
+      11803,
+      538,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 158,
+    "id": "r0c09-bluecappolo/2",
+    "kind": "hand",
+    "bounds": [
+      11909,
+      375,
+      37,
+      37
+    ]
+  },
+  {
+    "index": 159,
+    "id": "r0c09-redclapwoman/0",
+    "kind": "head",
+    "bounds": [
+      12132,
+      431,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 160,
+    "id": "r0c09-redclapwoman/1",
+    "kind": "chest",
+    "bounds": [
+      12130,
+      543,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 161,
+    "id": "r0c09-graynavy/0",
+    "kind": "head",
+    "bounds": [
+      12455,
+      410,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 162,
+    "id": "r0c09-graynavy/1",
+    "kind": "chest",
+    "bounds": [
+      12453,
+      522,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 163,
+    "id": "r0c09-blackhoodiebeard/0",
+    "kind": "head",
+    "bounds": [
+      11595,
+      578,
+      69,
+      89
+    ]
+  },
+  {
+    "index": 164,
+    "id": "r0c09-blackhoodiebeard/1",
+    "kind": "chest",
+    "bounds": [
+      11593,
+      692,
+      73,
+      42
+    ]
+  },
+  {
+    "index": 165,
+    "id": "r0c09-orangewoman/0",
+    "kind": "head",
+    "bounds": [
+      11936,
+      591,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 166,
+    "id": "r0c09-orangewoman/1",
+    "kind": "chest",
+    "bounds": [
+      11934,
+      703,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 167,
+    "id": "r0c09-bluejacket/0",
+    "kind": "head",
+    "bounds": [
+      12280,
+      577,
+      69,
+      89
+    ]
+  },
+  {
+    "index": 168,
+    "id": "r0c09-bluejacket/1",
+    "kind": "chest",
+    "bounds": [
+      12278,
+      691,
+      73,
+      42
+    ]
+  },
+  {
+    "index": 169,
+    "id": "r0c09-bluejacket/2",
+    "kind": "hand",
+    "bounds": [
+      12379,
+      640,
+      37,
+      41
+    ]
+  },
+  {
+    "index": 170,
+    "id": "r0c09-burgundywoman/0",
+    "kind": "head",
+    "bounds": [
+      11436,
+      806,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 171,
+    "id": "r0c09-burgundywoman/1",
+    "kind": "chest",
+    "bounds": [
+      11434,
+      918,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 172,
+    "id": "r0c09-bluecapbeer/0",
+    "kind": "head",
+    "bounds": [
+      11727,
+      802,
+      69,
+      89
+    ]
+  },
+  {
+    "index": 173,
+    "id": "r0c09-bluecapbeer/1",
+    "kind": "chest",
+    "bounds": [
+      11725,
+      916,
+      73,
+      42
+    ]
+  },
+  {
+    "index": 174,
+    "id": "r0c09-greenhoodie/0",
+    "kind": "head",
+    "bounds": [
+      12046,
+      800,
+      71,
+      91
+    ]
+  },
+  {
+    "index": 175,
+    "id": "r0c09-greenhoodie/1",
+    "kind": "chest",
+    "bounds": [
+      12044,
+      916,
+      75,
+      43
+    ]
+  },
+  {
+    "index": 176,
+    "id": "r0c09-orangewomanfront/0",
+    "kind": "head",
+    "bounds": [
+      12349,
+      804,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 177,
+    "id": "r0c09-orangewomanfront/1",
+    "kind": "chest",
+    "bounds": [
+      12347,
+      916,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 178,
+    "id": "r0c10-plaidcap/0",
+    "kind": "head",
+    "bounds": [
+      12790,
+      417,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 179,
+    "id": "r0c10-plaidcap/1",
+    "kind": "chest",
+    "bounds": [
+      12788,
+      529,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 180,
+    "id": "r0c10-blondcapwoman/0",
+    "kind": "head",
+    "bounds": [
+      13131,
+      435,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 181,
+    "id": "r0c10-blondcapwoman/1",
+    "kind": "chest",
+    "bounds": [
+      13129,
+      547,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 182,
+    "id": "r0c10-navypolo/0",
+    "kind": "head",
+    "bounds": [
+      13444,
+      422,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 183,
+    "id": "r0c10-navypolo/1",
+    "kind": "chest",
+    "bounds": [
+      13442,
+      534,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 184,
+    "id": "r0c10-navypolo/2",
+    "kind": "hand",
+    "bounds": [
+      13533,
+      451,
+      35,
+      39
+    ]
+  },
+  {
+    "index": 185,
+    "id": "r0c10-leatherwoman/0",
+    "kind": "head",
+    "bounds": [
+      12589,
+      598,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 186,
+    "id": "r0c10-leatherwoman/1",
+    "kind": "chest",
+    "bounds": [
+      12587,
+      710,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 187,
+    "id": "r0c10-yellowhoodie/0",
+    "kind": "head",
+    "bounds": [
+      12950,
+      573,
+      71,
+      91
+    ]
+  },
+  {
+    "index": 188,
+    "id": "r0c10-yellowhoodie/1",
+    "kind": "chest",
+    "bounds": [
+      12948,
+      689,
+      75,
+      43
+    ]
+  },
+  {
+    "index": 189,
+    "id": "r0c10-yellowhoodie/2",
+    "kind": "hand",
+    "bounds": [
+      13071,
+      645,
+      37,
+      41
+    ]
+  },
+  {
+    "index": 190,
+    "id": "r0c10-grayvest/0",
+    "kind": "head",
+    "bounds": [
+      13292,
+      597,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 191,
+    "id": "r0c10-grayvest/1",
+    "kind": "chest",
+    "bounds": [
+      13290,
+      709,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 192,
+    "id": "r0c10-whiteclapwoman/0",
+    "kind": "head",
+    "bounds": [
+      13585,
+      588,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 193,
+    "id": "r0c10-whiteclapwoman/1",
+    "kind": "chest",
+    "bounds": [
+      13583,
+      700,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 194,
+    "id": "r0c10-brownjacket/0",
+    "kind": "head",
+    "bounds": [
+      12643,
+      800,
+      69,
+      89
+    ]
+  },
+  {
+    "index": 195,
+    "id": "r0c10-brownjacket/1",
+    "kind": "chest",
+    "bounds": [
+      12641,
+      914,
+      73,
+      42
+    ]
+  },
+  {
+    "index": 196,
+    "id": "r0c10-blackpolowoman/0",
+    "kind": "head",
+    "bounds": [
+      12926,
+      806,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 197,
+    "id": "r0c10-blackpolowoman/1",
+    "kind": "chest",
+    "bounds": [
+      12924,
+      918,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 198,
+    "id": "r0c10-leatherwomanfront/0",
+    "kind": "head",
+    "bounds": [
+      13217,
+      807,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 199,
+    "id": "r0c10-leatherwomanfront/1",
+    "kind": "chest",
+    "bounds": [
+      13215,
+      919,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 200,
+    "id": "r0c10-bluecapfemale/0",
+    "kind": "head",
+    "bounds": [
+      13517,
+      818,
+      41,
+      53
+    ]
+  },
+  {
+    "index": 201,
+    "id": "r0c10-bluecapfemale/1",
+    "kind": "chest",
+    "bounds": [
+      13516,
+      889,
+      43,
+      27
+    ]
+  },
+  {
+    "index": 202,
+    "id": "r0c11-beigehoodie/0",
+    "kind": "head",
+    "bounds": [
+      13741,
+      438,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 203,
+    "id": "r0c11-beigehoodie/1",
+    "kind": "chest",
+    "bounds": [
+      13739,
+      550,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 204,
+    "id": "r0c11-graytracksuit/0",
+    "kind": "head",
+    "bounds": [
+      14038,
+      414,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 205,
+    "id": "r0c11-graytracksuit/1",
+    "kind": "chest",
+    "bounds": [
+      14036,
+      526,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 206,
+    "id": "r0c11-olivejacket/0",
+    "kind": "head",
+    "bounds": [
+      13907,
+      598,
+      69,
+      89
+    ]
+  },
+  {
+    "index": 207,
+    "id": "r0c11-olivejacket/1",
+    "kind": "chest",
+    "bounds": [
+      13905,
+      712,
+      73,
+      42
+    ]
+  },
+  {
+    "index": 208,
+    "id": "r0c11-navypolo/0",
+    "kind": "head",
+    "bounds": [
+      13965,
+      805,
+      69,
+      89
+    ]
+  },
+  {
+    "index": 209,
+    "id": "r0c11-navypolo/1",
+    "kind": "chest",
+    "bounds": [
+      13963,
+      919,
+      73,
+      42
+    ]
+  },
+  {
+    "index": 210,
+    "id": "r0c11-navypolo/2",
+    "kind": "hand",
+    "bounds": [
+      14059,
+      792,
+      39,
+      43
+    ]
+  },
+  {
+    "index": 211,
+    "id": "r0c11-purplewomanstanding/0",
+    "kind": "head",
+    "bounds": [
+      14401,
+      587,
+      71,
+      91
+    ]
+  },
+  {
+    "index": 212,
+    "id": "r0c11-purplewomanstanding/1",
+    "kind": "chest",
+    "bounds": [
+      14399,
+      703,
+      75,
+      43
+    ]
+  },
+  {
+    "index": 213,
+    "id": "r0c11-purplewomanstanding/2",
+    "kind": "hand",
+    "bounds": [
+      14489,
+      632,
+      33,
+      37
+    ]
+  },
+  {
+    "index": 214,
+    "id": "r0c11-greenhoodiestanding/0",
+    "kind": "head",
+    "bounds": [
+      14661,
+      563,
+      75,
+      95
+    ]
+  },
+  {
+    "index": 215,
+    "id": "r0c11-greenhoodiestanding/1",
+    "kind": "chest",
+    "bounds": [
+      14659,
+      684,
+      79,
+      45
+    ]
+  },
+  {
+    "index": 216,
+    "id": "r0c11-greenhoodiestanding/2",
+    "kind": "hand",
+    "bounds": [
+      14798,
+      490,
+      45,
+      45
+    ]
+  },
+  {
+    "index": 217,
+    "id": "r0c11-blackcapstanding/0",
+    "kind": "head",
+    "bounds": [
+      14390,
+      756,
+      73,
+      93
+    ]
+  },
+  {
+    "index": 218,
+    "id": "r0c11-blackcapstanding/1",
+    "kind": "chest",
+    "bounds": [
+      14388,
+      875,
+      77,
+      44
+    ]
+  },
+  {
+    "index": 219,
+    "id": "r0c11-blackcapstanding/2",
+    "kind": "hand",
+    "bounds": [
+      14298,
+      667,
+      41,
+      45
+    ]
+  },
+  {
+    "index": 220,
+    "id": "r0c11-whitewomanstanding/0",
+    "kind": "head",
+    "bounds": [
+      14523,
+      785,
+      67,
+      87
+    ]
+  },
+  {
+    "index": 221,
+    "id": "r0c11-whitewomanstanding/1",
+    "kind": "chest",
+    "bounds": [
+      14521,
+      897,
+      71,
+      41
+    ]
+  },
+  {
+    "index": 222,
+    "id": "r0c11-grayveststanding/0",
+    "kind": "head",
+    "bounds": [
+      14646,
+      771,
+      71,
+      91
+    ]
+  },
+  {
+    "index": 223,
+    "id": "r0c11-grayveststanding/1",
+    "kind": "chest",
+    "bounds": [
+      14644,
+      887,
+      75,
+      43
+    ]
+  },
+  {
+    "index": 224,
+    "id": "r0c11-brownjacketstanding/0",
+    "kind": "head",
+    "bounds": [
+      14833,
+      733,
+      73,
+      93
+    ]
+  },
+  {
+    "index": 225,
+    "id": "r0c11-brownjacketstanding/1",
+    "kind": "chest",
+    "bounds": [
+      14831,
+      852,
+      77,
+      44
+    ]
+  }
+]

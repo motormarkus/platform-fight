@@ -1,0 +1,102 @@
+{
+  "width": 200,
+  "height": 100,
+  "frameWidth": 100,
+  "panelCount": 2,
+  "allPixelsCovered": true,
+  "uncoveredPixels": 0,
+  "sourcePixelsResampled": 0,
+  "method": "Native one-to-one crops; hard minimum-error overlap seams; no crossfading of people",
+  "nativePatches": [
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\compositor-selfcheck\\fixture-0-0.png",
+      "sourceWidth": 120,
+      "sourceHeight": 60,
+      "cropX": 0,
+      "cropY": 0,
+      "targetWidth": 120,
+      "targetHeight": 60,
+      "x": 0,
+      "y": 0,
+      "scaleX": 1.0,
+      "scaleY": 1.0
+    },
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\compositor-selfcheck\\fixture-80-0.png",
+      "sourceWidth": 120,
+      "sourceHeight": 60,
+      "cropX": 0,
+      "cropY": 0,
+      "targetWidth": 120,
+      "targetHeight": 60,
+      "x": 80,
+      "y": 0,
+      "scaleX": 1.0,
+      "scaleY": 1.0
+    },
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\compositor-selfcheck\\fixture-0-40.png",
+      "sourceWidth": 120,
+      "sourceHeight": 60,
+      "cropX": 0,
+      "cropY": 0,
+      "targetWidth": 120,
+      "targetHeight": 60,
+      "x": 0,
+      "y": 40,
+      "scaleX": 1.0,
+      "scaleY": 1.0
+    },
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\compositor-selfcheck\\fixture-80-40.png",
+      "sourceWidth": 120,
+      "sourceHeight": 60,
+      "cropX": 0,
+      "cropY": 0,
+      "targetWidth": 120,
+      "targetHeight": 60,
+      "x": 80,
+      "y": 40,
+      "scaleX": 1.0,
+      "scaleY": 1.0
+    }
+  ],
+  "seams": [
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\compositor-selfcheck\\fixture-0-0.png",
+      "x": 0,
+      "y": 0,
+      "verticalOverlap": 0,
+      "horizontalOverlap": 0,
+      "verticalMeanCost": 0.0,
+      "horizontalMeanCost": 0.0
+    },
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\compositor-selfcheck\\fixture-80-0.png",
+      "x": 80,
+      "y": 0,
+      "verticalOverlap": 40,
+      "horizontalOverlap": 0,
+      "verticalMeanCost": 124.25800833333328,
+      "horizontalMeanCost": 0.0
+    },
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\compositor-selfcheck\\fixture-0-40.png",
+      "x": 0,
+      "y": 40,
+      "verticalOverlap": 0,
+      "horizontalOverlap": 20,
+      "verticalMeanCost": 0.0,
+      "horizontalMeanCost": 104.60110416666677
+    },
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\compositor-selfcheck\\fixture-80-40.png",
+      "x": 80,
+      "y": 40,
+      "verticalOverlap": 40,
+      "horizontalOverlap": 20,
+      "verticalMeanCost": 134.47324166666655,
+      "horizontalMeanCost": 107.2521041666668
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "Passed": true,
+  "FramesChecked": 18,
+  "Definition": "Straight-alpha overlay composited over immutable native RGB master using round(base*(1-alpha)+overlayRGB*alpha).",
+  "Results": [
+    {
+      "Panel": "01-katsomo",
+      "Frame": 1,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "01-katsomo",
+      "Frame": 2,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "01-katsomo",
+      "Frame": 3,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "01-katsomo",
+      "Frame": 4,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "01-katsomo",
+      "Frame": 5,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "01-katsomo",
+      "Frame": 6,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "02-keha-vasen",
+      "Frame": 1,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "02-keha-vasen",
+      "Frame": 2,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "02-keha-vasen",
+      "Frame": 3,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "02-keha-vasen",
+      "Frame": 4,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "02-keha-vasen",
+      "Frame": 5,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "02-keha-vasen",
+      "Frame": 6,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "03-keha-oikea",
+      "Frame": 1,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "03-keha-oikea",
+      "Frame": 2,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "03-keha-oikea",
+      "Frame": 3,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "03-keha-oikea",
+      "Frame": 4,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "03-keha-oikea",
+      "Frame": 5,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    },
+    {
+      "Panel": "03-keha-oikea",
+      "Frame": 6,
+      "CompositeDifferentPixels": 0,
+      "MaximumCompositeChannelError": 0,
+      "HiddenRgbPixels": 0,
+      "AlphaOutsideMask": 0,
+      "AlphaMismatch": 0,
+      "StaticDifferentPixels": 0
+    }
+  ]
+}

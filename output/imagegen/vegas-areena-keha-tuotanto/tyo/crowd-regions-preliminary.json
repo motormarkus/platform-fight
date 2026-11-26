@@ -1,0 +1,3820 @@
+{
+  "canvasWidth": 15000,
+  "canvasHeight": 1884,
+  "reviewStatus": "Preliminary manual native-patch annotations; inspect final master before render.",
+  "people": [
+    {
+      "id": "r0c00-blondtracksuit",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            1425.0,
+            516.0,
+            36.0,
+            48.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            1425.0,
+            617.4,
+            37.800000000000004,
+            20.64
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c01-clapwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            1844.0,
+            553.0,
+            32.0,
+            43.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            1844.0,
+            645.4,
+            33.6,
+            18.49
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c01-beardcap",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            2237.0,
+            568.0,
+            35.0,
+            46.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            2237.0,
+            665.8,
+            36.75,
+            19.78
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c01-grayman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            2612.0,
+            544.0,
+            34.0,
+            45.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            2612.0,
+            640.0,
+            35.7,
+            19.35
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c01-greenvarsity",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            1619.0,
+            760.0,
+            34.0,
+            45.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            1619.0,
+            856.0,
+            35.7,
+            19.35
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            1762.0,
+            763.0,
+            17.0,
+            20.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c01-purplewoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            2021.0,
+            779.0,
+            33.0,
+            44.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            2021.0,
+            873.2,
+            34.65,
+            18.919999999999998
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            2014.0,
+            861.0,
+            14.0,
+            17.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c01-redcapbeard",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            2442.0,
+            782.0,
+            37.0,
+            45.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            2442.0,
+            878.0,
+            38.85,
+            19.35
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c02-bluecapjersey",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            3118.0,
+            580.0,
+            34.0,
+            44.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            3118.0,
+            674.2,
+            35.7,
+            18.919999999999998
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            3266.0,
+            486.0,
+            21.0,
+            20.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c02-redwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            3494.0,
+            558.0,
+            34.0,
+            44.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            3494.0,
+            652.2,
+            35.7,
+            18.919999999999998
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            3548.0,
+            649.0,
+            14.0,
+            20.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c02-bluehoodie",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            3872.0,
+            543.0,
+            35.0,
+            46.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            3872.0,
+            640.8,
+            36.75,
+            19.78
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c02-blondcapwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            2834.0,
+            788.0,
+            34.0,
+            45.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            2834.0,
+            884.0,
+            35.7,
+            19.35
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c02-sunglasses",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            3232.0,
+            787.0,
+            35.0,
+            45.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            3232.0,
+            883.0,
+            36.75,
+            19.35
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c02-fedorabeard",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            3634.0,
+            808.0,
+            38.0,
+            46.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            3634.0,
+            905.8,
+            39.9,
+            19.78
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c03-beigecap",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            4464.0,
+            556.0,
+            35.0,
+            44.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            4464.0,
+            650.2,
+            36.75,
+            18.919999999999998
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            4590.0,
+            447.0,
+            22.0,
+            20.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c03-grayjacket",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            5124.0,
+            617.0,
+            34.0,
+            46.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            5124.0,
+            714.8,
+            35.7,
+            19.78
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c03-leatherwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            4116.0,
+            787.0,
+            35.0,
+            46.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            4116.0,
+            884.8,
+            36.75,
+            19.78
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c03-yellowhoodie",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            4553.0,
+            768.0,
+            38.0,
+            47.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            4553.0,
+            867.6,
+            39.9,
+            20.21
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            4697.0,
+            821.0,
+            18.0,
+            21.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c04-blondtracksuit",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            5589.0,
+            434.0,
+            28.0,
+            37.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            5589.0,
+            515.6,
+            29.400000000000002,
+            15.91
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c04-clapwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            5919.0,
+            462.0,
+            25.0,
+            33.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            5919.0,
+            536.4,
+            26.25,
+            14.19
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c04-beardcap",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            6201.0,
+            465.0,
+            27.0,
+            36.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            6201.0,
+            544.8,
+            28.35,
+            15.48
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c04-greenvarsity",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            5675.0,
+            622.0,
+            30.0,
+            39.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            5675.0,
+            707.2,
+            31.5,
+            16.77
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            5795.0,
+            620.0,
+            15.0,
+            18.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c04-purplewoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            6040.0,
+            625.0,
+            28.0,
+            37.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            6040.0,
+            706.6,
+            29.400000000000002,
+            15.91
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c04-redcapbeard",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            6392.0,
+            623.0,
+            29.0,
+            38.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            6392.0,
+            706.4,
+            30.450000000000003,
+            16.34
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c04-navypolo",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            5672.0,
+            845.0,
+            35.0,
+            44.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            5672.0,
+            939.2,
+            36.75,
+            18.919999999999998
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c04-beigehoodie",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            6019.0,
+            839.0,
+            30.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            6019.0,
+            927.8,
+            31.5,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c05-grayman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            6464.0,
+            455.0,
+            29.0,
+            38.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            6464.0,
+            538.4,
+            30.450000000000003,
+            16.34
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c05-bluecapjersey",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            6816.0,
+            478.0,
+            29.0,
+            38.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            6816.0,
+            561.4,
+            30.450000000000003,
+            16.34
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            6918.0,
+            396.0,
+            17.0,
+            16.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c05-redwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            7179.0,
+            468.0,
+            29.0,
+            39.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            7179.0,
+            553.2,
+            30.450000000000003,
+            16.77
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            7226.0,
+            523.0,
+            14.0,
+            19.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c05-bluehoodie",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            7470.0,
+            451.0,
+            30.0,
+            40.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            7470.0,
+            538.0,
+            31.5,
+            17.2
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c05-blondcapwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            6711.0,
+            631.0,
+            30.0,
+            39.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            6711.0,
+            716.2,
+            31.5,
+            16.77
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c05-sunglasses",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            7030.0,
+            621.0,
+            31.0,
+            40.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            7030.0,
+            708.0,
+            32.550000000000004,
+            17.2
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c05-fedorabeard",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            7352.0,
+            638.0,
+            33.0,
+            42.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            7352.0,
+            728.6,
+            34.65,
+            18.06
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c05-brownjacket",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            6731.0,
+            843.0,
+            34.0,
+            45.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            6731.0,
+            939.0,
+            35.7,
+            19.35
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c05-burgundywoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            7043.0,
+            847.0,
+            31.0,
+            40.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            7043.0,
+            934.0,
+            32.550000000000004,
+            17.2
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c05-bluecapbeer",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            7306.0,
+            843.0,
+            33.0,
+            43.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            7306.0,
+            935.4,
+            34.65,
+            18.49
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c05-greenhoodie",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            7607.0,
+            840.0,
+            33.0,
+            43.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            7607.0,
+            932.4,
+            34.65,
+            18.49
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c06-beigecap",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            7872.0,
+            477.0,
+            30.0,
+            38.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            7872.0,
+            560.4,
+            31.5,
+            16.34
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            7961.0,
+            402.0,
+            18.0,
+            16.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c06-graynavy",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            8354.0,
+            443.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            8354.0,
+            531.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c06-clapleatherwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            8705.0,
+            466.0,
+            31.0,
+            40.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            8705.0,
+            553.0,
+            32.550000000000004,
+            17.2
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c06-leatherwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            7693.0,
+            635.0,
+            30.0,
+            39.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            7693.0,
+            720.2,
+            31.5,
+            16.77
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c06-yellowhoodie",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            8067.0,
+            614.0,
+            33.0,
+            42.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            8067.0,
+            704.6,
+            34.65,
+            18.06
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            8169.0,
+            663.0,
+            16.0,
+            18.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c06-redhairclap",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            8475.0,
+            623.0,
+            31.0,
+            40.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            8475.0,
+            710.0,
+            32.550000000000004,
+            17.2
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c06-blackshirt",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            8781.0,
+            621.0,
+            32.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            8781.0,
+            709.8,
+            33.6,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c06-orangewoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            7889.0,
+            842.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            7889.0,
+            930.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c06-grayvest",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            8152.0,
+            844.0,
+            32.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            8152.0,
+            932.8,
+            33.6,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c06-leatherwomanfront",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            8458.0,
+            844.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            8458.0,
+            932.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c06-plaidcap",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            8750.0,
+            843.0,
+            33.0,
+            43.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            8750.0,
+            935.4,
+            34.65,
+            18.49
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c07-beardolive",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            9006.0,
+            456.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            9006.0,
+            544.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c07-graybaseball",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            9389.0,
+            463.0,
+            31.0,
+            40.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            9389.0,
+            550.0,
+            32.550000000000004,
+            17.2
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            9503.0,
+            388.0,
+            16.0,
+            16.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c07-redwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            9780.0,
+            475.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            9780.0,
+            563.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c07-tanvarsity",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            9157.0,
+            624.0,
+            32.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            9157.0,
+            712.8,
+            33.6,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            9248.0,
+            627.0,
+            16.0,
+            18.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c07-purplewoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            9486.0,
+            633.0,
+            32.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            9486.0,
+            721.8,
+            33.6,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c07-grayman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            9806.0,
+            638.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            9806.0,
+            726.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c07-whiteclapwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            9049.0,
+            847.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            9049.0,
+            935.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c07-whiteclapwoman2",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            9278.0,
+            847.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            9278.0,
+            935.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c07-bluecapjersey",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            9550.0,
+            847.0,
+            32.0,
+            43.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            9550.0,
+            939.4,
+            33.6,
+            18.49
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c07-blondcapwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            9833.0,
+            847.0,
+            31.0,
+            42.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            9833.0,
+            937.6,
+            32.550000000000004,
+            18.06
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c08-whiteclapwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            10200.0,
+            476.0,
+            31.0,
+            40.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            10200.0,
+            563.0,
+            32.550000000000004,
+            17.2
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c08-blackshirt",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            10524.0,
+            455.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            10524.0,
+            543.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c08-bluecapbeard",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            10878.0,
+            472.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            10878.0,
+            560.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            10958.0,
+            387.0,
+            16.0,
+            16.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c08-whiteclapwoman2",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            11232.0,
+            475.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            11232.0,
+            563.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c08-grayman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            10210.0,
+            639.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            10210.0,
+            727.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c08-purplewoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            10577.0,
+            635.0,
+            31.0,
+            42.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            10577.0,
+            725.6,
+            32.550000000000004,
+            18.06
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            10710.0,
+            695.0,
+            15.0,
+            17.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c08-beigecap",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            10955.0,
+            638.0,
+            32.0,
+            42.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            10955.0,
+            728.6,
+            33.6,
+            18.06
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c08-whiteclapwoman3",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            11303.0,
+            639.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            11303.0,
+            727.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c08-whiteclapwomanfront",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            10228.0,
+            847.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            10228.0,
+            935.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c08-bluecapjersey",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            10522.0,
+            845.0,
+            32.0,
+            43.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            10522.0,
+            937.4,
+            33.6,
+            18.49
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c08-blondcapwoman2",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            10834.0,
+            845.0,
+            31.0,
+            42.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            10834.0,
+            935.6,
+            32.550000000000004,
+            18.06
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c08-plaidcap",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            11153.0,
+            847.0,
+            33.0,
+            43.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            11153.0,
+            939.4,
+            34.65,
+            18.49
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c09-grayclapman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            11532.0,
+            459.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            11532.0,
+            547.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c09-bluecappolo",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            11838.0,
+            469.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            11838.0,
+            557.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            11927.0,
+            393.0,
+            16.0,
+            16.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c09-redclapwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            12165.0,
+            474.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            12165.0,
+            562.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c09-graynavy",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            12488.0,
+            453.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            12488.0,
+            541.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c09-blackhoodiebeard",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            11629.0,
+            622.0,
+            32.0,
+            42.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            11629.0,
+            712.6,
+            33.6,
+            18.06
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c09-orangewoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            11969.0,
+            634.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            11969.0,
+            722.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c09-bluejacket",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            12314.0,
+            621.0,
+            32.0,
+            42.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            12314.0,
+            711.6,
+            33.6,
+            18.06
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            12397.0,
+            660.0,
+            16.0,
+            18.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c09-burgundywoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            11469.0,
+            849.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            11469.0,
+            937.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c09-bluecapbeer",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            11761.0,
+            846.0,
+            32.0,
+            42.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            11761.0,
+            936.6,
+            33.6,
+            18.06
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c09-greenhoodie",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            12081.0,
+            845.0,
+            33.0,
+            43.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            12081.0,
+            937.4,
+            34.65,
+            18.49
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c09-orangewomanfront",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            12382.0,
+            847.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            12382.0,
+            935.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c10-plaidcap",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            12823.0,
+            460.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            12823.0,
+            548.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c10-blondcapwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            13164.0,
+            478.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            13164.0,
+            566.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c10-navypolo",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            13477.0,
+            465.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            13477.0,
+            553.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            13550.0,
+            470.0,
+            15.0,
+            17.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c10-leatherwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            12622.0,
+            641.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            12622.0,
+            729.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c10-yellowhoodie",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            12985.0,
+            618.0,
+            33.0,
+            43.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            12985.0,
+            710.4,
+            34.65,
+            18.49
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            13089.0,
+            665.0,
+            16.0,
+            18.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c10-grayvest",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            13325.0,
+            640.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            13325.0,
+            728.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c10-whiteclapwoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            13618.0,
+            631.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            13618.0,
+            719.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c10-brownjacket",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            12677.0,
+            844.0,
+            32.0,
+            42.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            12677.0,
+            934.6,
+            33.6,
+            18.06
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c10-blackpolowoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            12959.0,
+            849.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            12959.0,
+            937.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c10-leatherwomanfront",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            13250.0,
+            850.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            13250.0,
+            938.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c10-bluecapfemale",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            13537.0,
+            844.0,
+            18.0,
+            24.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            13537.0,
+            902.2,
+            18.900000000000002,
+            10.32
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c11-beigehoodie",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            13774.0,
+            481.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            13774.0,
+            569.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c11-graytracksuit",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            14071.0,
+            457.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            14071.0,
+            545.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c11-olivejacket",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            13941.0,
+            642.0,
+            32.0,
+            42.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            13941.0,
+            732.6,
+            33.6,
+            18.06
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c11-navypolo",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            13999.0,
+            849.0,
+            32.0,
+            42.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            13999.0,
+            939.6,
+            33.6,
+            18.06
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            14078.0,
+            813.0,
+            17.0,
+            19.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c11-purplewomanstanding",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            14436.0,
+            632.0,
+            33.0,
+            43.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            14436.0,
+            724.4,
+            34.65,
+            18.49
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            14505.0,
+            650.0,
+            14.0,
+            16.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c11-greenhoodiestanding",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            14698.0,
+            610.0,
+            35.0,
+            45.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            14698.0,
+            706.0,
+            36.75,
+            19.35
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            14820.0,
+            512.0,
+            20.0,
+            20.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c11-blackcapstanding",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            14426.0,
+            802.0,
+            34.0,
+            44.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            14426.0,
+            896.2,
+            35.7,
+            18.919999999999998
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            14318.0,
+            689.0,
+            18.0,
+            20.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r0c11-whitewomanstanding",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            14556.0,
+            828.0,
+            31.0,
+            41.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            14556.0,
+            916.8,
+            32.550000000000004,
+            17.63
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c11-grayveststanding",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            14681.0,
+            816.0,
+            33.0,
+            43.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            14681.0,
+            908.4,
+            34.65,
+            18.49
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r0c11-brownjacketstanding",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            14869.0,
+            779.0,
+            34.0,
+            44.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            14869.0,
+            873.2,
+            35.7,
+            18.919999999999998
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r1c01-navypolo",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            1615.0,
+            1034.0,
+            40.0,
+            55.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            1615.0,
+            1148.0,
+            42.0,
+            23.65
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            1725.0,
+            999.0,
+            22.0,
+            23.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r1c01-beigehoodie",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            2027.0,
+            1044.0,
+            40.0,
+            53.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            2027.0,
+            1154.4,
+            42.0,
+            22.79
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            2100.0,
+            1132.0,
+            20.0,
+            29.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r1c01-brownjacket",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            2538.0,
+            1024.0,
+            40.0,
+            54.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            2538.0,
+            1136.2,
+            42.0,
+            23.22
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r1c02-burgundywoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            2993.0,
+            1049.0,
+            39.0,
+            52.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            2993.0,
+            1157.6,
+            40.95,
+            22.36
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r1c02-bluecapbeer",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            3451.0,
+            1032.0,
+            40.0,
+            54.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            3451.0,
+            1144.2,
+            42.0,
+            23.22
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    },
+    {
+      "id": "r1c02-greenhoodie",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            3902.0,
+            1029.0,
+            40.0,
+            54.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            3902.0,
+            1141.2,
+            42.0,
+            23.22
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            4037.0,
+            1091.0,
+            21.0,
+            25.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r1c03-orangewoman",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            4312.0,
+            1031.0,
+            39.0,
+            52.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            4312.0,
+            1139.6,
+            40.95,
+            22.36
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        },
+        {
+          "kind": "hand",
+          "ellipse": [
+            4314.0,
+            1080.0,
+            19.0,
+            28.0
+          ],
+          "amplitudeX": 1.6,
+          "amplitudeY": 1.7,
+          "rotationDegrees": 0.2,
+          "feather": 6,
+          "phaseOffset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "r1c03-grayvest",
+      "regions": [
+        {
+          "kind": "head",
+          "ellipse": [
+            4690.0,
+            1031.0,
+            41.0,
+            54.0
+          ],
+          "amplitudeX": 2.0,
+          "amplitudeY": 2.2,
+          "rotationDegrees": 0.15,
+          "feather": 8
+        },
+        {
+          "kind": "chest",
+          "ellipse": [
+            4690.0,
+            1143.2,
+            43.050000000000004,
+            23.22
+          ],
+          "amplitudeX": 0.7,
+          "amplitudeY": 1.2,
+          "rotationDegrees": 0.07,
+          "feather": 9
+        }
+      ]
+    }
+  ],
+  "excludePolygons": [
+    [
+      [
+        5900,
+        745
+      ],
+      [
+        14500,
+        745
+      ],
+      [
+        14500,
+        781
+      ],
+      [
+        5900,
+        781
+      ]
+    ],
+    [
+      [
+        5900,
+        945
+      ],
+      [
+        14500,
+        945
+      ],
+      [
+        14500,
+        987
+      ],
+      [
+        5900,
+        987
+      ]
+    ],
+    [
+      [
+        5900,
+        1133
+      ],
+      [
+        14500,
+        1133
+      ],
+      [
+        14500,
+        1177
+      ],
+      [
+        5900,
+        1177
+      ]
+    ]
+  ]
+}
