@@ -1,0 +1,23 @@
+Uusi iso jengiläinen — kirkas paita ja vaaleat vaatteet
+Luotu built-in ImageGen -työkalulla, transparent_background=true.
+Ainoa kuvareferenssi: output/imagegen/iso-jengilainen-uusi/iso-jengilainen-perusasento.png.
+
+Use case: precise-object-edit.
+Asset type: color revision of an existing transparent 2D fighting-game enemy character.
+
+Input image 1 is the ONLY edit target and reference. Preserve this exact new original character. Change ONLY the CLOTHING COLORS to improve visibility in the game.
+
+RECOLOR:
+- Change the black basketball jersey to a bright, saturated SCARLET/VERMILION RED, with lighter red/coral highlights and rich RED shadows that remain visibly red. Retain its off-white neck/armhole piping and exact garment shape.
+- Change the dark cargo shorts to LIGHT SAND/BEIGE KHAKI, with pale cream-beige highlights and medium warm tan shadows. Keep all existing pockets, seams, hem, folds and shorts length. The shorts should read as light-colored even in shadow.
+- Change the black high-top sneakers to predominantly WHITE/OFF-WHITE, with light gray seams and shaded details, white laces and light soles. Keep the exact high-top shoe shape and intact footwear anatomy.
+- Keep socks white and the neck chain silver.
+There must be NO BLACK OR NEAR-BLACK CLOTHING AREAS: shirt, shorts and shoes must be clearly bright or light in color, and readable against a dark game background. Black ink outlines and the character's natural black beard are fine. Maintain clear color separation between his dark-brown skin, red shirt, light beige shorts and white shoes.
+
+STRICT INVARIANTS:
+Preserve the exact face, bald head, short black beard, deep-brown skin tone, huge broad heavyweight build, body proportions, muscles, hands, facial expression, rightward head/eye direction and fighting stance. Keep exactly two arms/fists, two legs and two complete shoes. Do not redesign the person, change the silhouette, alter anatomy, introduce a scar or add accessories. No text, logos or numbers on the clothing.
+Keep the same crisp comic-game line art and cel-shading finish, improving garment readability through the new colors. All hair/head, fists, elbows and both whole shoe soles fully within the canvas, with transparent padding. One full-body character, not a sheet or lineup.
+
+BACKGROUND:
+Preserve a genuinely transparent ALPHA background everywhere outside the character and between limbs. Do not reproduce any hidden background glow or RGB backdrop from the target. No floor, cast shadow, glow, scenery, colored rectangle, checkerboard drawing, watermark or border. High-quality transparent portrait PNG around 1024x1536.
+

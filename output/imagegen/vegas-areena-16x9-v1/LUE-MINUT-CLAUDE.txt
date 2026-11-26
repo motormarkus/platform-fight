@@ -1,0 +1,58 @@
+WTF-AREENA: KOLME 5K / 16:9 MASTERIA ANIMAATIOON
+
+Kansio:
+G:\unity pelit\mopopeli\platform fight\output\imagegen\vegas-areena-16x9-v1\
+
+Käytä näitä kolmea alkuperäistä PNG:tä:
+master-01-5120x2880.png  - katsomo ja käytävä
+master-02-5120x2880.png  - kehän vasen puoli
+master-03-5120x2880.png  - kehän oikea puoli
+
+Jokainen kuva on 5120 x 2880 px eli tarkka 16:9. PNG:t ovat RGB-kuvia.
+Alkuperäistä 15000 x 1884 px areenaa ei ole suurennettu eikä venytetty.
+Uutta sisältöä on vain ylhäällä 498 px ja alhaalla 498 px.
+Alkuperäinen areena on uuden kuvan pystysuunnassa y=498..2381.
+Liitosten lähellä olevia katsojia on poistettu kokonaan ja tilalle piirretty tyhjiä istuimia.
+Muut alkuperäisen areenan pikselit on säilytetty; raportti layout-and-verification.json.
+Katto ja lisälattia on koottu natiivikokoisista generoiduista moduuleista ilman suurentamista.
+
+TÄRKEÄ SIJOITUS: 180 PX PÄÄLLEKKÄISYYTTÄ
+
+Kuvissa on tarkoituksella 180 px yhteistä aluetta. Sijoita vasemmat yläkulmat:
+kuva 1: x=0,    y=0
+kuva 2: x=4940, y=0
+kuva 3: x=9880, y=0
+
+Sijoitusväli on 4940 px, kuvien leveys 5120 px.
+Koko areenan leveys on 15000 px ja korkeus 2880 px.
+ÄLÄ aseta kuvia 5120 px välein: silloin päällekkäisyys toistuisi kuvassa.
+Molempien yhteisten 180 x 2880 px kaistojen RGB-pikselit on verrattu tallennetuista PNG:istä.
+Poikkeavia pikseleitä on 0 kummassakin liitoksessa.
+Yhteinen master-panorama-15000x2880.png on samassa kansiossa.
+
+ANIMAATION RAJAT
+
+Pidä kamera, rajaus, koko ja tausta täysin samoina jokaisessa animaatioframessa.
+Liikuta katsojien käsiä ja vartaloita oman ruudun sisällä.
+Pidä kuvan 1 oikean reunan viimeiset 300 px muuttumattomina.
+Pidä kuvan 2 vasemman reunan ensimmäiset 300 px ja oikean reunan viimeiset 300 px muuttumattomina.
+Pidä kuvan 3 vasemman reunan ensimmäiset 300 px muuttumattomina.
+Näissä liitosreunojen kaistoissa ei ole ihmisiä. Älä anna uuden käden tai muun kehonosan tulla kaistalle.
+Pidä myös kehän köydet, katsomo, valot, katto ja lattia paikallaan.
+Nämä ovat staattiset lähtömasterit; niissä ei ole valmista yleisöanimaatiota.
+
+UNITY-TUONTI
+
+Säilytä alkuperäinen tekstuurikoko. Max Size vähintään 8192, NPOT Scale=None.
+Kun PPU on p pikseliä per Unity-yksikkö, kuvakeskusten X-koordinaatit ovat
+2560/p, 7500/p ja 12440/p. Kaikilla on sama Y ja mittakaava.
+Jos käytät pakkausta, tarkista liitokset myös Unityssä. PNG-masterien liitosalueet ovat identtiset.
+
+ESIKATSELUT JA TODENNUS
+
+qa/preview-01.jpg, qa/preview-02.jpg, qa/preview-03.jpg ovat pienennettyjä esikatseluja.
+Älä käytä JPG-esikatseluja animaation lähteenä tai varsinaisen pelin mastereina.
+qa/panorama.jpg näyttää koko areenan. qa/join-01.jpg ja qa/join-02.jpg näyttävät liitokset.
+layout-and-verification.json sisältää sijoituksen, mitat ja pikselivertailujen tulokset.
+imagegen-prompts.json sisältää käytetyt image_gen-kehotteet. Käytetty sisäänrakennettua image_gen-työkalua.
+native/ sisältää alkuperäiset 1536 x 1024 px generointitulokset jäljitettävyyttä varten.

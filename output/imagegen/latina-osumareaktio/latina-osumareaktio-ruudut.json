@@ -1,0 +1,150 @@
+{
+  "image": "latina-osumareaktio-6-ruutua.png",
+  "image_size": {
+    "width": 1254,
+    "height": 1254
+  },
+  "grid": {
+    "columns": 3,
+    "rows": 2,
+    "cell_width": 418,
+    "cell_height": 627
+  },
+  "order": "left to right, top row first",
+  "alpha": "original generated RGBA; transparent background preserved",
+  "alignment": "Use each frame's bottom-left normalized custom pivot to align the foot midpoint and floor baseline.",
+  "frames": [
+    {
+      "name": "latina_osuma_01",
+      "phase": "idle_start",
+      "rect_top_left": {
+        "x": 0,
+        "y": 0,
+        "width": 418,
+        "height": 627
+      },
+      "unity_rect_bottom_left": {
+        "x": 0,
+        "y": 627,
+        "width": 418,
+        "height": 627
+      },
+      "pivot_normalized_bottom_left": {
+        "x": 0.589713,
+        "y": 0.049442
+      },
+      "floor_y_from_cell_top": 596,
+      "foot_anchor_x_from_cell_left": 246.5
+    },
+    {
+      "name": "latina_osuma_02",
+      "phase": "hit_begins",
+      "rect_top_left": {
+        "x": 418,
+        "y": 0,
+        "width": 418,
+        "height": 627
+      },
+      "unity_rect_bottom_left": {
+        "x": 418,
+        "y": 627,
+        "width": 418,
+        "height": 627
+      },
+      "pivot_normalized_bottom_left": {
+        "x": 0.545455,
+        "y": 0.049442
+      },
+      "floor_y_from_cell_top": 596,
+      "foot_anchor_x_from_cell_left": 228.0
+    },
+    {
+      "name": "latina_osuma_03",
+      "phase": "head_recoil_peak",
+      "rect_top_left": {
+        "x": 836,
+        "y": 0,
+        "width": 418,
+        "height": 627
+      },
+      "unity_rect_bottom_left": {
+        "x": 836,
+        "y": 627,
+        "width": 418,
+        "height": 627
+      },
+      "pivot_normalized_bottom_left": {
+        "x": 0.510766,
+        "y": 0.049442
+      },
+      "floor_y_from_cell_top": 596,
+      "foot_anchor_x_from_cell_left": 213.5
+    },
+    {
+      "name": "latina_osuma_04",
+      "phase": "follow_through",
+      "rect_top_left": {
+        "x": 0,
+        "y": 627,
+        "width": 418,
+        "height": 627
+      },
+      "unity_rect_bottom_left": {
+        "x": 0,
+        "y": 0,
+        "width": 418,
+        "height": 627
+      },
+      "pivot_normalized_bottom_left": {
+        "x": 0.589713,
+        "y": 0.049442
+      },
+      "floor_y_from_cell_top": 596,
+      "foot_anchor_x_from_cell_left": 246.5
+    },
+    {
+      "name": "latina_osuma_05",
+      "phase": "recovery",
+      "rect_top_left": {
+        "x": 418,
+        "y": 627,
+        "width": 418,
+        "height": 627
+      },
+      "unity_rect_bottom_left": {
+        "x": 418,
+        "y": 0,
+        "width": 418,
+        "height": 627
+      },
+      "pivot_normalized_bottom_left": {
+        "x": 0.545455,
+        "y": 0.049442
+      },
+      "floor_y_from_cell_top": 596,
+      "foot_anchor_x_from_cell_left": 228.0
+    },
+    {
+      "name": "latina_osuma_06",
+      "phase": "idle_return",
+      "rect_top_left": {
+        "x": 836,
+        "y": 627,
+        "width": 418,
+        "height": 627
+      },
+      "unity_rect_bottom_left": {
+        "x": 836,
+        "y": 0,
+        "width": 418,
+        "height": 627
+      },
+      "pivot_normalized_bottom_left": {
+        "x": 0.534689,
+        "y": 0.049442
+      },
+      "floor_y_from_cell_top": 596,
+      "foot_anchor_x_from_cell_left": 223.5
+    }
+  ]
+}

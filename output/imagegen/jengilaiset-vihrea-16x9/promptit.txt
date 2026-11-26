@@ -1,0 +1,41 @@
+Jengiläiset vihreällä 16:9-taustalla — erilliset kuvat ja reilu ylätila
+Luotu built-in ImageGen -työkalulla, transparent_background=false.
+
+NAINEN
+Viite: output/imagegen/meksikolainen-jengilaisnainen/otteluasento-leveammat-kasvot-reidet-v4.png
+
+Use case: compositing.
+Asset type: a single-character GREEN-SCREEN animation/reference image for an existing 2D game.
+
+The supplied image is the EDIT TARGET. Preserve this EXACT existing character and the entire current drawing: face, body proportions, clothes and colors, hairstyle, accessories, tattoos if present, hands, feet, guarded fighting pose and rightward gaze. The user only wants new CANVAS/FRAMING and BACKGROUND. Do not redesign or change any body part or garment.
+
+CANVAS AND FRAMING:
+A wide LANDSCAPE 16:9 canvas, target 1920x1080.
+ONE whole-body character only, horizontally centered, standing in the lower central portion of the canvas.
+IMPORTANT GENEROUS HEADROOM: place the very highest hair/head pixel about 25% down from the TOP of the canvas, with a large completely empty green area ABOVE THE HEAD. The character should occupy only about 65–67% of the canvas height, with both sneaker soles around 91–92% down from the top. Leave roughly 8% empty green below the feet too.
+Scale the WHOLE figure uniformly to fit; do not crop the body, stretch proportions or enlarge just the head. Keep every hair tip, elbow, fist and both complete shoe soles inside the frame. Lots of empty green room to both sides as well. No duplicates or second character.
+
+BACKGROUND:
+Replace ALL outside background/alpha with one perfectly uniform, opaque, vivid CHROMA KEY GREEN #00FF00 (RGB 0,255,0). The same exact flat green everywhere outside the figure, including gaps between arms and torso, between the legs and all empty margins. No gradients, vignettes, brown glow, dark surround, texture, floor, ground shadow, horizon, spotlight or green lighting on the skin. The background must be suitable for automatic chroma key removal.
+Keep the existing bold outlined clean cel-shaded artwork and its existing character lighting. OPAQUE PNG with green background, NOT transparent. No lettering, title, watermark, border or extra objects.
+CHARACTER TO PRESERVE: the exact broad-faced, curvy adult woman in the supplied image, red patterned bandana and ponytail, floral tattoos, turquoise strapless bandeau, light-blue athletic shorts with white piping, white high-top sneakers. Preserve the current fuller thighs and their moderate clear cel-shading.
+
+ISO JENGILÄINEN
+Viite: output/imagegen/iso-jengilainen-uusi/iso-jengilainen-vaaleat-vaatteet-v2.png
+
+Use case: compositing.
+Asset type: a single-character GREEN-SCREEN animation/reference image for an existing 2D game.
+
+The supplied image is the EDIT TARGET. Preserve this EXACT existing character and the entire current drawing: face, body proportions, clothes and colors, hairstyle, accessories, tattoos if present, hands, feet, guarded fighting pose and rightward gaze. The user only wants new CANVAS/FRAMING and BACKGROUND. Do not redesign or change any body part or garment.
+
+CANVAS AND FRAMING:
+A wide LANDSCAPE 16:9 canvas, target 1920x1080.
+ONE whole-body character only, horizontally centered, standing in the lower central portion of the canvas.
+IMPORTANT GENEROUS HEADROOM: place the very highest hair/head pixel about 25% down from the TOP of the canvas, with a large completely empty green area ABOVE THE HEAD. The character should occupy only about 65–67% of the canvas height, with both sneaker soles around 91–92% down from the top. Leave roughly 8% empty green below the feet too.
+Scale the WHOLE figure uniformly to fit; do not crop the body, stretch proportions or enlarge just the head. Keep every hair tip, elbow, fist and both complete shoe soles inside the frame. Lots of empty green room to both sides as well. No duplicates or second character.
+
+BACKGROUND:
+Replace ALL outside background/alpha with one perfectly uniform, opaque, vivid CHROMA KEY GREEN #00FF00 (RGB 0,255,0). The same exact flat green everywhere outside the figure, including gaps between arms and torso, between the legs and all empty margins. No gradients, vignettes, brown glow, dark surround, texture, floor, ground shadow, horizon, spotlight or green lighting on the skin. The background must be suitable for automatic chroma key removal.
+Keep the existing bold outlined clean cel-shaded artwork and its existing character lighting. OPAQUE PNG with green background, NOT transparent. No lettering, title, watermark, border or extra objects.
+CHARACTER TO PRESERVE: the exact huge bald Black heavyweight gang member in the supplied image, shaped black beard, silver chain, bright red basketball jersey with white trim, light beige cargo shorts, white socks and white high-top sneakers. Preserve his large broad heavy build.
+

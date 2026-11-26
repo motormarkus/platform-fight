@@ -1,0 +1,26 @@
+{
+  "mode": "built-in image_gen",
+  "note": "Native patches composited at 1:1 pixel scale; draft is not used as a master.",
+  "tasks": [
+    {
+      "id": "seam01",
+      "file": "seam-01.png",
+      "prompt": "Precise object removal edit. Keep EXACTLY the original 1536x1024 pixel canvas, scale, crop, camera, game painted style, chair sizes, wall texture, all gold rails and right side stairs. Remove these FOUR entire men: the cream-shirt vest man raising a fist at x100..485 in upper-left; the yellow hoodie man at x200..580 in middle-left; the gray-haired dark-jacket man at x820..1100 in middle-right; and the gray-haired glasses navy vest man at x345..725 in foreground. Replace each man's entire head, hands, arms, torso with completely EMPTY matching burgundy leather seats and the unchanged red wall behind. The vertical centerline x768 is a game image joint: there must be absolutely NO people or body parts within 480 pixels on BOTH sides of it (empty safety strip x288..1248), all three rows. Keep the redhead woman at the lower far-left and the partial black-jacket woman at far-left unchanged if they are outside this strip; keep the three partial men at far RIGHT beyond x1270 unchanged. Do not add new people. Keep all framing and rail positions precisely identical to the reference. Reconstruct gold rails cleanly where hands were, no ghost fingers or faces. Native 1536x1024 output, no zoom, no reframing, no resizing."
+    },
+    {
+      "id": "seam02",
+      "file": "seam-02.png",
+      "prompt": "Precise object removal edit of a native1536x1024 game background crop. Keep EXACTLY the original canvas, pixel scale, camera and all red/cream ring ropes at the same vertical positions. The center x768 is the joint between animation screens. Make the area x288..1248 across ALL seating rows completely EMPTY of spectators and all body parts, with matching EMPTY burgundy leather seats, unchanged red wall and gold rails. Remove ENTIRE people whose bodies or hands enter that area: the two white-top brunette women in the upper row; both gray-haired glasses men in the middle; both women with caps/white tops in the lower middle; the fist-raising white jersey man at lower-left x110..395; the crossed-arms black-polo man at upper-right x1130..1370; the purple-top woman at middle-right x1180..1450; the raised-fist white-shirt man at lower-right x1080..1390. Remove each whole head, hand, arm and torso, reconstruct empty chairs and wall. Keep the far-left upper cap man x0..250, far-left purple woman x80..280, partial woman extreme lower-left, and partial people at the extreme RIGHT beyond x1440 only. Preserve the original ring foreground, blue canvas, all ropes and gold rails exactly, including their heights and thickness. No new spectators, no repositioned spectators, no ghost hands or fragments. Keep EXACTLY 1536x1024 output dimensions, no reframing, no scaling, no added ceiling or floor."
+    },
+    {
+      "id": "roof",
+      "file": "roof-context.png",
+      "prompt": "Vertical outpaint edit of native1536x1024 game background. Edit ONLY the flat gray upper area y0..497. Lower half y498..1023 is an existing precise edit target: preserve that original ceiling truss, amber three-lamp cluster, red wall and WTF sign PIXEL ALIGNED and unchanged. Replace gray upper half with detailed hand-painted dark arena roof, black steel horizontal beams, bolted diagonal trusses, dark roof panels and sparse hanging cables, consistent with the original golden amber lighting and 2D side-view video game style. The new roof section y0..497 must tile seamlessly horizontally: left and right edges match in dark tones and beam heights, a repeated structural roof module, no conspicuous center centerpiece. No people, no new words, no banners, no logos, no big lights at the side edges. Entire original canvas remains EXACTLY1536x1024, same crop and scale. No reframing or new scene. Fill ONLY gray blank area and connect naturally to existing top truss."
+    },
+    {
+      "id": "floor",
+      "file": "floor-context.png",
+      "prompt": "Vertical outpainting edit. Keep EXACTLY native1536x1024 input canvas and framing. The top y0..525 is original existing hand-painted brown polished arena floor with a gold rail along its top, use it as exact texture, lighting and perspective context. Replace ONLY flat blank brown y526..1023 with a seamless downward continuation of the same polished dark brown arena floor with fine brushed mottled texture, subtle restrained amber reflections and natural shading. Empty floor only; absolutely NO people, feet, objects, signs, rails or additional walls in the new lower area. No tile grout grid, no strong diagonal perspective lines, no large bright reflection blobs. The floor must be smoothly continuous at y525/526 and the new floor section must tile horizontally with matching left/right edge colors. Preserve original upper floor context and gold rail positions. Detailed native texture at 1:1 pixel scale. No resizing or reframing; output1536x1024."
+    }
+  ]
+}

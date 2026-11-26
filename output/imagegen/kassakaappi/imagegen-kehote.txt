@@ -1,0 +1,17 @@
+Use case: stylized-concept
+Asset type: production 2D game prop animation sprite sheet for a hand-painted side-scrolling beat-em-up.
+Primary request: exactly SIX frames showing ONE identical freestanding steel safe opening its heavy door, from fully closed to fully open.
+Reference images: the previously viewed wooden crate, wooden table and rusty barrel are STYLE REFERENCES only: match their confident dark ink outlines, warm edge highlights, detailed hand-painted material shading, slightly gritty comic-book game-prop look. Do not include any of those props.
+Layout: one transparent 1536 x 1024 PNG canvas, exact 3 columns x 2 rows of equal 512 x 512 cells. Reading order top-left, top-middle, top-right, bottom-left, bottom-middle, bottom-right. Invisible grid, no borders, no lettering, no numbers.
+Subject: medium sized heavy old-fashioned dark desaturated blue-gray steel strongbox, chunky rectangular body, slightly rounded reinforced corners, subtle scratches and worn edges, thick single door with round combination dial and short metal handle, two visible heavy hinges on the LEFT edge of the front opening. Empty dark interior with one shelf visible as it opens. Simple readable silhouette, no excessive rust.
+View: fixed near-front game view with a little top and RIGHT side visible, only mild perspective, parallel verticals, NOT an isometric overhead view. This is six animation cels of the exact same object from a completely stationary camera.
+Continuity: cabinet housing, feet, back, side panel, top, paint marks and lighting remain at EXACTLY the same pixel coordinates, size and shape within EVERY cell. Cabinet body stays anchored in the center-right of each cell, with spare transparent space to the left for the swinging door. Safe floor baseline must match across all six cells. Only the door and attached dial and handle move. The door pivots rigidly about the SAME left vertical hinge, outward toward the viewer and then to the LEFT, never sliding sideways or changing hinges. Keep all parts and the open door fully within each cell with generous padding, no clipping.
+Frame 1: completely shut and locked-looking, door flush with the frame.
+Frame 2: door just cracked open, 15 degrees.
+Frame 3: door open 35 degrees.
+Frame 4: door open 60 degrees.
+Frame 5: door open 85 degrees, nearly edge-on, dark empty interior clearly visible.
+Frame 6: door fully swung open 115 degrees to the left, thick inner door surface and lock bolts visible, entire empty safe interior and shelf visible.
+Lighting: consistent soft upper-left light in all frames, warm subtle edge highlights on cool steel, deep hand-painted dark recesses.
+Background: genuinely transparent alpha, including between sprites and beneath them. NO painted floor, no scene, no drop-shadow oval, no checkerboard pattern.
+Constraints: no cash, no gold, no loose objects, no characters, no extra safes, no UI, no captions, no watermark. Accurate coherent rigid door motion. Each frame isolated, six equal-size frames.

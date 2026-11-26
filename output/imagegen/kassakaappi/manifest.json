@@ -1,0 +1,106 @@
+{
+  "tool": "built-in image_gen",
+  "source": "C:/Users/marku/.codex/generated_images/01a21735-3f2f-78e0-b48c-f6e9633a03a5/exec-4d4d6e53-c7cf-44a7-ba63-6b3895a99659.png",
+  "sheet": "kassakaappi_kuvasarja_3x2.png",
+  "sheetSize": [
+    1536,
+    1024
+  ],
+  "grid": [
+    3,
+    2
+  ],
+  "frameSize": [
+    512,
+    512
+  ],
+  "frameOrder": "left to right, top row then bottom row",
+  "transparent": true,
+  "pixelsPerUnit": 200,
+  "unityPivot": [
+    0.61328125,
+    0.078125
+  ],
+  "suggestedFps": 10,
+  "suggestedLoop": false,
+  "frames": [
+    {
+      "frame": 0,
+      "name": "kassakaappi_00_kiinni",
+      "file": "Assets/Sprites/Rekvisiitta/Kassakaappi/kassakaappi_00_kiinni.png",
+      "sourceRectTopLeft": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "spriteGuid": "72ae338f01b64030bfcf267f7b5cb38f",
+      "state": "kiinni"
+    },
+    {
+      "frame": 1,
+      "name": "kassakaappi_01",
+      "file": "Assets/Sprites/Rekvisiitta/Kassakaappi/kassakaappi_01.png",
+      "sourceRectTopLeft": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "spriteGuid": "3a4df377e5294688b518d2d05b47312a",
+      "state": "avautuu"
+    },
+    {
+      "frame": 2,
+      "name": "kassakaappi_02",
+      "file": "Assets/Sprites/Rekvisiitta/Kassakaappi/kassakaappi_02.png",
+      "sourceRectTopLeft": [
+        1024,
+        0,
+        512,
+        512
+      ],
+      "spriteGuid": "a30e193a62fd4d038a26813dee577ffc",
+      "state": "avautuu"
+    },
+    {
+      "frame": 3,
+      "name": "kassakaappi_03",
+      "file": "Assets/Sprites/Rekvisiitta/Kassakaappi/kassakaappi_03.png",
+      "sourceRectTopLeft": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "spriteGuid": "49344871d815405793a296d5b62fc7f3",
+      "state": "avautuu"
+    },
+    {
+      "frame": 4,
+      "name": "kassakaappi_04",
+      "file": "Assets/Sprites/Rekvisiitta/Kassakaappi/kassakaappi_04.png",
+      "sourceRectTopLeft": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "spriteGuid": "57ccfcc56d7b4c0f8427450d14514125",
+      "state": "avautuu"
+    },
+    {
+      "frame": 5,
+      "name": "kassakaappi_05_auki",
+      "file": "Assets/Sprites/Rekvisiitta/Kassakaappi/kassakaappi_05_auki.png",
+      "sourceRectTopLeft": [
+        1024,
+        512,
+        512,
+        512
+      ],
+      "spriteGuid": "7ecb9d3d70c04ff6a86917a5fa9da588",
+      "state": "auki"
+    }
+  ]
+}

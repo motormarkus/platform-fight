@@ -1,0 +1,27 @@
+Korjattu Rico-henkinen jengiläinen — mustaan Rico-vankiin perustuva perusasento
+Luotu built-in ImageGen -työkalulla, transparent_background=true.
+Pääviite: output/vanki-afroamerikkalainen-iso-vihrea.png.
+Vaatteiden ja asennon viite: output/imagegen/jengilainen-rico/jengilainen-rico-perusasento.png (aiemman kuvan Hector-kasvoja ei käytetty).
+
+Use case: identity-preserve.
+Asset type: corrected single full-body transparent enemy character for the 2D beat-em-up TOTAL FIST.
+
+CRITICAL USER CORRECTION: the previously generated light-skinned gang member resembled HECTOR. The requested character is based on RICO, who is a BLACK MAN. Correct the character identity using the proper reference.
+
+INPUT ROLES, IN ORDER OF PRIORITY:
+Image 1 is the CORRECT RICO character reference: the large BLACK, DARK-BROWN-SKINNED prisoner with orange clothes, short black hair and broad powerful body on a green background. This image is authoritative for the new character's ethnicity, face, dark skin, hair, head shape and stocky muscular build. Ignore and remove the green background and orange prison clothes.
+Image 2 is the previous incorrect gang design. Use it ONLY as the CLOTHING and COMBAT-POSE reference. Its light skin, Hector-like facial identity and X-shaped forehead scar are NOT to be preserved.
+
+Create ONE Black adult gang member strongly resembling the proper Rico from IMAGE 1, dressed in the same gang streetwear as IMAGE 2.
+Rebuild his head and face from image 1 rather than merely recoloring image 2. Clearly Black identity with rich DEEP DARK-BROWN SKIN on his face, neck, BOTH upper arms, BOTH forearms and BOTH hands; use coherent warm highlights and deep brown shadows without washing the skin into light tan. Closely match Rico's actual facial structure, short close-cropped BLACK hair, heavy brows, broad square jaw, compact powerful neck, broad shoulders, thick arms and stocky muscular torso. Same stern game-brawler expression and rightward gaze as Rico. Do not use the light-skinned man's head or X-shaped brow scar from image 2. No exaggerated facial caricature; stay faithful to the proper original character in image 1.
+
+Retain the successful outfit from image 2: open dark-charcoal sleeveless denim vest with worn seams and metal buttons, plain white ribbed tank top, loose dark denim jeans with a belt, plain dark bandana tied closely around the neck, one short silver wallet chain at the hip, and sturdy white high-top street sneakers with thick dark soles. No orange prison clothes. No lettering or logos.
+
+Retain a clean RIGHT-FACING shallow three-quarter side-view fighting base pose, suitable for animation: wide planted stance, knees slightly bent, front foot to the right, rear foot to the left, balanced weight, both fists up in a clear guard. Head and both eyes focus on an off-screen opponent on the RIGHT, not the camera. Exactly two arms with two anatomically coherent closed fists, two legs and two shoes; each limb separately readable. No weapon, prop or extra person.
+
+Match the ORIGINAL RICO game's art treatment from image 1: bold clean black outlines, readable angular cel-shaded muscle shapes, warm dark-brown skin colors, restrained details and flat clean shadow shapes, appealing professional arcade sprite artwork. Do not make a photo, actor portrait or 3D render.
+
+Composition: ONE full-body figure, centered with comfortable transparent padding around the full silhouette. All hair tips, both fists, elbows, trousers and both entire sneaker soles fully inside frame, no cropping. High-quality portrait-oriented transparent PNG around 1024x1536.
+
+Background must be genuinely TRANSPARENT ALPHA outside the character and between the limbs. No green backdrop, black rectangle, brown glow, painted checkerboard, environment, floor, cast shadow, spotlight, text, watermark or border. Preserve clean edges and true transparency.
+

@@ -1,0 +1,150 @@
+{
+  "image": "latina-kasvosuoja-6-ruutua-v2.png",
+  "image_size": {
+    "width": 1254,
+    "height": 1254
+  },
+  "grid": {
+    "columns": 3,
+    "rows": 2,
+    "cell_width": 418,
+    "cell_height": 627
+  },
+  "order": "left to right, top row first",
+  "alpha": "original generated RGBA; transparent background preserved",
+  "alignment": "Use each frame's bottom-left normalized custom pivot to align the foot midpoint and floor baseline.",
+  "frames": [
+    {
+      "name": "latina_kasvosuoja_01",
+      "phase": "enter_face_shield",
+      "rect_top_left": {
+        "x": 0,
+        "y": 0,
+        "width": 418,
+        "height": 627
+      },
+      "unity_rect_bottom_left": {
+        "x": 0,
+        "y": 627,
+        "width": 418,
+        "height": 627
+      },
+      "pivot_normalized_bottom_left": {
+        "x": 0.543062,
+        "y": 0.065391
+      },
+      "floor_y_from_cell_top": 586,
+      "foot_anchor_x_from_cell_left": 227.0
+    },
+    {
+      "name": "latina_kasvosuoja_02",
+      "phase": "closed_face_shield",
+      "rect_top_left": {
+        "x": 418,
+        "y": 0,
+        "width": 418,
+        "height": 627
+      },
+      "unity_rect_bottom_left": {
+        "x": 418,
+        "y": 627,
+        "width": 418,
+        "height": 627
+      },
+      "pivot_normalized_bottom_left": {
+        "x": 0.533493,
+        "y": 0.065391
+      },
+      "floor_y_from_cell_top": 586,
+      "foot_anchor_x_from_cell_left": 223.0
+    },
+    {
+      "name": "latina_kasvosuoja_03",
+      "phase": "held_face_shield",
+      "rect_top_left": {
+        "x": 836,
+        "y": 0,
+        "width": 418,
+        "height": 627
+      },
+      "unity_rect_bottom_left": {
+        "x": 836,
+        "y": 627,
+        "width": 418,
+        "height": 627
+      },
+      "pivot_normalized_bottom_left": {
+        "x": 0.529904,
+        "y": 0.063796
+      },
+      "floor_y_from_cell_top": 587,
+      "foot_anchor_x_from_cell_left": 221.5
+    },
+    {
+      "name": "latina_kasvosuoja_04",
+      "phase": "absorb_block",
+      "rect_top_left": {
+        "x": 0,
+        "y": 627,
+        "width": 418,
+        "height": 627
+      },
+      "unity_rect_bottom_left": {
+        "x": 0,
+        "y": 0,
+        "width": 418,
+        "height": 627
+      },
+      "pivot_normalized_bottom_left": {
+        "x": 0.544258,
+        "y": 0.066986
+      },
+      "floor_y_from_cell_top": 585,
+      "foot_anchor_x_from_cell_left": 227.5
+    },
+    {
+      "name": "latina_kasvosuoja_05",
+      "phase": "recover_closed",
+      "rect_top_left": {
+        "x": 418,
+        "y": 627,
+        "width": 418,
+        "height": 627
+      },
+      "unity_rect_bottom_left": {
+        "x": 418,
+        "y": 0,
+        "width": 418,
+        "height": 627
+      },
+      "pivot_normalized_bottom_left": {
+        "x": 0.532297,
+        "y": 0.066986
+      },
+      "floor_y_from_cell_top": 585,
+      "foot_anchor_x_from_cell_left": 222.5
+    },
+    {
+      "name": "latina_kasvosuoja_06",
+      "phase": "hold_closed",
+      "rect_top_left": {
+        "x": 836,
+        "y": 627,
+        "width": 418,
+        "height": 627
+      },
+      "unity_rect_bottom_left": {
+        "x": 836,
+        "y": 0,
+        "width": 418,
+        "height": 627
+      },
+      "pivot_normalized_bottom_left": {
+        "x": 0.529904,
+        "y": 0.065391
+      },
+      "floor_y_from_cell_top": 586,
+      "foot_anchor_x_from_cell_left": 221.5
+    }
+  ]
+}

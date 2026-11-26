@@ -1,0 +1,42 @@
+Latinan suojauskuvasarja v2 — tiivis kyynärvarsisuoja kasvojen edessä
+Luotu built-in ImageGen -työkalulla, transparent_background=true.
+Hahmoreferenssi: output/imagegen/jengilaiset-vihrea-16x9/jengilaisnainen-jalkatatuoinnit-v2.png.
+
+Use case: identity-preserve.
+Asset type: corrected SIX-FRAME TRANSPARENT FACE-BLOCK ANIMATION SHEET for the existing 2D game character.
+
+Input image 1 is the definitive character identity, body, outfit and tattoo reference. Use this exact original adult woman. Ignore and remove the green background.
+
+MOST IMPORTANT REQUIREMENT — SHE MUST ACTUALLY COVER THE FRONT OF HER FACE:
+This is a tight DOUBLE-FOREARM FACE SHIELD against a punch arriving from IMAGE RIGHT. Raised fists beside the ears with an exposed face are WRONG.
+Bring BOTH fists FORWARD, directly IN FRONT OF her forehead toward image right. Keep the fists close together at brow/forehead height, with knuckles facing the incoming opponent. Both wrists stay straight.
+Bring both elbows forward and inward, just below chin height, so the forearms rise almost parallel and close together directly IN FRONT OF HER NOSE, MOUTH AND EYES. Her chin tucks DOWN BEHIND this forearm wall.
+From our shallow three-quarter side view, the NEAR FOREARM MUST VISIBLY OVERLAP AND HIDE most of her facial profile. The mouth and nose sit BEHIND the blocking arms, not sticking out toward the attacker. A small sliver of one eye or side cheek can peek behind the guard, but her full nose/mouth/face MUST NOT remain exposed.
+It is correct and necessary for the arms/fists to OBSCURE HER FACE in the blocking poses. Recognizability comes from her bandana, hair, outfit and tattoos. Do NOT move the guard apart just to show a pretty face.
+The first surface an incoming straight punch from the right would meet at face height is a FOREARM/FIST, never her nose.
+Do NOT use open V-shaped arms, hands at the ears, arms on either side of the face, wide flared elbows, or a decorative raised-fist stance.
+
+LAYOUT:
+Exactly SIX full-body frames, THREE columns by TWO rows, equal portrait cells on one square transparent sprite sheet. Target 1536x1536 overall with 512x768 cells, or a higher-resolution square with the same 3x2 grid. Read left to right across top, then bottom. No grid lines, text, labels or numbers.
+Every cell contains exactly one complete figure, feet planted in the same relative position and baseline, same body scale and head size, same camera. Both entire sneaker soles, hair, fists and elbows fit inside every cell with clear transparent padding and separation. No overlap between neighboring cells.
+
+ALL SIX FRAMES ARE PROTECTIVE — NO OPEN IDLE ENDPOINTS:
+1. Enter the face shield: both forearms already move forward across the face, fists at brow level, chin tucks; the near arm already covers the mouth/nose.
+2. Fully closed face shield: fists close together in front of the forehead, near forearm clearly hides the nose and mouth, elbows close and forward.
+3. Firm held block: same fully protected face, small natural tightening of the stance and shoulders.
+4. Block impact: a subtle backward torso recoil and slight knee compression, but fists and forearms remain a closed barrier IN FRONT of the face. Feet do not move.
+5. Recover: torso returns upright while the face remains COVERED by the closed forearms.
+6. Settle into a strong held block, similar to frame 2, ready to hold/loop; do not lower hands to expose the face.
+Only small natural changes between frames; this is a block cycle, not punching or dancing. No opponent, impact burst, motion trails, weapon or extra objects.
+
+CHARACTER INVARIANTS:
+Same curvy adult woman, full thighs and moderate clear cel-shading, broad face mostly hidden by this functional guard, warm skin, dark wavy ponytail, patterned red bandana and silver hoops. Her head and gaze point toward the opponent RIGHT, no camera eye contact.
+Turquoise STRAPLESS BANDEAU (no straps), light-blue athletic shorts with white piping, elastic waistband and white drawstring, white high-top sneakers.
+Preserve floral arm/shoulder and chest tattoos, and the long winding leafy VINE/BRANCH TATTOOS on BOTH THIGHS AND CALVES.
+Exactly TWO traceable arms and TWO clenched hands, TWO legs and TWO shoes in each frame. Even when arms overlap the face, their shoulders/elbows/wrists must connect naturally; no extra forearms, merged hands, detached limbs or impossible crossed joints.
+Same bold clean ink contours and polished readable cel-shaded arcade artwork.
+
+BACKGROUND:
+True TRANSPARENT ALPHA everywhere outside all six figures, including all cell margins and gaps between limbs. No green/black/white colored backdrop, gradient, halo, floor, ground shadow, checkerboard drawing, panel boxes, writing, watermark or border.
+FINAL CHECK: in frames 2–6, the nose and mouth must be physically hidden BEHIND the raised forearms, not visibly uncovered between fists beside the ears.
+

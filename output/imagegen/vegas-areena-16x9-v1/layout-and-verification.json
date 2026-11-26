@@ -1,0 +1,95 @@
+{
+  "originalImageSpatialResampling": 0,
+  "sharedAreaVerification": [
+    {
+      "changedPixels": 0,
+      "left": 1,
+      "comparedPixels": 518400,
+      "right": 2,
+      "sharedWidth": 180
+    },
+    {
+      "changedPixels": 0,
+      "left": 2,
+      "comparedPixels": 518400,
+      "right": 3,
+      "sharedWidth": 180
+    }
+  ],
+  "safeAreas": [
+    {
+      "localX": [
+        4820,
+        5120
+      ],
+      "panel": 1
+    },
+    {
+      "localX": [
+        0,
+        300
+      ],
+      "rightLocalX": [
+        4820,
+        5120
+      ],
+      "panel": 2
+    },
+    {
+      "localX": [
+        0,
+        300
+      ],
+      "panel": 3
+    }
+  ],
+  "placementStep": 4940,
+  "horizontalContentAdded": 0,
+  "panoramaHeight": 2880,
+  "seamRepairChangedPixels": [
+    498794,
+    599199
+  ],
+  "originalPixelAudit": {
+    "comparedPixels": 28260000,
+    "changedInSpectatorRemovalRegions": 1097993,
+    "changedOutsideAllowedRegions": 0
+  },
+  "originalBandY": 498,
+  "extensions": "Native roof and floor modules repeated with alternating horizontal reflection; no enlargement; color blending only at vertical joins",
+  "originalBandHeight": 1884,
+  "nativePatchSize": [
+    1536,
+    1024
+  ],
+  "panoramaWidth": 15000,
+  "overlap": 180,
+  "panels": [
+    {
+      "width": 5120,
+      "worldY": 0,
+      "pixelScale": 1,
+      "worldX": 0,
+      "height": 2880,
+      "file": "master-01-5120x2880.png"
+    },
+    {
+      "width": 5120,
+      "worldY": 0,
+      "pixelScale": 1,
+      "worldX": 4940,
+      "height": 2880,
+      "file": "master-02-5120x2880.png"
+    },
+    {
+      "width": 5120,
+      "worldY": 0,
+      "pixelScale": 1,
+      "worldX": 9880,
+      "height": 2880,
+      "file": "master-03-5120x2880.png"
+    }
+  ],
+  "addedBottom": 498,
+  "addedTop": 498
+}

@@ -1,0 +1,40 @@
+Latinan osumareaktio — pää taakse, kevyt vartalon jousto ja irvistys, paluu idleen
+6 ruutua, 3 saraketta × 2 riviä, läpinäkyvä tausta.
+Luotu built-in ImageGen -työkalulla, transparent_background=true.
+Lähde: käyttäjän lähettämä 1-Kuva-1.jpg (ED28A506-6DAA-4911-874C-9DEE72DDA5E2).
+
+Use case: identity-preserve.
+Asset type: SIX-FRAME TRANSPARENT HIT-REACTION ANIMATION SPRITE SHEET for a 2D beat-em-up game.
+
+Input image 1 is the user's exact IDLE POSE and the definitive reference for this adult woman. Create the reaction FROM THIS POSE and return TO THIS SAME POSE. Preserve the character design, proportions, tattoos, outfit and right-facing orientation. Remove the green background entirely.
+
+ACTION REQUEST:
+A short, restrained hit reaction: the HEAD JOLTS/TILTS BACKWARD away from an impact arriving from IMAGE RIGHT; the upper torso follows only a little. A LIGHT PAIN GRIMACE appears, then she returns to her idle stance. No fall or knockdown.
+Her body continues facing right. Her chin lifts as the top of her head tilts and moves slightly BACK toward image LEFT. Show this as a natural neck/head recoil with a small upper-back/shoulder movement. Do not rotate her head to face the viewer or reverse her facing direction.
+Keep both feet planted at the same relative positions throughout, knees naturally flexing only slightly. Pelvis and overall stance stay stable.
+Keep the fists near the original IDLE hand positions, following the small torso motion naturally. Do not raise the forearms in front of the face or make a blocking animation. We need to SEE the face and the head recoil.
+Expression is a modest, believable wince: narrowed/squeezing eyes, eyebrows tightening and lips lightly parting or clenching to show a small teeth line. No wide-open screaming mouth or exaggerated facial distortion. No blood, bruises, impact burst, attacker or extra objects.
+
+SIX CHRONOLOGICAL KEYFRAMES:
+1. ORIGINAL IDLE: closely match the supplied pose, head upright, stern neutral face, one fist near chest and the other forward near chin, same planted feet.
+2. HIT BEGINS: chin begins lifting, head moves/tilts a little backward toward image left; slight wince starts. Shoulders begin to yield.
+3. PEAK RECOIL: clearly visible head tilt backward, chin up, roughly 20–25 degrees of head tilt from idle; upper torso leans back only about 5–8 degrees, knees absorb it slightly. Light grimace, face still readable. This is the strongest pose, still controlled and standing.
+4. FOLLOW-THROUGH: head and shoulders remain a little back but start settling; ponytail naturally follows with a small lag. Wince remains subtle.
+5. RECOVERY: head lowers/rotates forward toward the original right-facing position, torso straightens, expression relaxes, hands recover the original idle placement.
+6. RETURN TO EXACT IDLE: match frame 1 and the original reference as closely as possible in face/head angle, torso, arms, planted feet and body scale. This closes the short reaction and can flow into idle.
+
+SHEET LAYOUT:
+Exactly SIX full-body frames on ONE square PNG in an exact THREE-COLUMN by TWO-ROW grid of equal portrait cells. Target 1536x1536 with 512x768 cells, or a proportionally identical square. Read left-to-right across top row then left-to-right across bottom row. No drawn grid, labels or numbers.
+Every cell contains one COMPLETE full-body pose with clear transparent margin: all hair tips, head, fists, elbows and both entire shoe soles inside its cell. Leave extra room above and behind the head for recoil. No clipping or overlap between neighboring frames.
+Same character scale, head size, camera, fixed foot baseline and relative foot coordinates across all six. No horizontal/vertical body drift, sliding feet, stepping, exaggerated torso swings, ghosted multiple positions in one frame or duplicated limbs.
+
+CHARACTER INVARIANTS:
+Exact original adult curvy woman from the supplied idle image: broad face, warm skin, strong full thighs with moderate clean cel-shading, dark wavy high ponytail, red patterned bandana and silver hoops.
+Turquoise STRAPLESS BANDEAU with no shoulder straps; light-blue ATHLETIC SHORTS with white piping, elastic waistband and white drawstring; white high-top sneakers.
+Retain the floral tattoos on both arms/shoulder and small chest tattoo, and especially the long winding leafy VINE/BRANCH TATTOOS along BOTH THIGHS AND CALVES. Tattoos follow the same body parts across all poses.
+Exactly TWO anatomically traceable arms with TWO fists, TWO legs and TWO shoes in each pose. Clothing and body shape remain coherent during recoil. Same clean bold outlines and polished cel-shaded 2D arcade game artwork.
+
+BACKGROUND:
+True TRANSPARENT ALPHA everywhere outside the figures and between limbs, including all margins and gutters. No green/black/white colored backdrop, glow, floor, cast shadow, checkerboard drawing, text, watermark, borders or extra people.
+Final result: one clean 3x2 animation sheet showing idle -> head-back hit wince with slight torso recoil -> return to the same idle.
+

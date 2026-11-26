@@ -1,0 +1,48 @@
+Meksikolainen jengiläisnainen — leveämmät kasvot, täyteläisemmät reidet ja selkeämpi varjostus
+Luotu built-in ImageGen -työkalulla, transparent_background=true.
+Kaksivaiheinen muutos. Lähde: output/imagegen/meksikolainen-jengilaisnainen/otteluasento-pehmeat-jalat-v3.png.
+
+VAIHE 1 — REISIEN KOKO JA JALKOJEN VARJOSTUS
+
+Use case: precise-object-edit.
+Asset type: carefully balanced leg revision of an existing adult female 2D game character.
+
+Input image 1 is the EDIT TARGET. The current legs became TOO SMOOTH AND FLAT compared to the well-defined cel-shaded upper body. The user wants clearly readable leg shapes with MODERATE DEFINITION, and SLIGHTLY THICKER THIGHS. Make a restrained correction, not an extreme redesign.
+
+CHANGE BOTH LEGS:
+1. Add a modest amount of fullness to the upper and middle thighs, about 5–8% more width each. Make them fuller and rounder while preserving their length, their two distinct outlines, the current hip placement and fighting stance. Adjust the shorts hems only as needed to fit the slightly fuller thighs. Keep the knee positions and shoes anchored.
+2. RESTORE CLEAR, CONTROLLED CEL-SHADING. Use three readable skin tones—base, warm shadow and light highlight—matching the illustrated treatment of her upper body. Add a few broad clean shaped shadows along the inner/outer leg contours, beneath the shorts hems, around the bend of each knee and along one side of each calf. The knee shape, shin direction and calf volume must be immediately legible at game-sprite scale.
+3. Keep round soft full flesh and natural adult proportions. A little underlying anatomical definition is appropriate, but do not carve separate quadriceps muscle heads, exaggerated kneecap muscles, multiple sinewy calf bulges, striations or veins. This is a curvy woman with naturally strong legs, not a bodybuilder.
+4. Avoid the current washed-out, almost featureless airbrushed treatment. The new broad shadow/highlight shapes need clear but tasteful contrast and clean cel-shaded edges, integrated with the existing artwork. Do not outline every muscle or cover the legs in many tiny angular patches. Visible volume and form, without excessive muscle separation.
+5. Keep calves and ankles natural and close to the current overall sizes. Exactly two thighs, two knees, two lower legs and two feet.
+
+PRESERVE THE REST:
+Same original adult woman's face, red patterned bandana, dark ponytail, earrings, arm/chest tattoos, expression, warm skin tone, upper body, both guarded fists, turquoise strapless bandeau, light-blue athletic drawstring shorts with white trim, and white high-top sneakers. Same right-facing guard and full-body composition. Do not change the face, arms, chest, waist, outfit design or body attitude. No additional tattoos or accessories. Entire hair/head, hands and both complete shoe soles inside frame.
+
+BACKGROUND:
+Genuinely transparent ALPHA outside the character and between the legs/arms. No scenery, floor, shadow on ground, glow, painted backdrop/checkerboard, text, watermark or border. High-quality 1024x1536-style portrait PNG with clean edges.
+
+VAIHE 2 — LEVEÄMMÄT KASVOT
+
+Use case: precise-object-edit.
+Asset type: face-shape revision of an existing original adult Mexican female game character.
+
+Input image 1 is the edit target. Preserve the NEW LEG CORRECTIONS in this image: full rounded thicker thighs, clear moderate three-tone cel shading, readable knees and calves. Do not alter the legs, stance, body, outfit or framing.
+
+CHANGE THE FACE:
+The user's requested Mexican female character currently has a face that is too narrow and elongated. Give her a clearly BROADER, STRONGER, FULLER OVAL FACE, while retaining a natural adult feminine appearance and the tough confident expression.
+- Increase the visible breadth through the cheekbones and lower cheeks by a moderate, noticeable amount, about 15–20%.
+- Make the jawline wider and sturdier with a softly rounded-square chin, instead of the current narrow tapered V-shaped chin.
+- Add natural fullness to the cheeks, not exaggerated puffiness. Shorten the elongated narrow impression without making the head huge.
+- Keep her dark eyes, strong expressive eyebrows, firm mouth, nose design, warm skin tone and stern focused attitude consistent.
+- A slightly more three-quarter side angle is appropriate so the broader cheek/jaw structure is visible, but the nose and eyes must still aim at the opponent off-screen RIGHT. No eye contact with the viewer.
+- Keep natural respectful anatomy, no racial caricature, no exaggerated masculine block jaw or cartoon distortion.
+
+Preserve exactly her dark wavy ponytail, patterned red bandana and hoop earrings; adjust their fit around the broader face only as needed. This is the same adult original character with a wider face, not a new person.
+
+PRESERVE EVERY OTHER ELEMENT:
+Her full curvy build, turquoise strapless bandeau, light-blue drawstring athletic shorts with white piping, floral arm/chest tattoos, both guarded fists and coherent arms, exactly two legs and two white high-top sneakers, warm skin palette, clean bold comic-game outlines and cel-shading. Most importantly keep the balanced readable leg shading and modestly thicker thighs already achieved in the input. One full-body character, all hair and shoe soles inside frame.
+
+BACKGROUND:
+Genuinely transparent ALPHA outside the character and between limbs. No scenery, floor, cast shadow, glow, solid background, checkerboard, text, logo, border or watermark. High-quality portrait PNG around 1024x1536.
+

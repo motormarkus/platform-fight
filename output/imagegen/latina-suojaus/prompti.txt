@@ -1,0 +1,31 @@
+Latinan suojauskuvasarja — 6 ruutua, 3 saraketta × 2 riviä, läpinäkyvä tausta
+Luotu built-in ImageGen -työkalulla, transparent_background=true.
+Hahmoreferenssi: output/imagegen/jengilaiset-vihrea-16x9/jengilaisnainen-jalkatatuoinnit-v2.png.
+
+Use case: identity-preserve.
+Asset type: SIX-FRAME TRANSPARENT DEFENSIVE BLOCK ANIMATION SPRITE SHEET for an existing 2D beat-em-up game.
+
+Input image 1 is the definitive IDENTITY, CLOTHING, PROPORTION AND TATTOO REFERENCE. Its green background is not part of the design and must be completely removed. Create an animation sheet of this EXACT adult woman, not a new character.
+
+SHEET LAYOUT:
+One square PNG sprite sheet with exactly SIX full-body frames, in a precise THREE-COLUMN by TWO-ROW grid of six equal portrait-shaped cells. Target 1536x1536 overall, each cell 512x768, or a higher-resolution square of the exact same grid. Read left to right across the top row, then left to right across the bottom row. No drawn cell borders, no labels or numbers.
+Each cell contains ONE COMPLETE full-body pose only, with clear transparent separation from all neighboring cells. Consistent character scale, head size, perspective and proportions across all six frames. Both complete sneakers, all hair, elbows and hands fit inside EACH cell with safe padding. No cropped extremities and no overlapping neighboring frames.
+Keep her planted feet at the same relative x/y coordinates and the same floor baseline in every cell. Maintain the same right-facing shallow three-quarter side view and the same camera throughout. Tiny natural knee/body compression for the impact is fine; no sliding feet, stepping, turning or camera-angle change.
+
+SIX ORDERED POSES — A CLEAR HIGH BLOCK:
+1. READY: the original reference fighting stance, knees slightly bent, one fist near the upper chest and the other forward near chin height.
+2. RAISING GUARD: both fists rise inward toward her temples, forearms lift, chin tucks slightly, elbows begin to close.
+3. CLOSED HIGH GUARD: both clenched fists beside her temples/forehead, forearms upright and angled toward the incoming opponent at image right to shield the face, elbows reasonably close to upper ribs. Strong clear defensive posture. Two arms only, each anatomically traceable from shoulder to fist.
+4. ABSORB BLOCKED STRIKE: maintain that tight high guard; torso and shoulders recoil a little backward, knees compress subtly, chin tucked. This is a small blocking reaction, not a punch, attack or exaggerated stagger. Feet remain planted. No attacker, impact flash, motion lines or extra objects.
+5. RECOVER: torso returns toward its original balance, forearms still protect the face but begin opening/lowering slightly.
+6. RETURN TO READY: both hands return to the original fighting guard so this can flow back to frame 1. Feet and body scale match frame 1.
+
+CHARACTER INVARIANTS, ALL SIX FRAMES:
+Same broad-cheeked original adult woman with a strong curvy build, full thighs and moderate readable cel-shading, warm skin, dark wavy ponytail, patterned red headband/bandana, silver hoop earrings and stern focused expression. Face and eyes stay toward the offscreen opponent RIGHT, never toward the viewer.
+Exact outfit: turquoise STRAPLESS BANDEAU TOP with no shoulder straps; light-blue ATHLETIC SHORTS with white piping, elastic waistband and white drawstring; white high-top street sneakers.
+Preserve ALL current tattoos, especially the latest long winding leafy VINE/BRANCH TATTOOS on BOTH THIGHS AND CALVES, plus the floral arm/shoulder tattoos and small chest tattoo. Tattoos stay anatomically attached and coherent as arms move. Do not replace the leafy leg vines, remove them, mirror them randomly or add writing.
+Exactly TWO arms and TWO coherent fists, TWO legs and TWO sneakers in every frame. No duplicated ghost limbs, detached hands, merged wrists or broken elbows. Keep all clothing secure and opaque. Same bold clean ink outlines, crisp three-tone cel-shading and readable arcade-game sprite quality as the input.
+
+BACKGROUND:
+TRUE TRANSPARENT ALPHA everywhere outside the six figures, including all cell margins, gaps between bodies and spaces between limbs. Absolutely no green background, colored backdrop, floor, cast shadow, glow, checkerboard drawing, panel boxes, lettering, numbering, watermark or border. The animation sheet must be ready for grid slicing. One image containing exactly six coherent full-body frames in 3x2 arrangement.
+
