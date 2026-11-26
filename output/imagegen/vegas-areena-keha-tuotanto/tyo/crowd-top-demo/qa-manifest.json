@@ -1,0 +1,104 @@
+{
+  "base": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\partial-top-12-protected\\static-master-15000x1024.png",
+  "canvasWidth": 15000,
+  "canvasHeight": 1024,
+  "panelWidth": 5000,
+  "frameCount": 6,
+  "frameDurationMs": 200,
+  "loop": true,
+  "motion": "Conservative interior mesh deformation; original contours held fixed; no cleanplate required",
+  "people": 101,
+  "regions": 225,
+  "activeMaskPixels": 598137,
+  "panels": [
+    {
+      "name": "01-katsomo",
+      "frames": [
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\01-katsomo\\01-katsomo-frame-01.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\01-katsomo\\01-katsomo-frame-02.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\01-katsomo\\01-katsomo-frame-03.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\01-katsomo\\01-katsomo-frame-04.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\01-katsomo\\01-katsomo-frame-05.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\01-katsomo\\01-katsomo-frame-06.png"
+      ],
+      "mask": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\masks\\01-katsomo-mask.png",
+      "maskMode": "red",
+      "overlays": [
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\01-katsomo\\crowd-frame-01.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\01-katsomo\\crowd-frame-02.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\01-katsomo\\crowd-frame-03.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\01-katsomo\\crowd-frame-04.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\01-katsomo\\crowd-frame-05.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\01-katsomo\\crowd-frame-06.png"
+      ]
+    },
+    {
+      "name": "02-keha-vasen",
+      "frames": [
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\02-keha-vasen\\02-keha-vasen-frame-01.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\02-keha-vasen\\02-keha-vasen-frame-02.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\02-keha-vasen\\02-keha-vasen-frame-03.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\02-keha-vasen\\02-keha-vasen-frame-04.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\02-keha-vasen\\02-keha-vasen-frame-05.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\02-keha-vasen\\02-keha-vasen-frame-06.png"
+      ],
+      "mask": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\masks\\02-keha-vasen-mask.png",
+      "maskMode": "red",
+      "overlays": [
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\02-keha-vasen\\crowd-frame-01.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\02-keha-vasen\\crowd-frame-02.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\02-keha-vasen\\crowd-frame-03.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\02-keha-vasen\\crowd-frame-04.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\02-keha-vasen\\crowd-frame-05.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\02-keha-vasen\\crowd-frame-06.png"
+      ]
+    },
+    {
+      "name": "03-keha-oikea",
+      "frames": [
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\03-keha-oikea\\03-keha-oikea-frame-01.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\03-keha-oikea\\03-keha-oikea-frame-02.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\03-keha-oikea\\03-keha-oikea-frame-03.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\03-keha-oikea\\03-keha-oikea-frame-04.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\03-keha-oikea\\03-keha-oikea-frame-05.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\03-keha-oikea\\03-keha-oikea-frame-06.png"
+      ],
+      "mask": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\masks\\03-keha-oikea-mask.png",
+      "maskMode": "red",
+      "overlays": [
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\03-keha-oikea\\crowd-frame-01.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\03-keha-oikea\\crowd-frame-02.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\03-keha-oikea\\crowd-frame-03.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\03-keha-oikea\\crowd-frame-04.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\03-keha-oikea\\crowd-frame-05.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\crowd\\03-keha-oikea\\crowd-frame-06.png"
+      ]
+    }
+  ],
+  "changes": [
+    {
+      "Frame": 1,
+      "ChangedAgainstBase": 518536
+    },
+    {
+      "Frame": 2,
+      "ChangedAgainstBase": 518064
+    },
+    {
+      "Frame": 3,
+      "ChangedAgainstBase": 517966
+    },
+    {
+      "Frame": 4,
+      "ChangedAgainstBase": 518362
+    },
+    {
+      "Frame": 5,
+      "ChangedAgainstBase": 517987
+    },
+    {
+      "Frame": 6,
+      "ChangedAgainstBase": 518158
+    }
+  ]
+}

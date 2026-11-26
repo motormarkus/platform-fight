@@ -1,0 +1,375 @@
+{
+  "passed": true,
+  "expectedPanelWidth": 5000,
+  "expectedPanelHeight": 1024,
+  "framesPerPanel": 6,
+  "failures": [],
+  "panels": [
+    {
+      "name": "01-katsomo",
+      "mask": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\masks\\01-katsomo-mask.png",
+      "maskMode": "red",
+      "uniqueFrames": 6,
+      "meanPairDifference": 13.629340581337715,
+      "lastToFirstDifference": 13.471556226526673,
+      "lastToFirstRatio": 0.988423184975868,
+      "frames": [
+        {
+          "frame": 1,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\01-katsomo\\01-katsomo-frame-01.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 0,
+          "changedFromStaticBase": 102974,
+          "changedOutsideMask": 0,
+          "allowedPixels": 117243,
+          "sha256": "B7C7ABB342ABC9D9093577DFB11356A91803EB6E0D474F81A0BD40D34B3CFBE1"
+        },
+        {
+          "frame": 2,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\01-katsomo\\01-katsomo-frame-02.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 102995,
+          "changedFromStaticBase": 102810,
+          "changedOutsideMask": 0,
+          "allowedPixels": 117243,
+          "sha256": "292734B46F6486F53CE06C5F448C87135800EB9C583D73C8BD173A5F6F0D6255"
+        },
+        {
+          "frame": 3,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\01-katsomo\\01-katsomo-frame-03.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 104604,
+          "changedFromStaticBase": 102978,
+          "changedOutsideMask": 0,
+          "allowedPixels": 117243,
+          "sha256": "D819418C8F1B096B204B8D2EB3565904576140ED3DF74BF854FA852AAB5DACF6"
+        },
+        {
+          "frame": 4,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\01-katsomo\\01-katsomo-frame-04.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 104677,
+          "changedFromStaticBase": 102923,
+          "changedOutsideMask": 0,
+          "allowedPixels": 117243,
+          "sha256": "47EBCF7DE084851FA0C442FEAADECB5C108799712AE4D29218B8D6B80C9EF7A4"
+        },
+        {
+          "frame": 5,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\01-katsomo\\01-katsomo-frame-05.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 104442,
+          "changedFromStaticBase": 102794,
+          "changedOutsideMask": 0,
+          "allowedPixels": 117243,
+          "sha256": "20064E629A93EB5AEB822535CFD419CC2144C9711174676E64EB3157BEFF612B"
+        },
+        {
+          "frame": 6,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\01-katsomo\\01-katsomo-frame-06.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 102655,
+          "changedFromStaticBase": 103021,
+          "changedOutsideMask": 0,
+          "allowedPixels": 117243,
+          "sha256": "EFA46787A8D387CDA75DA56629D7DD434AE4CEDFEAACD10263649F77283F2AC6"
+        }
+      ],
+      "cyclicPairs": [
+        {
+          "from": 1,
+          "to": 2,
+          "changedPixels": 102995,
+          "meanAbsoluteRgbInsideMask": 13.834719343585544,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "changedPixels": 102984,
+          "meanAbsoluteRgbInsideMask": 13.650657182091894,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "changedPixels": 102776,
+          "meanAbsoluteRgbInsideMask": 13.41231175137677,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 4,
+          "to": 5,
+          "changedPixels": 103076,
+          "meanAbsoluteRgbInsideMask": 13.788996642301317,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "changedPixels": 102879,
+          "meanAbsoluteRgbInsideMask": 13.617802342144094,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 6,
+          "to": 1,
+          "changedPixels": 102655,
+          "meanAbsoluteRgbInsideMask": 13.471556226526673,
+          "changedOutsideMask": 0
+        }
+      ]
+    },
+    {
+      "name": "02-keha-vasen",
+      "mask": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\masks\\02-keha-vasen-mask.png",
+      "maskMode": "red",
+      "uniqueFrames": 6,
+      "meanPairDifference": 14.498054864794154,
+      "lastToFirstDifference": 14.548076260058831,
+      "lastToFirstRatio": 1.0034502142343347,
+      "frames": [
+        {
+          "frame": 1,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\02-keha-vasen\\02-keha-vasen-frame-01.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 0,
+          "changedFromStaticBase": 196042,
+          "changedOutsideMask": 0,
+          "allowedPixels": 227205,
+          "sha256": "DABC4A19173C179FCF481D135A52C4371D29B3951B24137EC38A2A3DBEBA28A9"
+        },
+        {
+          "frame": 2,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\02-keha-vasen\\02-keha-vasen-frame-02.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 196334,
+          "changedFromStaticBase": 195999,
+          "changedOutsideMask": 0,
+          "allowedPixels": 227205,
+          "sha256": "8A4890F234135E833C065A946E05748D55BA4F77DA329B65091F354334B9D0F0"
+        },
+        {
+          "frame": 3,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\02-keha-vasen\\02-keha-vasen-frame-03.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 199451,
+          "changedFromStaticBase": 195743,
+          "changedOutsideMask": 0,
+          "allowedPixels": 227205,
+          "sha256": "12F75C13087CC83516E299F7768BF813A569A4ACC84396DCBD30DC75E26FA8D5"
+        },
+        {
+          "frame": 4,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\02-keha-vasen\\02-keha-vasen-frame-04.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 199814,
+          "changedFromStaticBase": 196081,
+          "changedOutsideMask": 0,
+          "allowedPixels": 227205,
+          "sha256": "359997FFE06728BC77F1A065F1046B01B37FF05976F1F40496BFD83D97EDBBE3"
+        },
+        {
+          "frame": 5,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\02-keha-vasen\\02-keha-vasen-frame-05.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 199673,
+          "changedFromStaticBase": 195975,
+          "changedOutsideMask": 0,
+          "allowedPixels": 227205,
+          "sha256": "E8AA7127CF1592E947F693F79848FDD910E8185541B95D250EB86D45A43B1DAA"
+        },
+        {
+          "frame": 6,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\02-keha-vasen\\02-keha-vasen-frame-06.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 196371,
+          "changedFromStaticBase": 195741,
+          "changedOutsideMask": 0,
+          "allowedPixels": 227205,
+          "sha256": "FB373848DC781A9D83C842E390842E3802CC3A124B19AF146B600263F9B9C094"
+        }
+      ],
+      "cyclicPairs": [
+        {
+          "from": 1,
+          "to": 2,
+          "changedPixels": 196334,
+          "meanAbsoluteRgbInsideMask": 14.325989011392062,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "changedPixels": 196404,
+          "meanAbsoluteRgbInsideMask": 14.626919888793527,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "changedPixels": 196336,
+          "meanAbsoluteRgbInsideMask": 14.528265956588397,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 4,
+          "to": 5,
+          "changedPixels": 196232,
+          "meanAbsoluteRgbInsideMask": 14.392181803510779,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "changedPixels": 196430,
+          "meanAbsoluteRgbInsideMask": 14.566896268421322,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 6,
+          "to": 1,
+          "changedPixels": 196371,
+          "meanAbsoluteRgbInsideMask": 14.548076260058831,
+          "changedOutsideMask": 0
+        }
+      ]
+    },
+    {
+      "name": "03-keha-oikea",
+      "mask": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\masks\\03-keha-oikea-mask.png",
+      "maskMode": "red",
+      "uniqueFrames": 6,
+      "meanPairDifference": 14.682095444071722,
+      "lastToFirstDifference": 14.675196796077087,
+      "lastToFirstRatio": 0.9995301319201394,
+      "frames": [
+        {
+          "frame": 1,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\03-keha-oikea\\03-keha-oikea-frame-01.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 0,
+          "changedFromStaticBase": 219520,
+          "changedOutsideMask": 0,
+          "allowedPixels": 253689,
+          "sha256": "3DC7DC9F83767017A73AA9EDEE35675726183602A8D4092C1404EE7B9EB6CA50"
+        },
+        {
+          "frame": 2,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\03-keha-oikea\\03-keha-oikea-frame-02.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 219743,
+          "changedFromStaticBase": 219255,
+          "changedOutsideMask": 0,
+          "allowedPixels": 253689,
+          "sha256": "6D707F5346FD375089085070B56DB8284F8C6663C28FA677F108E687A877A1DE"
+        },
+        {
+          "frame": 3,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\03-keha-oikea\\03-keha-oikea-frame-03.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 223435,
+          "changedFromStaticBase": 219245,
+          "changedOutsideMask": 0,
+          "allowedPixels": 253689,
+          "sha256": "7E32A69751009FFFA1D735CE17288F4B2024001D440A3A15CABD93DF301A8953"
+        },
+        {
+          "frame": 4,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\03-keha-oikea\\03-keha-oikea-frame-04.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 223742,
+          "changedFromStaticBase": 219358,
+          "changedOutsideMask": 0,
+          "allowedPixels": 253689,
+          "sha256": "497926C69A6BBAE11BBA6412663C8E6D4B9AFCBB7F826D861609B5170FD96EEF"
+        },
+        {
+          "frame": 5,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\03-keha-oikea\\03-keha-oikea-frame-05.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 223315,
+          "changedFromStaticBase": 219218,
+          "changedOutsideMask": 0,
+          "allowedPixels": 253689,
+          "sha256": "425B1CC28AF602D3E11EBA0E7EC5027F006835DF1F7D8173AC2F23F25AA56D05"
+        },
+        {
+          "frame": 6,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\crowd-top-demo\\frames\\03-keha-oikea\\03-keha-oikea-frame-06.png",
+          "width": 5000,
+          "height": 1024,
+          "changedFromFirst": 219389,
+          "changedFromStaticBase": 219396,
+          "changedOutsideMask": 0,
+          "allowedPixels": 253689,
+          "sha256": "5B0AFACA5BC5766079442BECDA302A63C4DEF3490307E73A57366CAAED317564"
+        }
+      ],
+      "cyclicPairs": [
+        {
+          "from": 1,
+          "to": 2,
+          "changedPixels": 219743,
+          "meanAbsoluteRgbInsideMask": 14.713751877298582,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "changedPixels": 219803,
+          "meanAbsoluteRgbInsideMask": 14.673059007945424,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "changedPixels": 219544,
+          "meanAbsoluteRgbInsideMask": 14.685076346760535,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 4,
+          "to": 5,
+          "changedPixels": 219612,
+          "meanAbsoluteRgbInsideMask": 14.615187624742632,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "changedPixels": 219855,
+          "meanAbsoluteRgbInsideMask": 14.730301011606073,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 6,
+          "to": 1,
+          "changedPixels": 219389,
+          "meanAbsoluteRgbInsideMask": 14.675196796077087,
+          "changedOutsideMask": 0
+        }
+      ]
+    }
+  ],
+  "nativePatches": [],
+  "splitMasterChecks": [],
+  "note": "Visual seam and facial identity review is required in addition to these exact pixel checks."
+}
