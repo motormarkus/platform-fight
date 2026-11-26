@@ -1,0 +1,17 @@
+Method: Built-in image_gen editing tool.
+Edit target: output/imagegen/violetti-rocco-vastakkain-16x9.png
+Original character references:
+- Assets/Sprites/Viholliset/violetti_idle.png
+- Assets/Sprites/idle.png
+
+Final prompt:
+Use case: identity-preserve / compositing.
+Edit target: Input image 1, the previous 16:9 full-body illustration of Violetti on the left and Rocco on the right. Revise this image according to the user's corrections below. Input image 2 is the ORIGINAL Violetti idle animation sheet and is the authoritative reference for her body shape, proportions, clothing and idle stance. Input image 3 is the ORIGINAL Rocco idle animation sheet and is the authoritative reference for his ready idle stance, identity and clothing. Animation sheets repeat the same character; use exactly one of each character in the result.
+Requested changes:
+1. Replace the entire background, including the floor, with perfectly uniform solid vivid chroma-key green (#00FF00). No gradient, no cast shadows, no ground line, no scenery, no texture, no green spill on the characters.
+2. Put BOTH characters into their original game IDLE poses from their source sheets, oriented toward one another. Violetti: relaxed standing idle, arms naturally down, slight weight shift, body and gaze facing inward to the right. Rocco: his actual fighting-game idle from input 3, fists raised at chest height, elbows bent, legs apart and knees slightly bent, oriented inward to the left. Neither of Rocco's hands may be in a pocket. Preserve the poses from the source sheets, mirroring Rocco to face left.
+3. HEIGHT: Violetti wearing her original brown high heels must be ALMOST THE SAME TOTAL HEIGHT as Rocco in his idle pose: crown of Violetti's hair only approximately 1–2% of the image's character height below Rocco's crown. Both shoe soles on the exact same baseline. Make Violetti taller by uniformly scaling her full original body and shoes, keeping her proportions, not by elongating or thinning her body.
+4. ESSENTIAL BODY-SHAPE LOCK: The user explicitly says do NOT slim Violetti. Her ORIGINAL sprite in input image 2 is the authority, not the thinner reinterpretation in image 1. Preserve the original full, broad, curvy hips, substantial upper thighs and calves, torso and bust fullness, and original waist-to-hip ratio exactly. Preserve her substantial lower-body silhouette. Do not reduce her body widths, do not narrow the hips or thighs, do not flatten curves, do not make her lean or slender. Uniformly enlarge her original full figure as needed for the near-equal height. Her clothing must fit that same original body volume. Keep her short auburn bob, original face, cropped brown leather jacket, purple top, fitted blue jeans, brown high heels and gold bracelets.
+Keep Rocco recognisable from input image 3: brown swept-up hair, muscular proportions, black leather jacket, white undershirt, belt, blue jeans and black lace-up boots.
+Composition: one finished horizontal 16:9 image, exactly two full-body characters with a clear modest gap between them, facing and looking at each other, no overlap; preserve a little clear green headroom above both heads (roughly upper 15% empty). Feet and hair fully inside frame. Match the original crisp outlined, richly shaded illustrated game art style. No text, logos, watermark, panels, frame repetitions or extra subjects. Prioritise faithful original body shapes and original idle poses over redesign.
+

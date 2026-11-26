@@ -1,0 +1,13 @@
+Method: Built-in image_gen tool.
+References:
+- Assets/Sprites/Viholliset/violetti_idle.png
+- Assets/Sprites/idle.png
+
+Final prompt:
+Use case: compositing / identity-preserve.
+Primary request: Combine Violetti (Violet) and Rocco from the provided character reference sheets into ONE finished landscape 16:9 illustration, ideally 2048 x 1152 pixels. Exactly two characters, full body, standing opposite each other and looking directly at one another. Leave a little clear space above their heads: approximately the upper 15% of the canvas should be empty background.
+Input images: Image 1 is the identity, clothing, proportions and art-style reference for Violetti, the auburn short bob-haired adult woman wearing a brown cropped leather biker jacket, purple top, fitted blue jeans, brown high heels, small gold bracelets. Image 2 is the identity, clothing, proportions and art-style reference for Rocco, the muscular adult man with swept-up brown hair, black leather biker jacket, white undershirt, blue jeans, belt and black lace-up boots. These are animation sheets repeating the same person: extract the identity of ONE person from each sheet, not the sheet layout.
+Composition: Both characters at the same natural ground level and believable relative scale. Each body turned inward toward the other, faces in profile or inward three-quarter view, clear mutual eye contact. A small comfortable gap between them. Keep both entire bodies including hair and shoes fully visible, occupying the lower 80% of the image. Rocco slightly taller than Violetti. Match the original illustrated game-character style with crisp dark outlines, detailed cel shading and rich clothing textures; preserve their recognisable faces, hair, outfits and body types. Confident relaxed stances suitable for a face-to-face character illustration, hands anatomically natural.
+Background: simple quiet warm light-gray studio backdrop with a very subtle floor and soft contact shadows; uninterrupted uncluttered space above the heads.
+Constraints: Exactly ONE Violetti and ONE Rocco. No additional people, no panels, no duplicated frames, no sprite-sheet grid, no props, no writing, no titles, no logos, no watermark. Preserve original character designs. Strict horizontal 16:9 framing.
+

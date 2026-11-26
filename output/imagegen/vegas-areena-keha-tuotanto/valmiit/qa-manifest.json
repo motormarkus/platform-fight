@@ -1,0 +1,73 @@
+{
+  "canvasWidth": 15000,
+  "canvasHeight": 1884,
+  "panelWidth": 5000,
+  "frameCount": 6,
+  "frameDurationMs": 200,
+  "loop": true,
+  "panels": [
+    {
+      "name": "01-katsomo",
+      "frames": [
+        "01-katsomo/01-katsomo-frame-01.png",
+        "01-katsomo/01-katsomo-frame-02.png",
+        "01-katsomo/01-katsomo-frame-03.png",
+        "01-katsomo/01-katsomo-frame-04.png",
+        "01-katsomo/01-katsomo-frame-05.png",
+        "01-katsomo/01-katsomo-frame-06.png"
+      ],
+      "mask": "01-katsomo/yleisomaski.png",
+      "maskMode": "red",
+      "overlays": [
+        "01-katsomo/yleisokerros/crowd-frame-01.png",
+        "01-katsomo/yleisokerros/crowd-frame-02.png",
+        "01-katsomo/yleisokerros/crowd-frame-03.png",
+        "01-katsomo/yleisokerros/crowd-frame-04.png",
+        "01-katsomo/yleisokerros/crowd-frame-05.png",
+        "01-katsomo/yleisokerros/crowd-frame-06.png"
+      ]
+    },
+    {
+      "name": "02-keha-vasen",
+      "frames": [
+        "02-keha-vasen/02-keha-vasen-frame-01.png",
+        "02-keha-vasen/02-keha-vasen-frame-02.png",
+        "02-keha-vasen/02-keha-vasen-frame-03.png",
+        "02-keha-vasen/02-keha-vasen-frame-04.png",
+        "02-keha-vasen/02-keha-vasen-frame-05.png",
+        "02-keha-vasen/02-keha-vasen-frame-06.png"
+      ],
+      "mask": "02-keha-vasen/yleisomaski.png",
+      "maskMode": "red",
+      "overlays": [
+        "02-keha-vasen/yleisokerros/crowd-frame-01.png",
+        "02-keha-vasen/yleisokerros/crowd-frame-02.png",
+        "02-keha-vasen/yleisokerros/crowd-frame-03.png",
+        "02-keha-vasen/yleisokerros/crowd-frame-04.png",
+        "02-keha-vasen/yleisokerros/crowd-frame-05.png",
+        "02-keha-vasen/yleisokerros/crowd-frame-06.png"
+      ]
+    },
+    {
+      "name": "03-keha-oikea",
+      "frames": [
+        "03-keha-oikea/03-keha-oikea-frame-01.png",
+        "03-keha-oikea/03-keha-oikea-frame-02.png",
+        "03-keha-oikea/03-keha-oikea-frame-03.png",
+        "03-keha-oikea/03-keha-oikea-frame-04.png",
+        "03-keha-oikea/03-keha-oikea-frame-05.png",
+        "03-keha-oikea/03-keha-oikea-frame-06.png"
+      ],
+      "mask": "03-keha-oikea/yleisomaski.png",
+      "maskMode": "red",
+      "overlays": [
+        "03-keha-oikea/yleisokerros/crowd-frame-01.png",
+        "03-keha-oikea/yleisokerros/crowd-frame-02.png",
+        "03-keha-oikea/yleisokerros/crowd-frame-03.png",
+        "03-keha-oikea/yleisokerros/crowd-frame-04.png",
+        "03-keha-oikea/yleisokerros/crowd-frame-05.png",
+        "03-keha-oikea/yleisokerros/crowd-frame-06.png"
+      ]
+    }
+  ]
+}
