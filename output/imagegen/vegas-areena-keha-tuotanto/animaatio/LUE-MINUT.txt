@@ -1,0 +1,20 @@
+WTF-AREENAN YLEISO-IDLE
+
+Kolme oikealle jatkuvaa kuvaa. Jokaisesta kuusi erillista PNG-ruutua, kukin 5000 x 1884 pikselia.
+01-katsomo: sisaantulo, katsomo ja kaytava.
+02-keha-vasen: nousuportaat ja kehan vasen osa.
+03-keha-oikea: kehan oikea osa ja kehanvierusyleiso.
+
+Toisto: ruudut01,02,03,04,05,06 ja takaisin01. Kunkin ruudun kesto200ms, eli5fps ja1,2sekunnin jatkuva silmukka. Kolme taustakuvaa toistetaan samalla ruutunumerolla, jotta maailman liitokset pysyvat samoina.
+
+Toteutus: tuotantopohja koostuu alkuperaiskokoisista generoiduista paloista; luonnospanoraamaa ei ole suurennettu lopputulokseksi. Kaikki kuusi animaatioruutua muodostetaan yhdesta muuttumattomasta tuotantopohjasta. Tausta, lattia, kehan rakenteet, koydet, penkit, kaiteet, valot ja varjot pysyvat samoina.
+
+Yleison liike on tarkoituksella erittain kevytta. Kasvojen, rintakehan ja joidenkin kasien sisapuoliset kuva-alueet joustavat hiukan eri vaiheissa. Hahmojen ulkosiluetit pysyvat paikallaan; sarja ei sisalla kuutta uudelleenpiirrettyä kannustusasentoa tai suurta koko vartalon heiluntaa. Konservatiivinen rajaus estaa penkkien ja kaiteiden liikkumisen.
+
+frames/:18 taytta valmista RGB-kuvaa. Naita voi kayttaa sellaisenaan.
+crowd/:18 lapiakyvaa RGBA-yksityiskohtakerrosta vaihtoehtoiseen kerroskoostamiseen. Niissa on vain liikkeeseen rajattu yleison sisaosa, ei kokonaisia irrotettuja ihmisia. Ne tarvitsevat alkuperaisen staattisen tuotantopohjan taakseen.
+masks/:kolme liikkeen sallivan alueen maskikuvaa; nollapikselit pysyvat muuttumattomina.
+panorama-frames/:kuusi koko maailman 15000 x 1884 -ruutua vertailua ja jatkotyota varten. Kolme5000-pikselista osakuvaa on rajattu niista samoin koordinaatein jokaisessa ruudussa.
+qa-manifest.json:tiedostopolut, ajoitus, maskit ja tuotannon tiedot.
+
+Esikatselut ovat katselua varten. Tuotannon tiedostot ovat frames/-kansioiden5000 x 1884 PNG:t. Pida kaikilla ruuduilla sama pivot, skaala, Pixels Per Unit ja kuvan tuontiasetukset.5000pikselin leveytta pienempi tuonnin tekstuuriraja pienentaisi kuvat pelissa, vaikka PNG-tiedosto itsessaan pysyy5000-pikselisena.

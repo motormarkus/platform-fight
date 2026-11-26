@@ -1,0 +1,20 @@
+PANORAAMALUONNOS - WTF-AREENAN KEHA
+Tama toimitus on pyydetty ensimmainen sommitteluluonnos. Ei viela animaatiosarjaa.
+Tekotapa: sisaanrakennettu image_gen, kolme vierekkain generoituvaa luonnososaa, yhdistetty ilman skaalausta.
+Sommittelu vasemmalta oikealle:
+1. Katsomon reuna, sisaanmeno ja avoin kaytava.
+2. Nousuportaat ja yhden taistelukehan vasen puoli.
+3. Saman kehan oikea puoli, sininen kulma ja kehanvierusyleiso.
+Hahmotyylin lahde: Assets/Sprites/Viholliset/marcus_idle.png.
+Kehan ja kameran lahde: Assets/Sprites/Taustat/sali_kehakuva.png.
+Varit ja materiaalit jatkavat aiempaa WTF-areenan aulaa ja ravintolaa.
+
+JATKOVAIHEEN IDLE-SUUNNITELMA
+Kolme taustakuvaa, kuusi ruutua per kuva eli yhteensa18 ruutua.
+Lievat yleison olkapaiden ja paan liikkeet, pienet kasien kannustusliikkeet ja taputukset.
+Eri kannustajien liikkeet hieman eri vaiheissa, jotta yleiso ei liiku yhtena massana.
+Jokaisen kuvan staattinen pohja lukitaan. Tausta, lattia, keha, matto, koydet, penkit, kaiteet, valaisimet ja varjot kopioidaan tismalleen samoista pikseleista kaikkiin kuuteen ruutuun.
+Vain erillinen, tarkasti maskattu yleisokerros vaihdetaan. Staattiset koydet ja kaiteet peittavat yleison samoista kohdista jokaisessa ruudussa.
+Tarkistus: ero sallittujen yleisomaskien ulkopuolella on0 pikselia ruuduissa1-6; kuudennen ja ensimmaisen ruudun sauma muodostaa kevyen silmukan.
+Luonnoksen generatiivisia liitoksia ja mittasuhteita ei ole viela viimeistelty lopullisiksi tuotantokuviksi.
+

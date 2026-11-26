@@ -1,0 +1,16 @@
+Mode: built-in image_gen.imagegen. Targeted seam correction, aligned and composited into original panorama. Original geometry outside local repair retained; see tarkistus.json. Three tiles are sliced from the same repaired master panorama.
+
+Use case: precise-object-edit / repair a stitched game-background seam.
+Image1 is an exact crop of the actual arena panorama. It contains a BAD VERTICAL STITCH exactly through the CENTER, at50% width: floor changes color sharply, the front spectator rail has a cut/misaligned join, and seat blocks meet awkwardly. REPAIR THIS JOIN so this is visibly ONE continuous painted game environment. Do not redesign the scene.
+
+Keep the EXACT same canvas framing, approximately1536x770, same camera, same spectator characters, seats, wall art, ceiling lights, ring corner post at the right, ring ropes and ring steps. Those subjects are already approved.
+
+Correct the center of the image:
+- The dark warm stone FLOOR across the ENTIRE bottom must have one consistent subtle painted texture, scale, shading and continuous warm lighting, with NO vertical dark line, rectangular color change, sudden cool/warm boundary, bright seam, blurred strip, or mismatched floor slab at the center. Blend the existing illumination naturally over a broad area; keep the floor uninterrupted and level.
+- Continue the front spectator barrier from the left toward its EXISTING rounded end post near61% image width. Its gold top rail and dark marble base should run level without a step, cut, doubled edge or change of material at50%. The top rail's height from the LEFT portion is authoritative. Use one clean continuous railing, not two overlapping rails.
+- Make the red padded seats immediately behind that front rail into a coherent continuous front row across the center. Retain the existing seated fans and a few empty chairs to their right. Do not cut a person or a chair at the stitch. Any seat-bank height changes must read as deliberate seating tiers, not mismatched image scales.
+- Match horizontal brass rear rail heights and the burgundy wall/ceiling bands where they cross the center, without a butt-joint artifact.
+- Leave the existing ringside table, ring-access steps, red corner post, all visible ropes and ring mat at the RIGHT in exactly the same positions. Do not add a new post, pillar, wall, doorway, stairway, or object to hide the join.
+
+Preserve the existing confident outlined hand-painted Total Fist game-character style. No new people, no removal of audience, no new text or logos. Keep the outermost15% on both LEFT and RIGHT unchanged, so this edited repair crop can be put back into the full panorama without a new seam. Do not change the camera, crop, scale, framing or overall exposure. The corrected center and floor must look naturally seamless at100% zoom. Output only the repaired landscape image.
+
