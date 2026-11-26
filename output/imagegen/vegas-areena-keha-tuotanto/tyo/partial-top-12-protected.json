@@ -1,0 +1,1179 @@
+{
+  "width": 15000,
+  "height": 1024,
+  "tileWidth": 5000,
+  "tileHeight": 1884,
+  "guideOnly": "tyo/oppaat contains enlarged compositionguides only; finalpixels mustallcomefromnativegeneratedpatches",
+  "patches": [
+    {
+      "id": "r0c00",
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c00.png",
+      "x": 0,
+      "y": 0,
+      "width": 1536,
+      "height": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "avoidRectangles": [
+        {
+          "width": 100,
+          "y": 448,
+          "x": 1375,
+          "height": 136
+        },
+        {
+          "width": 100,
+          "y": 448,
+          "x": 1374,
+          "height": 136
+        }
+      ]
+    },
+    {
+      "id": "r0c01",
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c01.png",
+      "x": 1224,
+      "y": 0,
+      "width": 1536,
+      "height": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "avoidRectangles": [
+        {
+          "width": 100,
+          "y": 448,
+          "x": 151,
+          "height": 136
+        },
+        {
+          "width": 100,
+          "y": 448,
+          "x": 150,
+          "height": 136
+        },
+        {
+          "width": 92,
+          "y": 490,
+          "x": 574,
+          "height": 126
+        },
+        {
+          "width": 98,
+          "y": 502,
+          "x": 964,
+          "height": 132
+        },
+        {
+          "width": 96,
+          "y": 479,
+          "x": 1340,
+          "height": 130
+        },
+        {
+          "width": 96,
+          "y": 695,
+          "x": 347,
+          "height": 130
+        },
+        {
+          "width": 94,
+          "y": 715,
+          "x": 750,
+          "height": 128
+        },
+        {
+          "width": 102,
+          "y": 717,
+          "x": 1167,
+          "height": 130
+        },
+        {
+          "width": 96,
+          "y": 477,
+          "x": 1343,
+          "height": 130
+        }
+      ]
+    },
+    {
+      "id": "r0c02",
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c02.png",
+      "x": 2448,
+      "y": 0,
+      "width": 1536,
+      "height": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "avoidRectangles": [
+        {
+          "width": 96,
+          "y": 479,
+          "x": 116,
+          "height": 130
+        },
+        {
+          "width": 102,
+          "y": 717,
+          "x": -57,
+          "height": 130
+        },
+        {
+          "width": 96,
+          "y": 477,
+          "x": 119,
+          "height": 130
+        },
+        {
+          "width": 96,
+          "y": 516,
+          "x": 622,
+          "height": 128
+        },
+        {
+          "width": 96,
+          "y": 494,
+          "x": 998,
+          "height": 128
+        },
+        {
+          "width": 98,
+          "y": 477,
+          "x": 1375,
+          "height": 132
+        },
+        {
+          "width": 96,
+          "y": 723,
+          "x": 338,
+          "height": 130
+        },
+        {
+          "width": 98,
+          "y": 722,
+          "x": 735,
+          "height": 130
+        },
+        {
+          "width": 104,
+          "y": 742,
+          "x": 1134,
+          "height": 132
+        },
+        {
+          "width": 98,
+          "y": 476,
+          "x": 1382,
+          "height": 132
+        }
+      ]
+    },
+    {
+      "id": "r0c03",
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c03.png",
+      "x": 3672,
+      "y": 0,
+      "width": 1536,
+      "height": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "avoidRectangles": [
+        {
+          "width": 98,
+          "y": 477,
+          "x": 151,
+          "height": 132
+        },
+        {
+          "width": 104,
+          "y": 742,
+          "x": -90,
+          "height": 132
+        },
+        {
+          "width": 98,
+          "y": 476,
+          "x": 158,
+          "height": 132
+        },
+        {
+          "width": 98,
+          "y": 492,
+          "x": 743,
+          "height": 128
+        },
+        {
+          "width": 96,
+          "y": 551,
+          "x": 1404,
+          "height": 132
+        },
+        {
+          "width": 98,
+          "y": 721,
+          "x": 395,
+          "height": 132
+        },
+        {
+          "width": 104,
+          "y": 701,
+          "x": 829,
+          "height": 134
+        },
+        {
+          "width": 96,
+          "y": 552,
+          "x": 1408,
+          "height": 132
+        }
+      ]
+    },
+    {
+      "id": "r0c04",
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c04.png",
+      "x": 4896,
+      "y": 0,
+      "width": 1536,
+      "height": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "avoidRectangles": [
+        {
+          "width": 96,
+          "y": 551,
+          "x": 180,
+          "height": 132
+        },
+        {
+          "width": 96,
+          "y": 552,
+          "x": 184,
+          "height": 132
+        },
+        {
+          "width": 84,
+          "y": 377,
+          "x": 651,
+          "height": 114
+        },
+        {
+          "width": 78,
+          "y": 409,
+          "x": 984,
+          "height": 106
+        },
+        {
+          "width": 82,
+          "y": 409,
+          "x": 1264,
+          "height": 112
+        },
+        {
+          "width": 88,
+          "y": 563,
+          "x": 735,
+          "height": 118
+        },
+        {
+          "width": 84,
+          "y": 568,
+          "x": 1102,
+          "height": 114
+        },
+        {
+          "width": 86,
+          "y": 565,
+          "x": 1453,
+          "height": 116
+        },
+        {
+          "width": 98,
+          "y": 781,
+          "x": 727,
+          "height": 128
+        },
+        {
+          "width": 88,
+          "y": 778,
+          "x": 1079,
+          "height": 122
+        },
+        {
+          "width": 82,
+          "y": 410,
+          "x": 1262,
+          "height": 112
+        },
+        {
+          "width": 86,
+          "y": 397,
+          "x": 1525,
+          "height": 116
+        },
+        {
+          "width": 90,
+          "y": 563,
+          "x": 1451,
+          "height": 118
+        }
+      ]
+    },
+    {
+      "id": "r0c05",
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c05.png",
+      "x": 6120,
+      "y": 0,
+      "width": 1536,
+      "height": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "avoidRectangles": [
+        {
+          "width": 82,
+          "y": 409,
+          "x": 40,
+          "height": 112
+        },
+        {
+          "width": 86,
+          "y": 565,
+          "x": 229,
+          "height": 116
+        },
+        {
+          "width": 82,
+          "y": 410,
+          "x": 38,
+          "height": 112
+        },
+        {
+          "width": 86,
+          "y": 397,
+          "x": 301,
+          "height": 116
+        },
+        {
+          "width": 86,
+          "y": 420,
+          "x": 653,
+          "height": 116
+        },
+        {
+          "width": 86,
+          "y": 409,
+          "x": 1016,
+          "height": 118
+        },
+        {
+          "width": 88,
+          "y": 391,
+          "x": 1306,
+          "height": 120
+        },
+        {
+          "width": 90,
+          "y": 563,
+          "x": 227,
+          "height": 118
+        },
+        {
+          "width": 88,
+          "y": 572,
+          "x": 547,
+          "height": 118
+        },
+        {
+          "width": 90,
+          "y": 561,
+          "x": 865,
+          "height": 120
+        },
+        {
+          "width": 94,
+          "y": 576,
+          "x": 1185,
+          "height": 124
+        },
+        {
+          "width": 96,
+          "y": 778,
+          "x": 563,
+          "height": 130
+        },
+        {
+          "width": 90,
+          "y": 787,
+          "x": 878,
+          "height": 120
+        },
+        {
+          "width": 94,
+          "y": 780,
+          "x": 1139,
+          "height": 126
+        },
+        {
+          "width": 94,
+          "y": 777,
+          "x": 1440,
+          "height": 126
+        },
+        {
+          "width": 88,
+          "y": 391,
+          "x": 1297,
+          "height": 120
+        },
+        {
+          "width": 88,
+          "y": 576,
+          "x": 1529,
+          "height": 118
+        },
+        {
+          "width": 94,
+          "y": 781,
+          "x": 1437,
+          "height": 126
+        }
+      ]
+    },
+    {
+      "id": "r0c06",
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c06.png",
+      "x": 7344,
+      "y": 0,
+      "width": 1536,
+      "height": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "avoidRectangles": [
+        {
+          "width": 88,
+          "y": 391,
+          "x": 82,
+          "height": 120
+        },
+        {
+          "width": 94,
+          "y": 576,
+          "x": -39,
+          "height": 124
+        },
+        {
+          "width": 94,
+          "y": 780,
+          "x": -85,
+          "height": 126
+        },
+        {
+          "width": 94,
+          "y": 777,
+          "x": 216,
+          "height": 126
+        },
+        {
+          "width": 88,
+          "y": 391,
+          "x": 73,
+          "height": 120
+        },
+        {
+          "width": 88,
+          "y": 419,
+          "x": 484,
+          "height": 116
+        },
+        {
+          "width": 90,
+          "y": 382,
+          "x": 965,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 406,
+          "x": 1316,
+          "height": 120
+        },
+        {
+          "width": 88,
+          "y": 576,
+          "x": 305,
+          "height": 118
+        },
+        {
+          "width": 94,
+          "y": 552,
+          "x": 676,
+          "height": 124
+        },
+        {
+          "width": 90,
+          "y": 563,
+          "x": 1086,
+          "height": 120
+        },
+        {
+          "width": 92,
+          "y": 560,
+          "x": 1391,
+          "height": 122
+        },
+        {
+          "width": 94,
+          "y": 781,
+          "x": 213,
+          "height": 126
+        },
+        {
+          "width": 90,
+          "y": 781,
+          "x": 500,
+          "height": 122
+        },
+        {
+          "width": 92,
+          "y": 783,
+          "x": 762,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 783,
+          "x": 1069,
+          "height": 122
+        },
+        {
+          "width": 94,
+          "y": 780,
+          "x": 1359,
+          "height": 126
+        },
+        {
+          "width": 90,
+          "y": 407,
+          "x": 1322,
+          "height": 120
+        },
+        {
+          "width": 92,
+          "y": 562,
+          "x": 1410,
+          "height": 122
+        },
+        {
+          "width": 94,
+          "y": 782,
+          "x": 1375,
+          "height": 126
+        }
+      ]
+    },
+    {
+      "id": "r0c07",
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c07.png",
+      "x": 8568,
+      "y": 0,
+      "width": 1536,
+      "height": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "avoidRectangles": [
+        {
+          "width": 90,
+          "y": 406,
+          "x": 92,
+          "height": 120
+        },
+        {
+          "width": 92,
+          "y": 560,
+          "x": 167,
+          "height": 122
+        },
+        {
+          "width": 94,
+          "y": 780,
+          "x": 135,
+          "height": 126
+        },
+        {
+          "width": 90,
+          "y": 407,
+          "x": 98,
+          "height": 120
+        },
+        {
+          "width": 90,
+          "y": 395,
+          "x": 393,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 403,
+          "x": 776,
+          "height": 120
+        },
+        {
+          "width": 90,
+          "y": 414,
+          "x": 1167,
+          "height": 122
+        },
+        {
+          "width": 92,
+          "y": 562,
+          "x": 186,
+          "height": 122
+        },
+        {
+          "width": 92,
+          "y": 563,
+          "x": 543,
+          "height": 122
+        },
+        {
+          "width": 92,
+          "y": 572,
+          "x": 872,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 577,
+          "x": 1193,
+          "height": 122
+        },
+        {
+          "width": 94,
+          "y": 782,
+          "x": 151,
+          "height": 126
+        },
+        {
+          "width": 90,
+          "y": 786,
+          "x": 436,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 786,
+          "x": 665,
+          "height": 122
+        },
+        {
+          "width": 92,
+          "y": 784,
+          "x": 936,
+          "height": 126
+        },
+        {
+          "width": 90,
+          "y": 785,
+          "x": 1220,
+          "height": 124
+        },
+        {
+          "width": 90,
+          "y": 785,
+          "x": 1212,
+          "height": 124
+        }
+      ]
+    },
+    {
+      "id": "r0c08",
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c08.png",
+      "x": 9792,
+      "y": 0,
+      "width": 1536,
+      "height": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "avoidRectangles": [
+        {
+          "width": 90,
+          "y": 414,
+          "x": -57,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 577,
+          "x": -31,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 785,
+          "x": -4,
+          "height": 124
+        },
+        {
+          "width": 90,
+          "y": 416,
+          "x": 363,
+          "height": 120
+        },
+        {
+          "width": 90,
+          "y": 394,
+          "x": 687,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 411,
+          "x": 1041,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 414,
+          "x": 1395,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 578,
+          "x": 373,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 573,
+          "x": 740,
+          "height": 124
+        },
+        {
+          "width": 92,
+          "y": 576,
+          "x": 1117,
+          "height": 124
+        },
+        {
+          "width": 90,
+          "y": 578,
+          "x": 1466,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 785,
+          "x": -12,
+          "height": 124
+        },
+        {
+          "width": 90,
+          "y": 786,
+          "x": 391,
+          "height": 122
+        },
+        {
+          "width": 92,
+          "y": 782,
+          "x": 684,
+          "height": 126
+        },
+        {
+          "width": 90,
+          "y": 783,
+          "x": 997,
+          "height": 124
+        },
+        {
+          "width": 94,
+          "y": 784,
+          "x": 1314,
+          "height": 126
+        },
+        {
+          "width": 90,
+          "y": 416,
+          "x": 1399,
+          "height": 120
+        },
+        {
+          "width": 90,
+          "y": 581,
+          "x": 1452,
+          "height": 122
+        },
+        {
+          "width": 94,
+          "y": 785,
+          "x": 1310,
+          "height": 126
+        }
+      ]
+    },
+    {
+      "id": "r0c09",
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c09.png",
+      "x": 11016,
+      "y": 0,
+      "width": 1536,
+      "height": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "avoidRectangles": [
+        {
+          "width": 90,
+          "y": 414,
+          "x": 171,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 578,
+          "x": 242,
+          "height": 122
+        },
+        {
+          "width": 94,
+          "y": 784,
+          "x": 90,
+          "height": 126
+        },
+        {
+          "width": 90,
+          "y": 416,
+          "x": 175,
+          "height": 120
+        },
+        {
+          "width": 90,
+          "y": 398,
+          "x": 471,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 408,
+          "x": 777,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 413,
+          "x": 1104,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 392,
+          "x": 1427,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 581,
+          "x": 228,
+          "height": 122
+        },
+        {
+          "width": 92,
+          "y": 560,
+          "x": 567,
+          "height": 124
+        },
+        {
+          "width": 90,
+          "y": 573,
+          "x": 908,
+          "height": 122
+        },
+        {
+          "width": 92,
+          "y": 559,
+          "x": 1252,
+          "height": 124
+        },
+        {
+          "width": 94,
+          "y": 785,
+          "x": 86,
+          "height": 126
+        },
+        {
+          "width": 90,
+          "y": 788,
+          "x": 408,
+          "height": 122
+        },
+        {
+          "width": 92,
+          "y": 784,
+          "x": 699,
+          "height": 124
+        },
+        {
+          "width": 94,
+          "y": 782,
+          "x": 1018,
+          "height": 126
+        },
+        {
+          "width": 90,
+          "y": 786,
+          "x": 1321,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 395,
+          "x": 1419,
+          "height": 122
+        },
+        {
+          "width": 92,
+          "y": 562,
+          "x": 1253,
+          "height": 124
+        },
+        {
+          "width": 90,
+          "y": 789,
+          "x": 1323,
+          "height": 122
+        }
+      ]
+    },
+    {
+      "id": "r0c10",
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c10.png",
+      "x": 12240,
+      "y": 0,
+      "width": 1536,
+      "height": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "avoidRectangles": [
+        {
+          "width": 90,
+          "y": 392,
+          "x": 203,
+          "height": 122
+        },
+        {
+          "width": 92,
+          "y": 559,
+          "x": 28,
+          "height": 124
+        },
+        {
+          "width": 90,
+          "y": 786,
+          "x": 97,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 395,
+          "x": 195,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 399,
+          "x": 538,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 417,
+          "x": 879,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 404,
+          "x": 1192,
+          "height": 122
+        },
+        {
+          "width": 92,
+          "y": 562,
+          "x": 29,
+          "height": 124
+        },
+        {
+          "width": 90,
+          "y": 580,
+          "x": 337,
+          "height": 122
+        },
+        {
+          "width": 94,
+          "y": 555,
+          "x": 698,
+          "height": 126
+        },
+        {
+          "width": 90,
+          "y": 579,
+          "x": 1040,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 570,
+          "x": 1333,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 789,
+          "x": 99,
+          "height": 122
+        },
+        {
+          "width": 92,
+          "y": 782,
+          "x": 391,
+          "height": 124
+        },
+        {
+          "width": 90,
+          "y": 788,
+          "x": 674,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 789,
+          "x": 965,
+          "height": 122
+        },
+        {
+          "width": 64,
+          "y": 800,
+          "x": 1265,
+          "height": 88
+        },
+        {
+          "width": 90,
+          "y": 420,
+          "x": 1489,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 575,
+          "x": 1342,
+          "height": 122
+        },
+        {
+          "width": 64,
+          "y": 802,
+          "x": 1246,
+          "height": 88
+        }
+      ]
+    },
+    {
+      "id": "r0c11",
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c11.png",
+      "x": 13464,
+      "y": 0,
+      "width": 1536,
+      "height": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "avoidRectangles": [
+        {
+          "width": 90,
+          "y": 404,
+          "x": -32,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 570,
+          "x": 109,
+          "height": 122
+        },
+        {
+          "width": 64,
+          "y": 800,
+          "x": 41,
+          "height": 88
+        },
+        {
+          "width": 90,
+          "y": 420,
+          "x": 265,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 396,
+          "x": 562,
+          "height": 122
+        },
+        {
+          "width": 90,
+          "y": 575,
+          "x": 118,
+          "height": 122
+        },
+        {
+          "width": 92,
+          "y": 580,
+          "x": 431,
+          "height": 124
+        },
+        {
+          "width": 92,
+          "y": 787,
+          "x": 489,
+          "height": 124
+        },
+        {
+          "width": 64,
+          "y": 802,
+          "x": 22,
+          "height": 88
+        },
+        {
+          "width": 94,
+          "y": 569,
+          "x": 925,
+          "height": 126
+        },
+        {
+          "width": 98,
+          "y": 545,
+          "x": 1185,
+          "height": 130
+        },
+        {
+          "width": 96,
+          "y": 738,
+          "x": 914,
+          "height": 128
+        },
+        {
+          "width": 90,
+          "y": 767,
+          "x": 1047,
+          "height": 122
+        },
+        {
+          "width": 94,
+          "y": 753,
+          "x": 1170,
+          "height": 126
+        },
+        {
+          "width": 96,
+          "y": 715,
+          "x": 1357,
+          "height": 128
+        }
+      ]
+    }
+  ]
+}
