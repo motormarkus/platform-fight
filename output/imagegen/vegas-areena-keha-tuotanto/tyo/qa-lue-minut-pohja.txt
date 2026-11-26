@@ -1,0 +1,35 @@
+WTF-AREENA: KATSOMO JA KEHÄ
+
+Kolme vierekkäistä kuvaa, jokainen 5000 × 1884 pikseliä. Jokaisesta on kuusi idle-framea.
+Järjestys vasemmalta oikealle: 01-katsomo, 02-keha-vasen, 03-keha-oikea.
+
+Täydet pelikuvat ovat kunkin kuvan frame-kansiossa. Toista ruudut 01, 02, 03, 04, 05, 06, 01...
+Ruudun kesto on 200 ms eli 5 kuvaa/s. Kuuden ruudun silmukka kestää 1,2 sekuntia.
+Kaikki kolme kuvaa käyttävät SAMAAN AIKAAN samaa frame-numeroa ja yhtä yhteistä kelloa:
+01/01/01, sitten 02/02/02, 03/03/03, 04/04/04, 05/05/05, 06/06/06 ja takaisin 01/01/01.
+Näin kuvarajan kohdalla olevat yleisöalueet pysyvät samassa liikevaiheessa.
+
+NATIIVI KUVATIETO
+Lopullinen 15000 × 1884 -pohja on koottu alkuperäiskokoisista generointipaloista.
+Luonnospanoraama on vain sommitteluohje. Lähdepaloja ei suurenneta lopullisiin kuviin.
+Tarkat lähdemitat, sijoitus ja skaalauskertoimet on kirjattu provenance.json-tiedostoon.
+
+YLEISÖ
+Yleisö liikkuu kevyesti pään, hartioiden ja käsien alueilta. Liikkeen vaiheet eroavat henkilöittäin.
+Muu kuva kopioidaan samasta pohjasta kaikkiin frameihin. Liikkuvat alueet on rajattu yleisömaskeilla.
+Erilliset RGBA-yleisökerrokset kohdistetaan samaan 5000 × 1884 -kuvakokoon; niitä ei rajata tai keskitetä uudelleen.
+Alkuperäiset siluettien reunat ovat kiinteät: liike on tarkoituksella hyvin hienovarainen idle.
+Voit käyttää joko kokonaisia RGB-frameja sellaisenaan TAI staattista pohjaa ja sen päällä vastaavaa RGBA-yleisökerrosta.
+Staattisessa pohjassa alkuperäinen yleisö on jo mukana. RGBA-kerrokset sisältävät vain liikkuvat sisäiset yksityiskohta-alueet,
+eivät kokonaisia taustasta irrotettuja ihmisiä. RGBA-kerroksia ei voi käyttää yksinään.
+
+UNITY-KÄYTTÖ
+Sama Pixels Per Unit, pivot ja objektin skaala kaikille ruuduille ja vierekkäisille kuville.
+Tekstuurin Max Size vähintään 8192. Tarkista myös käytössä olevan kohdealustan mahdollinen override.
+Non Power of Two: None. Mipmapit pois. Pikseliarvojen säilyttämistä varten tekstuuripakkaus pois.
+Pidä kaikki ruudut samassa paikassa ja vaihda vain kuvatiedostoa tai RGBA-yleisökerrosta.
+
+TARKISTUKSET
+Lopullinen hyväksytty tarkistusraportti on qa/audit.json.
+Se tarkistaa kuvakoon, kuuden ruudun silmukan, natiivipalojen skaalan sekä nollan muuttunutta pikseliä yleisömaskin ulkopuolella.
+Liitokset ja kasvojen eheys tarkistetaan lisäksi lähikuvista. Luonnokset ja pienennetyt esikatselut eivät ole varsinaisia pelitekstuureja.

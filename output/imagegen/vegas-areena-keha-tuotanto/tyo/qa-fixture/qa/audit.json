@@ -1,0 +1,127 @@
+{
+  "passed": true,
+  "expectedPanelWidth": 40,
+  "expectedPanelHeight": 20,
+  "framesPerPanel": 6,
+  "failures": [],
+  "panels": [
+    {
+      "name": "fixture",
+      "mask": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\qa-fixture\\mask.png",
+      "maskMode": "red",
+      "uniqueFrames": 3,
+      "meanPairDifference": 0.9333333333333332,
+      "lastToFirstDifference": 1.4,
+      "lastToFirstRatio": 1.5,
+      "frames": [
+        {
+          "frame": 1,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\qa-fixture\\frame-1.png",
+          "width": 40,
+          "height": 20,
+          "changedFromFirst": 0,
+          "changedOutsideMask": 0,
+          "allowedPixels": 200,
+          "sha256": "D5675C40EF40CA1493352D1FC5054795F5FC7F5B0C0546C83D629F5220A9B3F1"
+        },
+        {
+          "frame": 2,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\qa-fixture\\frame-2.png",
+          "width": 40,
+          "height": 20,
+          "changedFromFirst": 2,
+          "changedOutsideMask": 0,
+          "allowedPixels": 200,
+          "sha256": "11ECE1A8BFB945B3D8161C66408BA82FCE356B94794F05E7BDEBE80F6F8B8A19"
+        },
+        {
+          "frame": 3,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\qa-fixture\\frame-3.png",
+          "width": 40,
+          "height": 20,
+          "changedFromFirst": 2,
+          "changedOutsideMask": 0,
+          "allowedPixels": 200,
+          "sha256": "11ECE1A8BFB945B3D8161C66408BA82FCE356B94794F05E7BDEBE80F6F8B8A19"
+        },
+        {
+          "frame": 4,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\qa-fixture\\frame-4.png",
+          "width": 40,
+          "height": 20,
+          "changedFromFirst": 0,
+          "changedOutsideMask": 0,
+          "allowedPixels": 200,
+          "sha256": "D5675C40EF40CA1493352D1FC5054795F5FC7F5B0C0546C83D629F5220A9B3F1"
+        },
+        {
+          "frame": 5,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\qa-fixture\\frame-5.png",
+          "width": 40,
+          "height": 20,
+          "changedFromFirst": 2,
+          "changedOutsideMask": 0,
+          "allowedPixels": 200,
+          "sha256": "53557A273F1EB34A8831E1FF1CB6136FC0E3C0A8172A17B08FD7AF64E19908CB"
+        },
+        {
+          "frame": 6,
+          "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\tyo\\qa-fixture\\frame-6.png",
+          "width": 40,
+          "height": 20,
+          "changedFromFirst": 2,
+          "changedOutsideMask": 0,
+          "allowedPixels": 200,
+          "sha256": "53557A273F1EB34A8831E1FF1CB6136FC0E3C0A8172A17B08FD7AF64E19908CB"
+        }
+      ],
+      "cyclicPairs": [
+        {
+          "from": 1,
+          "to": 2,
+          "changedPixels": 2,
+          "meanAbsoluteRgbInsideMask": 1.4,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "changedPixels": 0,
+          "meanAbsoluteRgbInsideMask": 0.0,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "changedPixels": 2,
+          "meanAbsoluteRgbInsideMask": 1.4,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 4,
+          "to": 5,
+          "changedPixels": 2,
+          "meanAbsoluteRgbInsideMask": 1.4,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "changedPixels": 0,
+          "meanAbsoluteRgbInsideMask": 0.0,
+          "changedOutsideMask": 0
+        },
+        {
+          "from": 6,
+          "to": 1,
+          "changedPixels": 2,
+          "meanAbsoluteRgbInsideMask": 1.4,
+          "changedOutsideMask": 0
+        }
+      ]
+    }
+  ],
+  "nativePatches": [],
+  "splitMasterChecks": [],
+  "note": "Visual seam and facial identity review is required in addition to these exact pixel checks."
+}

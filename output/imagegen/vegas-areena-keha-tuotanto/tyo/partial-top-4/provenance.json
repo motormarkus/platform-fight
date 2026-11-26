@@ -1,0 +1,102 @@
+{
+  "width": 5208,
+  "height": 1024,
+  "frameWidth": 5208,
+  "panelCount": 1,
+  "allPixelsCovered": true,
+  "uncoveredPixels": 0,
+  "sourcePixelsResampled": 0,
+  "method": "Native one-to-one crops; hard minimum-error overlap seams; no crossfading of people",
+  "nativePatches": [
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c00.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "targetWidth": 1536,
+      "targetHeight": 1024,
+      "x": 0,
+      "y": 0,
+      "scaleX": 1.0,
+      "scaleY": 1.0
+    },
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c01.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "targetWidth": 1536,
+      "targetHeight": 1024,
+      "x": 1224,
+      "y": 0,
+      "scaleX": 1.0,
+      "scaleY": 1.0
+    },
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c02.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "targetWidth": 1536,
+      "targetHeight": 1024,
+      "x": 2448,
+      "y": 0,
+      "scaleX": 1.0,
+      "scaleY": 1.0
+    },
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c03.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "cropX": 0,
+      "cropY": 0,
+      "targetWidth": 1536,
+      "targetHeight": 1024,
+      "x": 3672,
+      "y": 0,
+      "scaleX": 1.0,
+      "scaleY": 1.0
+    }
+  ],
+  "seams": [
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c00.png",
+      "x": 0,
+      "y": 0,
+      "verticalOverlap": 0,
+      "horizontalOverlap": 0,
+      "verticalMeanCost": 0.0,
+      "horizontalMeanCost": 0.0
+    },
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c01.png",
+      "x": 1224,
+      "y": 0,
+      "verticalOverlap": 312,
+      "horizontalOverlap": 0,
+      "verticalMeanCost": 201.55092909071155,
+      "horizontalMeanCost": 0.0
+    },
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c02.png",
+      "x": 2448,
+      "y": 0,
+      "verticalOverlap": 312,
+      "horizontalOverlap": 0,
+      "verticalMeanCost": 323.74407832392893,
+      "horizontalMeanCost": 0.0
+    },
+    {
+      "file": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\natiivit\\r0c03.png",
+      "x": 3672,
+      "y": 0,
+      "verticalOverlap": 312,
+      "horizontalOverlap": 0,
+      "verticalMeanCost": 388.76343183955373,
+      "horizontalMeanCost": 0.0
+    }
+  ]
+}
