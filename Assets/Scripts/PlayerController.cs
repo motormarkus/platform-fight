@@ -5206,16 +5206,19 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         DrinkThermos();
         return true;
     }
-    /// Taskun eväät (kaupasta kotipakettiin): hodari, lihis tai pizza. Taskuun mahtuu Bööni (oma paikka) ja 2 evästä.
-    public string pocketFood = "", pocketFood2 = "";
-    public bool HasPocketFood => !string.IsNullOrEmpty(pocketFood) || !string.IsNullOrEmpty(pocketFood2);
-    public bool PocketFoodFull => !string.IsNullOrEmpty(pocketFood) && !string.IsNullOrEmpty(pocketFood2);
+    /// Taskun eväät (kaupasta kotipakettiin): hodari, lihis tai pizza. Taskuun mahtuu Bööni (oma paikka) ja 2 evästä; Violetin antama lisätasku (Clues ExtraPocketId) tuo kolmannen.
+    public string pocketFood = "", pocketFood2 = "", pocketFood3 = "";
+    public const string ExtraPocketId = "tasku_violetti";
+    public static bool HasExtraPocket => Clues.Has(ExtraPocketId);
+    public int PocketFoodSlots => HasExtraPocket ? 3 : 2;
+    public bool HasPocketFood => !string.IsNullOrEmpty(pocketFood) || !string.IsNullOrEmpty(pocketFood2) || !string.IsNullOrEmpty(pocketFood3);
+    public bool PocketFoodFull => !string.IsNullOrEmpty(pocketFood) && !string.IsNullOrEmpty(pocketFood2) && (!HasExtraPocket || !string.IsNullOrEmpty(pocketFood3));
     /// Evään tarve: energia tai stamina ei ole täynnä.
     bool NeedsFood => health < maxHealth || stamina < maxStamina - 0.5f;
     public bool StorePocketFood(string key)
     {
         if (PocketFoodFull) return false;
-        if (string.IsNullOrEmpty(pocketFood)) pocketFood = key; else pocketFood2 = key;
+        if (string.IsNullOrEmpty(pocketFood)) pocketFood = key; else if (string.IsNullOrEmpty(pocketFood2)) pocketFood2 = key; else pocketFood3 = key;
         GameHUD.Popup(Loc.T("EVÄS TASKUUN"), transform.position + Vector3.up * 3.6f, boostGlow);
         return true;
     }
@@ -5223,13 +5226,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public bool UsePocketFood()
     {
         if (!HasPocketFood || !CanDrinkThermos) return false;
-        if (string.IsNullOrEmpty(pocketFood)) { pocketFood = pocketFood2; pocketFood2 = ""; }
-        if (!Pickup.FoodStats(pocketFood, out _, out _, out _)) { pocketFood = pocketFood2; pocketFood2 = ""; return false; }
+        if (string.IsNullOrEmpty(pocketFood)) ShiftPocketFood();
+        if (string.IsNullOrEmpty(pocketFood)) ShiftPocketFood();
+        if (!Pickup.FoodStats(pocketFood, out _, out _, out _)) { ShiftPocketFood(); return false; }
         if (!NeedsFood) { GameHUD.Popup(Loc.T("Energia on jo täynnä."), transform.position + Vector3.up * 3.2f, Color.white); return false; }
         string key = pocketFood;
-        pocketFood = pocketFood2; pocketFood2 = "";   // toinen eväs siirtyy ensimmäiseksi
+        ShiftPocketFood();   // seuraavat eväät siirtyvät eteenpäin
         return EatFood(key, transform.position + Vector3.up * 3.4f);
     }
+    void ShiftPocketFood() { pocketFood = pocketFood2; pocketFood2 = pocketFood3; pocketFood3 = ""; }
     // ---- syöminen: hodari, lihis ja pizza omilla kuvillaan (Resources/Syonti/<rocco|ruby>_<ruoka>_NN.png) ----
     static readonly System.Collections.Generic.Dictionary<string, Sprite[]> eatCache = new System.Collections.Generic.Dictionary<string, Sprite[]>();
     static AudioClip[] chewClips;

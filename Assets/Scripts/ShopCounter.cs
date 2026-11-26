@@ -348,7 +348,7 @@ public class ShopCounter : MonoBehaviour
         }
         if (!string.IsNullOrEmpty(it.takeaway))
         {
-            if (pc.PocketFoodFull) { Say(Loc.T("Tasku on täynnä: siihen mahtuu kaksi evästä ja Bööni.")); return; }
+            if (pc.PocketFoodFull) { Say(Loc.T(PlayerController.HasExtraPocket ? "Tasku on täynnä: siihen mahtuu kolme evästä ja Bööni." : "Tasku on täynnä: siihen mahtuu kaksi evästä ja Bööni.")); return; }
             if (pc.money < it.price) { Say(Loc.T("Ei riitä markat!")); return; }
             pc.money -= it.price;
             pc.StorePocketFood(it.takeaway);

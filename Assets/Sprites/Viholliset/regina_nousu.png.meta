@@ -156,7 +156,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -177,10 +177,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -234,12 +234,12 @@ TextureImporter:
       name: regina_nousu_0
       rect:
         serializedVersion: 2
-        x: 174
-        y: 6152
-        width: 855
-        height: 199
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 6144
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -256,12 +256,12 @@ TextureImporter:
       name: regina_nousu_1
       rect:
         serializedVersion: 2
-        x: 1378
-        y: 6152
-        width: 782
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 6144
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -278,12 +278,12 @@ TextureImporter:
       name: regina_nousu_2
       rect:
         serializedVersion: 2
-        x: 2564
-        y: 6163
-        width: 733
-        height: 272
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 6144
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -300,12 +300,12 @@ TextureImporter:
       name: regina_nousu_3
       rect:
         serializedVersion: 2
-        x: 3744
-        y: 6155
-        width: 693
-        height: 311
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 6144
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -322,12 +322,12 @@ TextureImporter:
       name: regina_nousu_4
       rect:
         serializedVersion: 2
-        x: 312
-        y: 5382
-        width: 658
-        height: 349
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 5376
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -344,12 +344,12 @@ TextureImporter:
       name: regina_nousu_5
       rect:
         serializedVersion: 2
-        x: 1469
-        y: 5391
-        width: 644
-        height: 365
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 5376
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -366,12 +366,12 @@ TextureImporter:
       name: regina_nousu_6
       rect:
         serializedVersion: 2
-        x: 2632
-        y: 5389
-        width: 628
-        height: 386
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 5376
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -388,12 +388,12 @@ TextureImporter:
       name: regina_nousu_7
       rect:
         serializedVersion: 2
-        x: 3765
-        y: 5389
-        width: 630
-        height: 391
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 5376
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -410,12 +410,12 @@ TextureImporter:
       name: regina_nousu_8
       rect:
         serializedVersion: 2
-        x: 296
-        y: 4621
-        width: 635
-        height: 386
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 4608
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -432,12 +432,12 @@ TextureImporter:
       name: regina_nousu_9
       rect:
         serializedVersion: 2
-        x: 1379
+        x: 1152
         y: 4608
-        width: 637
-        height: 393
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -454,12 +454,12 @@ TextureImporter:
       name: regina_nousu_10
       rect:
         serializedVersion: 2
-        x: 2531
+        x: 2304
         y: 4608
-        width: 647
-        height: 398
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -476,12 +476,12 @@ TextureImporter:
       name: regina_nousu_11
       rect:
         serializedVersion: 2
-        x: 3688
+        x: 3456
         y: 4608
-        width: 658
-        height: 403
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -498,12 +498,12 @@ TextureImporter:
       name: regina_nousu_12
       rect:
         serializedVersion: 2
-        x: 247
+        x: 0
         y: 3840
-        width: 643
-        height: 417
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -520,12 +520,12 @@ TextureImporter:
       name: regina_nousu_13
       rect:
         serializedVersion: 2
-        x: 1411
+        x: 1152
         y: 3840
-        width: 586
-        height: 438
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -542,12 +542,12 @@ TextureImporter:
       name: regina_nousu_14
       rect:
         serializedVersion: 2
-        x: 2563
+        x: 2304
         y: 3840
-        width: 569
-        height: 436
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -564,12 +564,12 @@ TextureImporter:
       name: regina_nousu_15
       rect:
         serializedVersion: 2
-        x: 3714
+        x: 3456
         y: 3840
-        width: 572
-        height: 429
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -586,12 +586,12 @@ TextureImporter:
       name: regina_nousu_16
       rect:
         serializedVersion: 2
-        x: 260
+        x: 0
         y: 3072
-        width: 579
-        height: 422
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -608,12 +608,12 @@ TextureImporter:
       name: regina_nousu_17
       rect:
         serializedVersion: 2
-        x: 1433
+        x: 1152
         y: 3072
-        width: 562
-        height: 417
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -630,12 +630,12 @@ TextureImporter:
       name: regina_nousu_18
       rect:
         serializedVersion: 2
-        x: 2570
-        y: 3073
-        width: 600
-        height: 414
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -652,12 +652,12 @@ TextureImporter:
       name: regina_nousu_19
       rect:
         serializedVersion: 2
-        x: 3730
-        y: 3073
-        width: 590
-        height: 424
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -674,12 +674,12 @@ TextureImporter:
       name: regina_nousu_20
       rect:
         serializedVersion: 2
-        x: 284
-        y: 2322
-        width: 550
-        height: 440
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -696,12 +696,12 @@ TextureImporter:
       name: regina_nousu_21
       rect:
         serializedVersion: 2
-        x: 1457
-        y: 2322
-        width: 475
-        height: 487
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -718,12 +718,12 @@ TextureImporter:
       name: regina_nousu_22
       rect:
         serializedVersion: 2
-        x: 2632
-        y: 2321
-        width: 445
-        height: 541
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -740,12 +740,12 @@ TextureImporter:
       name: regina_nousu_23
       rect:
         serializedVersion: 2
-        x: 3805
-        y: 2326
-        width: 412
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -762,12 +762,12 @@ TextureImporter:
       name: regina_nousu_24
       rect:
         serializedVersion: 2
-        x: 364
-        y: 1558
-        width: 379
-        height: 628
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -784,12 +784,12 @@ TextureImporter:
       name: regina_nousu_25
       rect:
         serializedVersion: 2
-        x: 1548
-        y: 1555
-        width: 321
-        height: 657
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -806,12 +806,12 @@ TextureImporter:
       name: regina_nousu_26
       rect:
         serializedVersion: 2
-        x: 2717
-        y: 1555
-        width: 269
-        height: 666
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -828,12 +828,12 @@ TextureImporter:
       name: regina_nousu_27
       rect:
         serializedVersion: 2
-        x: 3889
-        y: 1555
-        width: 274
-        height: 664
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -850,12 +850,12 @@ TextureImporter:
       name: regina_nousu_28
       rect:
         serializedVersion: 2
-        x: 438
-        y: 783
-        width: 314
-        height: 651
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -872,12 +872,12 @@ TextureImporter:
       name: regina_nousu_29
       rect:
         serializedVersion: 2
-        x: 1597
-        y: 783
-        width: 315
-        height: 628
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -894,12 +894,12 @@ TextureImporter:
       name: regina_nousu_30
       rect:
         serializedVersion: 2
-        x: 2729
-        y: 783
-        width: 349
-        height: 614
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -916,12 +916,12 @@ TextureImporter:
       name: regina_nousu_31
       rect:
         serializedVersion: 2
-        x: 3875
-        y: 783
-        width: 368
-        height: 604
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -938,12 +938,12 @@ TextureImporter:
       name: regina_nousu_32
       rect:
         serializedVersion: 2
-        x: 407
-        y: 15
-        width: 368
-        height: 603
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -960,12 +960,12 @@ TextureImporter:
       name: regina_nousu_33
       rect:
         serializedVersion: 2
-        x: 1558
-        y: 15
-        width: 368
-        height: 604
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -982,12 +982,12 @@ TextureImporter:
       name: regina_nousu_34
       rect:
         serializedVersion: 2
-        x: 2713
-        y: 15
-        width: 368
-        height: 603
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1004,12 +1004,12 @@ TextureImporter:
       name: regina_nousu_35
       rect:
         serializedVersion: 2
-        x: 3868
-        y: 15
-        width: 368
-        height: 602
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1026,7 +1026,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 328867c5ac602314a9c3b716209a3f74
     internalID: 0
     vertices: []
     indices: 

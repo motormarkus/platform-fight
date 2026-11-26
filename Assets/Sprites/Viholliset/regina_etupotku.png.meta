@@ -105,7 +105,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,10 +126,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -183,12 +183,12 @@ TextureImporter:
       name: regina_etupotku_0
       rect:
         serializedVersion: 2
-        x: 407
-        y: 3091
-        width: 330
-        height: 607
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -205,12 +205,12 @@ TextureImporter:
       name: regina_etupotku_1
       rect:
         serializedVersion: 2
-        x: 1544
-        y: 3087
-        width: 327
-        height: 616
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -227,12 +227,12 @@ TextureImporter:
       name: regina_etupotku_2
       rect:
         serializedVersion: 2
-        x: 2755
-        y: 3087
-        width: 321
-        height: 625
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -249,12 +249,12 @@ TextureImporter:
       name: regina_etupotku_3
       rect:
         serializedVersion: 2
-        x: 3929
-        y: 3087
-        width: 342
-        height: 632
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -271,12 +271,12 @@ TextureImporter:
       name: regina_etupotku_4
       rect:
         serializedVersion: 2
-        x: 466
-        y: 2319
-        width: 344
-        height: 632
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -293,12 +293,12 @@ TextureImporter:
       name: regina_etupotku_5
       rect:
         serializedVersion: 2
-        x: 1608
-        y: 2319
-        width: 377
-        height: 632
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -315,12 +315,12 @@ TextureImporter:
       name: regina_etupotku_6
       rect:
         serializedVersion: 2
-        x: 2745
-        y: 2319
-        width: 534
-        height: 625
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -337,12 +337,12 @@ TextureImporter:
       name: regina_etupotku_7
       rect:
         serializedVersion: 2
-        x: 3882
-        y: 2319
-        width: 600
-        height: 618
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -359,12 +359,12 @@ TextureImporter:
       name: regina_etupotku_8
       rect:
         serializedVersion: 2
-        x: 426
-        y: 1551
-        width: 609
-        height: 616
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -381,12 +381,12 @@ TextureImporter:
       name: regina_etupotku_9
       rect:
         serializedVersion: 2
-        x: 1588
-        y: 1551
-        width: 586
-        height: 621
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -403,12 +403,12 @@ TextureImporter:
       name: regina_etupotku_10
       rect:
         serializedVersion: 2
-        x: 2748
-        y: 1551
-        width: 497
-        height: 623
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -425,12 +425,12 @@ TextureImporter:
       name: regina_etupotku_11
       rect:
         serializedVersion: 2
-        x: 3853
-        y: 1551
-        width: 400
-        height: 625
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -447,12 +447,12 @@ TextureImporter:
       name: regina_etupotku_12
       rect:
         serializedVersion: 2
-        x: 362
-        y: 783
-        width: 354
-        height: 621
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -469,12 +469,12 @@ TextureImporter:
       name: regina_etupotku_13
       rect:
         serializedVersion: 2
-        x: 1531
-        y: 783
-        width: 328
-        height: 616
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -491,12 +491,12 @@ TextureImporter:
       name: regina_etupotku_14
       rect:
         serializedVersion: 2
-        x: 2699
-        y: 783
-        width: 311
-        height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -513,12 +513,12 @@ TextureImporter:
       name: regina_etupotku_15
       rect:
         serializedVersion: 2
-        x: 3868
-        y: 788
-        width: 295
-        height: 609
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -535,12 +535,12 @@ TextureImporter:
       name: regina_etupotku_16
       rect:
         serializedVersion: 2
-        x: 416
-        y: 20
-        width: 293
-        height: 609
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -557,12 +557,12 @@ TextureImporter:
       name: regina_etupotku_17
       rect:
         serializedVersion: 2
-        x: 1551
-        y: 17
-        width: 311
-        height: 609
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -579,12 +579,12 @@ TextureImporter:
       name: regina_etupotku_18
       rect:
         serializedVersion: 2
-        x: 2670
-        y: 17
-        width: 351
-        height: 609
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -601,7 +601,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1f20e1ec11507ff4abeeff4f23b0834a
     internalID: 0
     vertices: []
     indices: 

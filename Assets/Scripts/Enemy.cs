@@ -406,6 +406,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public AudioClip[] tauntSounds;
     [Tooltip("Repliikit, joita sanotaan vain rauhassa ennen tappelua (idlessä), ei tappelun aikana.")]
     public AudioClip[] calmTauntSounds;
+    [Tooltip("Repliikit, joita sanotaan vain tappelun aikana, ei idlessä (Regina: taistelu speak).")]
+    public AudioClip[] fightTauntSounds;
     [Tooltip("Heiton ääni (hönkäys): soi, kun vihu alkaa nostaa kohdetta heitettäväksi.")]
     public AudioClip[] throwSounds;
     [Tooltip("Puhuu repliikkejään (tauntSounds) myös rauhassa, ennen kuin tappelu alkaa.")]
@@ -428,6 +430,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     float nextGetUpVoice;
     [Tooltip("Toinen ylösnousuääni: arvotaan getUpVoicen kanssa (tyhjä = vain getUpVoice).")]
     public AudioClip getUpVoiceAlt;
+    [Tooltip("Ylösnousuäänet listana (arvotaan): korvaa getUpVoice/getUpVoiceAlt-parin, jos ei tyhjä (Regina: 3 ääntä).")]
+    public AudioClip[] getUpVoices;
     [Tooltip("Toinen kaatumisääni: arvotaan fallVoicen kanssa (tyhjä = vain fallVoice).")]
     public AudioClip fallVoiceAlt;
     [Range(0f, 1f)] public float fallVoiceVolume = 1f, altWindupVolume = 1f, altSwingVolume = 1f, deathVoiceVolume = 1f, launchVoiceVolume = 1f;
@@ -3082,7 +3086,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.Airborne && state != State.Airborne) PickFallVariant();
         if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null && VoiceGate("fall")) audioSource.PlayOneShotLeveled(fallVoiceAlt != null && Random.value < 0.5f ? fallVoiceAlt : fallVoice, fallVoiceVolume, ShoutIsSpeech);
         if (s == State.Dead && state != State.Dead && deathVoice != null && audioSource != null && VoiceGate("death")) { audioSource.pitch = 1f; audioSource.PlayOneShotLeveled(deathVoice, deathVoiceVolume, ShoutIsSpeech); }
-        if (s == State.GetUp && getUpVoice != null && audioSource != null && Random.value < getUpVoiceChance && Time.time >= nextGetUpVoice) { nextGetUpVoice = Time.time + getUpVoiceGap; audioSource.PlayOneShotLeveled(getUpVoiceAlt != null && Random.value < 0.5f ? getUpVoiceAlt : getUpVoice, 1f); }
+        if (s == State.GetUp && (getUpVoice != null || (getUpVoices != null && getUpVoices.Length > 0)) && audioSource != null && Random.value < getUpVoiceChance && Time.time >= nextGetUpVoice) { nextGetUpVoice = Time.time + getUpVoiceGap; audioSource.PlayOneShotLeveled(getUpVoices != null && getUpVoices.Length > 0 ? getUpVoices[Random.Range(0, getUpVoices.Length)] : getUpVoiceAlt != null && Random.value < 0.5f ? getUpVoiceAlt : getUpVoice, 1f); }
         if (s == State.Slaps)
         {
             slapsDone = 0; slapsBlocked = 0;
@@ -3215,6 +3219,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             pool = new AudioClip[tauntSounds.Length + calmTauntSounds.Length];
             tauntSounds.CopyTo(pool, 0); calmTauntSounds.CopyTo(pool, tauntSounds.Length);
+        }
+        else if (awake && pool == tauntSounds && fightTauntSounds != null && fightTauntSounds.Length > 0)   // tappelussa mukana myös vain tappeluun tarkoitetut
+        {
+            pool = new AudioClip[tauntSounds.Length + fightTauntSounds.Length];
+            tauntSounds.CopyTo(pool, 0); fightTauntSounds.CopyTo(pool, tauntSounds.Length);
         }
         int i = Random.Range(0, pool.Length);
         if (pool.Length > 1 && i == lastTaunt && tauntNoRepeat) i = (i + 1) % pool.Length;

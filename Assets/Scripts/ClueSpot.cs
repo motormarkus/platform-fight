@@ -16,6 +16,13 @@ public class ClueSpot : MonoBehaviour
     public string lockedText = "Lukossa.";
     [Tooltip("Suljettu kuva (esim. kaapin ovi): näkyy kunnes lukko avataan, sen jälkeen piilotetaan.")]
     public GameObject closedVisual;
+    [Tooltip("Rahaa (mk) kaikille pelaajille, kun vihje otetaan (esim. kassakaappi).")]
+    public int money;
+    [Tooltip("Avautumisanimaatio (esim. kassakaappi): ensimmäinen kuva suljettu, viimeinen auki; soi kerran, kun vihje otetaan.")]
+    public SpriteRenderer anim;
+    public Sprite[] openFrames;
+    public float openFrameTime = 0.09f;
+    float openT = -1f;
 
     PlayerController pc;
     bool near;
@@ -32,12 +39,32 @@ public class ClueSpot : MonoBehaviour
         if (pc == null) { near = false; return; }
         Vector3 p = pc.transform.position;
         near = !pc.Riding && !pc.HoldingLid && Mathf.Abs(p.x - transform.position.x) <= halfWidth && Mathf.Abs(p.y - transform.position.y) <= halfDepth && pc.AirHeight <= 0.05f;
+        if (anim != null && openFrames != null && openFrames.Length > 0)
+        {
+            int f = 0;
+            if (!string.IsNullOrEmpty(clueId) && Clues.Has(clueId))
+            {
+                if (openT >= 0f) { openT += Time.deltaTime; f = Mathf.Min(openFrames.Length - 1, (int)(openT / openFrameTime)); }
+                else f = openFrames.Length - 1;
+            }
+            anim.sprite = openFrames[f];
+            anim.sortingOrder = Mathf.RoundToInt(-anim.transform.position.y * 100f);
+        }
         if (closedVisual != null) closedVisual.SetActive(!string.IsNullOrEmpty(requiredClue) && !Clues.Open(requiredClue) && !Clues.Has(clueId));
         bool locked = !string.IsNullOrEmpty(requiredClue) && !Clues.Open(requiredClue) && !Clues.Has(clueId);
         if (near && CoopInput.Pick(pc.playerIndex))
         {
             if (locked) { lockedMsg = true; msgUntil = Time.unscaledTime + 3f; }
-            else if (!string.IsNullOrEmpty(clueId) && !Clues.Has(clueId)) Clues.Add(clueId, clueTitle, clueText);
+            else if (!string.IsNullOrEmpty(clueId) && !Clues.Has(clueId))
+            {
+                Clues.Add(clueId, clueTitle, clueText);
+                openT = 0f;
+                if (money > 0)
+                {
+                    foreach (var q in Players.All) if (q != null) q.AddMoney(money);
+                    GameHUD.Popup("+" + money + " MK", pc.transform.position + Vector3.up * 3.6f, new Color(1f, 0.9f, 0.35f));
+                }
+            }
             else msgUntil = Time.unscaledTime + 2.5f;
         }
     }

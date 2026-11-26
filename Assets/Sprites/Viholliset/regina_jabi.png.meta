@@ -75,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,10 +96,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -153,12 +153,12 @@ TextureImporter:
       name: regina_jabi_0
       rect:
         serializedVersion: 2
-        x: 388
-        y: 1551
-        width: 368
-        height: 604
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: regina_jabi_1
       rect:
         serializedVersion: 2
-        x: 1541
-        y: 1551
-        width: 368
-        height: 604
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: regina_jabi_2
       rect:
         serializedVersion: 2
-        x: 2692
-        y: 1551
-        width: 368
-        height: 607
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -219,12 +219,12 @@ TextureImporter:
       name: regina_jabi_3
       rect:
         serializedVersion: 2
-        x: 3844
-        y: 1551
-        width: 410
-        height: 602
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -241,12 +241,12 @@ TextureImporter:
       name: regina_jabi_4
       rect:
         serializedVersion: 2
-        x: 388
-        y: 783
-        width: 450
-        height: 600
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -263,12 +263,12 @@ TextureImporter:
       name: regina_jabi_5
       rect:
         serializedVersion: 2
-        x: 1542
-        y: 783
-        width: 414
-        height: 600
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1152
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -285,12 +285,12 @@ TextureImporter:
       name: regina_jabi_6
       rect:
         serializedVersion: 2
-        x: 2693
-        y: 783
-        width: 370
-        height: 602
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2304
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -307,12 +307,12 @@ TextureImporter:
       name: regina_jabi_7
       rect:
         serializedVersion: 2
-        x: 3847
-        y: 783
-        width: 372
-        height: 604
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3456
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -329,12 +329,12 @@ TextureImporter:
       name: regina_jabi_8
       rect:
         serializedVersion: 2
-        x: 389
-        y: 15
-        width: 377
-        height: 602
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -351,7 +351,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f829968e925fa3946904e57e23ac6802
     internalID: 0
     vertices: []
     indices: 

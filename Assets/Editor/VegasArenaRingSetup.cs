@@ -169,7 +169,7 @@ public static partial class BeatEmUpSetup
             back.prompt = "Mene takaisin aulaan"; back.here = area; back.target = lobby; back.spawnPoint = At(lobby, seatDoor.transform.position.x);
             back.halfWidth = 1.6f; back.maxDistanceFromWall = 2.4f; back.onGround = true; back.groundHalfDepth = 1.6f;
             Undo.RecordObject(seatDoor, "Katsomon ovi auki");
-            seatDoor.target = area; seatDoor.spawnPoint = At(area, exitX + 2.2f); seatDoor.requiredClue = ""; seatDoor.prompt = "Mene katsomoon";
+            seatDoor.target = area; seatDoor.spawnPoint = At(area, exitX + 2.2f); seatDoor.requiredClue = VegasFightTicket; seatDoor.lockedClueText = VegasFightTicketLocked; seatDoor.prompt = "Mene katsomoon";
             EditorUtility.SetDirty(seatDoor);
 
             var areasPath = VegasScenePath.Replace(".unity", ".areas.txt");

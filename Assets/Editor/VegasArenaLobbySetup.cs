@@ -99,7 +99,7 @@ public static partial class BeatEmUpSetup
             if (ringArea != null)
             {
                 float rx = ringArea.walkMinX + 4.1f;   // sama kuin 434: oviaukon oikealla puolella
-                seat.target = ringArea; seat.requiredClue = ""; seat.spawnPoint = new Vector2(rx, Mathf.Lerp(ringArea.MaxDepthAtX(rx, ringArea.maxDepthY), ringArea.minDepthY, 0.12f));
+                seat.target = ringArea; seat.requiredClue = VegasFightTicket; seat.lockedClueText = VegasFightTicketLocked; seat.spawnPoint = new Vector2(rx, Mathf.Lerp(ringArea.MaxDepthAtX(rx, ringArea.maxDepthY), ringArea.minDepthY, 0.12f));
                 var back = Object.FindObjectsByType<Door>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(d => d.gameObject.scene == scene && d.gameObject.name == "Vegas: katsomosta aulaan");
                 if (back != null) { back.target = lobby; back.spawnPoint = At(lobby, seat.transform.position.x); EditorUtility.SetDirty(back); }
             }

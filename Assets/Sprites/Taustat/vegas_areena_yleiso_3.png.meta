@@ -99,7 +99,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 49.999996
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -120,10 +120,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -174,375 +174,2531 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_0
+      name: vegas_areena_yleiso_3_000
       rect:
         serializedVersion: 2
         x: 0
-        y: 3071
-        width: 7560
-        height: 193
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 3072
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 47d41653d4b80caf0800000000000000
-      internalID: -378149204974809740
+      spriteID: 4d2d0074a371af645b709d2d63627520
+      internalID: 1459023745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_1
+      name: vegas_areena_yleiso_3_001
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2879
-        width: 7560
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1080
+        y: 3072
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cefa78ea0345b9bc0800000000000000
-      internalID: -3775331294556737556
+      spriteID: 55a4660e5571ed24b838349392dae21c
+      internalID: 1436319642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_2
+      name: vegas_areena_yleiso_3_002
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2687
-        width: 7560
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2160
+        y: 3072
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 460e6252d9e57c0c0800000000000000
-      internalID: -4555568469035786140
+      spriteID: 95c89c856d28c2c46879cbc9671de11c
+      internalID: -1580990709
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_3
+      name: vegas_areena_yleiso_3_003
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2495
-        width: 7560
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3240
+        y: 3072
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 325e290be9d3a35b0800000000000000
-      internalID: -5387926252418833117
+      spriteID: 5796f128a8e755043bc43d782c2eb9dc
+      internalID: -553232162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_4
+      name: vegas_areena_yleiso_3_004
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2303
-        width: 7560
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4320
+        y: 3072
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bdb5d7b3e99d30cf0800000000000000
-      internalID: -287146677595448357
+      spriteID: 6d021e485d5fcaf46b74e3edacf926cc
+      internalID: -1948241617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_5
+      name: vegas_areena_yleiso_3_005
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2111
-        width: 7560
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5400
+        y: 3072
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6b74ff4587c026410800000000000000
-      internalID: 1468750139437828022
+      spriteID: 35b27f0f38d8346449925588da26dba7
+      internalID: 1351054301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_6
+      name: vegas_areena_yleiso_3_006
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1919
-        width: 7560
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6480
+        y: 3072
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4dc07462cc81b9f60800000000000000
-      internalID: 8042048824694738132
+      spriteID: 0babf2ef1e71d20499742cc63e461cd0
+      internalID: 512741143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_7
+      name: vegas_areena_yleiso_3_007
       rect:
         serializedVersion: 2
         x: 0
-        y: 1727
-        width: 7560
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 2880
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c0ed54f50c3f831b0800000000000000
-      internalID: -5676519322742825460
+      spriteID: 8cc955cc887a22e4a9bec17d9a27b371
+      internalID: -2071414565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_8
+      name: vegas_areena_yleiso_3_008
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1535
-        width: 7560
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1080
+        y: 2880
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 010a613afa3e34280800000000000000
-      internalID: -9060147681844355056
+      spriteID: ace54bb3ee2a6e745bbc396ca1846ad0
+      internalID: -1392853521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_9
+      name: vegas_areena_yleiso_3_009
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1343
-        width: 7560
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2160
+        y: 2880
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9542d75e01ef11820800000000000000
-      internalID: 2887368184644314201
+      spriteID: 9ffa4a1a017a83a42baf1651f1149a82
+      internalID: -1837864904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_10
+      name: vegas_areena_yleiso_3_010
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1151
-        width: 7560
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3240
+        y: 2880
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 55f6b3fce8cbe5b50800000000000000
-      internalID: 6583907026810400597
+      spriteID: e7a900f533f5a8e498c1e32318769ce7
+      internalID: -936613127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_11
+      name: vegas_areena_yleiso_3_011
       rect:
         serializedVersion: 2
-        x: 0
-        y: 959
-        width: 7560
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4320
+        y: 2880
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1432b49ff9c312d50800000000000000
-      internalID: 6710711577538667329
+      spriteID: fd8968f0bdf28e94387b90ed6b3e4ed7
+      internalID: 1706118873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_12
+      name: vegas_areena_yleiso_3_012
       rect:
         serializedVersion: 2
-        x: 0
-        y: 767
-        width: 7560
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5400
+        y: 2880
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9f319f200f7cb65f0800000000000000
-      internalID: -762295878253210631
+      spriteID: 9f99eb8cfa5b4a241ba97eee6accbb9b
+      internalID: -1127036111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_13
+      name: vegas_areena_yleiso_3_013
       rect:
         serializedVersion: 2
-        x: 0
-        y: 575
-        width: 7560
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6480
+        y: 2880
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 751f79d1d1c8ce240800000000000000
-      internalID: 4822383357685395799
+      spriteID: 62422795ea714ce48a9736d4bfcca6c3
+      internalID: 1874315315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_14
+      name: vegas_areena_yleiso_3_014
       rect:
         serializedVersion: 2
         x: 0
-        y: 383
-        width: 7560
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 2688
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 741bdb55208382f20800000000000000
-      internalID: 3398027501530624327
+      spriteID: 3b8229a39b12a924594aaf36bbb13ff6
+      internalID: 2084905692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_15
+      name: vegas_areena_yleiso_3_015
       rect:
         serializedVersion: 2
-        x: 0
-        y: 191
-        width: 7560
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1080
+        y: 2688
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a678f24827aa65a80800000000000000
-      internalID: -8478401839657678998
+      spriteID: d7ecef8b7ca6dd747a196865d5ba0cc5
+      internalID: 1769085552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vegas_areena_yleiso_3_16
+      name: vegas_areena_yleiso_3_016
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 2688
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc8f1004d55eaa4429e6da19093c1960
+      internalID: -1244290040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_017
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 2688
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60373b80a7fc8bf418ff1a5a29bebcb7
+      internalID: -55247117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_018
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 2688
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d68ba4806899147bfb5123cea63f98
+      internalID: 1300362990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_019
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 2688
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3b8303e57dd59b41aa732bb62ef2d18
+      internalID: -205641631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_020
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 2688
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c281720cc804ac7429193b7bd356c3e6
+      internalID: -653384249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_021
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2496
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a85995014bbd8f4f8a039726177c924
+      internalID: 1186804815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_022
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 2496
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08f4b638726cbc04fbc143cbdff12d46
+      internalID: 1481765257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_023
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 2496
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07aa4a6e619718746ac162055965cbda
+      internalID: -1257198659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_024
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 2496
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce493f504d0ce7478b41a40d8881aea
+      internalID: -934362794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_025
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 2496
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a0fd41b1277e2c4890de1623830e4dc
+      internalID: 241397802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_026
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 2496
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29e9e753d0a53e349b4f2f022c33635f
+      internalID: -1264578600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_027
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 2496
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f73eebfe645ed847847bdbd318ed8fe
+      internalID: -1599308234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_028
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea6a98621d90e74eaae1d685d4829b1
+      internalID: 265487157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_029
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 2304
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6293e6c24c1d2f469e1881c424a2c21
+      internalID: 1080881422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_030
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 2304
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a7f1474810fb54090e4815ecf7d86e
+      internalID: 652486866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_031
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 2304
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e20dd3f47708a4e908549d9c43eac7
+      internalID: 78408109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_032
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 2304
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32fadd5e9af3b674f965bb4f71634d50
+      internalID: 541818722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_033
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 2304
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e821f9d08761839489937de97df78a1f
+      internalID: 2073679937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_034
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 2304
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a14b89d8d440f044080af47f4d856728
+      internalID: 132948771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_035
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab82decc2d0005943b3f6d64b95ef083
+      internalID: -1549181076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_036
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 2112
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13bd4305fb75ebf42990afca39b1ca32
+      internalID: 796143547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_037
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 2112
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c013f13128200194a994a0ab5e4ca894
+      internalID: 1546483081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_038
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 2112
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88287a238fd41e54e905063ac453a36c
+      internalID: -1058652998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_039
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 2112
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 056581b1452dc0b4aa1d8bfa1b3db9e0
+      internalID: 862292983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_040
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 2112
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0adb4f7f51d41449b727aaf6d654848
+      internalID: 530884035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_041
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 2112
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcc1493524ad23847829715fa0c65a65
+      internalID: 1666582364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_042
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfc339070f8029b45a9081054c307fa9
+      internalID: -1018378326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_043
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1920
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 747e2e8d1e59f9749b7c4efb6b8e601a
+      internalID: -1708764743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_044
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 1920
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a89eba95833fd464ea4cb59a0ae5dbb3
+      internalID: 1966260492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_045
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 1920
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7863b3789ca94b4a8a93a5d5eaf075f
+      internalID: -1583024403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_046
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 1920
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f24fa20220802a4e930a1b9c0a11074
+      internalID: -686096337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_047
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 1920
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f88ce79fc3f184194cca96c7153d2c
+      internalID: 729571082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_048
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 1920
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3b747239f9a8b54497b3842b66125b3
+      internalID: -1710178567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_049
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1728
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85b227905f9f15540aa8ba71dbcfefbf
+      internalID: -2020351160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_050
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1728
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1db541d9a0cc9be4c8bf43167c8c362e
+      internalID: -190325316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_051
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 1728
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5919e540b8b7a2149a649da6a9844bff
+      internalID: 1109078309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_052
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 1728
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46129f172d9e3834da2311fec2082aa2
+      internalID: 2012784363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_053
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 1728
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e70f8054d1862a43bf3b15f9e6eeae2
+      internalID: -680035235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_054
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 1728
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1157c55d9aa82d24eb25e404c93e63a2
+      internalID: -1501577074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_055
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 1728
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52dc7595ea82b2b4585c0e476ad84d0a
+      internalID: 2056818792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_056
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e59a058303428904f98c3f3dc3f955d2
+      internalID: -1125076783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_057
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1536
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9e3e9ed8a217eb478fd1ec4b0048029
+      internalID: 926501593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_058
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 1536
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e981c8e5e59f7334188fd4ef72383470
+      internalID: -346020606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_059
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 1536
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223a7f91621dc6246865ec5a7dcf9a44
+      internalID: 460806581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_060
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 1536
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 497220ea7edb9e543a0783e7d31227a8
+      internalID: -1329082135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_061
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 1536
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f6bab15d65929344887c28187077588
+      internalID: -217522170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_062
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 1536
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c31ad095d849474989d6da995b91620
+      internalID: -931358068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_063
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03bca538d7c9f8745971704a20bfecd6
+      internalID: 25462414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_064
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1344
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47536595bd3d32b41b6b49e2e8b9e410
+      internalID: 1668206228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_065
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 1344
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e9c97a815a3fe74d93d107ec45f45f2
+      internalID: 577427499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_066
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 1344
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a14c9ebb281e5941aa0446fd9233547
+      internalID: -972589984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_067
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 1344
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e93e9522faaaad4c9c1a0c52b6722ee
+      internalID: 1057670230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_068
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 1344
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f764b66a31acd84ca626c6c34720a47
+      internalID: 566667204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_069
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 1344
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff7f0830530bd3c44ad6fc5a1b6c9e23
+      internalID: 417155731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_070
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95e1c1a1a0250e64e858f265db626025
+      internalID: 184256340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_071
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1152
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7821a8263bbb91a42b9cce71b9ab20d8
+      internalID: -1753470551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_072
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 1152
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e27af15a48ae54c8829eaefddd0300
+      internalID: -1335709066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_073
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 1152
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a0fc3e331d252449f429c100fb333d
+      internalID: 239027110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_074
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 1152
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b1dc98eb35887840bad33ffe38a73d8
+      internalID: 1901778435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_075
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 1152
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cc9ed42e61212748ab6bef2761f49ed
+      internalID: -1754442904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_076
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 1152
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8d5b0290b991244e84665cc6451e2fa
+      internalID: 1799536626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_077
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1709920d325654249bd7f07cf68d1e54
+      internalID: -668409124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_078
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 960
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4919654ca7369b949852cba200cccd9e
+      internalID: 2001989411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_079
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 960
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4522658b3e0d3e45b1d287817d877f3
+      internalID: 1693469729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_080
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 960
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47980e80e5b92504bb099cda991574ff
+      internalID: -1254956244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_081
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 960
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99752c9a56d8b946baf1b2cf60f71a6
+      internalID: 38470279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_082
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 960
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b066350f8fcbbb4f93a8770962562c3
+      internalID: 693451029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_083
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 960
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89abc4054b8f8f84bb72f38285fa0574
+      internalID: -1376997597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_084
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a652a970dbcc06d4297ed00483907880
+      internalID: 222736629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_085
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 768
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96538fb76609006498aeb641b873bbca
+      internalID: -873170163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_086
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 768
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bd67e3dc7d501043b4ebfef857f7b8c
+      internalID: -1675527872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_087
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 768
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a336b2177bb8b91438a37b422df751d4
+      internalID: -639445432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_088
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 768
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 151466eafc5b2e2449dea9f73bea0184
+      internalID: -1806985451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_089
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 768
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c28318b946d24e045a8dd768c389899d
+      internalID: 932583301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_090
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 768
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c0e1b0f3661e994284a3fe43438f498
+      internalID: 1576794843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_091
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 868448aab5ceb2841a70eaa3be037a7a
+      internalID: 601374773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_092
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 576
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4756e2c8802b6024f974de1d78200c90
+      internalID: -373209344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_093
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 576
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bb8a2e7bce6f7b42a87068f0ad37e8a
+      internalID: -549212340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_094
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 576
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa63b888725323a44af931ff6fe84cd3
+      internalID: -1386494362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_095
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 576
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 787b30c44df682049b9498d4ad75b50e
+      internalID: 1655521768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_096
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 576
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3a444fa9d367a548bb3bf74a9235f66
+      internalID: -330661681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_097
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 576
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c16ed0753060f47b4c7f25bdc04ad8
+      internalID: 1728306805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_098
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa552283a1cb694da8ef72054651cfb
+      internalID: -1052412345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_099
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 384
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cb15201f43d99a4986abd06991587e8
+      internalID: 1772570093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_100
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 384
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3630a3c930b57b546a08e771b199bf41
+      internalID: 398283761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_101
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 384
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 024e79bd008b3c041b1dff63897927c8
+      internalID: 587233093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_102
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 384
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d6a43065ae1d684483a7e0631de28b8
+      internalID: 1570075481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_103
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 384
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79289dbac85131b4992f8225695c9262
+      internalID: -1173445268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_104
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 384
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf4afc7aaf9540947b417990fac68874
+      internalID: 1349046106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e73445a883ca348bbad638e48762f4
+      internalID: 1596512447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_106
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 192
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0327afdba0bb6644bbfb72d3e9e1b1d
+      internalID: -646813777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_107
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 192
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 033968e94e6839b478d4d9f33ae2acd9
+      internalID: 1803207428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_108
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 192
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f927d2f74e7e8db4f8ae819f07c6e130
+      internalID: -1167202492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_109
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 192
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 519f1a223895f2e4d9d57678e35ac9f7
+      internalID: -1330483275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_110
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 192
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8149e3c477fa9e440b4631a9b81e9bb5
+      internalID: 2128800412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_111
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 192
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f9f4d712a374b74cb2c11b1202270d5
+      internalID: -134242291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_112
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 3241
-        height: 193
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fa0c99d3987a3aec0800000000000000
-      internalID: -3556815072806715217
+      spriteID: e43f4c6ad85e00e4a92c406424332c9a
+      internalID: -2024914909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_113
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 0
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d27be5a4499ec244b8dfda1ca0df3b2
+      internalID: -1980214135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vegas_areena_yleiso_3_114
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 0
+        width: 1080
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fdfe977f3cf91845953e0109449fa92
+      internalID: 2087666507
       vertices: []
       indices: 
       edges: []
@@ -551,7 +2707,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6303e7306c3d1424c8687773f5794769
     internalID: 0
     vertices: []
     indices: 
@@ -561,23 +2717,121 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      vegas_areena_yleiso_3_0: -378149204974809740
-      vegas_areena_yleiso_3_1: -3775331294556737556
-      vegas_areena_yleiso_3_10: 6583907026810400597
-      vegas_areena_yleiso_3_11: 6710711577538667329
-      vegas_areena_yleiso_3_12: -762295878253210631
-      vegas_areena_yleiso_3_13: 4822383357685395799
-      vegas_areena_yleiso_3_14: 3398027501530624327
-      vegas_areena_yleiso_3_15: -8478401839657678998
-      vegas_areena_yleiso_3_16: -3556815072806715217
-      vegas_areena_yleiso_3_2: -4555568469035786140
-      vegas_areena_yleiso_3_3: -5387926252418833117
-      vegas_areena_yleiso_3_4: -287146677595448357
-      vegas_areena_yleiso_3_5: 1468750139437828022
-      vegas_areena_yleiso_3_6: 8042048824694738132
-      vegas_areena_yleiso_3_7: -5676519322742825460
-      vegas_areena_yleiso_3_8: -9060147681844355056
-      vegas_areena_yleiso_3_9: 2887368184644314201
+      vegas_areena_yleiso_3_000: 1459023745
+      vegas_areena_yleiso_3_001: 1436319642
+      vegas_areena_yleiso_3_002: -1580990709
+      vegas_areena_yleiso_3_003: -553232162
+      vegas_areena_yleiso_3_004: -1948241617
+      vegas_areena_yleiso_3_005: 1351054301
+      vegas_areena_yleiso_3_006: 512741143
+      vegas_areena_yleiso_3_007: -2071414565
+      vegas_areena_yleiso_3_008: -1392853521
+      vegas_areena_yleiso_3_009: -1837864904
+      vegas_areena_yleiso_3_010: -936613127
+      vegas_areena_yleiso_3_011: 1706118873
+      vegas_areena_yleiso_3_012: -1127036111
+      vegas_areena_yleiso_3_013: 1874315315
+      vegas_areena_yleiso_3_014: 2084905692
+      vegas_areena_yleiso_3_015: 1769085552
+      vegas_areena_yleiso_3_016: -1244290040
+      vegas_areena_yleiso_3_017: -55247117
+      vegas_areena_yleiso_3_018: 1300362990
+      vegas_areena_yleiso_3_019: -205641631
+      vegas_areena_yleiso_3_020: -653384249
+      vegas_areena_yleiso_3_021: 1186804815
+      vegas_areena_yleiso_3_022: 1481765257
+      vegas_areena_yleiso_3_023: -1257198659
+      vegas_areena_yleiso_3_024: -934362794
+      vegas_areena_yleiso_3_025: 241397802
+      vegas_areena_yleiso_3_026: -1264578600
+      vegas_areena_yleiso_3_027: -1599308234
+      vegas_areena_yleiso_3_028: 265487157
+      vegas_areena_yleiso_3_029: 1080881422
+      vegas_areena_yleiso_3_030: 652486866
+      vegas_areena_yleiso_3_031: 78408109
+      vegas_areena_yleiso_3_032: 541818722
+      vegas_areena_yleiso_3_033: 2073679937
+      vegas_areena_yleiso_3_034: 132948771
+      vegas_areena_yleiso_3_035: -1549181076
+      vegas_areena_yleiso_3_036: 796143547
+      vegas_areena_yleiso_3_037: 1546483081
+      vegas_areena_yleiso_3_038: -1058652998
+      vegas_areena_yleiso_3_039: 862292983
+      vegas_areena_yleiso_3_040: 530884035
+      vegas_areena_yleiso_3_041: 1666582364
+      vegas_areena_yleiso_3_042: -1018378326
+      vegas_areena_yleiso_3_043: -1708764743
+      vegas_areena_yleiso_3_044: 1966260492
+      vegas_areena_yleiso_3_045: -1583024403
+      vegas_areena_yleiso_3_046: -686096337
+      vegas_areena_yleiso_3_047: 729571082
+      vegas_areena_yleiso_3_048: -1710178567
+      vegas_areena_yleiso_3_049: -2020351160
+      vegas_areena_yleiso_3_050: -190325316
+      vegas_areena_yleiso_3_051: 1109078309
+      vegas_areena_yleiso_3_052: 2012784363
+      vegas_areena_yleiso_3_053: -680035235
+      vegas_areena_yleiso_3_054: -1501577074
+      vegas_areena_yleiso_3_055: 2056818792
+      vegas_areena_yleiso_3_056: -1125076783
+      vegas_areena_yleiso_3_057: 926501593
+      vegas_areena_yleiso_3_058: -346020606
+      vegas_areena_yleiso_3_059: 460806581
+      vegas_areena_yleiso_3_060: -1329082135
+      vegas_areena_yleiso_3_061: -217522170
+      vegas_areena_yleiso_3_062: -931358068
+      vegas_areena_yleiso_3_063: 25462414
+      vegas_areena_yleiso_3_064: 1668206228
+      vegas_areena_yleiso_3_065: 577427499
+      vegas_areena_yleiso_3_066: -972589984
+      vegas_areena_yleiso_3_067: 1057670230
+      vegas_areena_yleiso_3_068: 566667204
+      vegas_areena_yleiso_3_069: 417155731
+      vegas_areena_yleiso_3_070: 184256340
+      vegas_areena_yleiso_3_071: -1753470551
+      vegas_areena_yleiso_3_072: -1335709066
+      vegas_areena_yleiso_3_073: 239027110
+      vegas_areena_yleiso_3_074: 1901778435
+      vegas_areena_yleiso_3_075: -1754442904
+      vegas_areena_yleiso_3_076: 1799536626
+      vegas_areena_yleiso_3_077: -668409124
+      vegas_areena_yleiso_3_078: 2001989411
+      vegas_areena_yleiso_3_079: 1693469729
+      vegas_areena_yleiso_3_080: -1254956244
+      vegas_areena_yleiso_3_081: 38470279
+      vegas_areena_yleiso_3_082: 693451029
+      vegas_areena_yleiso_3_083: -1376997597
+      vegas_areena_yleiso_3_084: 222736629
+      vegas_areena_yleiso_3_085: -873170163
+      vegas_areena_yleiso_3_086: -1675527872
+      vegas_areena_yleiso_3_087: -639445432
+      vegas_areena_yleiso_3_088: -1806985451
+      vegas_areena_yleiso_3_089: 932583301
+      vegas_areena_yleiso_3_090: 1576794843
+      vegas_areena_yleiso_3_091: 601374773
+      vegas_areena_yleiso_3_092: -373209344
+      vegas_areena_yleiso_3_093: -549212340
+      vegas_areena_yleiso_3_094: -1386494362
+      vegas_areena_yleiso_3_095: 1655521768
+      vegas_areena_yleiso_3_096: -330661681
+      vegas_areena_yleiso_3_097: 1728306805
+      vegas_areena_yleiso_3_098: -1052412345
+      vegas_areena_yleiso_3_099: 1772570093
+      vegas_areena_yleiso_3_100: 398283761
+      vegas_areena_yleiso_3_101: 587233093
+      vegas_areena_yleiso_3_102: 1570075481
+      vegas_areena_yleiso_3_103: -1173445268
+      vegas_areena_yleiso_3_104: 1349046106
+      vegas_areena_yleiso_3_105: 1596512447
+      vegas_areena_yleiso_3_106: -646813777
+      vegas_areena_yleiso_3_107: 1803207428
+      vegas_areena_yleiso_3_108: -1167202492
+      vegas_areena_yleiso_3_109: -1330483275
+      vegas_areena_yleiso_3_110: 2128800412
+      vegas_areena_yleiso_3_111: -134242291
+      vegas_areena_yleiso_3_112: -2024914909
+      vegas_areena_yleiso_3_113: -1980214135
+      vegas_areena_yleiso_3_114: 2087666507
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

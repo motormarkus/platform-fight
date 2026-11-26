@@ -177,8 +177,8 @@ public class GameHUD : MonoBehaviour
                         new Rect(tr.x / tx.width, tr.y / tx.height, tr.width / tx.width, tr.height / tx.height));
                 }
             }
-            // taskun eväät (2 paikkaa) Böönin paikan oikealla puolella
-            string[] foods = { player.pocketFood, player.pocketFood2 };
+            // taskun eväät (2 paikkaa, Violetin lisätaskulla 3) Böönin paikan oikealla puolella
+            string[] foods = { player.pocketFood, player.pocketFood2, player.pocketFood3 };
             for (int fi = 0; fi < foods.Length; fi++)
             {
                 if (string.IsNullOrEmpty(foods[fi])) continue;

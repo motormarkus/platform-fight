@@ -23,6 +23,9 @@ public class RingMatch : MonoBehaviour
     [Tooltip("Häviön jälkeen hero herää tästä (kehän edestä lattialta).")]
     public Vector2 heroWakeSpot;
     public string championClue = "vegas_wtf_mestari";
+    [Tooltip("Voitosta Muurin lippu (Clues.WallTicket): viimeisenä pystyssä ollut vastus pudottaa sen.")]
+    public bool dropWallTicket = true;
+    Enemy lastDown;
     [Tooltip("Väliin menossa ottelija vaihtaa kohdetta (toinen ottelija tai hero) näin usein (s).")]
     public Vector2 brawlRetarget = new Vector2(1.2f, 2.4f);
     [Tooltip("Väliin menossa heron etäisyys kerrotaan tällä (< 1 = hero houkuttelevampi kohde).")]
@@ -72,6 +75,8 @@ public class RingMatch : MonoBehaviour
         if (on) f.IsAwake = false;
     }
 
+    /// Genetiivi: Marcus -> Marcuksen, Deacon -> Deaconin.
+    static string Gen(Enemy f) { string n = f != null ? f.displayName : ""; return n.EndsWith("us") ? n.Substring(0, n.Length - 2) + "uksen" : n + "in"; }
     static string Name(Enemy f) => f != null ? f.displayName.ToUpperInvariant() : "";
     void Banner(string text, string subText = null, float time = 3f)
     {
@@ -147,7 +152,7 @@ public class RingMatch : MonoBehaviour
 
             case Phase.HeroFight:
                 PlayerController.Sparring = true;
-                if (winner.SparKO) HeroWins("WTF-mestaruus on sinun", "Voitit " + winner.displayName + "in WTF-areenan kehässä Las Vegasissa.");
+                if (winner.SparKO) HeroWins(winner, "WTF-mestaruus on sinun", "Voitit " + Gen(winner) + " WTF-areenan kehässä Las Vegasissa.");
                 break;
 
             case Phase.Brawl:
@@ -215,7 +220,7 @@ public class RingMatch : MonoBehaviour
             {
                 if (f != null && f.gameObject.activeSelf && f.SparKO)
                 {
-                    if (koTime[i] < 0f) { koTime[i] = Time.time; f.duelFoe = null; Banner("KO!", Name(f) + " IS DOWN", 2f); }
+                    if (koTime[i] < 0f) { koTime[i] = Time.time; f.duelFoe = null; lastDown = f; Banner("KO!", Name(f) + " IS DOWN", 2f); }
                     else if (Time.time - koTime[i] > 3f) StartCoroutine(CarryOff(f));
                 }
                 continue;
@@ -231,17 +236,25 @@ public class RingMatch : MonoBehaviour
             f.duelFoe = dOther < dHero ? o : null;
         }
         if (!Standing(fighterA) && !Standing(fighterB))
-            HeroWins("Kaadoit molemmat", "Menit väliin WTF-areenan näytösotteluun Las Vegasissa ja kaadoit sekä Marcusin että Deaconin.");
+            HeroWins(lastDown, "Kaadoit molemmat", "Menit väliin WTF-areenan näytösotteluun Las Vegasissa ja kaadoit sekä Marcusin että Deaconin.");
     }
 
-    void HeroWins(string subText, string clueText)
+    /// Viimeisenä pystyssä ollut vastus (kaksintaistelun voittaja tai rähinässä viimeksi kaatunut) pudottaa Muurin lipun.
+    void HeroWins(Enemy last, string subText, string clueText)
     {
         phase = Phase.HeroWon; timer = 0f;
         PlayerController.Sparring = false;
         foreach (var f in Fighters) if (f != null) { f.duelFoe = null; SetHold(f, true); }
         LockRing(false);
         Banner("YOU WIN!", subText, 4f);
-        if (!string.IsNullOrEmpty(championClue)) Clues.Add(championClue, "WTF-mestaruus", clueText);
+        if (!string.IsNullOrEmpty(championClue)) Clues.Add(championClue, "WTF-mestaruus", clueText, null, false);
+        if (dropWallTicket && !Clues.Has(Clues.WallTicket))
+        {
+            string who = last != null ? Gen(last) : "Vastustajan";
+            Clues.Add(Clues.WallTicket, "Muurin lippu", who + " taskusta putosi lippu Kiinan muurille. Maailmanpallo (F8 / kartta-nappi) vie sinne.");
+            if (last != null) GameHUD.Popup(Loc.T("MUURIN LIPPU"), last.transform.position + Vector3.up * 3f, new Color(1f, 0.9f, 0.35f));
+            HitFx.PlayPickup(true);
+        }
     }
 
     void OnHeroDefeated(PlayerController hero)

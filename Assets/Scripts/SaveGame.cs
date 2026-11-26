@@ -16,7 +16,7 @@ public class SaveGame : MonoBehaviour
     static readonly string[] NotLevels = { "Nyrkkeilysali", "PokerTest" };
 
     [Serializable] public class ClueData { public string id, title, text, art; }
-    [Serializable] public class PlayerData { public int index, money, booni; public string food1, food2; }
+    [Serializable] public class PlayerData { public int index, money, booni; public string food1, food2, food3; }
     [Serializable]
     public class Data
     {
@@ -95,7 +95,7 @@ public class SaveGame : MonoBehaviour
         foreach (var c in Clues.All) cl.Add(new ClueData { id = c.id, title = c.title, text = c.text, art = c.art });
         d.clues = cl.ToArray();
         var pl = new List<PlayerData>();
-        foreach (var p in Players.All) if (p != null) pl.Add(new PlayerData { index = p.playerIndex, money = p.money, booni = p.booniPocket, food1 = p.pocketFood, food2 = p.pocketFood2 });
+        foreach (var p in Players.All) if (p != null) pl.Add(new PlayerData { index = p.playerIndex, money = p.money, booni = p.booniPocket, food1 = p.pocketFood, food2 = p.pocketFood2, food3 = p.pocketFood3 });
         d.players = pl.ToArray();
         PlayerPrefs.SetString(Key, JsonUtility.ToJson(d)); PlayerPrefs.Save(); hasCache = 1;
         Debug.Log("[Tallennus] tallennettu: " + d.area + " (" + d.scene + ") x " + d.x.ToString("0.0"));
@@ -163,7 +163,7 @@ public class SaveGame : MonoBehaviour
             foreach (var p in Players.All)
             {
                 if (p == null) continue;
-                foreach (var pd in d.players) if (pd.index == p.playerIndex) { p.money = pd.money; p.booniPocket = pd.booni; p.pocketFood = pd.food1 ?? ""; p.pocketFood2 = pd.food2 ?? ""; }
+                foreach (var pd in d.players) if (pd.index == p.playerIndex) { p.money = pd.money; p.booniPocket = pd.booni; p.pocketFood = pd.food1 ?? ""; p.pocketFood2 = pd.food2 ?? ""; p.pocketFood3 = pd.food3 ?? ""; }
                 p.Heal(p.maxHealth);
             }
 

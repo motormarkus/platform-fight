@@ -13,6 +13,79 @@ public static partial class BeatEmUpSetup
 {
     const float ReginaScale = 1.15f;
 
+
+    internal static readonly string[] ReginaSheetNames = { "idle", "kavely", "juoksu", "jabi", "takasuora", "askelsuora", "etupotku", "sivupotku", "syoksy", "osuma", "suojaus", "kaatuminen", "nousu" };
+
+    /// Reginan kuvat (null + puuttuvan nimi, jos jokin puuttuu).
+    internal static Dictionary<string, Sprite[]> LoadReginaSheets(out string missing)
+    {
+        missing = null;
+        var d = new Dictionary<string, Sprite[]>();
+        foreach (var n in ReginaSheetNames)
+        {
+            var sp = LoadWalkerSprites("regina_" + n);
+            if (sp == null || sp.Length == 0) { missing = "regina_" + n + ".png"; return null; }
+            d[n] = sp;
+        }
+        return d;
+    }
+
+    internal static Enemy BuildRegina(Dictionary<string, Sprite[]> s, Transform parent, string name, Vector3 pos)
+    {
+        const float F = 1f / 24f, F2 = 2f / 24f * 0.75f;
+        var go = new GameObject(name);
+        go.transform.SetParent(parent, false);
+        var visual = new GameObject("Visual").AddComponent<SpriteRenderer>(); visual.transform.SetParent(go.transform, false);
+        var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>(); shadow.transform.SetParent(go.transform, false);
+        var e = go.AddComponent<Enemy>();
+        e.body = visual; e.shadow = shadow; visual.sprite = s["idle"][0];
+        e.displayName = "Regina";
+        e.visualScale = ReginaScale; e.attackArtScale = 1f; e.knockArtScale = 1f; e.walkArtScale = 1f;
+        e.idleSprites = s["idle"]; e.idleFrameTime = F;
+        e.walkSprites = s["kavely"]; e.walkFrameTime = F;
+        e.runSprites = s["juoksu"]; e.runFrameTime = F; e.runSpeedMultiplier = 1.9f; e.runDistance = 6f;
+        e.maxHealth = 160; e.moveSpeedX = 3.2f; e.moveSpeedY = 2.4f; e.depthTolerance = 0.4f; e.attackCooldown = 0.6f; e.wakeDistance = 12f;
+        e.comboChance = 0.6f; e.comboWindupScale = 0.6f; e.comboRecoverFraction = 0.6f; e.attackRange = 2.3f;
+        // J = jabi (osuma kuvassa 5), S = takasuora (osuma 3), K = askelsuora (osuma 13, kaataa)
+        e.punchSprites = s["jabi"]; e.punchImpactFrame = 4; e.windupTime = 4 * F; e.punchRecoverTime = (s["jabi"].Length - 4) * F; e.punchActiveTime = 0.12f; e.punchDamage = 9;
+        e.punch2Sprites = s["takasuora"]; e.punch2ImpactFrame = 2; e.punch2Damage = 12; e.punch2Knockdown = false; e.punch2Chance = 0.4f;
+        e.punch3Sprites = s["askelsuora"]; e.punch3ImpactFrame = 12; e.punch3Damage = 16; e.punch3Knockdown = true; e.punch3Chance = 0.2f; e.punch3IsPunch = true;
+        e.punch3WindupTime = 12 * F; e.punch3RecoverTime = (s["askelsuora"].Length - 12) * F; e.punch3Reach = 2.8f;
+        // alt: 0 etupotku (osuma 9), 1 sivupotku (osuma 6, kaataa), 2 syöksy (osuma 9, rynnistää eteenpäin, kaataa)
+        e.altAttackSprites = s["etupotku"]; e.altImpactFrame = 8; e.altAnimationFrameTime = F2; e.altDamage = 13; e.altReach = 3.2f; e.altChance = 0.35f;
+        e.altVariants = new[]
+        {
+            new Enemy.AltVariant { name = "Etupotku", sprites = s["etupotku"], impactFrame = 8, frameTime = F2, damage = 13, reach = 3.3f, knockdown = false, weight = 1f, lungeSpeed = 0f },
+            new Enemy.AltVariant { name = "Sivupotku", sprites = s["sivupotku"], impactFrame = 5, frameTime = F2, damage = 17, reach = 3.5f, knockdown = true, knockSpeed = 7f, knockUp = 3.5f, weight = 0.9f, lungeSpeed = 0f },
+            new Enemy.AltVariant { name = "Syöksy", sprites = s["syoksy"], impactFrame = 8, frameTime = F2, damage = 15, reach = 3.0f, knockdown = true, knockSpeed = 8f, knockUp = 3f, weight = 0.5f, lungeSpeed = 9f, lungeTime = 0.3f },
+        };
+        // kombot: J jabi, S takasuora, K askelsuora, 0 etupotku, 1 sivupotku, 2 syöksy
+        e.combos = new[] { "JS", "JSK", "J0", "JS1", "S0", "2", "J1" };
+        e.hurtSprites = s["osuma"]; e.hurtTime = 0.3f;
+        // kaatuminen 23 kuvaa: 0-6 horjahdus taaksepäin, 7-16 ilmassa (jalat ylhäällä), 17-22 alastulo ja makuu
+        e.knockdownSprites = s["kaatuminen"]; e.airFrameTime = 0.07f; e.airLoopFrames = new[] { 9, 10, 11, 12, 13, 14, 13, 12, 11, 10 };
+        e.thrownStartFrames = new[] { 0, 1, 2, 3, 4, 5, 6 }; e.thrownLoopFrames = new[] { 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 }; e.thrownLandFrames = Enumerable.Range(17, s["kaatuminen"].Length - 17).ToArray(); e.thrownFrameTime = 0.06f;
+        e.getUpSprites = s["nousu"]; e.getUpTime = 1.6f;
+        e.blockSprites = s["suojaus"]; e.blockChance = 0.25f;
+        // omat äänet (Assets/Audio/regina, tasattu Tools/AudioLevels/level_regina.py): huudot, potkut, kipu, kaatuminen, nousu, häviö, puheet
+        const string A = "Assets/Audio/regina";
+        AudioClip R(string n) => AssetDatabase.LoadAssetAtPath<AudioClip>(A + "/" + n + ".wav");
+        e.attackSounds = LoadClips(A, "regina_hit"); e.attackVolume = 1f; e.attackSoundChance = 0.6f;
+        e.altSwingSounds = LoadClips(A, "regina_kick"); e.altSwingVolume = 1f;
+        e.hurtSounds = LoadClips(A, "regina_pain"); e.hurtVolume = 1f;
+        e.fallVoice = R("regina_fall1"); e.fallVoiceAlt = R("regina_fall2"); e.fallVoiceVolume = 1f;
+        e.getUpVoices = LoadClips(A, "regina_nousu"); e.getUpVoiceChance = 0.7f; e.getUpVoiceGap = 3f;
+        e.deathVoice = R("regina_loses"); e.deathVoiceVolume = 1f;
+        e.calmTauntSounds = new[] { R("regina_welcome_speak") }.Where(c => c != null).ToArray();
+        e.tauntSounds = new[] { R("regina_speak1"), R("regina_speak2"), R("regina_speak3") }.Where(c => c != null).ToArray();   // idlessä ja tappelussa
+        e.fightTauntSounds = new[] { R("regina_taistelu_speak") }.Where(c => c != null).ToArray();   // vain tappelussa
+        e.talksWhenCalm = true; e.tauntOnWakeChance = 0.5f; e.tauntPause = new Vector2(6f, 12f); e.oneSpeakerPerKind = true;
+        if (e.hurtSounds.Length == 0) { e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.95f; }   // varalla, jos äänet puuttuvat
+        go.transform.position = pos;
+        EditorUtility.SetDirty(e);
+        return e;
+    }
+
     [MenuItem("Beat em up/433. Las Vegas: Regina, motellin jengiläinen (2 motellin eteen)", false, 433)]
     static void AddVegasRegina()
     {
@@ -42,47 +115,7 @@ public static partial class BeatEmUpSetup
             var gasp = LoadClips("Assets/Audio/big thug", "gasp");
             int count = 0;
 
-            Enemy MakeRegina(Vector3 pos)
-            {
-                var go = new GameObject("Regina " + (++count));
-                go.transform.SetParent(root.transform, false);
-                var visual = new GameObject("Visual").AddComponent<SpriteRenderer>(); visual.transform.SetParent(go.transform, false);
-                var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>(); shadow.transform.SetParent(go.transform, false);
-                var e = go.AddComponent<Enemy>();
-                e.body = visual; e.shadow = shadow; visual.sprite = s["idle"][0];
-                e.displayName = "Regina";
-                e.visualScale = ReginaScale; e.attackArtScale = 1f; e.knockArtScale = 1f; e.walkArtScale = 1f;
-                e.idleSprites = s["idle"]; e.idleFrameTime = F;
-                e.walkSprites = s["kavely"]; e.walkFrameTime = F;
-                e.runSprites = s["juoksu"]; e.runFrameTime = F; e.runSpeedMultiplier = 1.9f; e.runDistance = 6f;
-                e.maxHealth = 160; e.moveSpeedX = 3.2f; e.moveSpeedY = 2.4f; e.depthTolerance = 0.4f; e.attackCooldown = 0.6f; e.wakeDistance = 12f;
-                e.comboChance = 0.6f; e.comboWindupScale = 0.6f; e.comboRecoverFraction = 0.6f; e.attackRange = 2.3f;
-                // J = jabi (osuma kuvassa 5), S = takasuora (osuma 3), K = askelsuora (osuma 13, kaataa)
-                e.punchSprites = s["jabi"]; e.punchImpactFrame = 4; e.windupTime = 4 * F; e.punchRecoverTime = (s["jabi"].Length - 4) * F; e.punchActiveTime = 0.12f; e.punchDamage = 9;
-                e.punch2Sprites = s["takasuora"]; e.punch2ImpactFrame = 2; e.punch2Damage = 12; e.punch2Knockdown = false; e.punch2Chance = 0.4f;
-                e.punch3Sprites = s["askelsuora"]; e.punch3ImpactFrame = 12; e.punch3Damage = 16; e.punch3Knockdown = true; e.punch3Chance = 0.2f; e.punch3IsPunch = true;
-                e.punch3WindupTime = 12 * F; e.punch3RecoverTime = (s["askelsuora"].Length - 12) * F; e.punch3Reach = 2.8f;
-                // alt: 0 etupotku (osuma 9), 1 sivupotku (osuma 6, kaataa), 2 syöksy (osuma 9, rynnistää eteenpäin, kaataa)
-                e.altAttackSprites = s["etupotku"]; e.altImpactFrame = 8; e.altAnimationFrameTime = F2; e.altDamage = 13; e.altReach = 3.2f; e.altChance = 0.35f;
-                e.altVariants = new[]
-                {
-                    new Enemy.AltVariant { name = "Etupotku", sprites = s["etupotku"], impactFrame = 8, frameTime = F2, damage = 13, reach = 3.3f, knockdown = false, weight = 1f, lungeSpeed = 0f },
-                    new Enemy.AltVariant { name = "Sivupotku", sprites = s["sivupotku"], impactFrame = 5, frameTime = F2, damage = 17, reach = 3.5f, knockdown = true, knockSpeed = 7f, knockUp = 3.5f, weight = 0.9f, lungeSpeed = 0f },
-                    new Enemy.AltVariant { name = "Syöksy", sprites = s["syoksy"], impactFrame = 8, frameTime = F2, damage = 15, reach = 3.0f, knockdown = true, knockSpeed = 8f, knockUp = 3f, weight = 0.5f, lungeSpeed = 9f, lungeTime = 0.3f },
-                };
-                // kombot: J jabi, S takasuora, K askelsuora, 0 etupotku, 1 sivupotku, 2 syöksy
-                e.combos = new[] { "JS", "JSK", "J0", "JS1", "S0", "2", "J1" };
-                e.hurtSprites = s["osuma"]; e.hurtTime = 0.3f;
-                // kaatuminen 23 kuvaa: 0-6 horjahdus taaksepäin, 7-16 ilmassa (jalat ylhäällä), 17-22 alastulo ja makuu
-                e.knockdownSprites = s["kaatuminen"]; e.airFrameTime = 0.07f; e.airLoopFrames = new[] { 9, 10, 11, 12, 13, 14, 13, 12, 11, 10 };
-                e.thrownStartFrames = new[] { 0, 1, 2, 3, 4, 5, 6 }; e.thrownLoopFrames = new[] { 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 }; e.thrownLandFrames = Enumerable.Range(17, s["kaatuminen"].Length - 17).ToArray(); e.thrownFrameTime = 0.06f;
-                e.getUpSprites = s["nousu"]; e.getUpTime = 1.6f;
-                e.blockSprites = s["suojaus"]; e.blockChance = 0.25f;
-                e.hurtSounds = gasp; e.hurtVolume = 0.95f;   // väliaikaiset äänet
-                go.transform.position = pos;
-                EditorUtility.SetDirty(e);
-                return e;
-            }
+            Enemy MakeRegina(Vector3 pos) => BuildRegina(s, root.transform, "Regina " + (++count), pos);
 
             // motellin edustalle kadulle (katutaso, lähempänä kameraa kuin parvekkeen raja)
             float x0 = motel.zoneMinX, x1 = motel.zoneMaxX;
