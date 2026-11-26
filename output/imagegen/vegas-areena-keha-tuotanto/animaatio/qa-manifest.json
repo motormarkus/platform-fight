@@ -1,0 +1,112 @@
+{
+  "base": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\base\\static-master-15000x1884.png",
+  "canvasWidth": 15000,
+  "canvasHeight": 1884,
+  "panelWidth": 5000,
+  "frameCount": 6,
+  "frameDurationMs": 200,
+  "loop": true,
+  "motion": "Conservative interior mesh deformation; original contours held fixed; no cleanplate required",
+  "people": 109,
+  "regions": 245,
+  "activeMaskPixels": 679198,
+  "panels": [
+    {
+      "name": "01-katsomo",
+      "frames": [
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\01-katsomo\\01-katsomo-frame-01.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\01-katsomo\\01-katsomo-frame-02.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\01-katsomo\\01-katsomo-frame-03.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\01-katsomo\\01-katsomo-frame-04.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\01-katsomo\\01-katsomo-frame-05.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\01-katsomo\\01-katsomo-frame-06.png"
+      ],
+      "mask": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\masks\\01-katsomo-mask.png",
+      "maskMode": "red",
+      "overlays": [
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\01-katsomo\\crowd-frame-01.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\01-katsomo\\crowd-frame-02.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\01-katsomo\\crowd-frame-03.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\01-katsomo\\crowd-frame-04.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\01-katsomo\\crowd-frame-05.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\01-katsomo\\crowd-frame-06.png"
+      ]
+    },
+    {
+      "name": "02-keha-vasen",
+      "frames": [
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\02-keha-vasen\\02-keha-vasen-frame-01.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\02-keha-vasen\\02-keha-vasen-frame-02.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\02-keha-vasen\\02-keha-vasen-frame-03.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\02-keha-vasen\\02-keha-vasen-frame-04.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\02-keha-vasen\\02-keha-vasen-frame-05.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\02-keha-vasen\\02-keha-vasen-frame-06.png"
+      ],
+      "mask": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\masks\\02-keha-vasen-mask.png",
+      "maskMode": "red",
+      "overlays": [
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\02-keha-vasen\\crowd-frame-01.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\02-keha-vasen\\crowd-frame-02.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\02-keha-vasen\\crowd-frame-03.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\02-keha-vasen\\crowd-frame-04.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\02-keha-vasen\\crowd-frame-05.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\02-keha-vasen\\crowd-frame-06.png"
+      ]
+    },
+    {
+      "name": "03-keha-oikea",
+      "frames": [
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\03-keha-oikea\\03-keha-oikea-frame-01.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\03-keha-oikea\\03-keha-oikea-frame-02.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\03-keha-oikea\\03-keha-oikea-frame-03.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\03-keha-oikea\\03-keha-oikea-frame-04.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\03-keha-oikea\\03-keha-oikea-frame-05.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\frames\\03-keha-oikea\\03-keha-oikea-frame-06.png"
+      ],
+      "mask": "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\masks\\03-keha-oikea-mask.png",
+      "maskMode": "red",
+      "overlays": [
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\03-keha-oikea\\crowd-frame-01.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\03-keha-oikea\\crowd-frame-02.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\03-keha-oikea\\crowd-frame-03.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\03-keha-oikea\\crowd-frame-04.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\03-keha-oikea\\crowd-frame-05.png",
+        "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\crowd\\03-keha-oikea\\crowd-frame-06.png"
+      ]
+    }
+  ],
+  "changes": [
+    {
+      "Frame": 1,
+      "ChangedAgainstBase": 590844
+    },
+    {
+      "Frame": 2,
+      "ChangedAgainstBase": 590528
+    },
+    {
+      "Frame": 3,
+      "ChangedAgainstBase": 590267
+    },
+    {
+      "Frame": 4,
+      "ChangedAgainstBase": 590649
+    },
+    {
+      "Frame": 5,
+      "ChangedAgainstBase": 590344
+    },
+    {
+      "Frame": 6,
+      "ChangedAgainstBase": 590501
+    }
+  ],
+  "panoramaFrames": [
+    "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\panorama-frames\\panorama-frame-01.png",
+    "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\panorama-frames\\panorama-frame-02.png",
+    "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\panorama-frames\\panorama-frame-03.png",
+    "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\panorama-frames\\panorama-frame-04.png",
+    "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\panorama-frames\\panorama-frame-05.png",
+    "G:\\unity pelit\\mopopeli\\platform fight\\output\\imagegen\\vegas-areena-keha-tuotanto\\animaatio\\panorama-frames\\panorama-frame-06.png"
+  ]
+}
